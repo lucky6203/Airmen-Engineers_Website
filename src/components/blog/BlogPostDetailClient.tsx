@@ -304,7 +304,7 @@ export default function BlogPostDetailClient({ slug }: Props) {
                 </Button>
               </Link>
               <Link href="/rental">
-                <Button variant="outline" size="md">
+                <Button variant="secondary" size="md">
                   Explore Rentals
                 </Button>
               </Link>

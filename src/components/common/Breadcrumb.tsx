@@ -46,7 +46,7 @@ export default function Breadcrumb({ items }: BreadcrumbProps) {
       />
       <nav aria-label="Breadcrumb" className="py-4 border-b border-gray-200">
         <Container>
-          <ol className="flex items-center gap-2 text-sm font-body">
+          <ol className="flex items-center justify-center md:justify-start gap-2 text-sm font-body flex-wrap">
             <li>
               <Link
                 href="/"

@@ -89,6 +89,8 @@ export interface BlogPost {
   image?: string;
   tags: string[];
   relatedPosts: string[];
+  readTime?: string;
+  isUserCreated?: boolean;
 }
 
 export interface ContactInfo {

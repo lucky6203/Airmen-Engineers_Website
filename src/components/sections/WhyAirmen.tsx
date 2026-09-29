@@ -37,14 +37,14 @@ export default function WhyAirmen() {
             return (
               <div
                 key={feature.title}
-                className="group relative bg-white rounded-2xl p-8 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl border border-gray-100 hover:border-gold/30 animate-fade-in-up"
+                className="group relative bg-white rounded-2xl p-8 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl border border-gray-100 hover:border-gold/30 animate-fade-in-up flex flex-col items-center md:items-start text-center md:text-left"
                 style={{ animationDelay: `${index * 0.15}s`, animationFillMode: 'both' }}
               >
                 {/* Accent line on hover */}
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-gold transition-all duration-500 group-hover:w-1/2 rounded-b-full" />
                 
                 {/* Animated Icon Container */}
-                <div className="relative w-16 h-16 mb-6">
+                <div className="relative w-16 h-16 mb-6 mx-auto md:mx-0">
                   {/* Glowing background behind icon */}
                   <div className="absolute inset-0 bg-gold/20 rounded-xl blur-xl scale-50 opacity-0 group-hover:opacity-100 group-hover:scale-100 transition-all duration-500" />
                   

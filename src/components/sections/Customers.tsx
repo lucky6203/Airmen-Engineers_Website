@@ -1,109 +1,237 @@
 'use client';
 
 // ============================================
-// Airmen Engineers — Client Section
+// Airmen Engineers — Client Section (Redesigned)
 // ============================================
 
-import React, { useState } from 'react';
+import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { CheckCircle2, ArrowRight, ShieldCheck, Factory, Award, Clock } from 'lucide-react';
 import Container from '@/components/common/Container';
 
-const CLIENTS = [
-  { name: 'Maruti Suzuki', domain: 'marutisuzuki.com' },
-  { name: 'Hero', domain: 'heromotocorp.com' },
-  { name: 'TAFE', domain: 'tafe.com' },
-  { name: 'BKT', domain: 'bkt-tires.com' },
-  { name: 'Amtek', domain: 'amtek.com' },
-  { name: 'JRG Automotive', domain: 'jrg.co.in' },
-  { name: 'Badve Engineering', domain: 'badvegroup.com' },
-  { name: 'Sandhar', domain: 'sandhargroup.com' },
-  { name: 'Sunbeam', domain: 'sunbeamauto.com' },
-  { name: 'Motherson Sumi', domain: 'motherson.com' },
-  { name: 'India Japan Lighting', domain: 'ijllight.com' },
-  { name: 'YKK', domain: 'ykk.com' },
-  { name: 'Musashi', domain: 'musashi.co.jp' },
-  { name: 'Ahresty', domain: 'ahresty.co.jp' },
-  { name: 'JTEKT', domain: 'jtekt.co.jp' },
-  { name: 'Shiroki', domain: 'shiroki.co.jp' },
-  { name: 'DID', domain: 'daidokogyo.co.jp' },
-  { name: 'Allied Nippon', domain: 'alliednippon.com' },
-  { name: 'Yachiyo', domain: 'yachiyo-ind.co.jp' },
-  { name: 'Jain Cord', domain: 'jaincord.com' },
-  { name: 'Ginni', domain: 'ginnifilaments.com' },
-  { name: 'Saint-Gobain', domain: 'saint-gobain.com' },
-  { name: 'AIS', domain: 'aisglass.com' },
-  { name: 'Beam Suntory', domain: 'beamsuntory.com' },
-  { name: 'Pernod Ricard', domain: 'pernod-ricard.com' },
-  { name: 'Dabur', domain: 'dabur.com' },
-  { name: 'Macawber', domain: 'macawberindia.com' },
-  { name: 'Wonder Cement', domain: 'wondercement.com' },
-  { name: 'Shree Cement', domain: 'shreecement.com' },
-  { name: 'Metso', domain: 'metso.com' },
-  { name: 'Spark Minda', domain: 'sparkminda.com' },
-  { name: 'TVS', domain: 'tvsmotor.com' },
-  { name: 'Rockman', domain: 'rockman.in' },
-  { name: 'Mann Hummel', domain: 'mann-hummel.com' },
-  { name: 'Havells', domain: 'havells.com' },
-  { name: 'Hindustan Unilever', domain: 'hul.co.in' },
-  { name: 'ITC Limited', domain: 'itcportal.com' },
-  { name: 'Panasonic', domain: 'panasonic.com' },
-  { name: 'Ashirvad Pipes', domain: 'ashirvad.com' }
+interface ClientItem {
+  id: string;
+  name: string;
+  fullName: string;
+  category: string;
+  logo: string;
+  highlight: string;
+  tag: string;
+}
+
+const CLIENTS_WITH_IMAGES: ClientItem[] = [
+  {
+    id: 'hero',
+    name: 'Hero MotoCorp',
+    fullName: 'Hero MotoCorp Ltd.',
+    category: 'Automotive OEM',
+    logo: '/images/clients/hero-motocorp-logo.svg',
+    highlight: "World's largest two-wheeler manufacturer trusting Airmen for high-capacity compressed air systems.",
+    tag: 'Automotive Leader',
+  },
+  {
+    id: 'havells',
+    name: 'Havells India',
+    fullName: 'Havells India Ltd.',
+    category: 'Electrical & FMEG',
+    logo: '/images/clients/havells-logo.svg',
+    highlight: 'Pioneering fast moving electrical goods manufacturer with zero-downtime air power requirements.',
+    tag: 'FMEG Pioneer',
+  },
+  {
+    id: 'ais',
+    name: 'AIS Glass',
+    fullName: 'Asahi India Glass Ltd.',
+    category: 'Glass Manufacturing',
+    logo: '/images/clients/asahi-ais.png',
+    highlight: "India's foremost integrated glass manufacturer utilizing continuous air & material handling reliability.",
+    tag: 'Glass Industry',
+  },
+  {
+    id: 'mikuni',
+    name: 'Mikuni',
+    fullName: 'Mikuni Corporation',
+    category: 'Precision Japanese OEM',
+    logo: '/images/clients/mikuni-logo.svg',
+    highlight: 'Renowned Japanese automotive components producer demanding utmost precision & pure compressed air.',
+    tag: 'Japanese OEM',
+  },
+  {
+    id: 'nidec',
+    name: 'Nidec Corporation',
+    fullName: 'Nidec Corporation',
+    category: 'Electric Motors & Drives',
+    logo: '/images/clients/nidec-logo.svg',
+    highlight: 'Global leader in comprehensive electric motor technologies and automated production plants.',
+    tag: 'Industrial Motors',
+  },
+  {
+    id: 'yokohama',
+    name: 'Yokohama Tire',
+    fullName: 'Yokohama Rubber Co.',
+    category: 'Tires & Rubber Industry',
+    logo: '/images/clients/yokohama-logo.svg',
+    highlight: 'World-class tire manufacturer operating heavy-duty industrial compression and pneumatic solutions.',
+    tag: 'Tire Manufacturing',
+  },
 ];
 
-function ClientLogo({ client }: { client: { name: string, domain: string } }) {
-  const primaryUrl = `https://logo.clearbit.com/${client.domain}`;
-  const fallbackUrl = `https://ui-avatars.com/api/?name=${encodeURIComponent(client.name)}&background=ffffff&color=050B14&size=256&font-size=0.3&bold=true`;
-  
-  const [src, setSrc] = useState(primaryUrl);
-  const [hasError, setHasError] = useState(false);
-
-  return (
-    <img
-      src={src}
-      alt={`${client.name} Logo`}
-      className={`max-w-[80%] max-h-[60%] object-contain transition-all duration-300 ${!hasError ? 'grayscale group-hover:grayscale-0 opacity-80 group-hover:opacity-100' : ''}`}
-      onError={() => {
-        if (!hasError) {
-          setSrc(fallbackUrl);
-          setHasError(true);
-        }
-      }}
-      loading="lazy"
-    />
-  );
-}
+const TRUST_STATS = [
+  {
+    icon: Factory,
+    value: '5,000+',
+    label: 'Industrial Plants Served',
+  },
+  {
+    icon: Award,
+    value: '29+ Years',
+    label: 'Proven Engineering Legacy',
+  },
+  {
+    icon: ShieldCheck,
+    value: '100% Genuine',
+    label: 'OEM Kaeser & EP Spares',
+  },
+  {
+    icon: Clock,
+    value: '24/7',
+    label: 'Rapid Response Support',
+  },
+];
 
 export default function Customers() {
   return (
-    <section className="py-20 bg-[#050B14] relative overflow-hidden" id="clients">
-      {/* Subtle modern background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gold/5 rounded-full blur-[120px] pointer-events-none" />
+    <section className="py-24 bg-[#050B14] relative overflow-hidden border-t border-b border-white/5" id="clients">
+      {/* Ambient Radial Lighting & Industrial Glows */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[450px] bg-gold/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-0 right-10 w-[400px] h-[400px] bg-blue-500/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(#ffffff0a_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none opacity-40" />
 
       <Container className="relative z-10">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-heading font-bold text-white tracking-tight">
-            Client
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold/10 border border-gold/25 text-gold text-xs font-semibold tracking-widest uppercase mb-4 animate-fade-in-up">
+            <span className="w-2 h-2 rounded-full bg-gold animate-pulse" />
+            Trusted By Industry Leaders
+          </div>
+
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-white tracking-tight leading-tight">
+            Powering India&apos;s Foremost{' '}
+            <span className="bg-gradient-to-r from-gold via-amber-300 to-gold bg-clip-text text-transparent">
+              Manufacturing Giants
+            </span>
           </h2>
-          <div className="w-20 h-1 bg-gold mx-auto mt-6 rounded-full" />
+
+          <div className="w-20 h-1 bg-gradient-to-r from-transparent via-gold to-transparent mx-auto my-6 rounded-full" />
+
+          <p className="text-gray-400 text-base sm:text-lg leading-relaxed">
+            From precision Japanese OEMs to leading automotive and glass manufacturers, 
+            Airmen Engineers delivers uncompromising compressed air systems and round-the-clock maintenance reliability.
+          </p>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-7 xl:grid-cols-10 gap-3 md:gap-4">
-          {CLIENTS.map((client, index) => (
+        {/* 6 Featured Clients Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-16">
+          {CLIENTS_WITH_IMAGES.map((client, index) => (
             <div
-              key={`${client.name}-${index}`}
-              className="group relative bg-white h-20 sm:h-24 rounded-lg flex items-center justify-center p-2 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(234,179,8,0.2)] animate-fade-in-up"
-              style={{ animationDelay: `${(index % 10) * 0.05}s`, animationFillMode: 'both' }}
+              key={client.id}
+              className="group relative bg-white/[0.03] hover:bg-white/[0.06] backdrop-blur-sm border border-white/10 hover:border-gold/50 rounded-2xl p-6 sm:p-7 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_-15px_rgba(234,179,8,0.2)] flex flex-col justify-between"
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <ClientLogo client={client} />
+              {/* Subtle gold glow accent at top right of card on hover */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gold/5 group-hover:bg-gold/15 rounded-bl-full transition-all duration-500 pointer-events-none blur-xl" />
+
+              <div>
+                {/* Logo Display Pod */}
+                <div className="relative bg-white rounded-xl h-28 w-full flex items-center justify-center p-5 shadow-sm border border-white/80 group-hover:shadow-[0_8px_30px_rgba(255,255,255,0.15)] transition-all duration-300 overflow-hidden">
+                  <div className="relative w-full h-full flex items-center justify-center">
+                    <img
+                      src={client.logo}
+                      alt={`${client.name} Logo`}
+                      className="max-h-14 max-w-[85%] w-auto object-contain transition-all duration-500 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+
+                {/* Meta details */}
+                <div className="mt-6">
+                  <div className="flex items-center justify-between gap-2 mb-2">
+                    <span className="text-xs font-semibold uppercase tracking-wider text-gold bg-gold/10 border border-gold/20 px-2.5 py-1 rounded-md">
+                      {client.tag}
+                    </span>
+                    <span className="text-xs text-gray-500 font-medium">
+                      {client.category}
+                    </span>
+                  </div>
+
+                  <h3 className="text-xl font-heading font-bold text-white group-hover:text-gold transition-colors duration-300">
+                    {client.fullName}
+                  </h3>
+
+                  <p className="text-sm text-gray-400 mt-2.5 leading-relaxed line-clamp-2">
+                    {client.highlight}
+                  </p>
+                </div>
+              </div>
+
+              {/* Card Footer */}
+              <div className="pt-5 mt-5 border-t border-white/10 flex items-center justify-between text-xs">
+                <span className="inline-flex items-center gap-1.5 text-gray-400 group-hover:text-gray-200 transition-colors">
+                  <CheckCircle2 className="w-4 h-4 text-gold flex-shrink-0" />
+                  Verified Industrial Partner
+                </span>
+                <span className="text-gray-500 group-hover:text-gold transition-colors font-medium">
+                  29+ Yrs Trust
+                </span>
+              </div>
             </div>
           ))}
-          {/* Add one more blank block to make it an even 40 like the image */}
-          <div className="group relative bg-white h-20 sm:h-24 rounded-lg flex items-center justify-center p-3 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(234,179,8,0.2)] animate-fade-in-up cursor-pointer" style={{ animationDelay: '0.5s', animationFillMode: 'both' }}>
-            <span className="text-xs font-bold text-navy text-center uppercase tracking-wider group-hover:text-gold transition-colors duration-300">
-              MORE
-            </span>
+        </div>
+
+        {/* Industrial Performance Proof Bar */}
+        <div className="bg-white/[0.02] border border-white/10 rounded-2xl p-6 sm:p-8 backdrop-blur-md">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 divide-y lg:divide-y-0 lg:divide-x divide-white/10">
+            {TRUST_STATS.map((stat, idx) => {
+              const Icon = stat.icon;
+              return (
+                <div
+                  key={stat.label}
+                  className={`flex items-center gap-4 ${idx > 0 ? 'pt-4 lg:pt-0 lg:pl-6' : ''}`}
+                >
+                  <div className="w-12 h-12 rounded-xl bg-gold/10 border border-gold/20 flex items-center justify-center flex-shrink-0 text-gold">
+                    <Icon className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <div className="text-2xl sm:text-3xl font-heading font-bold text-white tracking-tight">
+                      {stat.value}
+                    </div>
+                    <div className="text-xs sm:text-sm text-gray-400 mt-0.5">
+                      {stat.label}
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
+        </div>
+
+        {/* Bottom CTA Row */}
+        <div className="mt-12 text-center flex flex-col sm:flex-row items-center justify-center gap-4">
+          <p className="text-gray-400 text-sm">
+            Join 5,000+ businesses powered by Kaeser Compressors &amp; EP Equipment.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 text-gold hover:text-white text-sm font-semibold transition-colors duration-300 group"
+          >
+            <span>Discuss your plant requirements</span>
+            <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+          </Link>
         </div>
       </Container>
     </section>
   );
 }
+

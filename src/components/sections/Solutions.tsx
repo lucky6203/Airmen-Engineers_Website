@@ -36,11 +36,11 @@ const ICON_MAP: Record<
 // ============================================
 
 const CATEGORY_IMAGES: Record<string, string> = {
-  'air-compressors': '/images/banner-1.jpg',
-  'material-handling': '/images/banner-3.jpg',
-  'compressed-air-piping': '/images/banner-2.png',
-  'smart-monitoring': '/images/about-1.jpg',
-  'power-solutions': '/images/banner-4.jpg',
+  'air-compressors': '/images/compressors/kaeser-dsd-main.jpg',
+  'material-handling': '/images/forklifts/models/efl253-battery.png',
+  'compressed-air-piping': '/images/banner-2.jpg',
+  'smart-monitoring': '/images/greaves/products/greaves-genius-iot.jpg',
+  'power-solutions': '/images/greaves/products/greaves-canopy-industrial.jpg',
 };
 
 // ============================================
@@ -284,6 +284,7 @@ function SolutionCard({
                 transition-transform
                 duration-500
                 group-hover:-translate-y-2
+                max-sm:mx-auto
               "
             >
               <IconComponent
@@ -304,6 +305,7 @@ function SolutionCard({
                 transition-transform
                 duration-500
                 group-hover:-translate-y-2
+                max-sm:text-center
               "
             >
 
@@ -361,6 +363,7 @@ function SolutionCard({
                   text-white
                   transition-colors
                   group-hover:text-gold
+                  max-sm:justify-center
                 "
               >
                 <span>Explore</span>

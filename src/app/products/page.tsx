@@ -3,131 +3,30 @@
 // ============================================
 
 import type { Metadata } from 'next';
-import Image from 'next/image';
-import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
-import Container from '@/components/common/Container';
 import Breadcrumb from '@/components/common/Breadcrumb';
-import Button from '@/components/common/Button';
-import { PRODUCT_CATEGORIES } from '@/data/products';
+import ProductsOverviewClient from '@/components/products/ProductsOverviewClient';
+import { PRODUCTS, PRODUCT_CATEGORIES } from '@/data/products';
 
 export const metadata: Metadata = {
-  title: 'Products — Complete Range of Industrial Solutions',
-  description: 'Explore Airmen Engineers\' complete range: Kaeser screw compressors, AIM oil-free compressors, EP forklifts, AIRpipe piping, WiseAir smart monitoring, and Greaves generators.',
-};
-
-// Map categories to available images
-const CATEGORY_IMAGES: Record<string, string> = {
-  'air-compressors': '/images/banner-1.jpg',
-  'material-handling': '/images/banner-3.jpg',
-  'compressed-air-piping': '/images/banner-2.jpg',
-  'smart-monitoring': '/images/banner-4.jpg',
-  'power-solutions': '/images/banner-5.jpg',
+  title: 'Industrial Equipment Catalog — Air Compressors, Forklifts & Power | Airmen Engineers',
+  description: 'Explore Airmen Engineers complete industrial portfolio: German Kaeser rotary screw compressors, EP Lithium-ion forklifts & BOPT, Greaves Cotton CPCB IV+ DG sets, AIRpipe aluminium piping, and WiseAir IIoT smart air monitoring.',
+  keywords: [
+    'industrial air compressors',
+    'kaeser rotary screw compressor',
+    'EP lithium-ion forklift',
+    'BOPT pallet truck',
+    'Greaves DG set CPCB IV+',
+    'AIRpipe aluminium piping',
+    'WiseAir energy audit',
+    'Airmen Engineers products',
+  ],
 };
 
 export default function ProductsPage() {
   return (
-    <div className="bg-gray-50 min-h-screen">
+    <div className="bg-[#0b1320] min-h-screen">
       <Breadcrumb items={[{ label: 'Products' }]} />
-
-      {/* Hero */}
-      <section className="relative py-24 lg:py-32 bg-navy overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/banner-2.jpg"
-            alt="Industrial Solutions Background"
-            fill
-            className="object-cover opacity-20 mix-blend-overlay"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/90 to-navy/40" />
-        </div>
-        <Container className="relative z-10 text-center max-w-4xl mx-auto">
-          <span className="overline mb-6 block text-gold tracking-widest animate-fade-in-up">
-            OUR PRODUCTS
-          </span>
-          <h1 className="text-white mb-6 text-4xl lg:text-6xl font-bold animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            Complete Range of<br />
-            <span className="text-gold">Industrial Solutions</span>
-          </h1>
-          <p className="text-gray-300 text-lg leading-relaxed animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-            From advanced air compressors to smart monitoring and material handling equipment, we have the right solution for every industry.
-          </p>
-        </Container>
-      </section>
-
-      {/* Product Categories Grid */}
-      <section className="section-padding">
-        <Container>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {PRODUCT_CATEGORIES.map((category, index) => {
-              const imageSrc = CATEGORY_IMAGES[category.id] || '/images/banner-1.jpg';
-              const firstBrandSlug = category.brands[0]?.slug || '#';
-
-              return (
-                <div
-                  key={category.id}
-                  className="group bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:border-gray-200 transition-all duration-300 hover:-translate-y-1 animate-fade-in-up flex flex-col h-full"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <div className="relative aspect-[4/3] sm:aspect-[3/2] w-full overflow-hidden bg-gray-100">
-                    <Image
-                      src={imageSrc}
-                      alt={category.name}
-                      fill
-                      className="object-cover object-center transition-transform duration-500 group-hover:scale-[1.03]"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-navy/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  </div>
-
-                  <div className="p-6 sm:p-8 flex flex-col flex-1">
-                    <h3 className="text-xl sm:text-2xl font-heading font-bold text-navy mb-3 group-hover:text-gold transition-colors">
-                      {category.name}
-                    </h3>
-                    <p className="text-sm sm:text-base text-gray-500 leading-relaxed mb-6 flex-1">
-                      {category.description}
-                    </p>
-
-                    <div className="flex flex-wrap gap-2 mb-6 sm:mb-8">
-                      {category.brands.map((brand) => (
-                        <span key={brand.id} className="text-[11px] sm:text-xs bg-gray-50 text-gray-600 border border-gray-200 px-3 py-1.5 rounded-full font-medium shadow-sm">
-                          {brand.name}
-                        </span>
-                      ))}
-                    </div>
-
-                    <Link
-                      href={`/${firstBrandSlug}`}
-                      className="inline-flex items-center justify-center gap-2 w-full bg-gray-50 hover:bg-gold text-navy font-semibold px-5 py-3 sm:px-6 rounded-lg border border-gray-200 hover:border-gold transition-all duration-300 group-hover:shadow-sm mt-auto text-sm sm:text-base"
-                    >
-                      VIEW PRODUCTS
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </Link>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </Container>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 bg-navy text-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/images/banner-3.jpg')] bg-cover bg-center opacity-10 mix-blend-overlay" />
-        <Container className="relative z-10">
-          <div className="max-w-3xl mx-auto bg-white/5 backdrop-blur-md border border-white/10 p-10 lg:p-14 rounded-3xl shadow-2xl">
-            <h2 className="text-3xl lg:text-4xl text-white font-heading font-bold mb-6">
-              Need Help Choosing the Right Product?
-            </h2>
-            <p className="text-gray-300 text-lg mb-10 max-w-xl mx-auto">
-              Our experts are ready to help you find the perfect solution tailored to your exact industrial requirements.
-            </p>
-            <Button href="/contact" size="lg" className="px-10 py-4 text-sm tracking-widest uppercase shadow-lg shadow-gold/20" id="products-cta">
-              TALK TO AN ENGINEER
-            </Button>
-          </div>
-        </Container>
-      </section>
+      <ProductsOverviewClient products={PRODUCTS} categories={PRODUCT_CATEGORIES} />
     </div>
   );
 }

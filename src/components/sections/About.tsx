@@ -17,7 +17,7 @@ export default function About() {
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left — Content */}
-          <div>
+          <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
             <SectionHeading
               overline="About Airmen Engineers"
               title="Engineering Trust Since 1996"
@@ -25,7 +25,7 @@ export default function About() {
             />
 
             {/* Stats Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8 w-full">
               {COMPANY_STATS.map((stat) => (
                 <div
                   key={stat.label}
@@ -42,9 +42,11 @@ export default function About() {
               ))}
             </div>
 
-            <Button href="/about-us" variant="secondary" showArrow id="about-cta">
-              Know More About Us
-            </Button>
+            <div className="flex justify-center lg:justify-start w-full">
+              <Button href="/about-us" variant="secondary" showArrow id="about-cta">
+                Know More About Us
+              </Button>
+            </div>
           </div>
 
           {/* Right — Visual */}
@@ -79,6 +81,12 @@ export default function About() {
             {/* Accents */}
             <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gold/10 rounded-2xl -z-10" />
             <div className="absolute -top-6 -left-6 w-24 h-24 bg-navy/5 rounded-2xl -z-10" />
+
+            {/* Credential Badge Cleanly Placed Below Images */}
+            <div className="mt-4 bg-navy/95 border border-white/15 text-white p-4 rounded-xl shadow-xl backdrop-blur-md">
+              <span className="text-gold font-bold text-base block font-heading">29+ Years of Industrial Excellence</span>
+              <span className="text-gray-300 text-xs">Authorized Sales, Turnkey Engineering &amp; 24/7 Service Network across North India.</span>
+            </div>
           </div>
         </div>
       </Container>

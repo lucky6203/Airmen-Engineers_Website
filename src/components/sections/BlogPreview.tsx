@@ -54,8 +54,8 @@ export default function BlogPreview() {
                   </div>
                 </div>
 
-                <div className="p-5 flex flex-col flex-1">
-                  <div className="flex items-center gap-1.5 text-xs text-gray-400 mb-2">
+                <div className="p-5 flex flex-col flex-1 items-center sm:items-start text-center sm:text-left">
+                  <div className="flex items-center justify-center sm:justify-start gap-1.5 text-xs text-gray-400 mb-2">
                     <Calendar className="w-3 h-3" />
                     {new Date(post.date).toLocaleDateString('en-IN', {
                       year: 'numeric',
@@ -69,7 +69,7 @@ export default function BlogPreview() {
                   <p className="text-sm text-slate-custom line-clamp-2 flex-1">
                     {post.excerpt}
                   </p>
-                  <div className="flex items-center gap-1 text-sm font-semibold text-gold mt-3 group-hover:gap-2 transition-all">
+                  <div className="flex items-center justify-center sm:justify-start gap-1 text-sm font-semibold text-gold mt-3 group-hover:gap-2 transition-all">
                     Read More <ArrowRight className="w-3.5 h-3.5" />
                   </div>
                 </div>

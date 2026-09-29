@@ -41,11 +41,11 @@ export default function Industries() {
               <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-colors duration-300" />
 
               {/* Content */}
-              <div className="absolute inset-0 flex flex-col justify-end p-4">
+              <div className="absolute inset-0 flex flex-col justify-end p-4 items-center sm:items-start text-center sm:text-left">
                 <h3 className="text-white font-heading font-semibold text-sm md:text-base transform group-hover:-translate-y-2 transition-transform duration-300">
                   {industry.name}
                 </h3>
-                <div className="flex items-center gap-1 text-gold text-xs opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                <div className="flex items-center justify-center sm:justify-start gap-1 text-gold text-xs opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
                   Learn More
                   <ArrowUpRight className="w-3 h-3" />
                 </div>

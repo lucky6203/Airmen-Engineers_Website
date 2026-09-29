@@ -21,20 +21,29 @@ export default function AIRpipePage() {
       <Breadcrumb items={[{ label: 'Products', href: '/products' }, { label: 'AIRpipe' }]} />
       <section className="py-20 lg:py-28 bg-navy">
         <Container>
-          <div className="max-w-3xl">
-            <span className="overline mb-4 block">Compressed Air Piping</span>
-            <h1 className="text-white mb-6">AIRpipe <span className="text-gold">Piping Systems</span></h1>
-            <p className="text-gray-300 text-lg leading-relaxed mb-8">{brand.description}</p>
-            <div className="flex flex-wrap gap-4">
-              <Button href="/contact" showArrow>Enquire Now</Button>
-              <a
-                href="https://www.airpipe.in/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 border border-white/20 text-white rounded-lg hover:border-gold hover:text-gold transition-colors text-sm font-medium"
-              >
-                Visit AIRpipe <ExternalLink className="w-4 h-4" />
-              </a>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="max-w-3xl">
+              <span className="overline mb-4 block">Compressed Air Piping</span>
+              <h1 className="text-white mb-6">AIRpipe <span className="text-gold">Piping Systems</span></h1>
+              <p className="text-gray-300 text-lg leading-relaxed mb-8">{brand.description}</p>
+              <div className="flex flex-wrap gap-4">
+                <Button href="/contact" showArrow>Enquire Now</Button>
+                <a
+                  href="https://www.airpipe.in/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3 border border-white/20 text-white rounded-lg hover:border-gold hover:text-gold transition-colors text-sm font-medium"
+                >
+                  Visit AIRpipe <ExternalLink className="w-4 h-4" />
+                </a>
+              </div>
+            </div>
+            <div className="aspect-[16/10] bg-white rounded-2xl flex items-center justify-center p-8 border border-white/10 shadow-2xl">
+              <img
+                src="/images/logos/logo-airpipe.png"
+                alt="AIRpipe Logo"
+                className="max-h-24 object-contain"
+              />
             </div>
           </div>
         </Container>
@@ -57,10 +66,14 @@ export default function AIRpipePage() {
                   </ul>
                   <Button href="/contact" size="sm" showArrow>Enquire</Button>
                 </div>
-                <div className="aspect-[4/3] bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl flex items-center justify-center overflow-hidden">
-                  <div className="text-center">
-                    <span className="text-5xl font-heading font-bold text-navy/10">AIRpipe</span>
-                    <p className="text-sm text-gray-400 mt-2">{product.name}</p>
+                <div className="aspect-[4/3] bg-white rounded-xl flex items-center justify-center overflow-hidden border border-gray-100 p-8 shadow-sm">
+                  <div className="text-center flex flex-col items-center">
+                    <img
+                      src="/images/logos/logo-airpipe.png"
+                      alt={product.name}
+                      className="max-h-20 object-contain mb-4"
+                    />
+                    <span className="text-xs uppercase tracking-widest text-navy/60 font-semibold">{product.name}</span>
                   </div>
                 </div>
               </div>

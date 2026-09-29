@@ -17,9 +17,9 @@ export default function Footer() {
       {/* Main Footer */}
       <div className="section-padding border-b border-white/10">
         <Container>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">
+          <div className="flex flex-col lg:flex-row gap-10 lg:gap-12">
             {/* Company Info */}
-            <div className="lg:col-span-2 pr-8">
+            <div className="w-full lg:w-2/5 flex flex-col items-center lg:items-start text-center lg:text-left lg:pr-6">
               <Link href="/" className="inline-flex items-center gap-2 mb-6 group">
                 <div className="font-heading tracking-tight">
                   <span className="text-2xl font-black text-white block leading-none">
@@ -30,10 +30,10 @@ export default function Footer() {
                   </span>
                 </div>
               </Link>
-              <p className="text-gray-400 text-sm leading-relaxed mb-8 max-w-sm">
+              <p className="text-gray-400 text-sm leading-relaxed mb-8 max-w-sm mx-auto lg:mx-0">
                 {COMPANY_SHORT_DESCRIPTION}
               </p>
-              <div className="flex items-center gap-4 relative z-10">
+              <div className="flex items-center justify-center lg:justify-start gap-4 relative z-10">
                 <a href="https://www.linkedin.com/company/airmen-engineers-services-pvt-ltd" target="_blank" rel="noopener noreferrer" className="w-10 h-10 min-w-[44px] min-h-[44px] rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-gold hover:border-gold transition-colors touch-manipulation">
                   <svg className="w-4 h-4 pointer-events-none" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                 </a>
@@ -46,93 +46,100 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* Products */}
-            <div>
-              <h4 className="font-heading text-sm font-semibold uppercase tracking-wider mb-6 text-white">
-                Products
-              </h4>
-              <ul className="space-y-3">
-                {FOOTER_LINKS.products.map((link) => (
-                  <li key={link.label}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-gray-400 hover:text-gold transition-colors flex items-center gap-1 group"
-                    >
-                      <ArrowRight className="w-3 h-3 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-200" />
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            {/* Links Grid: 2 rows on mobile (2 cols), 4 cols on tablet & desktop */}
+            <div className="w-full lg:w-3/5 grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10">
+              {/* Products */}
+              <div className="text-center md:text-left">
+                <h4 className="font-heading text-sm font-semibold uppercase tracking-wider mb-5 text-white">
+                  Products
+                </h4>
+                <ul className="space-y-3">
+                  {FOOTER_LINKS.products.map((link) => (
+                    <li key={link.label}>
+                      <Link
+                        href={link.href}
+                        className="text-sm text-gray-400 hover:text-gold transition-colors inline-flex items-center justify-center md:justify-start gap-1 group"
+                      >
+                        <ArrowRight className="w-3 h-3 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-200 hidden md:inline-block" />
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-            {/* Services */}
-            <div>
-              <h4 className="font-heading text-sm font-semibold uppercase tracking-wider mb-6 text-white">
-                Services
-              </h4>
-              <ul className="space-y-3">
-                {FOOTER_LINKS.services.map((link) => (
-                  <li key={link.label}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-gray-400 hover:text-gold transition-colors flex items-center gap-1 group"
-                    >
-                      <ArrowRight className="w-3 h-3 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-200" />
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+              {/* Services */}
+              <div className="text-center md:text-left">
+                <h4 className="font-heading text-sm font-semibold uppercase tracking-wider mb-5 text-white">
+                  Services
+                </h4>
+                <ul className="space-y-3">
+                  {FOOTER_LINKS.services.map((link) => (
+                    <li key={link.label}>
+                      <Link
+                        href={link.href}
+                        className="text-sm text-gray-400 hover:text-gold transition-colors inline-flex items-center justify-center md:justify-start gap-1 group"
+                      >
+                        <ArrowRight className="w-3 h-3 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-200 hidden md:inline-block" />
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-            {/* Company & Quick Links */}
-            <div>
-              <h4 className="font-heading text-sm font-semibold uppercase tracking-wider mb-6 text-white">
-                Company
-              </h4>
-              <ul className="space-y-3 mb-8">
-                {FOOTER_LINKS.company.map((link) => (
-                  <li key={link.label}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-gray-400 hover:text-gold transition-colors flex items-center gap-1 group"
-                    >
-                      <ArrowRight className="w-3 h-3 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-200" />
-                      {link.label}
+              {/* Company */}
+              <div className="text-center md:text-left">
+                <h4 className="font-heading text-sm font-semibold uppercase tracking-wider mb-5 text-white">
+                  Company
+                </h4>
+                <ul className="space-y-3">
+                  {FOOTER_LINKS.company.map((link) => (
+                    <li key={link.label}>
+                      <Link
+                        href={link.href}
+                        className="text-sm text-gray-400 hover:text-gold transition-colors inline-flex items-center justify-center md:justify-start gap-1 group"
+                      >
+                        <ArrowRight className="w-3 h-3 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-200 hidden md:inline-block" />
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Quick Links */}
+              <div className="text-center md:text-left">
+                <h4 className="font-heading text-sm font-semibold uppercase tracking-wider mb-5 text-white">
+                  Quick Links
+                </h4>
+                <ul className="space-y-3">
+                  <li>
+                    <Link href="/privacy-policy" className="text-sm text-gray-400 hover:text-gold transition-colors inline-flex items-center justify-center md:justify-start gap-1 group">
+                      <ArrowRight className="w-3 h-3 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-200 hidden md:inline-block" />
+                      Privacy Policy
                     </Link>
                   </li>
-                ))}
-              </ul>
-              <h4 className="font-heading text-sm font-semibold uppercase tracking-wider mb-6 text-white">
-                Quick Links
-              </h4>
-              <ul className="space-y-3">
-                <li>
-                  <Link href="/privacy-policy" className="text-sm text-gray-400 hover:text-gold transition-colors flex items-center gap-1 group">
-                    <ArrowRight className="w-3 h-3 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-200" />
-                    Privacy Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/terms" className="text-sm text-gray-400 hover:text-gold transition-colors flex items-center gap-1 group">
-                    <ArrowRight className="w-3 h-3 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-200" />
-                    Terms & Conditions
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/refund-policy" className="text-sm text-gray-400 hover:text-gold transition-colors flex items-center gap-1 group">
-                    <ArrowRight className="w-3 h-3 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-200" />
-                    Refund Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/sitemap" className="text-sm text-gray-400 hover:text-gold transition-colors flex items-center gap-1 group">
-                    <ArrowRight className="w-3 h-3 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-200" />
-                    Sitemap
-                  </Link>
-                </li>
-              </ul>
+                  <li>
+                    <Link href="/terms" className="text-sm text-gray-400 hover:text-gold transition-colors inline-flex items-center justify-center md:justify-start gap-1 group">
+                      <ArrowRight className="w-3 h-3 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-200 hidden md:inline-block" />
+                      Terms & Conditions
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/refund-policy" className="text-sm text-gray-400 hover:text-gold transition-colors inline-flex items-center justify-center md:justify-start gap-1 group">
+                      <ArrowRight className="w-3 h-3 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-200 hidden md:inline-block" />
+                      Refund Policy
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/sitemap" className="text-sm text-gray-400 hover:text-gold transition-colors inline-flex items-center justify-center md:justify-start gap-1 group">
+                      <ArrowRight className="w-3 h-3 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-200 hidden md:inline-block" />
+                      Sitemap
+                    </Link>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </Container>

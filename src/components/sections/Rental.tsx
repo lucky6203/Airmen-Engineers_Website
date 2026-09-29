@@ -19,7 +19,7 @@ export default function Rental() {
       <Container className="relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left - Content */}
-          <div>
+          <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
             <span className="overline mb-3 block">Rental Service</span>
             <h2 className="text-white mb-4">
               Need an Air Compressor{' '}
@@ -31,14 +31,14 @@ export default function Rental() {
               full maintenance support.
             </p>
 
-            <div className="grid grid-cols-2 gap-4 mb-8">
+            <div className="grid grid-cols-2 gap-4 mb-8 w-full max-w-md mx-auto lg:mx-0">
               {[
                 { icon: Gauge, label: '10–75 HP Range' },
                 { icon: Clock, label: 'Short & Long Term' },
                 { icon: Zap, label: 'Emergency Backup' },
                 { icon: Shield, label: 'Maintenance Included' },
               ].map(({ icon: Icon, label }) => (
-                <div key={label} className="flex items-center gap-3">
+                <div key={label} className="flex items-center justify-center lg:justify-start gap-3">
                   <div className="w-9 h-9 bg-gold/10 rounded-lg flex items-center justify-center flex-shrink-0">
                     <Icon className="w-4 h-4 text-gold" />
                   </div>
@@ -47,9 +47,11 @@ export default function Rental() {
               ))}
             </div>
 
-            <Button href="/a-rental-compressor" size="lg" showArrow id="rental-cta">
-              Rent an Air Compressor
-            </Button>
+            <div className="flex justify-center lg:justify-start w-full">
+              <Button href="/a-rental-compressor" size="lg" showArrow id="rental-cta">
+                Rent an Air Compressor
+              </Button>
+            </div>
           </div>
 
           {/* Right - Visual */}

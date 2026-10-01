@@ -786,14 +786,14 @@ h3 {
     justify-content: center;
   }
 
-  section.bg-navy:not(#hero):not(#site-footer) .grid > div:first-child:not([class*="aspect"]) {
+  section.bg-navy:not(#hero):not(#site-footer) .grid>div:first-child:not([class*="aspect"]) {
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
-  section.bg-navy:not(#hero):not(#site-footer) .grid > div:first-child:not([class*="aspect"]) .flex {
+  section.bg-navy:not(#hero):not(#site-footer) .grid>div:first-child:not([class*="aspect"]) .flex {
     justify-content: center;
   }
 

@@ -1,11 +1,12 @@
 'use client';
 
-// ============================================
-// Airmen Engineers — Hero Section
-// ============================================
-
 import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
+
+// ============================================
+// Airmen Engineers — Hero Section
+// Responsive / Mobile Optimized
+// ============================================
 
 const HERO_IMAGES = [
   {
@@ -31,24 +32,27 @@ const HERO_IMAGES = [
 ];
 
 export default function Hero() {
-  const sectionRef = useRef<HTMLElement>(null);
+  const sectionRef = useRef<HTMLElement | null>(null);
+
   const [currentImage, setCurrentImage] = useState(0);
 
   // ============================================
-  // Background Image Slider
+  // AUTO SLIDER
   // ============================================
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    const interval = window.setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % HERO_IMAGES.length);
     }, 5000);
 
-    return () => clearInterval(interval);
+    return () => {
+      window.clearInterval(interval);
+    };
   }, []);
 
-
   // ============================================
-  // Parallax Scroll Effect
+  // PARALLAX
+  // Desktop Only
   // ============================================
 
   useEffect(() => {
@@ -57,33 +61,41 @@ export default function Hero() {
     if (!section) return;
 
     const handleScroll = () => {
-      const scrollY = window.scrollY;
-
-      const textEl = section.querySelector(
+      const textElement = section.querySelector(
         '.hero-text'
       ) as HTMLElement | null;
 
-      if (textEl) {
-        textEl.style.transform = `translateY(${scrollY * 0.3}px)`;
-        textEl.style.opacity = `${Math.max(
-          0,
-          1 - scrollY / 600
-        )}`;
+      if (!textElement) return;
+
+      // Completely disable parallax on mobile/tablet
+      if (window.innerWidth <= 768) {
+        textElement.style.transform = 'none';
+        textElement.style.opacity = '1';
+        return;
       }
+
+      const scrollY = window.scrollY;
+
+      textElement.style.transform = `translateY(${scrollY * 0.3}px)`;
+
+      textElement.style.opacity = String(
+        Math.max(0, 1 - scrollY / 600)
+      );
     };
 
     window.addEventListener('scroll', handleScroll, {
       passive: true,
     });
 
+    handleScroll();
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
-
   // ============================================
-  // Hero Section
+  // HERO SECTION
   // ============================================
 
   return (
@@ -92,31 +104,54 @@ export default function Hero() {
       id="hero"
       className="
         relative
-        flex
-        items-center
+        w-full
+        max-w-full
         overflow-hidden
-        bg-navy
+        bg-white
 
-        min-h-[50vh]
-        sm:min-h-[55vh]
-        md:min-h-[70vh]
+        /* Desktop */
         lg:min-h-screen
+        lg:flex
+        lg:items-center
       "
     >
 
       {/* ========================================
-          Background Images Slider
+          HERO IMAGE AREA
           ======================================== */}
 
-      <div className="absolute inset-0 z-0">
+      <div
+        className="
+          relative
+          w-full
 
-        {HERO_IMAGES.map((img, index) => (
+          /* Mobile:
+             Let image determine the height */
+          aspect-[16/9]
+
+          /* Tablet */
+          sm:aspect-[16/8]
+
+          /* Desktop */
+          lg:absolute
+          lg:inset-0
+          lg:h-full
+          lg:aspect-auto
+
+          overflow-hidden
+          bg-white
+        "
+      >
+
+        {HERO_IMAGES.map((image, index) => (
           <div
-            key={img.url}
+            key={image.url}
             className={`
               absolute
               inset-0
-              overflow-hidden
+
+              w-full
+              h-full
 
               transition-opacity
               duration-1000
@@ -124,20 +159,30 @@ export default function Hero() {
 
               ${index === currentImage
                 ? 'opacity-100'
-                : 'opacity-0'
+                : 'opacity-0 pointer-events-none'
               }
             `}
           >
 
             <Image
-              src={img.url}
-              alt={img.alt}
+              src={image.url}
+              alt={image.alt}
               fill
               priority={index === 0}
               sizes="100vw"
+              quality={90}
               className="
+                block
+                w-full
+                h-full
+
+                /* Desktop */
                 object-cover
                 object-center
+
+                /* Mobile */
+                max-[768px]:object-contain
+                max-[768px]:object-center
               "
             />
 
@@ -148,29 +193,30 @@ export default function Hero() {
 
 
       {/* ========================================
-          Gradient Overlay
+          DESKTOP OVERLAY
           ======================================== */}
 
       <div
         className="
           absolute
           inset-0
+
           z-[1]
+
+          pointer-events-none
 
           bg-gradient-to-r
           from-navy/90
           via-navy/50
           to-transparent
 
-          max-[768px]:from-navy/70
-          max-[768px]:via-navy/25
-          max-[768px]:to-transparent
+          max-[768px]:hidden
         "
       />
 
 
       {/* ========================================
-          Bottom Gradient
+          MOBILE BOTTOM FADE
           ======================================== */}
 
       <div
@@ -180,64 +226,82 @@ export default function Hero() {
           left-0
           right-0
 
-          h-32
+          z-[2]
 
-          z-[1]
+          h-10
+
+          pointer-events-none
 
           bg-gradient-to-t
           from-white
           to-transparent
 
-          max-[768px]:h-16
+          lg:h-32
         "
       />
 
 
       {/* ========================================
-          Slider Indicators
+          SLIDER DOTS
           ======================================== */}
 
       <div
         className="
           absolute
-          z-[2]
 
-          bottom-12
+          z-[10]
+
           left-1/2
           -translate-x-1/2
 
+          bottom-4
+
           flex
           items-center
+          justify-center
           gap-2
 
-          max-[768px]:bottom-5
+          lg:bottom-12
         "
       >
-        {HERO_IMAGES.map((_, index) => (
+
+        {HERO_IMAGES.map((image, index) => (
           <button
-            key={index}
+            key={image.url}
             type="button"
             onClick={() => setCurrentImage(index)}
             aria-label={`Go to slide ${index + 1}`}
+            aria-current={
+              index === currentImage
+                ? 'true'
+                : undefined
+            }
             className={`
-              w-3
-              h-3
+              block
+              p-0
+              border-0
+
+              w-2.5
+              h-2.5
 
               rounded-full
+
+              cursor-pointer
 
               transition-all
               duration-300
 
               ${index === currentImage
                 ? 'bg-gold scale-125'
-                : 'bg-white/50 hover:bg-white/80'
+                : 'bg-white/70'
               }
 
-              max-[480px]:w-2.5
-              max-[480px]:h-2.5
+              lg:w-3
+              lg:h-3
             `}
           />
         ))}
+
       </div>
 
     </section>

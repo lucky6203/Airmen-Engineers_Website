@@ -40,14 +40,7 @@ export const BRANDS: Record<string, Brand> = {
     country: 'India',
     website: 'https://www.airpipe.in',
   },
-  wiseair: {
-    id: 'wiseair',
-    name: 'WiseAir',
-    slug: 'wise-air',
-    logo: '/images/logo-wiseair.png',
-    description: 'WiseAir provides Industrial IoT (IIoT) smart monitoring solutions for compressed air systems — sensors, analytics, and AI-driven optimization.',
-    country: 'India',
-  },
+
   greaves: {
     id: 'greaves',
     name: 'Greaves Cotton',
@@ -87,14 +80,7 @@ export const PRODUCT_CATEGORIES: ProductCategoryInfo[] = [
     icon: 'GitBranch',
     brands: [BRANDS.airpipe],
   },
-  {
-    id: 'smart-monitoring',
-    name: 'Smart Air Monitoring',
-    slug: 'smart-monitoring',
-    description: 'IIoT sensors, real-time analytics and AI-driven optimization for compressed air systems.',
-    icon: 'Activity',
-    brands: [BRANDS.wiseair],
-  },
+
   {
     id: 'power-solutions',
     name: 'Power Solutions',
@@ -637,51 +623,7 @@ export const PRODUCTS: Product[] = [
     relatedProducts: ['airpipe-aluminium-piping', 'airpipe-stainless-piping'],
   },
 
-  // ── WiseAir Products ────────────────────
-  {
-    id: 'wiseair-wafs-103',
-    name: 'WAFS-103 Flow Meter',
-    brand: BRANDS.wiseair,
-    category: 'smart-monitoring',
-    slug: 'wiseair-wafs-103',
-    description: 'Differential pressure pitot tube flow meter suitable for measuring flow in wet and dirty gases. Part of the WiseAir 4.0 smart monitoring ecosystem.',
-    shortDescription: 'Differential pressure pitot tube flow meter for wet and dirty gas applications.',
-    images: [],
-    specifications: [
-      { label: 'Type', value: 'Differential Pressure Pitot Tube' },
-      { label: 'Application', value: 'Wet and Dirty Gases' },
-      { label: 'Platform', value: 'WiseAir 4.0' },
-    ],
-    applications: ['Compressed air monitoring', 'Industrial gas measurement', 'Energy auditing'],
-    features: ['Suitable for wet and dirty gases', 'High-precision measurement', 'WiseAir 4.0 compatible'],
-    relatedProducts: ['wiseair-smart-monitoring'],
-  },
-  {
-    id: 'wiseair-smart-monitoring',
-    name: 'WASM-604 Smart Monitoring Platform',
-    brand: BRANDS.wiseair,
-    category: 'smart-monitoring',
-    slug: 'wiseair-smart-monitoring',
-    description: 'Cloud-based smart monitoring platform providing real-time dashboards, predictive maintenance, and AI-driven energy optimization for compressed air systems. Potential energy savings of up to 30%.',
-    shortDescription: 'Cloud-based AI analytics platform for compressed air optimization — up to 30% energy savings.',
-    images: [],
-    specifications: [
-      { label: 'Platform', value: 'WASM-604' },
-      { label: 'Analytics', value: 'AI-Driven Cloud Analytics' },
-      { label: 'Energy Savings', value: 'Up to 30%' },
-      { label: 'Monitoring', value: 'Flow, Pressure, Power, Dew Point' },
-    ],
-    applications: ['Manufacturing plants', 'Process industries', 'Energy management'],
-    features: [
-      'Real-time dashboards',
-      'Predictive maintenance with AI',
-      'Up to 30% energy savings',
-      'Cloud-based analytics',
-      'Automated continuous logging',
-      'Leak detection and pressure monitoring',
-    ],
-    relatedProducts: ['wiseair-wafs-103'],
-  },
+
 
   // ── Greaves Products (Per Official CPCB IV+ Brochure) ──
   {

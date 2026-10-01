@@ -9,7 +9,7 @@ import { PRODUCTS, PRODUCT_CATEGORIES } from '@/data/products';
 
 export const metadata: Metadata = {
   title: 'Industrial Equipment Catalog — Air Compressors, Forklifts & Power | Airmen Engineers',
-  description: 'Explore Airmen Engineers complete industrial portfolio: German Kaeser rotary screw compressors, EP Lithium-ion forklifts & BOPT, Greaves Cotton CPCB IV+ DG sets, AIRpipe aluminium piping, and WiseAir IIoT smart air monitoring.',
+  description: 'Explore Airmen Engineers complete industrial portfolio: German Kaeser rotary screw compressors, EP Lithium-ion forklifts & BOPT, Greaves Cotton CPCB IV+ DG sets, and AIRpipe aluminium piping systems.',
   keywords: [
     'industrial air compressors',
     'kaeser rotary screw compressor',
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     'BOPT pallet truck',
     'Greaves DG set CPCB IV+',
     'AIRpipe aluminium piping',
-    'WiseAir energy audit',
+    'compressed air solutions India',
     'Airmen Engineers products',
   ],
 };

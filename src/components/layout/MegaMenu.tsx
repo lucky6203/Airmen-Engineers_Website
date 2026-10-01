@@ -6,14 +6,13 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Wind, Truck, GitBranch, Activity, BatteryCharging, ArrowRight } from 'lucide-react';
+import { Wind, Truck, GitBranch, BatteryCharging, ArrowRight } from 'lucide-react';
 import { MegaMenuCategory } from '@/types';
 
 const ICON_MAP: Record<string, React.ReactNode> = {
   Wind: <Wind className="w-5 h-5" />,
   Truck: <Truck className="w-5 h-5" />,
   GitBranch: <GitBranch className="w-5 h-5" />,
-  Activity: <Activity className="w-5 h-5" />,
   BatteryCharging: <BatteryCharging className="w-5 h-5" />,
 };
 

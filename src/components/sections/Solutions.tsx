@@ -7,7 +7,6 @@ import {
   Wind,
   Truck,
   GitBranch,
-  Activity,
   BatteryCharging,
   ArrowRight,
 } from 'lucide-react';
@@ -27,7 +26,6 @@ const ICON_MAP: Record<
   Wind,
   Truck,
   GitBranch,
-  Activity,
   BatteryCharging,
 };
 
@@ -39,7 +37,6 @@ const CATEGORY_IMAGES: Record<string, string> = {
   'air-compressors': '/images/compressors/kaeser-dsd-main.jpg',
   'material-handling': '/images/forklifts/models/efl253-battery.png',
   'compressed-air-piping': '/images/banner-2.jpg',
-  'smart-monitoring': '/images/greaves/products/greaves-genius-iot.jpg',
   'power-solutions': '/images/greaves/products/greaves-canopy-industrial.jpg',
 };
 

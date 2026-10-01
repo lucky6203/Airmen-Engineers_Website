@@ -68,7 +68,7 @@ export const COMPANY_TIMELINE: TimelineEvent[] = [
   {
     year: '2015',
     title: 'Smart Solutions',
-    description: 'Introduced WiseAir smart monitoring and AIRpipe compressed air piping solutions.',
+    description: 'Introduced AIRpipe compressed air piping solutions for efficient distribution systems.',
   },
   {
     year: '2020',

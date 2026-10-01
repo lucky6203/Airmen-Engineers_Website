@@ -12,7 +12,7 @@ import { BRAND_LIST } from '@/data/products';
 const LOGO_MAP: Record<string, string> = {
   kaeser: '/images/logos/logo-kaeser.svg',
   greaves: '/images/logos/logo-greaves.svg',
-  wiseair: '/images/logo-wiseair.png',
+
   ep: '/images/logos/logo-ep.png',
   airpipe: '/images/logos/logo-airpipe.png',
 };

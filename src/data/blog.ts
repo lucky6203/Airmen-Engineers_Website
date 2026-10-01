@@ -60,7 +60,7 @@ Running your compressor at higher pressure than needed wastes energy. A 1 bar re
 Frequency-controlled compressors adjust motor speed to match actual air demand, eliminating the energy waste of constant-speed operation during partial loads.
 
 ### 4. Smart Monitoring
-IoT solutions like WiseAir can provide real-time visibility into your compressed air system's performance, helping identify inefficiencies before they become costly problems.
+IoT-based smart monitoring solutions can provide real-time visibility into your compressed air system's performance, helping identify inefficiencies before they become costly problems.
 
 ### 5. Regular Maintenance
 Well-maintained compressors operate more efficiently. Follow manufacturer-recommended maintenance schedules.`,

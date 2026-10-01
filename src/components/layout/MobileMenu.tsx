@@ -40,14 +40,13 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         )}
         id="mobile-menu"
       >
-        {/* Header */}
         <div className="p-4 border-b border-gray-100">
-          <div className="font-heading">
-            <span className="text-lg font-bold text-navy">AIRMEN</span>
-            <span className="text-xs font-medium text-slate-custom tracking-[0.2em] uppercase ml-1">
-              Engineers
-            </span>
-          </div>
+          <span
+            className="text-navy font-bold tracking-wide whitespace-nowrap leading-none text-base"
+            style={{ fontFamily: "'Times New Roman', 'Georgia', 'Palatino Linotype', serif" }}
+          >
+            AIRMAN ENGINEERS
+          </span>
         </div>
 
         {/* Nav Items */}

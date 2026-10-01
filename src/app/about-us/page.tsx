@@ -74,12 +74,12 @@ const OEM_PARTNERS = [
     link: '/greaves',
   },
   {
-    name: 'AIRpipe & WiseAir',
-    country: 'India & International',
+    name: 'AIRpipe',
+    country: 'India',
     since: 'Partner Since 2015',
     logo: '/images/logos/logo-airpipe.png',
-    highlight: '100% all-aluminium quick-connect zero-leak piping networks & IIoT real-time energy telemetry.',
-    badge: 'Zero Corrosion • Smart IIoT',
+    highlight: '100% all-aluminium quick-connect zero-leak piping networks for efficient compressed air distribution.',
+    badge: 'Zero Corrosion Piping',
     link: '/airpipe',
   },
 ];

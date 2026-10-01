@@ -83,7 +83,7 @@ const CORE_SERVICES = [
   },
   {
     id: 'energy-audit',
-    title: 'WiseAir Compressed Air Energy Audits',
+    title: 'Compressed Air Energy Audits',
     badge: 'IIoT Energy Optimization',
     icon: Activity,
     image: '/images/greaves/products/greaves-genius-iot.jpg',

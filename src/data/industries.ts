@@ -66,7 +66,7 @@ export const INDUSTRIES: Industry[] = [
     name: 'Electronics',
     slug: 'electronics',
     description: 'Clean, oil-free compressed air for electronics manufacturing, PCB assembly, and semiconductor applications.',
-    products: ['aim-oil-free-scroll', 'airpipe-stainless-piping', 'wiseair-smart-monitoring'],
+    products: ['aim-oil-free-scroll', 'airpipe-stainless-piping', 'airpipe-aluminium-piping'],
     services: ['preventive-maintenance', 'technical-support'],
   },
   {
@@ -74,7 +74,7 @@ export const INDUSTRIES: Industry[] = [
     name: 'General Manufacturing',
     slug: 'general-manufacturing',
     description: 'Comprehensive compressed air and material handling solutions for diverse manufacturing operations.',
-    products: ['kaeser-screw-compressors', 'ep-electric-forklifts', 'wiseair-smart-monitoring'],
+    products: ['kaeser-screw-compressors', 'ep-electric-forklifts', 'airpipe-aluminium-piping'],
     services: ['after-sales-support', 'energy-audit', 'compressor-rental'],
   },
 ];

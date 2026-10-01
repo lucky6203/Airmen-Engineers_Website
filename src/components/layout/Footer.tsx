@@ -21,14 +21,13 @@ export default function Footer() {
             {/* Company Info */}
             <div className="w-full lg:w-2/5 flex flex-col items-center lg:items-start text-center lg:text-left lg:pr-6">
               <Link href="/" className="inline-flex items-center gap-2 mb-6 group">
-                <div className="font-heading tracking-tight">
-                  <span className="text-2xl font-black text-white block leading-none">
-                    AIRMEN
-                  </span>
-                  <span className="text-[10px] font-bold text-gray-400 tracking-[0.3em] uppercase block leading-tight mt-1">
-                    Engineers
-                  </span>
-                </div>
+                <img src="/images/main-logo.png" alt="Airmen Engineers" className="h-10 w-auto object-contain" />
+                <span
+                  className="text-white font-bold tracking-wide whitespace-nowrap leading-none text-lg sm:text-xl"
+                  style={{ fontFamily: "'Times New Roman', 'Georgia', 'Palatino Linotype', serif" }}
+                >
+                  AIRMAN ENGINEERS
+                </span>
               </Link>
               <p className="text-gray-400 text-sm leading-relaxed mb-8 max-w-sm mx-auto lg:mx-0">
                 {COMPANY_SHORT_DESCRIPTION}

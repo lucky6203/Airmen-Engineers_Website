@@ -91,7 +91,7 @@ const INDUSTRY_SHOWCASE: IndustryItem[] = [
     recommendedSolutions: [
       { name: 'Kaeser DSD & SFC Variable Frequency Screw Compressors', brand: 'Kaeser Kompressoren', link: '/kaeser' },
       { name: 'EP CPD & EFL Series Lithium-Ion Forklifts', brand: 'EP Equipment', link: '/ep-forklifts' },
-      { name: 'WiseAir Smart Energy & Ultrasonic Leak Telematics', brand: 'WiseAir', link: '/products' }
+      { name: 'AIRpipe Compressed Air Distribution Systems', brand: 'AIRpipe', link: '/airpipe' }
     ],
     keyClients: ['Mikuni India', 'Nidec India', 'Yokohama India', 'Asahi India Glass (AIS)'],
     stats: { label: 'Japanese Clients', value: '50+ Plants' }

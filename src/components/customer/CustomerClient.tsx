@@ -85,7 +85,7 @@ const CLIENT_SPOTLIGHTS: ClientSpotlight[] = [
     badge: 'FMEG Pioneer',
     equipmentSupplied: [
       'Kaeser Rotary Screw Compressed Air Stations with ETM',
-      'WiseAir IIoT Smart Energy Monitoring & Ultrasonic Leak Audits',
+      'AIRpipe Compressed Air Distribution & Energy-Efficient Piping Systems',
       'Emergency Standby Greaves CPCB IV+ Silent Genset'
     ],
     operationalImpact: 'Major fast-moving electrical goods production hub achieving continuous energy reduction through automated air leak detection and real-time telemetry monitoring.',

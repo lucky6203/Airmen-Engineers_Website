@@ -11,10 +11,10 @@ export const metadata: Metadata = {
     template: '%s | Airmen Engineers',
   },
   description:
-    'Airmen Engineers is India\'s trusted supplier of industrial air compressors (Kaeser, AIM), forklifts (EP Equipment), compressed air piping (AIRpipe), smart monitoring (WiseAir), and power solutions (Greaves). Established 1996.',
+    'Airmen Engineers is India\'s trusted supplier of industrial air compressors (Kaeser, AIM), forklifts (EP Equipment), compressed air piping (AIRpipe), and power solutions (Greaves). Established 1996.',
   keywords: [
     'air compressor', 'screw compressor', 'Kaeser', 'AIM compressor',
-    'EP forklift', 'AIRpipe', 'WiseAir', 'Greaves generator',
+    'EP forklift', 'AIRpipe', 'Greaves generator',
     'industrial compressor Delhi', 'compressor rental', 'compressed air piping',
     'material handling', 'energy audit', 'Airmen Engineers',
   ],
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     siteName: 'Airmen Engineers',
     title: 'Airmen Engineers — Industrial Air Compressor & Material Handling Solutions',
     description:
-      'India\'s trusted partner for Kaeser screw compressors, EP forklifts, AIRpipe piping, WiseAir smart monitoring, and Greaves power solutions. Since 1996.',
+      'India\'s trusted partner for Kaeser screw compressors, EP forklifts, AIRpipe piping, and Greaves power solutions. Since 1996.',
   },
   twitter: {
     card: 'summary_large_image',

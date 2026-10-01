@@ -97,11 +97,10 @@ export default function Hero() {
         overflow-hidden
         bg-navy
 
-        min-h-[90vh]
+        min-h-[50vh]
+        sm:min-h-[55vh]
+        md:min-h-[70vh]
         lg:min-h-screen
-
-        max-[768px]:min-h-[65vh]
-        max-[768px]:h-[65vh]
       "
     >
 
@@ -136,21 +135,9 @@ export default function Hero() {
               fill
               priority={index === 0}
               sizes="100vw"
-
-              /*
-                Desktop:
-                Keep existing cover behavior.
-
-                Mobile:
-                Use contain so the complete image
-                remains visible and is not cropped.
-              */
               className="
                 object-cover
                 object-center
-
-                max-[768px]:object-contain
-                max-[768px]:object-center
               "
             />
 
@@ -201,7 +188,7 @@ export default function Hero() {
           from-white
           to-transparent
 
-          max-[768px]:h-20
+          max-[768px]:h-16
         "
       />
 
@@ -212,19 +199,19 @@ export default function Hero() {
 
       <div
         className="
-    absolute
-    z-[2]
+          absolute
+          z-[2]
 
-    bottom-16
-    left-1/2
-    -translate-x-1/2
+          bottom-12
+          left-1/2
+          -translate-x-1/2
 
-    flex
-    items-center
-    gap-2
+          flex
+          items-center
+          gap-2
 
-    max-[768px]:bottom-7
-  "
+          max-[768px]:bottom-5
+        "
       >
         {HERO_IMAGES.map((_, index) => (
           <button
@@ -233,102 +220,25 @@ export default function Hero() {
             onClick={() => setCurrentImage(index)}
             aria-label={`Go to slide ${index + 1}`}
             className={`
-        w-3
-        h-3
+              w-3
+              h-3
 
-        rounded-full
+              rounded-full
 
-        transition-all
-        duration-300
+              transition-all
+              duration-300
 
-        ${index === currentImage
+              ${index === currentImage
                 ? 'bg-gold scale-125'
                 : 'bg-white/50 hover:bg-white/80'
               }
 
-        max-[480px]:w-2.5
-        max-[480px]:h-2.5
-      `}
+              max-[480px]:w-2.5
+              max-[480px]:h-2.5
+            `}
           />
         ))}
       </div>
-
-
-      {/* ========================================
-          Scroll Indicator
-          ======================================== */}
-      {/* 
-      <div
-        className="
-          absolute
-
-          bottom-2
-          left-1/2
-          -translate-x-1/2
-
-          z-[2]
-
-          hidden
-          lg:flex
-
-          flex-col
-          items-center
-          gap-2
-
-          animate-float
-        "
-      >
-
-        <span
-          className="
-            text-[10px]
-            text-white/70
-
-            uppercase
-            tracking-[0.3em]
-
-            font-semibold
-          "
-        >
-          Scroll
-        </span>
-
-        <div
-          className="
-            w-5
-            h-8
-
-            border-2
-            border-white/50
-
-            rounded-full
-
-            flex
-            justify-center
-
-            pt-1
-
-            bg-navy/20
-            backdrop-blur-sm
-          "
-        >
-
-          <div
-            className="
-              w-1
-              h-2
-
-              bg-gold
-
-              rounded-full
-
-              animate-bounce
-            "
-          />
-
-        </div>
-
-      </div> */}
 
     </section>
   );

@@ -27,13 +27,7 @@ export const MEGA_MENU_CATEGORIES: MegaMenuCategory[] = [
       { label: 'AIRpipe', href: '/airpipe', description: 'Aluminium & stainless steel piping' },
     ],
   },
-  {
-    title: 'Smart Monitoring',
-    icon: 'Activity',
-    items: [
-      { label: 'WiseAir', href: '/wise-air', description: 'IIoT sensors & AI analytics' },
-    ],
-  },
+
   {
     title: 'Power Solutions',
     icon: 'BatteryCharging',
@@ -64,7 +58,7 @@ export const FOOTER_LINKS = {
     { label: 'AIM', href: '/aim' },
     { label: 'EP Forklifts', href: '/ep-forklifts' },
     { label: 'AIRpipe', href: '/airpipe' },
-    { label: 'WiseAir', href: '/wise-air' },
+
     { label: 'Greaves', href: '/greaves' },
   ],
   services: [

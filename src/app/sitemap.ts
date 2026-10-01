@@ -17,7 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/aim',
     '/ep-forklifts',
     '/airpipe',
-    '/wise-air',
+
     '/greaves',
   ];
 

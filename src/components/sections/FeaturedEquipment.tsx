@@ -2,7 +2,7 @@
 
 // ============================================
 // Airmen Engineers — Flagship Equipment Spotlight
-// Highlights Real Equipment from Official Brochures
+// Two categories: Industrial Products & Services / Forging & Manufacturing
 // ============================================
 
 import React, { useState } from 'react';
@@ -10,15 +10,11 @@ import Link from 'next/link';
 import { 
   ArrowRight, 
   CheckCircle2, 
-  ExternalLink, 
   FileDown, 
-  Zap, 
-  ShieldCheck, 
-  Layers, 
-  Gauge, 
-  Cpu, 
   Sparkles,
-  ChevronRight
+  ChevronRight,
+  Hammer,
+  Factory
 } from 'lucide-react';
 import Container from '@/components/common/Container';
 import Button from '@/components/common/Button';
@@ -38,7 +34,8 @@ interface EquipmentItem {
   brochureLink: string;
 }
 
-const FEATURED_ITEMS: EquipmentItem[] = [
+// ── Category 1: Industrial Products & Services ──
+const INDUSTRIAL_ITEMS: EquipmentItem[] = [
   {
     id: 'kaeser-dsd',
     name: 'Kaeser DSD Series Rotary Screw Compressors',
@@ -124,40 +121,158 @@ const FEATURED_ITEMS: EquipmentItem[] = [
     brochureLink: '/brochures/greaves-brochure.pdf',
   },
   {
-    id: 'airpipe-wiseair',
-    name: 'AIRpipe Fast-Connect Piping & WiseAir IIoT',
-    category: 'Distribution & Smart IIoT',
-    brand: 'AIRpipe & WiseAir',
+    id: 'airpipe-piping',
+    name: 'AIRpipe Fast-Connect Compressed Air Piping',
+    category: 'Distribution Systems',
+    brand: 'AIRpipe',
     brandLogo: '/images/logos/logo-airpipe.png',
-    badge: 'Zero Corrosion • Real-Time IIoT',
-    description: 'Instamod AIRpipe modular all-aluminium and stainless steel compressed air distribution piping with quick-connect push-in fittings. Combined with WiseAir IIoT smart sensors for continuous energy tracking, flow rate measurement, and leak detection.',
+    badge: 'Zero Corrosion • Quick Connect',
+    description: 'Instamod AIRpipe modular all-aluminium and stainless steel compressed air distribution piping with quick-connect push-in fittings. Installs 5x faster than traditional welded piping with smooth internal bore minimizing pressure drops.',
     images: [
-      '/images/greaves/products/greaves-genius-iot.jpg',
       '/images/banner-2.jpg',
       '/images/about-1.jpg',
+      '/images/banner-3.jpg',
     ],
     specs: [
       { label: 'Pipe Diameter', value: '20 mm to 200 mm' },
       { label: 'Working Pressure', value: 'Up to 16 bar' },
       { label: 'Connection Type', value: 'Quick-Connect No Welding' },
-      { label: 'IoT Parameters', value: 'kW, CFM, Pressure, Dew Point' },
+      { label: 'Materials', value: 'Aluminium / Stainless Steel' },
     ],
     features: [
       '100% corrosion-resistant aluminium pipe ensuring contaminant-free compressed air',
       'Quick-connect technology installs 5x faster than traditional welded or threaded pipe',
       'Smooth internal bore minimizes pressure drops, reducing compressor energy consumption',
-      'WiseAir cloud dashboard delivers automated anomaly detection and ISO 50001 energy reports',
+      'Modular and expandable system — easily reconfigure layouts without downtime',
     ],
     link: '/airpipe',
     brochureLink: '/brochures/kaeser-dsd-series.pdf',
   },
 ];
 
+// ── Category 2: Forging & Manufacturing ──
+const FORGING_ITEMS: EquipmentItem[] = [
+  {
+    id: 'forging-compressors',
+    name: 'Heavy-Duty Compressor Systems for Forging & Metal Working',
+    category: 'Forging Air Systems',
+    brand: 'Kaeser Kompressoren',
+    brandLogo: '/images/logos/logo-kaeser.svg',
+    badge: 'High Pressure • Continuous Duty',
+    description: 'Kaeser DSD series compressors configured for the extreme demands of forging shops, metal stamping, and foundry operations. Continuous duty rated with robust cooling for 50°C ambient, high block loading for pneumatic press hammers, and up to 15 bar working pressure.',
+    images: [
+      '/images/compressors/kaeser-dsd-main.jpg',
+      '/images/compressors/kaeser-dsd-cutaway.jpg',
+      '/images/compressors/kaeser-dsd-direct-drive.jpg',
+    ],
+    specs: [
+      { label: 'Motor Power', value: '75 – 132 kW (IE4)' },
+      { label: 'Pressure Range', value: 'Up to 15 bar' },
+      { label: 'Ambient Rating', value: 'Continuous at 50°C' },
+      { label: 'Heat Recovery', value: 'Up to 96%' },
+    ],
+    features: [
+      'Engineered for continuous duty in high-temperature forging and foundry environments',
+      'High block loading capability to handle sudden pneumatic press demands',
+      'Radial cooling fans with heat ducting for extreme ambient conditions',
+      'Up to 96% heat recovery for pre-heating forging billets or process water',
+    ],
+    link: '/kaeser',
+    brochureLink: '/brochures/kaeser-dsd-series.pdf',
+  },
+  {
+    id: 'forging-power',
+    name: 'Greaves Heavy-Duty Power for Manufacturing Plants',
+    category: 'Manufacturing Power',
+    brand: 'Greaves Cotton',
+    brandLogo: '/images/logos/logo-greaves.svg',
+    badge: 'CPCB IV+ • 250 – 2500* kVA',
+    description: 'Heavy-duty prime power and standby generator sets engineered for forging plants, steel mills, and heavy manufacturing operations. Designed for instant load pickup with high block loading, continuous operation at full capacity in 50°C ambient conditions.',
+    images: [
+      '/images/greaves/products/greaves-heavy-genset.jpg',
+      '/images/greaves/products/greaves-canopy-industrial.jpg',
+      '/images/greaves/products/greaves-engine-powertrain.jpg',
+    ],
+    specs: [
+      { label: 'Rating Range', value: '250 kVA to 2500* kVA' },
+      { label: 'Emission Standard', value: 'CPCB IV+ (SCR + DOC)' },
+      { label: 'Service Interval', value: '750 Hours / 12 Months' },
+      { label: 'Warranty', value: '5 Years or 5,000 Hours*' },
+    ],
+    features: [
+      'High block loading — handles 100% sudden load from induction furnaces and press lines',
+      'Advanced DOC/SCR aftertreatment ensuring CPCB IV+ compliance in enclosed factory areas',
+      'Multi-set auto-synchronization for large forging plant power grids',
+      'Genius IoT telematics for real-time fuel tracking and predictive maintenance',
+    ],
+    link: '/greaves',
+    brochureLink: '/brochures/greaves-brochure.pdf',
+  },
+  {
+    id: 'forging-handling',
+    name: 'EP Heavy-Duty Forklifts for Steel & Forging Yards',
+    category: 'Heavy Material Handling',
+    brand: 'EP Equipment',
+    brandLogo: '/images/logos/logo-ep.png',
+    badge: '4.5T – 25T • Diesel & Li-Ion',
+    description: 'Rugged material handling forklifts built for steel yards, forging shops, and heavy manufacturing. Diesel and lithium-ion models with high-torque powertrains, heavy-duty cast steering axles, and vibration-isolated cabins for extreme industrial environments.',
+    images: [
+      '/images/forklifts/models/cpcd-diesel-1.5t-3.5t.png',
+      '/images/forklifts/models/efl253-battery.png',
+      '/images/forklifts/models/cpd50l1-5t.png',
+    ],
+    specs: [
+      { label: 'Capacity Range', value: '4.5T to 25.0T' },
+      { label: 'Engine Options', value: 'Mitsubishi / ISUZU / Cummins / Li-Ion' },
+      { label: 'Lift Height', value: '3,000 – 7,000 mm' },
+      { label: 'Ground Clearance', value: 'High Clearance for Rough Yards' },
+    ],
+    features: [
+      'Heavy-duty cast steering axle and dual cyclone air filtration for harsh environments',
+      'Vibration-isolated floating operator cabin for maximum ergonomic comfort',
+      'Available in both diesel and 309V/618V high-voltage lithium-ion configurations',
+      'High-torque powertrains for handling heavy billets, coils, and die-cast components',
+    ],
+    link: '/ep-forklifts',
+    brochureLink: '/brochures/ep-product-range.pdf',
+  },
+];
+
+type CategoryKey = 'industrial' | 'forging';
+
+const CATEGORIES: { key: CategoryKey; label: string; icon: React.ReactNode; items: EquipmentItem[] }[] = [
+  {
+    key: 'industrial',
+    label: 'Industrial Products & Services',
+    icon: <Factory className="w-4 h-4" />,
+    items: INDUSTRIAL_ITEMS,
+  },
+  {
+    key: 'forging',
+    label: 'Forging & Manufacturing',
+    icon: <Hammer className="w-4 h-4" />,
+    items: FORGING_ITEMS,
+  },
+];
+
 export default function FeaturedEquipment() {
-  const [activeTab, setActiveTab] = useState(FEATURED_ITEMS[0].id);
+  const [activeCategory, setActiveCategory] = useState<CategoryKey>('industrial');
+  const currentCategory = CATEGORIES.find((c) => c.key === activeCategory) || CATEGORIES[0];
+  const items = currentCategory.items;
+
+  const [activeTab, setActiveTab] = useState(items[0].id);
   const [activeImageIndexes, setActiveImageIndexes] = useState<Record<string, number>>({});
 
-  const currentItem = FEATURED_ITEMS.find((item) => item.id === activeTab) || FEATURED_ITEMS[0];
+  // When category changes, reset to first item in that category
+  const handleCategorySwitch = (key: CategoryKey) => {
+    setActiveCategory(key);
+    const cat = CATEGORIES.find((c) => c.key === key);
+    if (cat && cat.items.length > 0) {
+      setActiveTab(cat.items[0].id);
+    }
+  };
+
+  const currentItem = items.find((item) => item.id === activeTab) || items[0];
   const activeImageIndex = activeImageIndexes[currentItem.id] || 0;
 
   const handleImageSwitch = (itemId: string, index: number) => {
@@ -171,36 +286,55 @@ export default function FeaturedEquipment() {
     <section className="py-20 lg:py-28 bg-white border-b border-gray-200" id="featured-equipment">
       <Container>
         {/* Section Heading */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-          <div>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-100 text-amber-800">
-              <Sparkles className="w-3.5 h-3.5 text-amber-600" />
-              Flagship Engineering Showcase
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-navy mt-3 tracking-tight">
-              Tier-1 Industrial Equipment
-            </h2>
-            <p className="text-slate-600 mt-2 text-sm sm:text-base max-w-2xl">
-              Airmen Engineers is the authorized sales, turnkey engineering, and authorized service partner for global manufacturing leaders.
-            </p>
-          </div>
+        <div className="text-center mb-10">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-100 text-amber-800">
+            <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+            Flagship Engineering Showcase
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-navy mt-3 tracking-tight">
+            Tier-1 Industrial Equipment
+          </h2>
+          <p className="text-slate-600 mt-2 text-sm sm:text-base max-w-2xl mx-auto">
+            Airmen Engineers is the authorized sales, turnkey engineering, and authorized service partner for global manufacturing leaders.
+          </p>
+        </div>
 
-          {/* Navigation Pills */}
-          <div className="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0 scrollbar-none">
-            {FEATURED_ITEMS.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => setActiveTab(item.id)}
-                className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap ${
-                  activeTab === item.id
-                    ? 'bg-navy text-white shadow-lg shadow-navy/20 scale-105'
-                    : 'bg-gray-100 hover:bg-gray-200 text-slate-700'
-                }`}
-              >
-                {item.brand}
-              </button>
-            ))}
-          </div>
+        {/* ── Category Tabs ── */}
+        <div className="flex flex-wrap items-center justify-center gap-3 mb-10">
+          {CATEGORIES.map((cat) => (
+            <button
+              key={cat.key}
+              onClick={() => handleCategorySwitch(cat.key)}
+              className={`inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-bold transition-all whitespace-nowrap border-2 ${
+                activeCategory === cat.key
+                  ? 'bg-navy text-white border-navy shadow-lg shadow-navy/20 scale-[1.02]'
+                  : 'bg-white hover:bg-gray-50 text-slate-700 border-gray-200 hover:border-gray-300'
+              }`}
+              role="tab"
+              aria-selected={activeCategory === cat.key}
+              tabIndex={0}
+            >
+              {cat.icon}
+              {cat.label}
+            </button>
+          ))}
+        </div>
+
+        {/* ── Product Navigation Pills ── */}
+        <div className="flex items-center justify-center gap-2 overflow-x-auto pb-2 mb-8 scrollbar-none">
+          {items.map((item) => (
+            <button
+              key={item.id}
+              onClick={() => setActiveTab(item.id)}
+              className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap ${
+                activeTab === item.id
+                  ? 'bg-gold text-navy shadow-lg shadow-gold/20 scale-105'
+                  : 'bg-gray-100 hover:bg-gray-200 text-slate-700'
+              }`}
+            >
+              {item.brand}
+            </button>
+          ))}
         </div>
 
         {/* Featured Item Display Card */}

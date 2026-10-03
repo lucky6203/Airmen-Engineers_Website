@@ -1,8 +1,10 @@
 'use client';
 
 // ============================================
-// Airmen Engineers — Flagship Equipment Spotlight
-// Two categories: Industrial Products & Services / Forging & Manufacturing
+// Airmen Engineers — Flagship Equipment & Manufacturing Showcase
+// Two categories:
+// 1. Industrial Products & Services (Authorized Dealerships)
+// 2. Manufacturing Products (Gajraula Plant In-House Forging & CNC)
 // ============================================
 
 import React, { useState } from 'react';
@@ -14,7 +16,10 @@ import {
   Sparkles,
   ChevronRight,
   Hammer,
-  Factory
+  Factory,
+  ShieldCheck,
+  Microscope,
+  Building2
 } from 'lucide-react';
 import Container from '@/components/common/Container';
 import Button from '@/components/common/Button';
@@ -22,6 +27,7 @@ import Button from '@/components/common/Button';
 interface EquipmentItem {
   id: string;
   name: string;
+  pillLabel: string;
   category: string;
   brand: string;
   brandLogo: string;
@@ -31,7 +37,9 @@ interface EquipmentItem {
   specs: { label: string; value: string }[];
   features: string[];
   link: string;
-  brochureLink: string;
+  brochureLink?: string;
+  ctaText?: string;
+  secondaryCtaText?: string;
 }
 
 // ── Category 1: Industrial Products & Services ──
@@ -39,6 +47,7 @@ const INDUSTRIAL_ITEMS: EquipmentItem[] = [
   {
     id: 'kaeser-dsd',
     name: 'Kaeser DSD Series Rotary Screw Compressors',
+    pillLabel: 'Kaeser Compressors',
     category: 'Compressed Air Solutions',
     brand: 'Kaeser Kompressoren',
     brandLogo: '/images/logos/logo-kaeser.svg',
@@ -63,10 +72,12 @@ const INDUSTRIAL_ITEMS: EquipmentItem[] = [
     ],
     link: '/kaeser',
     brochureLink: '/brochures/kaeser-dsd-series.pdf',
+    ctaText: 'View Full Kaeser Catalogue',
   },
   {
     id: 'ep-efl253',
     name: 'EP Equipment Lithium-Ion Forklifts (1.5T – 25T)',
+    pillLabel: 'EP Li-Ion Forklifts',
     category: 'Material Handling Equipment',
     brand: 'EP Equipment',
     brandLogo: '/images/logos/logo-ep.png',
@@ -91,10 +102,12 @@ const INDUSTRIAL_ITEMS: EquipmentItem[] = [
     ],
     link: '/ep-forklifts',
     brochureLink: '/brochures/ep-product-range.pdf',
+    ctaText: 'View Full EP Catalogue',
   },
   {
     id: 'greaves-cpcb4',
     name: 'Greaves Cotton CPCB IV+ DG Sets (5 – 2500* kVA)',
+    pillLabel: 'Greaves DG Sets',
     category: 'Prime Power Solutions',
     brand: 'Greaves Cotton',
     brandLogo: '/images/logos/logo-greaves.svg',
@@ -119,10 +132,12 @@ const INDUSTRIAL_ITEMS: EquipmentItem[] = [
     ],
     link: '/greaves',
     brochureLink: '/brochures/greaves-brochure.pdf',
+    ctaText: 'View Full Greaves Catalogue',
   },
   {
     id: 'airpipe-piping',
     name: 'AIRpipe Fast-Connect Compressed Air Piping',
+    pillLabel: 'AIRpipe Piping',
     category: 'Distribution Systems',
     brand: 'AIRpipe',
     brandLogo: '/images/logos/logo-airpipe.png',
@@ -146,112 +161,185 @@ const INDUSTRIAL_ITEMS: EquipmentItem[] = [
       'Modular and expandable system — easily reconfigure layouts without downtime',
     ],
     link: '/airpipe',
-    brochureLink: '/brochures/kaeser-dsd-series.pdf',
+    brochureLink: '/brochures/2026%20installation%20book%201.pdf',
+    ctaText: 'View AIRpipe Piping Catalogue',
   },
 ];
 
-// ── Category 2: Forging & Manufacturing ──
-const FORGING_ITEMS: EquipmentItem[] = [
+// ── Category 2: Manufacturing Products (Gajraula Plant) ──
+const MANUFACTURING_ITEMS: EquipmentItem[] = [
   {
-    id: 'forging-compressors',
-    name: 'Heavy-Duty Compressor Systems for Forging & Metal Working',
-    category: 'Forging Air Systems',
-    brand: 'Kaeser Kompressoren',
-    brandLogo: '/images/logos/logo-kaeser.svg',
-    badge: 'High Pressure • Continuous Duty',
-    description: 'Kaeser DSD series compressors configured for the extreme demands of forging shops, metal stamping, and foundry operations. Continuous duty rated with robust cooling for 50°C ambient, high block loading for pneumatic press hammers, and up to 15 bar working pressure.',
+    id: 'mfg-wheel-hubs',
+    name: 'Precision Forged CNC Wheel Hub & Flange Components',
+    pillLabel: 'Wheel Hubs & Flanges',
+    category: 'Flanges & Hubs',
+    brand: 'Airmen Manufacturing',
+    brandLogo: '/images/main-logo.png',
+    badge: 'Gajraula Plant (U.P.) • Closed-Die Forged',
+    description: 'High-tensile forged automotive wheel hubs and structural flanges precision-machined on multi-axis CNC turning centers at our Gajraula Plant (U.P.). Manufactured to stringent OEM engineering drawings with closed-die grain flow integrity, critical concentricity, and precision finish boring.',
     images: [
-      '/images/compressors/kaeser-dsd-main.jpg',
-      '/images/compressors/kaeser-dsd-cutaway.jpg',
-      '/images/compressors/kaeser-dsd-direct-drive.jpg',
+      '/images/gujraula_plant_img/9456-jpeg.png',
+      '/images/gujraula_plant_img/2612%20jpeg.png',
+      '/images/gujraula_plant_img/9206.%20jpeg.png',
+      '/images/gujraula_plant_img/1106.jpg.jpeg',
     ],
     specs: [
-      { label: 'Motor Power', value: '75 – 132 kW (IE4)' },
-      { label: 'Pressure Range', value: 'Up to 15 bar' },
-      { label: 'Ambient Rating', value: 'Continuous at 50°C' },
-      { label: 'Heat Recovery', value: 'Up to 96%' },
+      { label: 'Manufacturing Facility', value: 'Gajraula Plant, Uttar Pradesh' },
+      { label: 'Material Grade', value: 'High-Tensile Forged Alloy Steel' },
+      { label: 'Process Control', value: 'Closed-Die Forging + CNC Finish Boring' },
+      { label: 'Quality Protocol', value: '100% CMM Concentricity & Bore Check' },
     ],
     features: [
-      'Engineered for continuous duty in high-temperature forging and foundry environments',
-      'High block loading capability to handle sudden pneumatic press demands',
-      'Radial cooling fans with heat ducting for extreme ambient conditions',
-      'Up to 96% heat recovery for pre-heating forging billets or process water',
+      'Closed-die forging ensures continuous metallurgical grain flow for superior dynamic fatigue life',
+      'Multi-axis CNC turning achieves ±0.01 mm internal bore tolerance and zero-backlash seating',
+      '100% Coordinate Measuring Machine (CMM) dimensional verification for concentricity and runout',
+      'Precision machined mounting faces with surface finish Ra < 0.8 µm for leak-free mating',
     ],
-    link: '/kaeser',
-    brochureLink: '/brochures/kaeser-dsd-series.pdf',
+    link: '/manufacturing-products',
+    ctaText: 'Explore Manufacturing Catalog',
+    secondaryCtaText: 'Request Technical Quote',
   },
   {
-    id: 'forging-power',
-    name: 'Greaves Heavy-Duty Power for Manufacturing Plants',
-    category: 'Manufacturing Power',
-    brand: 'Greaves Cotton',
-    brandLogo: '/images/logos/logo-greaves.svg',
-    badge: 'CPCB IV+ • 250 – 2500* kVA',
-    description: 'Heavy-duty prime power and standby generator sets engineered for forging plants, steel mills, and heavy manufacturing operations. Designed for instant load pickup with high block loading, continuous operation at full capacity in 50°C ambient conditions.',
+    id: 'mfg-stepped-flanges',
+    name: 'Heavy-Duty Stepped Automotive Structural Flanges',
+    pillLabel: 'Structural Flanges',
+    category: 'Structural Components',
+    brand: 'Airmen Manufacturing',
+    brandLogo: '/images/main-logo.png',
+    badge: 'Controlled Forging • CNC Facing & Boring',
+    description: 'Heavy-duty automotive grade alloy steel structural components and stepped mounting flanges. Machined with tight-tolerance stepped outer diameters, controlled chamfer angles, and surface flatness for heavy vehicle chassis and powertrain assemblies.',
     images: [
-      '/images/greaves/products/greaves-heavy-genset.jpg',
-      '/images/greaves/products/greaves-canopy-industrial.jpg',
-      '/images/greaves/products/greaves-engine-powertrain.jpg',
+      '/images/gujraula_plant_img/9206.%20jpeg.png',
+      '/images/gujraula_plant_img/3446D.jpg.jpeg',
+      '/images/gujraula_plant_img/7661.jpg.jpeg',
+      '/images/gujraula_plant_img/2612%20jpeg.png',
     ],
     specs: [
-      { label: 'Rating Range', value: '250 kVA to 2500* kVA' },
-      { label: 'Emission Standard', value: 'CPCB IV+ (SCR + DOC)' },
-      { label: 'Service Interval', value: '750 Hours / 12 Months' },
-      { label: 'Warranty', value: '5 Years or 5,000 Hours*' },
+      { label: 'Machining Centers', value: 'Multi-Axis Precision CNC Lathes' },
+      { label: 'Dimensional Control', value: 'As Per Approved OEM Drawing' },
+      { label: 'Face Flatness', value: '< 0.015 mm Across Flange' },
+      { label: 'Quality Verification', value: 'Optical Comparator & Micrometers' },
     ],
     features: [
-      'High block loading — handles 100% sudden load from induction furnaces and press lines',
-      'Advanced DOC/SCR aftertreatment ensuring CPCB IV+ compliance in enclosed factory areas',
-      'Multi-set auto-synchronization for large forging plant power grids',
-      'Genius IoT telematics for real-time fuel tracking and predictive maintenance',
+      'High block-load resistance designed for heavy commercial vehicle and automotive applications',
+      'Stepped diameter turning with precision transition radii to prevent stress concentrations',
+      'Comprehensive Go/No-Go plug and ring gauge verification on every single production lot',
+      'Custom anti-corrosion VCI oil packaging ensuring zero oxidation during transport and storage',
     ],
-    link: '/greaves',
-    brochureLink: '/brochures/greaves-brochure.pdf',
+    link: '/manufacturing-products',
+    ctaText: 'Explore Manufacturing Catalog',
+    secondaryCtaText: 'Request Technical Quote',
   },
   {
-    id: 'forging-handling',
-    name: 'EP Heavy-Duty Forklifts for Steel & Forging Yards',
-    category: 'Heavy Material Handling',
-    brand: 'EP Equipment',
-    brandLogo: '/images/logos/logo-ep.png',
-    badge: '4.5T – 25T • Diesel & Li-Ion',
-    description: 'Rugged material handling forklifts built for steel yards, forging shops, and heavy manufacturing. Diesel and lithium-ion models with high-torque powertrains, heavy-duty cast steering axles, and vibration-isolated cabins for extreme industrial environments.',
+    id: 'mfg-machined-rings',
+    name: 'Surface-Profile Controlled Machined Rings & Retainers',
+    pillLabel: 'Profiled Rings & Retainers',
+    category: 'Rings & Retainers',
+    brand: 'Airmen Manufacturing',
+    brandLogo: '/images/main-logo.png',
+    badge: 'Contoured CNC Profiling • ±0.01 mm Precision',
+    description: 'High-precision contoured rings and retaining collars engineered for rotating shafts and bearing assemblies. Features controlled groove depths, tight radial concentricity, and micro-smooth surface profiles produced under strict statistical process control (SPC).',
     images: [
-      '/images/forklifts/models/cpcd-diesel-1.5t-3.5t.png',
-      '/images/forklifts/models/efl253-battery.png',
-      '/images/forklifts/models/cpd50l1-5t.png',
+      '/images/gujraula_plant_img/4405.jpg.jpeg',
+      '/images/gujraula_plant_img/4432.jpg.jpeg',
+      '/images/gujraula_plant_img/2603.jpg.jpeg',
+      '/images/gujraula_plant_img/8122.jpg.jpeg',
     ],
     specs: [
-      { label: 'Capacity Range', value: '4.5T to 25.0T' },
-      { label: 'Engine Options', value: 'Mitsubishi / ISUZU / Cummins / Li-Ion' },
-      { label: 'Lift Height', value: '3,000 – 7,000 mm' },
-      { label: 'Ground Clearance', value: 'High Clearance for Rough Yards' },
+      { label: 'Tolerance Grade', value: 'Micro-Tolerance ±0.01 mm' },
+      { label: 'Profile Checking', value: 'Surface Profilometer & Dial Indicator' },
+      { label: 'Surface Finish', value: 'Ra 0.4 – 0.8 µm Controlled' },
+      { label: 'Compliance', value: '100% Drawing Specification' },
     ],
     features: [
-      'Heavy-duty cast steering axle and dual cyclone air filtration for harsh environments',
-      'Vibration-isolated floating operator cabin for maximum ergonomic comfort',
-      'Available in both diesel and 309V/618V high-voltage lithium-ion configurations',
-      'High-torque powertrains for handling heavy billets, coils, and die-cast components',
+      'High-grade forged alloy construction resistant to thermal expansion and mechanical wear',
+      'Precision CNC contoured profile machining eliminating all micro-burrs and sharp edges',
+      'Strict dial-indicator axial and radial runout testing ensuring vibration-free high-RPM operation',
+      'Custom heat treatment and case hardening options available to meet customer metallurgical specs',
     ],
-    link: '/ep-forklifts',
-    brochureLink: '/brochures/ep-product-range.pdf',
+    link: '/manufacturing-products',
+    ctaText: 'Explore Manufacturing Catalog',
+    secondaryCtaText: 'Request Technical Quote',
+  },
+  {
+    id: 'mfg-bushings-spacers',
+    name: 'Precision Forged Automotive Bushings & Spacers',
+    pillLabel: 'Bushings & Spacers',
+    category: 'Bushings & Spacers',
+    brand: 'Airmen Manufacturing',
+    brandLogo: '/images/main-logo.png',
+    badge: 'Micro-Alloy Forged • High-Speed Boring',
+    description: 'Concentric automotive spacers, precision sleeves, and bearing collars manufactured from forged blanks. Designed for high radial and thrust loads, featuring micro-machined bores and parallel faces for zero axial binding in automotive gearboxes and suspension systems.',
+    images: [
+      '/images/gujraula_plant_img/4867.jpg.jpeg',
+      '/images/gujraula_plant_img/4875.jpg.jpeg',
+      '/images/gujraula_plant_img/1142.jpg.jpeg',
+      '/images/gujraula_plant_img/8365.jpg.jpeg',
+    ],
+    specs: [
+      { label: 'Face Parallelism', value: 'Within 0.01 mm End-to-End' },
+      { label: 'Bore Roundness', value: 'Precision Cylindrical ID' },
+      { label: 'Machining Cycle', value: 'High-Speed Automated CNC Boring' },
+      { label: 'Lot Traceability', value: 'Heat Code & Inspection Records' },
+    ],
+    features: [
+      'Controlled inner bore roundness ensures frictionless shaft fit and zero binding under load',
+      'Double-faced precision grinding and turning maintains exact parallelism across both ends',
+      'Automated CNC tool-wear compensation ensures identical batch-to-batch repeatability',
+      'Engineered to absorb intense shock loads and severe multi-shift duty cycles',
+    ],
+    link: '/manufacturing-products',
+    ctaText: 'Explore Manufacturing Catalog',
+    secondaryCtaText: 'Request Technical Quote',
   },
 ];
 
-type CategoryKey = 'industrial' | 'forging';
+// Additional highlight parts for mini gallery when manufacturing is selected
+const MFG_GALLERY_PREVIEW = [
+  {
+    title: 'Precision Forged & CNC Machined Component',
+    category: 'Flanges & Structural',
+    image: '/images/gujraula_plant_img/1106.jpg.jpeg',
+  },
+  {
+    title: 'Concentric Bushing & Axial Spacer',
+    category: 'Bushings & Spacers',
+    image: '/images/gujraula_plant_img/4875.jpg.jpeg',
+  },
+  {
+    title: 'Grooved Thrust Retaining Ring',
+    category: 'Rings & Retainers',
+    image: '/images/gujraula_plant_img/2613.jpg.jpeg',
+  },
+  {
+    title: 'Heavy-Duty Stepped Sleeve Collar',
+    category: 'Precision Profiles',
+    image: '/images/gujraula_plant_img/2333.jpg.jpeg',
+  },
+];
 
-const CATEGORIES: { key: CategoryKey; label: string; icon: React.ReactNode; items: EquipmentItem[] }[] = [
+type CategoryKey = 'industrial' | 'manufacturing';
+
+const CATEGORIES: { 
+  key: CategoryKey; 
+  label: string; 
+  tag: string;
+  icon: React.ReactNode; 
+  items: EquipmentItem[] 
+}[] = [
   {
     key: 'industrial',
     label: 'Industrial Products & Services',
+    tag: 'Tier-1 Dealerships',
     icon: <Factory className="w-4 h-4" />,
     items: INDUSTRIAL_ITEMS,
   },
   {
-    key: 'forging',
-    label: 'Forging & Manufacturing',
+    key: 'manufacturing',
+    label: 'Manufacturing Products (Gajraula Plant)',
+    tag: 'In-House Precision Forgings',
     icon: <Hammer className="w-4 h-4" />,
-    items: FORGING_ITEMS,
+    items: MANUFACTURING_ITEMS,
   },
 ];
 
@@ -282,93 +370,107 @@ export default function FeaturedEquipment() {
     }));
   };
 
+  const isManufacturing = activeCategory === 'manufacturing';
+
   return (
-    <section className="py-20 lg:py-28 bg-white border-b border-gray-200" id="featured-equipment">
+    <section className="py-16 sm:py-20 lg:py-24 bg-white border-b border-gray-200" id="featured-equipment">
       <Container>
         {/* Section Heading */}
-        <div className="text-center mb-10">
+        <div className="text-center mb-8 sm:mb-12">
           <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-100 text-amber-800">
             <Sparkles className="w-3.5 h-3.5 text-amber-600" />
-            Flagship Engineering Showcase
+            Engineering & Manufacturing Showcase
           </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-navy mt-3 tracking-tight">
-            Tier-1 Industrial Equipment
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-navy mt-3 tracking-tight">
+            Tier-1 Industrial Equipment & In-House Manufacturing
           </h2>
-          <p className="text-slate-600 mt-2 text-sm sm:text-base max-w-2xl mx-auto">
-            Airmen Engineers is the authorized sales, turnkey engineering, and authorized service partner for global manufacturing leaders.
+          <p className="text-slate-600 mt-2 text-xs sm:text-sm lg:text-base max-w-3xl mx-auto leading-relaxed">
+            Authorized sales, turnkey engineering, and authorized service partner for global leaders alongside our state-of-the-art Gajraula Plant (U.P.) for precision closed-die forging and CNC-machined automotive components.
           </p>
         </div>
 
-        {/* ── Category Tabs ── */}
-        <div className="flex flex-wrap items-center justify-center gap-3 mb-10">
-          {CATEGORIES.map((cat) => (
-            <button
-              key={cat.key}
-              onClick={() => handleCategorySwitch(cat.key)}
-              className={`inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-bold transition-all whitespace-nowrap border-2 ${
-                activeCategory === cat.key
-                  ? 'bg-navy text-white border-navy shadow-lg shadow-navy/20 scale-[1.02]'
-                  : 'bg-white hover:bg-gray-50 text-slate-700 border-gray-200 hover:border-gray-300'
-              }`}
-              role="tab"
-              aria-selected={activeCategory === cat.key}
-              tabIndex={0}
-            >
-              {cat.icon}
-              {cat.label}
-            </button>
-          ))}
+        {/* ── Category Switcher Tabs ── */}
+        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-8 sm:mb-10">
+          {CATEGORIES.map((cat) => {
+            const isSelected = activeCategory === cat.key;
+            return (
+              <button
+                key={cat.key}
+                onClick={() => handleCategorySwitch(cat.key)}
+                className={`inline-flex items-center gap-2.5 px-4 sm:px-6 py-2.5 sm:py-3.5 rounded-xl text-xs sm:text-sm font-bold transition-all border-2 shadow-sm ${
+                  isSelected
+                    ? 'bg-navy text-white border-navy shadow-lg shadow-navy/20 scale-[1.02]'
+                    : 'bg-white hover:bg-gray-50 text-slate-700 border-gray-200 hover:border-gray-300'
+                }`}
+                role="tab"
+                aria-selected={isSelected}
+                tabIndex={0}
+              >
+                <span className={isSelected ? 'text-gold' : 'text-slate-500'}>
+                  {cat.icon}
+                </span>
+                <span>{cat.label}</span>
+                <span className={`text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full font-semibold hidden sm:inline-block ${
+                  isSelected 
+                    ? 'bg-white/20 text-white' 
+                    : 'bg-gray-100 text-slate-600'
+                }`}>
+                  {cat.tag}
+                </span>
+              </button>
+            );
+          })}
         </div>
 
-        {/* ── Product Navigation Pills ── */}
-        <div className="flex items-center justify-center gap-2 overflow-x-auto pb-2 mb-8 scrollbar-none">
+        {/* ── Component / Product Navigation Pills ── */}
+        <div className="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-3 mb-6 sm:mb-8 scrollbar-none">
           {items.map((item) => (
             <button
               key={item.id}
               onClick={() => setActiveTab(item.id)}
-              className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap ${
+              className={`px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap flex-shrink-0 ${
                 activeTab === item.id
-                  ? 'bg-gold text-navy shadow-lg shadow-gold/20 scale-105'
+                  ? 'bg-gold text-navy shadow-md shadow-gold/20 scale-105 ring-2 ring-gold/40'
                   : 'bg-gray-100 hover:bg-gray-200 text-slate-700'
               }`}
             >
-              {item.brand}
+              {item.pillLabel || item.brand}
             </button>
           ))}
         </div>
 
         {/* Featured Item Display Card */}
-        <div className="bg-slate-50 border border-gray-200 rounded-3xl p-6 sm:p-10 shadow-sm hover:shadow-md transition-shadow">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div className="bg-slate-50 border border-gray-200 rounded-3xl p-5 sm:p-8 lg:p-10 shadow-sm hover:shadow-md transition-shadow">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
             {/* Left: Product Images with Dynamic Switcher */}
             <div className="lg:col-span-6 space-y-4">
-              <div className="relative rounded-2xl overflow-hidden bg-white border border-gray-200 aspect-[4/3] flex items-center justify-center p-6 shadow-sm group">
+              <div className="relative rounded-2xl overflow-hidden bg-white border border-gray-200 aspect-[4/3] flex items-center justify-center p-4 sm:p-6 shadow-sm group">
                 <img
                   src={currentItem.images[activeImageIndex]}
                   alt={`${currentItem.name} photo`}
                   className="w-full h-full object-contain transform transition-transform duration-500 group-hover:scale-105"
                 />
 
-                <div className="absolute top-4 left-4 bg-navy text-white text-xs font-semibold px-3 py-1 rounded-md shadow-sm">
+                <div className="absolute top-3 left-3 sm:top-4 sm:left-4 bg-navy text-white text-[11px] sm:text-xs font-semibold px-2.5 sm:px-3 py-1 rounded-md shadow-sm">
                   {currentItem.badge}
                 </div>
 
-                <div className="absolute top-4 right-4 bg-white/95 px-3 py-1.5 rounded-lg shadow-sm border border-gray-200">
+                <div className="absolute top-3 right-3 sm:top-4 sm:right-4 bg-white/95 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg shadow-sm border border-gray-200">
                   <img
                     src={currentItem.brandLogo}
                     alt={currentItem.brand}
-                    className="h-6 w-auto object-contain"
+                    className="h-5 sm:h-6 w-auto object-contain"
                   />
                 </div>
               </div>
 
               {/* Thumbnails row */}
-              <div className="flex items-center gap-3 overflow-x-auto pb-1">
+              <div className="flex items-center gap-2.5 overflow-x-auto pb-1 scrollbar-none">
                 {currentItem.images.map((img, idx) => (
                   <button
                     key={idx}
                     onClick={() => handleImageSwitch(currentItem.id, idx)}
-                    className={`relative w-24 h-18 rounded-xl overflow-hidden border-2 bg-white p-1 transition-all flex-shrink-0 ${
+                    className={`relative w-20 sm:w-24 h-16 sm:h-18 rounded-xl overflow-hidden border-2 bg-white p-1 transition-all flex-shrink-0 ${
                       activeImageIndex === idx
                         ? 'border-amber-500 ring-2 ring-amber-500/20'
                         : 'border-gray-200 opacity-60 hover:opacity-100'
@@ -381,24 +483,24 @@ export default function FeaturedEquipment() {
             </div>
 
             {/* Right: Specifications, Highlights & CTA */}
-            <div className="lg:col-span-6 space-y-6">
+            <div className="lg:col-span-6 space-y-5 sm:space-y-6">
               <div>
-                <span className="text-xs font-bold text-amber-700 uppercase tracking-wider bg-amber-100/80 px-2.5 py-1 rounded-md">
+                <span className="text-[11px] sm:text-xs font-bold text-amber-700 uppercase tracking-wider bg-amber-100/80 px-2.5 py-1 rounded-md">
                   {currentItem.category}
                 </span>
-                <h3 className="text-2xl sm:text-3xl font-bold text-navy mt-3">
+                <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-navy mt-2.5 sm:mt-3 leading-tight">
                   {currentItem.name}
                 </h3>
-                <p className="text-slate-600 text-sm sm:text-base leading-relaxed mt-2">
+                <p className="text-slate-600 text-xs sm:text-sm lg:text-base leading-relaxed mt-2 sm:mt-2.5">
                   {currentItem.description}
                 </p>
               </div>
 
               {/* Specs Grid */}
-              <div className="grid grid-cols-2 gap-3 bg-white p-4 rounded-2xl border border-gray-200">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 bg-white p-3.5 sm:p-4 rounded-2xl border border-gray-200">
                 {currentItem.specs.map((spec, i) => (
-                  <div key={i} className="bg-slate-50 p-3 rounded-xl border border-gray-100">
-                    <span className="text-[11px] font-medium text-slate-500 block uppercase">
+                  <div key={i} className="bg-slate-50 p-2.5 sm:p-3 rounded-xl border border-gray-100">
+                    <span className="text-[10px] sm:text-[11px] font-medium text-slate-500 block uppercase">
                       {spec.label}
                     </span>
                     <span className="text-xs sm:text-sm font-bold text-navy mt-0.5 block font-mono">
@@ -410,7 +512,7 @@ export default function FeaturedEquipment() {
 
               {/* Features List */}
               <div className="space-y-2">
-                <span className="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-2">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-1.5 sm:mb-2">
                   Key Engineering Advantages
                 </span>
                 {currentItem.features.map((feature, i) => (
@@ -422,25 +524,35 @@ export default function FeaturedEquipment() {
               </div>
 
               {/* Action Buttons */}
-              <div className="flex flex-wrap items-center gap-4 pt-3">
+              <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-2">
                 <Button
                   href={currentItem.link}
                   size="md"
                   showArrow
-                  className="bg-navy hover:bg-navy-light text-white font-bold px-6 shadow-md"
+                  className="bg-navy hover:bg-navy-light text-white font-bold px-5 sm:px-6 shadow-md text-xs sm:text-sm"
                 >
-                  View Full {currentItem.brand} Catalogue
+                  {currentItem.ctaText || `View Full ${currentItem.brand} Catalogue`}
                 </Button>
 
-                <a
-                  href={currentItem.brochureLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-white hover:bg-gray-100 text-slate-800 font-semibold rounded-lg border border-gray-300 text-xs shadow-sm transition-colors"
-                >
-                  <FileDown className="w-4 h-4 text-amber-600" />
-                  Download Brochure (PDF)
-                </a>
+                {currentItem.brochureLink ? (
+                  <a
+                    href={currentItem.brochureLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 bg-white hover:bg-gray-100 text-slate-800 font-semibold rounded-lg border border-gray-300 text-xs shadow-sm transition-colors"
+                  >
+                    <FileDown className="w-4 h-4 text-amber-600" />
+                    Download Brochure (PDF)
+                  </a>
+                ) : (
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 bg-white hover:bg-gray-100 text-slate-800 font-semibold rounded-lg border border-gray-300 text-xs shadow-sm transition-colors"
+                  >
+                    <FileDown className="w-4 h-4 text-amber-600" />
+                    {currentItem.secondaryCtaText || 'Submit Drawing for RFQ'}
+                  </Link>
+                )}
 
                 <Link
                   href="/contact"
@@ -453,6 +565,102 @@ export default function FeaturedEquipment() {
             </div>
           </div>
         </div>
+
+        {/* ── Gajraula Plant Infrastructure & Capability Highlights (Appears on Manufacturing Tab) ── */}
+        {isManufacturing && (
+          <div className="mt-10 sm:mt-12 space-y-8 animate-fadeIn">
+            {/* 4 Pillars of Manufacturing Division */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow">
+                <div className="w-10 h-10 rounded-xl bg-navy/5 flex items-center justify-center text-navy mb-3">
+                  <Building2 className="w-5 h-5 text-navy" />
+                </div>
+                <h4 className="font-bold text-navy text-sm">Gajraula Plant (U.P.)</h4>
+                <p className="text-xs text-slate-600 mt-1 leading-relaxed">
+                  Dedicated in-house manufacturing facility with multi-axis CNC machine shop and closed-die forging presses.
+                </p>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow">
+                <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-600 mb-3">
+                  <Hammer className="w-5 h-5 text-amber-600" />
+                </div>
+                <h4 className="font-bold text-navy text-sm">Closed-Die Forgings</h4>
+                <p className="text-xs text-slate-600 mt-1 leading-relaxed">
+                  High-tensile alloy and carbon steels engineered with continuous metallurgical grain flow for extreme fatigue life.
+                </p>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow">
+                <div className="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-600 mb-3">
+                  <Microscope className="w-5 h-5 text-blue-600" />
+                </div>
+                <h4 className="font-bold text-navy text-sm">100% CMM Inspection</h4>
+                <p className="text-xs text-slate-600 mt-1 leading-relaxed">
+                  Precision Coordinate Measuring Machines, bore micrometers, and surface profilometers ensuring ±0.01 mm tolerances.
+                </p>
+              </div>
+
+              <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow">
+                <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-600 mb-3">
+                  <ShieldCheck className="w-5 h-5 text-emerald-600" />
+                </div>
+                <h4 className="font-bold text-navy text-sm">Client Drawing Compliance</h4>
+                <p className="text-xs text-slate-600 mt-1 leading-relaxed">
+                  100% adherence to customer 2D/3D drawings, custom heat treatments, and complete Material Test Certificates (MTC).
+                </p>
+              </div>
+            </div>
+
+            {/* Component Preview Strip */}
+            <div className="bg-slate-900 text-white rounded-3xl p-6 sm:p-8 lg:p-10 shadow-xl relative overflow-hidden">
+              <div className="relative z-10">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
+                  <div>
+                    <span className="text-gold text-xs font-bold uppercase tracking-wider">
+                      Explore Gajraula Plant Component Families
+                    </span>
+                    <h3 className="text-xl sm:text-2xl font-extrabold text-white mt-1">
+                      More Precision Automotive Components
+                    </h3>
+                  </div>
+
+                  <Link
+                    href="/manufacturing-products"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 bg-gold hover:bg-gold-light text-navy font-bold rounded-xl text-xs sm:text-sm transition-colors shadow-lg shadow-gold/20 flex-shrink-0"
+                  >
+                    View All 20+ Components
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
+
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  {MFG_GALLERY_PREVIEW.map((item, idx) => (
+                    <Link
+                      key={idx}
+                      href="/manufacturing-products"
+                      className="group bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl p-3 sm:p-4 transition-all block text-left"
+                    >
+                      <div className="relative aspect-square rounded-xl overflow-hidden bg-white/95 mb-3 p-2 flex items-center justify-center">
+                        <img
+                          src={item.image}
+                          alt={item.title}
+                          className="w-full h-full object-contain group-hover:scale-105 transition-transform"
+                        />
+                      </div>
+                      <span className="text-[10px] text-gold font-semibold uppercase tracking-wider block">
+                        {item.category}
+                      </span>
+                      <h5 className="text-xs sm:text-sm font-bold text-white group-hover:text-gold transition-colors line-clamp-2 mt-1">
+                        {item.title}
+                      </h5>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </Container>
     </section>
   );

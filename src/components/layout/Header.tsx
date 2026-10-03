@@ -6,18 +6,25 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { NAV_ITEMS } from '@/data/navigation';
-import Container from '@/components/common/Container';
 import Button from '@/components/common/Button';
 import MegaMenu from './MegaMenu';
 import MobileMenu from './MobileMenu';
 
 export default function Header() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
+
+  // Auto-hide mega menu and mobile drawer on route change
+  useEffect(() => {
+    setActiveMenu(null);
+    setMobileOpen(false);
+  }, [pathname]);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -45,10 +52,15 @@ export default function Header() {
             : 'bg-white'
         )}
       >
-        <Container>
-          <div className="flex items-center justify-between h-20">
-            {/* Logo */}
-            <Link href="/" className="flex items-center gap-2 sm:gap-3 group flex-shrink-0" id="header-logo">
+        <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-12">
+          <div className="flex items-center justify-between h-20 gap-4">
+            {/* Logo — Left Aligned */}
+            <Link 
+              href="/" 
+              onClick={() => setActiveMenu(null)}
+              className="flex items-center gap-2 sm:gap-3 group flex-shrink-0" 
+              id="header-logo"
+            >
               {/* Logo Image */}
               <img src="/images/main-logo.png" alt="Airmen Engineers" className="h-10 sm:h-12 w-auto object-contain flex-shrink-0" />
               {/* Logo Text — single line, professional serif */}
@@ -61,7 +73,7 @@ export default function Header() {
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-1" id="desktop-nav">
+            <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1.5" id="desktop-nav">
               {NAV_ITEMS.map((item) => (
                 <div
                   key={item.label}
@@ -71,23 +83,35 @@ export default function Header() {
                 >
                   <Link
                     href={item.href}
+                    onClick={() => setActiveMenu(null)}
                     className={cn(
-                      'px-3 py-2 text-sm font-medium text-charcoal hover:text-gold transition-colors relative',
-                      'after:absolute after:bottom-0 after:left-3 after:right-3 after:h-0.5 after:bg-gold after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100'
+                      'px-2 xl:px-3 py-2 text-xs xl:text-sm font-medium text-charcoal hover:text-gold transition-colors relative whitespace-nowrap',
+                      'after:absolute after:bottom-0 after:left-2 xl:after:left-3 after:right-2 xl:after:right-3 after:h-0.5 after:bg-gold after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100'
                     )}
                   >
                     {item.label}
                   </Link>
                   {item.megaMenu && activeMenu === item.label && (
-                    <MegaMenu categories={item.megaMenu} />
+                    <MegaMenu
+                      categories={item.megaMenu}
+                      viewAllHref={item.href}
+                      viewAllLabel={`View All ${item.label}`}
+                      onItemClick={() => setActiveMenu(null)}
+                    />
                   )}
                 </div>
               ))}
             </nav>
 
             {/* Right Actions */}
-            <div className="flex items-center gap-3">
-              <Button href="/contact" size="sm" className="hidden lg:inline-flex" id="header-cta">
+            <div className="flex items-center gap-3 flex-shrink-0">
+              <Button 
+                href="/contact" 
+                size="sm" 
+                onClick={() => setActiveMenu(null)}
+                className="hidden lg:inline-flex" 
+                id="header-cta"
+              >
                 GET A QUOTE
               </Button>
 
@@ -102,7 +126,7 @@ export default function Header() {
               </button>
             </div>
           </div>
-        </Container>
+        </div>
       </header>
 
       {/* Mobile Menu */}

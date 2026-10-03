@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 export default function ProductsPage() {
   return (
     <div className="bg-[#0b1320] min-h-screen">
-      <Breadcrumb items={[{ label: 'Products' }]} />
+      <Breadcrumb items={[{ label: 'Industrial Products' }]} />
       <ProductsOverviewClient products={PRODUCTS} categories={PRODUCT_CATEGORIES} />
     </div>
   );

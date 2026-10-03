@@ -213,39 +213,27 @@ export default function IndustriesClient() {
   return (
     <div className="bg-gray-50 min-h-screen">
       {/* ── Hero Section with Left Text & Right 3-Card Bento Gallery ── */}
-      <section className="relative py-14 sm:py-20 lg:py-24 bg-gradient-to-b from-[#060D17] via-[#0A1628] to-[#081220] text-white overflow-hidden border-b border-white/10">
-        {/* Real Industrial Facility Background */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/about-2.jpg"
-            alt="Airmen Engineers Industrial Solutions"
-            fill
-            className="object-cover opacity-15 mix-blend-luminosity"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#060D17] via-[#060D17]/90 to-[#060D17]/75" />
-        </div>
-
-        <div className="absolute inset-0 bg-[radial-gradient(#f59e0b_1px,transparent_1px)] [background-size:32px_32px] opacity-10 pointer-events-none" />
+      <section className="relative overflow-hidden bg-gradient-to-br from-navy-dark via-navy to-[#0a1628] text-white py-14 sm:py-20 border-b border-gold/20">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,163,35,0.18),transparent_55%)] pointer-events-none" />
 
         <Container className="relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
             {/* Left Content Column */}
             <div className="lg:col-span-6 xl:col-span-7 flex flex-col items-start text-left max-sm:items-center max-sm:text-center space-y-6">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/25 text-amber-400 text-xs font-semibold uppercase tracking-wider max-sm:mx-auto">
+              <div className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-gold max-sm:mx-auto">
                 <Sparkles className="w-3.5 h-3.5" />
                 SERVING 5,000+ INDUSTRIAL PLANTS ACROSS INDIA
               </div>
 
-              <h1 className="text-3xl sm:text-5xl lg:text-[3.25rem] font-extrabold tracking-tight text-white leading-[1.12]">
-                Powering Diverse<br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500">
+              <h1 className="text-3xl sm:text-5xl lg:text-[3.25rem] font-black tracking-tight text-white leading-[1.12]">
+                Powering Diverse <br />
+                <span className="text-gold">
                   Manufacturing Industries
                 </span>
               </h1>
 
-              <p className="text-gray-300 text-sm sm:text-base lg:text-lg leading-relaxed max-w-xl">
+              <p className="text-sm sm:text-base lg:text-lg text-slate-300 leading-relaxed max-w-xl">
                 From tier-1 automotive manufacturing plants to Japanese industrial corridors, cleanroom pharmaceuticals, and heavy engineering — our turnkey machinery delivers 99.8% plant uptime with certified lowest energy lifecycle costs.
               </p>
 

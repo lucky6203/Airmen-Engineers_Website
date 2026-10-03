@@ -205,25 +205,8 @@ export default function CustomerClient() {
   return (
     <div className="bg-gray-50 min-h-screen">
       {/* ── Interactive Hero Section with Real Machinery Images ── */}
-      <section className="relative pt-12 sm:pt-16 lg:pt-20 pb-10 sm:pb-14 bg-[#040911] text-white overflow-hidden border-b border-white/10">
-        
-        {/* Real Industrial Workshop Background with Dual Ambient Gradients */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/about-2.jpg"
-            alt="Airmen Engineers Client Network"
-            fill
-            className="object-cover opacity-20 mix-blend-luminosity scale-105"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#040911] via-[#040911]/92 to-[#040911]/80" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#040911] via-transparent to-transparent" />
-        </div>
-
-        {/* Ambient Glowing Flares */}
-        <div className="absolute -top-32 -left-32 w-96 h-96 bg-amber-500/15 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute top-1/2 -right-32 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute inset-0 bg-[radial-gradient(#f59e0b_1px,transparent_1px)] [background-size:32px_32px] opacity-10 pointer-events-none" />
+      <section className="relative overflow-hidden bg-gradient-to-br from-navy-dark via-navy to-[#0a1628] text-white py-14 sm:py-20 border-b border-gold/20">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,163,35,0.18),transparent_55%)] pointer-events-none" />
 
         <Container className="relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
@@ -233,34 +216,34 @@ export default function CustomerClient() {
               
               {/* Trust & Live Operational Status Pill */}
               <div className="flex flex-wrap items-center gap-2 max-sm:justify-center">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-amber-400/30 backdrop-blur-md text-[11px] font-semibold text-gray-200 shadow-inner">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold/10 border border-gold/40 text-[11px] font-bold text-gold">
                   <span className="flex h-2 w-2 relative">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                   </span>
-                  <span className="text-amber-400 font-bold uppercase tracking-wider">
+                  <span className="font-bold uppercase tracking-wider">
                     5,000+ INDUSTRIAL CLIENTS
                   </span>
-                  <span className="text-gray-500">•</span>
-                  <span className="text-gray-300">ESTD 1996</span>
+                  <span className="text-gold/50">•</span>
+                  <span className="text-slate-300">ESTD 1996</span>
                 </div>
 
-                <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-300 text-[11px] font-bold">
-                  <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
+                <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gold/10 border border-gold/30 text-gold text-[11px] font-bold">
+                  <Star className="w-3 h-3 fill-gold text-gold" />
                   <span>4.9/5 Plant Rating</span>
                 </div>
               </div>
 
               {/* High-Impact Headline */}
-              <h1 className="text-3xl sm:text-4xl lg:text-[3.15rem] font-extrabold tracking-tight text-white leading-[1.14]">
+              <h1 className="text-3xl sm:text-4xl lg:text-[3.15rem] font-black tracking-tight text-white leading-[1.14]">
                 Where India&apos;s Industrial Titans<br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-200 to-yellow-400">
+                <span className="text-gold">
                   Rely for 99.9% Production Uptime
                 </span>
               </h1>
 
               {/* Subheading */}
-              <p className="text-gray-300 text-xs sm:text-sm lg:text-base leading-relaxed max-w-xl font-normal">
+              <p className="text-sm sm:text-base lg:text-lg text-slate-300 leading-relaxed max-w-xl font-normal">
                 Authorized sales &amp; 24/7 service partner for German Kaeser rotary screw compressors, EP material handling, and Greaves power solutions across North India&apos;s critical automotive, Japanese, and heavy engineering corridors.
               </p>
 

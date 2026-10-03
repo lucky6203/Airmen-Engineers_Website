@@ -16,8 +16,8 @@ import BlogPreview from '@/components/sections/BlogPreview';
 import FinalCTA from '@/components/sections/FinalCTA';
 
 export const metadata: Metadata = {
-  title: 'Airmen Engineers — Tier-1 Industrial Compressed Air, Material Handling & Power Solutions',
-  description: 'Authorized Sales & Service Partner for Kaeser Kompressoren, EP Lithium-Ion Forklifts, Greaves Cotton CPCB IV+ DG Sets, and AIRpipe. Serving 2,500+ manufacturing plants across India since 1996.',
+  title: 'Airmen Engineers — Industrial Equipment & In-House Precision Manufacturing',
+  description: 'Authorized Partner for Kaeser Kompressoren, EP Lithium-Ion Forklifts, Greaves Cotton DG Sets, and AIRpipe, alongside our Gajraula Plant for precision closed-die forging and CNC-machined automotive components.',
 };
 
 export default function HomePage() {

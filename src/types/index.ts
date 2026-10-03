@@ -98,6 +98,7 @@ export interface ContactInfo {
   headOffice: OfficeInfo;
   serviceEnquiry: ContactDetails;
   branch?: OfficeInfo;
+  manufacturingPlant?: OfficeInfo;
 }
 
 export interface OfficeInfo {

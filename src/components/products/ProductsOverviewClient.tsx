@@ -85,7 +85,7 @@ export default function ProductsOverviewClient({
       /* Category filter */
       const categoryMatch =
         activeCategory === 'all' ||
-        product.category?.slug === activeCategory;
+        product.category === activeCategory;
 
       if (!categoryMatch) {
         return false;
@@ -101,8 +101,7 @@ export default function ProductsOverviewClient({
         product.description,
         product.brand?.name,
         product.brand?.slug,
-        product.category?.name,
-        product.category?.slug,
+        typeof product.category === 'string' ? product.category : '',
       ]
         .filter(Boolean)
         .join(' ')
@@ -128,65 +127,22 @@ export default function ProductsOverviewClient({
           PAGE HERO
       ===================================================== */}
 
-      <section className="relative overflow-hidden bg-navy">
+      <section className="relative overflow-hidden bg-gradient-to-br from-navy-dark via-navy to-[#0a1628] text-white py-14 sm:py-20 border-b border-gold/20">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,163,35,0.18),transparent_55%)] pointer-events-none" />
         <Container>
-          <div className="py-14 sm:py-16 lg:py-20">
-            <div className="max-w-4xl">
-
-              <div
-                className="
-                  inline-flex
-                  items-center
-                  gap-2
-                  rounded-full
-                  border
-                  border-white/10
-                  bg-white/5
-                  px-4
-                  py-2
-                  text-xs
-                  font-bold
-                  uppercase
-                  tracking-wider
-                  text-amber-400
-                "
-              >
-                <Sparkles className="h-3.5 w-3.5" />
-                Industrial Equipment
-              </div>
-
-              <h1
-                className="
-                  mt-5
-                  text-3xl
-                  font-black
-                  tracking-tight
-                  text-white
-                  sm:text-4xl
-                  lg:text-6xl
-                "
-              >
-                Products & Solutions
-              </h1>
-
-              <p
-                className="
-                  mt-5
-                  max-w-3xl
-                  text-sm
-                  leading-7
-                  text-white/70
-                  sm:text-base
-                  lg:text-lg
-                "
-              >
-                Explore our complete range of industrial equipment,
-                compressed-air systems, material-handling solutions
-                and power solutions designed for demanding industrial
-                applications.
-              </p>
-
+          <div className="relative z-10 max-w-4xl">
+            <div className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-gold mb-4">
+              <Sparkles className="h-3.5 w-3.5" />
+              Industrial Equipment Catalog
             </div>
+
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white mb-6 leading-tight">
+              Products & <span className="text-gold">Engineering Solutions</span>
+            </h1>
+
+            <p className="text-sm sm:text-base lg:text-lg text-slate-300 leading-relaxed mb-4 max-w-3xl">
+              Explore our complete range of authorized industrial equipment: German Kaeser rotary screw compressors, EP Lithium-ion forklifts, Greaves Cotton power generators, and AIRpipe aluminium distribution systems designed for demanding industrial operations.
+            </p>
           </div>
         </Container>
       </section>
@@ -614,9 +570,8 @@ export default function ProductsOverviewClient({
 
                       {/* CATEGORY */}
 
-                      {product.category?.name && (
+                      {product.category && (
                         <div className="mb-2">
-
                           <span
                             className="
                               text-[10px]
@@ -626,9 +581,8 @@ export default function ProductsOverviewClient({
                               text-amber-600
                             "
                           >
-                            {product.category.name}
+                            {categories.find((c) => c.id === product.category)?.name || (typeof product.category === 'string' ? product.category.replace(/-/g, ' ') : '')}
                           </span>
-
                         </div>
                       )}
 
@@ -745,9 +699,9 @@ export default function ProductsOverviewClient({
                             />
                           </Link>
 
-                          {product.brochure && (
+                          {product.brochureUrl && (
                             <a
-                              href={product.brochure}
+                              href={product.brochureUrl}
                               target="_blank"
                               rel="noopener noreferrer"
                               className="

@@ -1,309 +1,224 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
-import Image from 'next/image';
-
 // ============================================
 // Airmen Engineers — Hero Section
-// Responsive / Mobile Optimized
+// Responsive / Mobile Optimized Slider
 // ============================================
+
+import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const HERO_IMAGES = [
   {
     url: '/images/banner-1.jpg',
-    alt: 'Kaeser Compressors',
+    alt: 'Kaeser Compressors — German Engineered Screw Air Compressors',
   },
   {
-    url: '/images/about-2.jpg',
-    alt: 'Industrial Solutions',
+    url: '/images/Banner-6.jpg',
+    alt: 'AIRpipe — Industrial Aluminium Compressed Air Piping Distribution',
   },
   {
-    url: '/images/banner-3.jpg',
-    alt: 'EP Forklifts',
+    url: '/images/banner-7.jpg',
+    alt: 'EP Equipment — Electric & Lithium-Ion Material Handling Forklifts',
   },
   {
     url: '/images/banner-4.jpg',
-    alt: 'Greaves Power',
+    alt: 'Greaves Cotton — Industrial Diesel Generators & Power Solutions',
   },
   {
     url: '/images/banner-5.jpg',
-    alt: 'AIM Compressors',
+    alt: 'AIM Compressors — Reciprocating & Scroll Air Compressors',
   },
 ];
 
 export default function Hero() {
-  const sectionRef = useRef<HTMLElement | null>(null);
-
   const [currentImage, setCurrentImage] = useState(0);
 
   // ============================================
-  // AUTO SLIDER
+  // AUTO SLIDER (Active 3.5s continuous rotation)
+  // Resets timer on user interaction
   // ============================================
 
   useEffect(() => {
-    const interval = window.setInterval(() => {
+    const timer = window.setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % HERO_IMAGES.length);
-    }, 5000);
+    }, 3500);
 
     return () => {
-      window.clearInterval(interval);
+      window.clearInterval(timer);
     };
-  }, []);
+  }, [currentImage]);
 
-  // ============================================
-  // PARALLAX
-  // Desktop Only
-  // ============================================
+  const handlePrev = () => {
+    setCurrentImage((prev) => (prev - 1 + HERO_IMAGES.length) % HERO_IMAGES.length);
+  };
 
-  useEffect(() => {
-    const section = sectionRef.current;
-
-    if (!section) return;
-
-    const handleScroll = () => {
-      const textElement = section.querySelector(
-        '.hero-text'
-      ) as HTMLElement | null;
-
-      if (!textElement) return;
-
-      // Completely disable parallax on mobile/tablet
-      if (window.innerWidth <= 768) {
-        textElement.style.transform = 'none';
-        textElement.style.opacity = '1';
-        return;
-      }
-
-      const scrollY = window.scrollY;
-
-      textElement.style.transform = `translateY(${scrollY * 0.3}px)`;
-
-      textElement.style.opacity = String(
-        Math.max(0, 1 - scrollY / 600)
-      );
-    };
-
-    window.addEventListener('scroll', handleScroll, {
-      passive: true,
-    });
-
-    handleScroll();
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
-  // ============================================
-  // HERO SECTION
-  // ============================================
+  const handleNext = () => {
+    setCurrentImage((prev) => (prev + 1) % HERO_IMAGES.length);
+  };
 
   return (
     <section
-      ref={sectionRef}
       id="hero"
-      className="
-        relative
-        w-full
-        max-w-full
-        overflow-hidden
-        bg-white
-
-        /* Desktop */
-        lg:min-h-screen
-        lg:flex
-        lg:items-center
-      "
+      className="relative w-full max-w-full overflow-hidden bg-white group select-none"
     >
-
       {/* ========================================
-          HERO IMAGE AREA
+          HERO IMAGE SLIDER CONTAINER
+          Identical width & height for all slides
+          Mobile Responsive Aspect Ratio
           ======================================== */}
-
       <div
         className="
           relative
           w-full
-
-          /* Mobile:
-             Let image determine the height */
           aspect-[16/9]
-
-          /* Tablet */
           sm:aspect-[16/8]
-
-          /* Desktop */
-          lg:absolute
-          lg:inset-0
-          lg:h-full
-          lg:aspect-auto
-
+          lg:aspect-[21/9]
+          xl:aspect-[2.4/1]
+          min-h-[220px]
+          sm:min-h-[320px]
+          lg:min-h-[500px]
           overflow-hidden
           bg-white
         "
       >
-
-        {HERO_IMAGES.map((image, index) => (
-          <div
-            key={image.url}
-            className={`
-              absolute
-              inset-0
-
-              w-full
-              h-full
-
-              transition-opacity
-              duration-1000
-              ease-in-out
-
-              ${index === currentImage
-                ? 'opacity-100'
-                : 'opacity-0 pointer-events-none'
-              }
-            `}
-          >
-
-            <Image
-              src={image.url}
-              alt={image.alt}
-              fill
-              priority={index === 0}
-              sizes="100vw"
-              quality={90}
-              className="
-                block
+        {HERO_IMAGES.map((image, index) => {
+          const isActive = index === currentImage;
+          return (
+            <div
+              key={image.url}
+              className={`
+                absolute
+                inset-0
                 w-full
                 h-full
-
-                /* Desktop */
-                object-cover
-                object-center
-
-                /* Mobile */
-                max-[768px]:object-contain
-                max-[768px]:object-center
-              "
-            />
-
-          </div>
-        ))}
-
+                transition-opacity
+                duration-700
+                ease-in-out
+                ${isActive ? 'opacity-100 z-10' : 'opacity-0 pointer-events-none z-0'}
+              `}
+            >
+              <Image
+                src={image.url}
+                alt={image.alt}
+                fill
+                priority={index === 0}
+                sizes="100vw"
+                quality={90}
+                className="
+                  block
+                  w-full
+                  h-full
+                  object-cover
+                  object-center
+                "
+              />
+            </div>
+          );
+        })}
       </div>
 
-
       {/* ========================================
-          DESKTOP OVERLAY
+          PREVIOUS / NEXT ARROWS
+          Desktop & Tablet Quick Navigation
           ======================================== */}
-
-      <div
+      <button
+        type="button"
+        onClick={handlePrev}
+        aria-label="Previous banner"
         className="
           absolute
-          inset-0
-
-          z-[1]
-
-          pointer-events-none
-
-          bg-gradient-to-r
-          from-navy/90
-          via-navy/50
-          to-transparent
-
-          max-[768px]:hidden
+          left-3 sm:left-6
+          top-1/2 -translate-y-1/2
+          z-20
+          p-2 sm:p-3
+          rounded-full
+          bg-black/35 hover:bg-black/70
+          backdrop-blur-md
+          border border-white/25
+          text-white hover:text-gold
+          transition-all duration-300
+          opacity-0 group-hover:opacity-100
+          focus:opacity-100
+          shadow-lg
         "
-      />
+      >
+        <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
+      </button>
 
-
-      {/* ========================================
-          MOBILE BOTTOM FADE
-          ======================================== */}
-
-      <div
+      <button
+        type="button"
+        onClick={handleNext}
+        aria-label="Next banner"
         className="
           absolute
-          bottom-0
-          left-0
-          right-0
-
-          z-[2]
-
-          h-10
-
-          pointer-events-none
-
-          bg-gradient-to-t
-          from-white
-          to-transparent
-
-          lg:h-32
+          right-3 sm:right-6
+          top-1/2 -translate-y-1/2
+          z-20
+          p-2 sm:p-3
+          rounded-full
+          bg-black/35 hover:bg-black/70
+          backdrop-blur-md
+          border border-white/25
+          text-white hover:text-gold
+          transition-all duration-300
+          opacity-0 group-hover:opacity-100
+          focus:opacity-100
+          shadow-lg
         "
-      />
-
+      >
+        <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
+      </button>
 
       {/* ========================================
-          SLIDER DOTS
+          SLIDER INDICATOR PILL
+          Visible over both dark and white backgrounds
           ======================================== */}
-
       <div
         className="
           absolute
-
-          z-[10]
-
-          left-1/2
-          -translate-x-1/2
-
-          bottom-4
-
+          z-20
+          left-1/2 -translate-x-1/2
+          bottom-3 sm:bottom-6
           flex
           items-center
           justify-center
           gap-2
-
-          lg:bottom-12
+          px-3 sm:px-4 py-1.5
+          rounded-full
+          bg-black/40
+          backdrop-blur-md
+          border border-white/20
+          shadow-lg
         "
       >
-
-        {HERO_IMAGES.map((image, index) => (
-          <button
-            key={image.url}
-            type="button"
-            onClick={() => setCurrentImage(index)}
-            aria-label={`Go to slide ${index + 1}`}
-            aria-current={
-              index === currentImage
-                ? 'true'
-                : undefined
-            }
-            className={`
-              block
-              p-0
-              border-0
-
-              w-2.5
-              h-2.5
-
-              rounded-full
-
-              cursor-pointer
-
-              transition-all
-              duration-300
-
-              ${index === currentImage
-                ? 'bg-gold scale-125'
-                : 'bg-white/70'
-              }
-
-              lg:w-3
-              lg:h-3
-            `}
-          />
-        ))}
-
+        {HERO_IMAGES.map((image, index) => {
+          const isActive = index === currentImage;
+          return (
+            <button
+              key={image.url}
+              type="button"
+              onClick={() => setCurrentImage(index)}
+              aria-label={`Go to banner slide ${index + 1}`}
+              aria-current={isActive ? 'true' : undefined}
+              className={`
+                block
+                p-0
+                border-0
+                rounded-full
+                cursor-pointer
+                transition-all
+                duration-300
+                ${isActive
+                  ? 'bg-gold w-6 sm:w-8 h-2 sm:h-2.5 shadow-sm'
+                  : 'bg-white/60 hover:bg-white w-2 sm:w-2.5 h-2 sm:h-2.5'
+                }
+              `}
+            />
+          );
+        })}
       </div>
-
     </section>
   );
 }

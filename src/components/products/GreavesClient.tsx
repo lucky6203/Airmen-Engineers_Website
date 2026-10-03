@@ -469,16 +469,14 @@ export default function GreavesClient({ products, brand }: GreavesClientProps) {
   return (
     <>
       {/* ── Brand Dark Luxury Hero Section ── */}
-      <section className="relative bg-gradient-to-b from-[#0a192f] via-[#0f2744] to-[#071322] text-white py-20 lg:py-28 overflow-hidden border-b border-white/10">
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#f59e0b_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
-        <div className="absolute -top-32 -right-32 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+      <section className="relative overflow-hidden bg-gradient-to-br from-navy-dark via-navy to-[#0a1628] text-white py-14 sm:py-20 border-b border-gold/20">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,163,35,0.18),transparent_55%)] pointer-events-none" />
 
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-400 text-xs font-semibold uppercase tracking-wider">
+              <div className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-gold">
                 <Sparkles className="w-3.5 h-3.5" />
                 CPCB IV+ Compliant Gensets • 165+ Years of Indian Heritage
               </div>
@@ -1019,12 +1017,34 @@ export default function GreavesClient({ products, brand }: GreavesClientProps) {
               </p>
 
               <div className="space-y-3">
-                <div className="flex items-center gap-3 p-3 rounded-lg bg-slate-800/80 border border-slate-700">
-                  <PhoneCall className="w-5 h-5 text-amber-400 flex-shrink-0" />
-                  <div>
-                    <div className="text-xs text-gray-400">Direct Sales & Support</div>
-                    <div className="text-sm font-semibold text-white">+91 98101 23456 / +91 99999 88888</div>
+                <div className="flex items-center justify-between p-3.5 rounded-lg bg-slate-800/80 border border-slate-700">
+                  <div className="flex items-center gap-3">
+                    <PhoneCall className="w-5 h-5 text-amber-400 flex-shrink-0" />
+                    <div>
+                      <div className="text-[11px] font-bold text-amber-400 uppercase tracking-wider">SALES — MR. ARUN SAXENA</div>
+                      <a href="tel:7840004701" className="text-sm font-semibold text-white hover:text-amber-400 font-mono transition-colors">
+                        7840004701
+                      </a>
+                    </div>
                   </div>
+                  <a href="https://wa.me/917840004701" target="_blank" rel="noopener noreferrer" className="text-xs px-2.5 py-1 rounded bg-emerald-500/20 text-emerald-400 font-semibold hover:bg-emerald-500/30">
+                    WhatsApp
+                  </a>
+                </div>
+
+                <div className="flex items-center justify-between p-3.5 rounded-lg bg-slate-800/80 border border-slate-700">
+                  <div className="flex items-center gap-3">
+                    <PhoneCall className="w-5 h-5 text-emerald-400 flex-shrink-0" />
+                    <div>
+                      <div className="text-[11px] font-bold text-emerald-400 uppercase tracking-wider">SERVICE — MR. GOPAL</div>
+                      <a href="tel:7840004702" className="text-sm font-semibold text-white hover:text-emerald-400 font-mono transition-colors">
+                        7840004702
+                      </a>
+                    </div>
+                  </div>
+                  <a href="https://wa.me/917840004702" target="_blank" rel="noopener noreferrer" className="text-xs px-2.5 py-1 rounded bg-emerald-500/20 text-emerald-400 font-semibold hover:bg-emerald-500/30">
+                    WhatsApp
+                  </a>
                 </div>
 
                 <div className="flex items-center gap-3 p-3 rounded-lg bg-slate-800/80 border border-slate-700">

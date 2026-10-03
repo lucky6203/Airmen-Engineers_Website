@@ -346,45 +346,27 @@ export default function BlogClient() {
       )}
 
       {/* ── Modern High-Impact Hero Section ──────────────────────── */}
-      <section className="relative pt-14 sm:pt-20 pb-12 sm:pb-16 bg-[#040911] text-white overflow-hidden border-b border-white/10">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/about-2.jpg"
-            alt="Airmen Industrial Knowledge Hub"
-            fill
-            className="object-cover opacity-20 mix-blend-luminosity scale-105"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#040911] via-[#040911]/92 to-[#040911]/80" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#040911] via-transparent to-transparent" />
-        </div>
-
-        {/* Ambient Flares */}
-        <div className="absolute -top-32 -left-32 w-96 h-96 bg-amber-500/15 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute top-1/2 -right-32 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
+      <section className="relative overflow-hidden bg-gradient-to-br from-navy-dark via-navy to-[#0a1628] text-white py-14 sm:py-20 border-b border-gold/20">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,163,35,0.18),transparent_55%)] pointer-events-none" />
 
         <Container className="relative z-10">
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
             
             {/* Left Content */}
             <div className="max-w-2xl text-left space-y-4">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-amber-400/30 backdrop-blur-md text-[11px] font-semibold text-gray-200 shadow-inner">
-                <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-                <span className="text-amber-400 font-bold uppercase tracking-wider">
-                  INDUSTRIAL KNOWLEDGE HUB
-                </span>
-                <span className="text-gray-500">•</span>
-                <span className="text-gray-300">TECHNICAL ARTICLES &amp; CASE STUDIES</span>
+              <div className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-gold">
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>INDUSTRIAL KNOWLEDGE HUB • TECHNICAL ARTICLES &amp; CASE STUDIES</span>
               </div>
 
-              <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+              <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-white leading-tight">
                 Industrial Engineering <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-200 to-yellow-400">
+                <span className="text-gold">
                   Insights &amp; Articles
                 </span>
               </h1>
 
-              <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
+              <p className="text-sm sm:text-base lg:text-lg text-slate-300 leading-relaxed">
                 Expert technical knowledge on Kaeser rotary screw compressors, ISO 8573-1 air purity standards, ultrasonic energy audits, and industrial material handling. Write and share your own engineering articles right from your browser!
               </p>
 

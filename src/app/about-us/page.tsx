@@ -28,7 +28,8 @@ import {
   Activity,
   Layers,
   Leaf,
-  Truck
+  Truck,
+  Factory
 } from 'lucide-react';
 import { 
   COMPANY_DESCRIPTION, 
@@ -152,17 +153,14 @@ export default function AboutPage() {
       <Breadcrumb items={[{ label: 'About Us' }]} />
 
       {/* ── Hero Section ────────────────────────── */}
-      <section className="relative py-20 lg:py-28 bg-gradient-to-b from-[#060D17] via-[#0A1628] to-[#081220] text-white overflow-hidden border-b border-white/10">
-        {/* Ambient Glows & Background Grid */}
-        <div className="absolute inset-0 bg-[radial-gradient(#f59e0b_1px,transparent_1px)] [background-size:32px_32px] opacity-10 pointer-events-none" />
-        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-amber-500/10 rounded-full blur-[140px] pointer-events-none" />
-        <div className="absolute bottom-10 right-10 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[150px] pointer-events-none" />
+      <section className="relative overflow-hidden bg-gradient-to-br from-navy-dark via-navy to-[#0a1628] text-white py-14 sm:py-20 border-b border-gold/20">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,163,35,0.18),transparent_55%)] pointer-events-none" />
 
         <Container className="relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6 text-center lg:text-left flex flex-col items-center lg:items-start">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/25 text-amber-400 text-xs font-semibold uppercase tracking-wider">
+              <div className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-gold">
                 <Sparkles className="w-3.5 h-3.5" />
                 ESTABLISHED 1996 • 29+ YEARS OF INDUSTRIAL EXCELLENCE
               </div>
@@ -268,13 +266,19 @@ export default function AboutPage() {
       {/* ── Key Numbers Metric Strip ────────────── */}
       <section className="py-12 bg-white border-b border-gray-200">
         <Container>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {COMPANY_STATS.map((stat) => (
-              <div key={stat.label} className="text-center p-4 rounded-xl bg-slate-50 border border-gray-100">
-                <span className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-navy font-heading">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
+            {[
+              { value: '1996', label: 'Established' },
+              { value: '29', label: 'Years Experience', suffix: '+' },
+              { value: '5,000', label: 'Industrial Clients', suffix: '+' },
+              { value: '50,000', label: 'Machined Parts / Yr', suffix: '+' },
+              { value: '24/7', label: 'Service Support' },
+            ].map((stat) => (
+              <div key={stat.label} className="text-center p-4 rounded-xl bg-slate-50 border border-gray-100 hover:border-gold/30 transition-colors">
+                <span className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-navy font-heading">
                   {stat.value}<span className="text-amber-500">{stat.suffix}</span>
                 </span>
-                <span className="block text-xs sm:text-sm text-slate-500 mt-2 font-medium uppercase tracking-wider">
+                <span className="block text-[11px] sm:text-xs text-slate-500 mt-2 font-medium uppercase tracking-wider">
                   {stat.label}
                 </span>
               </div>
@@ -337,6 +341,122 @@ export default function AboutPage() {
                   >
                     View Product Range
                     <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* ── In-House Manufacturing Division (Gajraula Plant) ─────────── */}
+      <section className="py-20 lg:py-24 bg-gradient-to-br from-navy-dark via-navy to-[#0a1628] text-white relative overflow-hidden border-b border-gold/20" id="manufacturing-plant">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,163,35,0.18),transparent_55%)] pointer-events-none" />
+        
+        <Container className="relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16">
+            <div className="lg:col-span-7 space-y-5 text-center lg:text-left">
+              <div className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-gold">
+                <Factory className="w-3.5 h-3.5" />
+                Gajraula Plant (U.P.) • In-House Manufacturing
+              </div>
+
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight">
+                Precision Forged &amp; CNC-Machined <br />
+                <span className="text-gold">Automotive Components</span>
+              </h2>
+
+              <p className="text-slate-300 text-sm sm:text-base lg:text-lg leading-relaxed max-w-2xl">
+                Beyond turnkey authorized OEM dealership solutions, Airmen Engineers operates a dedicated precision manufacturing plant in <strong>Gajraula, Uttar Pradesh</strong>. We specialize in closed-die forgings, multi-axis CNC lathe turning, micro-tolerance internal boring, and surface profile Honing for tier-1 automotive and industrial clients.
+              </p>
+
+              <div className="flex flex-wrap justify-center lg:justify-start gap-4 pt-2">
+                <Link
+                  href="/manufacturing-products"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 bg-gold hover:bg-gold-dark text-navy font-bold rounded-xl shadow-lg transition-all text-sm"
+                >
+                  Explore Gajraula Components Range
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+                <Link
+                  href="/contact?subject=Gajraula%20Plant%20Manufacturing%20Inquiry"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 bg-white/10 hover:bg-white/15 text-white font-semibold rounded-xl border border-white/20 transition-all text-sm backdrop-blur-sm"
+                >
+                  Request Manufacturing Quote
+                </Link>
+              </div>
+            </div>
+
+            {/* Capabilities Pill Matrix */}
+            <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {[
+                { title: 'Closed-Die Forging', desc: 'Grain-flow controlled forging with superior structural integrity.', icon: '01' },
+                { title: 'Multi-Axis CNC Machining', desc: 'Precision CNC turning, facing, and high-tolerance internal boring.', icon: '02' },
+                { title: 'Micro-Tolerance Features', desc: 'Specified down to ± 0.05 mm precision depth & contour features.', icon: '03' },
+                { title: '100% CMM Inspection', desc: 'Concentricity, runout, and surface profile drawing verification.', icon: '04' },
+              ].map((cap) => (
+                <div key={cap.title} className="p-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm hover:border-gold/30 transition-all">
+                  <div className="text-gold font-mono font-bold text-xs mb-2">CAPABILITY {cap.icon}</div>
+                  <h4 className="text-base font-bold text-white mb-1.5">{cap.title}</h4>
+                  <p className="text-xs text-slate-300 leading-relaxed">{cap.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* 4 Representative Featured Parts Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                title: 'Forged Wheel Hub & Flange',
+                category: 'Flanges & Hubs',
+                process: 'Closed Die Forging & CNC Boring',
+                image: '/images/gujraula_plant_img/9456-jpeg.png',
+                id: 'forged-wheel-hub'
+              },
+              {
+                title: 'Micro-Tolerance Spacer',
+                category: 'Bushings & Spacers',
+                process: '2.7 ± 0.05 mm Precision Turning',
+                image: '/images/gujraula_plant_img/2603.jpg.jpeg',
+                id: 'micro-tolerance-spacer'
+              },
+              {
+                title: 'Heavy-Duty Machined Flange',
+                category: 'Flanges & Hubs',
+                process: 'Facing & True Position Boring',
+                image: '/images/gujraula_plant_img/9206.%20jpeg.png',
+                id: 'heavy-duty-machined-flange'
+              },
+              {
+                title: 'Forged Heavy-Duty Part',
+                category: 'Critical Profiles',
+                process: 'High-Impact Forging & Profiling',
+                image: '/images/gujraula_plant_img/4867.jpg.jpeg',
+                id: 'heavy-duty-forged-part'
+              },
+            ].map((part) => (
+              <div key={part.id} className="bg-slate-900/80 rounded-2xl overflow-hidden border border-white/10 hover:border-gold/40 transition-all group flex flex-col justify-between">
+                <div className="h-44 bg-slate-950/70 p-4 flex items-center justify-center relative overflow-hidden">
+                  <img
+                    src={part.image}
+                    alt={part.title}
+                    className="max-h-36 max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <span className="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-wider text-gold bg-gold/15 border border-gold/30 px-2 py-0.5 rounded-full">
+                    {part.category}
+                  </span>
+                </div>
+                <div className="p-5 flex-1 flex flex-col justify-between">
+                  <div>
+                    <h4 className="text-sm font-bold text-white group-hover:text-gold transition-colors">{part.title}</h4>
+                    <p className="text-xs text-slate-400 mt-1">{part.process}</p>
+                  </div>
+                  <Link
+                    href={`/manufacturing-products#${part.id}`}
+                    className="mt-4 pt-3 border-t border-white/10 inline-flex items-center gap-1.5 text-xs font-semibold text-gold hover:text-gold-light"
+                  >
+                    View Drawing Specs <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>
               </div>
@@ -462,7 +582,7 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="bg-slate-50 border border-gray-200 rounded-2xl p-6 text-center sm:text-left flex flex-col items-center sm:items-start">
               <div className="w-10 h-10 rounded-lg bg-navy text-amber-400 flex items-center justify-center mb-4">
                 <Building2 className="w-5 h-5" />
@@ -491,6 +611,16 @@ export default function AboutPage() {
               <h4 className="text-lg font-bold text-navy mt-2 mb-1">{CONTACT_INFO.branch?.label || 'Branch Office'}</h4>
               <p className="text-xs text-slate-600 leading-relaxed mb-4">Servicing Dharuhera, Manesar, Bawal, Neemrana &amp; Bhiwadi industrial belts.</p>
               <div className="text-xs font-mono text-slate-700 font-semibold">{CONTACT_INFO.branch?.phone ? CONTACT_INFO.branch.phone.join(' / ') : '+91-9212303791'}</div>
+            </div>
+
+            <div className="bg-slate-50 border border-gray-200 rounded-2xl p-6 text-center sm:text-left flex flex-col items-center sm:items-start">
+              <div className="w-10 h-10 rounded-lg bg-navy text-gold flex items-center justify-center mb-4">
+                <Factory className="w-5 h-5 text-gold" />
+              </div>
+              <span className="text-[11px] font-bold uppercase tracking-wider text-amber-700 bg-amber-100 px-2 py-0.5 rounded">Manufacturing Division</span>
+              <h4 className="text-lg font-bold text-navy mt-2 mb-1">Gajraula Plant (U.P.)</h4>
+              <p className="text-xs text-slate-600 leading-relaxed mb-4">Dedicated closed-die forging, multi-axis CNC lathe turning, and precision machining plant.</p>
+              <div className="text-xs font-mono text-slate-700 font-semibold">+91-9212303791 / sales@airmen.in</div>
             </div>
           </div>
         </Container>

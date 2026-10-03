@@ -24,12 +24,15 @@ export default function AIMPage() {
       <Breadcrumb items={[{ label: 'Products', href: '/products' }, { label: 'AIM' }]} />
 
       {/* Hero */}
-      <section className="py-20 lg:py-28 bg-navy">
+      <section className="relative overflow-hidden bg-gradient-to-br from-navy-dark via-navy to-[#0a1628] text-white py-14 sm:py-20 border-b border-gold/20">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,163,35,0.18),transparent_55%)] pointer-events-none" />
         <Container>
-          <div className="max-w-3xl">
-            <span className="overline mb-4 block">Air Compressors</span>
-            <h1 className="text-white mb-6">AIM <span className="text-gold">Compressors</span></h1>
-            <p className="text-gray-300 text-lg leading-relaxed mb-8">{brand.description}</p>
+          <div className="relative z-10 max-w-3xl">
+            <div className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-gold mb-4">
+              Air Compressors
+            </div>
+            <h1 className="text-3xl sm:text-5xl font-black text-white mb-6">AIM <span className="text-gold">Compressors</span></h1>
+            <p className="text-slate-300 text-lg leading-relaxed mb-8">{brand.description}</p>
             <Button href="/contact" showArrow>Enquire Now</Button>
           </div>
         </Container>

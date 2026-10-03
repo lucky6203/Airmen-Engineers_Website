@@ -33,7 +33,7 @@ import {
   Check
 } from 'lucide-react';
 import Container from '@/components/common/Container';
-import { CONTACT_INFO, WHATSAPP_NUMBER } from '@/data/company';
+import { CONTACT_INFO, WHATSAPP_NUMBER, BRAND_CONTACTS } from '@/data/company';
 import { enquirySchema, EnquiryFormValues, REQUIREMENT_OPTIONS } from '@/lib/validations';
 
 // Specialized industrial hubs
@@ -78,7 +78,7 @@ const LOCATIONS = [
     title: 'Dharuhera Corridor Hub',
     subtitle: 'Vipul Garden, NH-48 Haryana',
     address: CONTACT_INFO.branch?.address || 'DHARUHERA, Vipul Garden, Haryana',
-    phones: CONTACT_INFO.branch?.phone || ['+91-9212303791'],
+    phones: CONTACT_INFO.branch?.phone || ['+91-9212303793'],
     emails: CONTACT_INFO.branch?.email || ['sales@airmen.in'],
     hours: 'Rapid Field Engineering Unit (24/7 On-Call)',
     mapQuery: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3516.482912345678!2d76.7937!3d28.2054!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d36c2e391307b%3A0x2a198539e6a0d244!2sVipul%20Gardens%2C%20Dharuhera!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin',
@@ -95,40 +95,41 @@ const LOCATIONS = [
 const DEPARTMENTS = [
   {
     title: 'Equipment Sales & Turnkey Plants',
-    desc: 'Kaeser Screw Compressors, EP Electric Forklifts & AIRpipe Systems',
+    desc: 'Kaeser Screw Compressors, EP Electric Forklifts & Greaves Power Sets',
     icon: Building2,
     badge: 'Sales & RFQ',
-    phone: '+91-9212303791',
+    phone: '+91-9212303793',
+    altPhone: '+91-7840004701',
     email: 'sales@airmen.in',
-    contactPerson: 'Mr. Karan Batra / Sales Directorate',
+    contactPerson: 'Mr. Subhash (Kaeser) • Mr. Arun Saxena (Greaves)',
   },
   {
     title: '24/7 Breakdown & Service Hotline',
     desc: 'Emergency plant line-down service, rotor overhauls & maintenance',
     icon: Wrench,
     badge: '24/7 Helpline',
-    phone: '+91-9212303792',
+    phone: '+91-7840004702',
     altPhone: '+91-9212303795',
-    email: 'ajay.mishra@airmen.in',
-    contactPerson: 'Er. Ajay Mishra / Field Ops Lead',
+    email: 'service@airmen.in',
+    contactPerson: 'Mr. Gopal (Greaves) • Mr. Vikram Pradhan (Kaeser)',
   },
   {
-    title: 'Standby Fleet & Rental Compressors',
-    desc: '10 HP to 75+ HP plug & play electric screw compressors ready for delivery',
+    title: 'Material Handling & Forklifts',
+    desc: 'EP lithium-ion & diesel forklifts, warehouse trucks and stackers',
     icon: Truck,
-    badge: 'Ready to Dispatch',
-    phone: '+91-8588855726',
-    email: 'karan@airmen.in',
-    contactPerson: 'Rental Fleet Desk',
+    badge: 'EP Forklifts Desk',
+    phone: '+91-9278977225',
+    email: 'sales@airmen.in',
+    contactPerson: 'Mr. Samar Pratap Singh / Sales Lead',
   },
   {
-    title: 'Ultrasonic Energy & Air Audits',
-    desc: 'CFM logging, kW/m³ specific power testing & ISO 8573 air purity checks',
+    title: 'AIRpipe Piping & Plant Infrastructure',
+    desc: 'Fast-connect aluminium & stainless steel compressed air distribution',
     icon: Activity,
-    badge: 'ISO Standards',
-    phone: '+91-9212303791',
+    badge: 'Piping Division',
+    phone: '+91-9911931177',
     email: 'sales@airmen.in',
-    contactPerson: 'Auditing & Efficiency Cell',
+    contactPerson: 'Mrs. Vaishali / AIRpipe Desk',
   },
 ];
 
@@ -213,37 +214,24 @@ export default function ContactClient() {
     <div className="bg-white text-navy min-h-screen">
       
       {/* ── 1. Hero Section: Corporate Deep Navy & Gold ───────────── */}
-      <section className="relative py-18 sm:py-24 bg-gradient-to-b from-[#060D17] via-navy to-[#0D1D35] text-white overflow-hidden border-b border-gray-100">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/banner-1.jpg"
-            alt="Airmen Engineers Industrial Hub"
-            fill
-            priority
-            className="object-cover opacity-15 mix-blend-luminosity scale-105"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/90 to-navy/80" />
-        </div>
-
-        {/* Ambient Warm Flares */}
-        <div className="absolute top-1/4 left-1/4 w-[450px] h-[450px] bg-amber-500/10 rounded-full blur-[140px] pointer-events-none" />
-        <div className="absolute bottom-10 right-10 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[150px] pointer-events-none" />
+      <section className="relative overflow-hidden bg-gradient-to-br from-navy-dark via-navy to-[#0a1628] text-white py-14 sm:py-20 border-b border-gold/20">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,163,35,0.18),transparent_55%)] pointer-events-none" />
 
         <Container className="relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-6">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/25 text-amber-400 text-xs font-bold uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-gold">
               <Sparkles className="w-3.5 h-3.5" />
               <span>24/7 NATIONWIDE ENGINEERING CONNECT • ESTABLISHED 1996</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-tight">
               Connect With Our <br className="hidden sm:inline" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500">
+              <span className="text-gold">
                 Compressed Air Specialists
               </span>
             </h1>
 
-            <p className="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed font-body">
+            <p className="text-sm sm:text-base lg:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed font-body">
               Authorized Kaeser Kompressoren &amp; EP Equipment partners for 29+ years. Connect directly with our certified application engineers for new installations, emergency breakdowns, standby rentals, or factory audits.
             </p>
 
@@ -366,6 +354,279 @@ export default function ContactClient() {
                 </div>
               );
             })}
+          </div>
+        </Container>
+      </section>
+
+      {/* ── 2.5 Brand-Wise Direct Sales & Service Desk ────────────── */}
+      <section className="py-16 sm:py-20 bg-slate-900 text-white border-b border-slate-800">
+        <Container>
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <span className="text-xs font-bold uppercase tracking-wider text-amber-400 bg-amber-400/10 border border-amber-400/20 px-3.5 py-1.5 rounded-full inline-block">
+              Authorized Partner Directory
+            </span>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white mt-3.5 tracking-tight">
+              Brand-Specific Sales &amp; Service Contacts
+            </h2>
+            <p className="text-gray-300 text-xs sm:text-sm lg:text-base mt-2.5 leading-relaxed">
+              Direct access to authorized sales engineers, service leads, and regional territory managers for your facility&apos;s equipment.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* GREAVES */}
+            <div className="bg-slate-800/80 border border-slate-700 hover:border-amber-400/50 rounded-2xl p-6 transition-all duration-300 shadow-xl flex flex-col justify-between group">
+              <div>
+                <div className="flex items-center justify-between mb-4 pb-3 border-b border-slate-700/80">
+                  <div className="h-8 bg-white/95 px-2.5 py-1 rounded-lg flex items-center justify-center">
+                    <img src="/images/logos/logo-greaves.svg" alt="Greaves Cotton" className="h-5 w-auto object-contain" />
+                  </div>
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded">
+                    Power Gensets
+                  </span>
+                </div>
+                <h3 className="text-base font-bold text-white mb-4">Greaves Cotton</h3>
+
+                <div className="space-y-4">
+                  {/* Service */}
+                  <div className="bg-slate-900/60 p-3.5 rounded-xl border border-slate-700/60">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-400/10 px-2 py-0.5 rounded">
+                        SERVICE
+                      </span>
+                    </div>
+                    <div className="font-bold text-white text-sm mt-1.5">Mr. Gopal</div>
+                    <div className="flex items-center gap-2 mt-2">
+                      <a
+                        href="tel:7840004702"
+                        className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-amber-400 hover:text-amber-300 transition-colors"
+                      >
+                        <Phone className="w-3.5 h-3.5" />
+                        7840004702
+                      </a>
+                      <a
+                        href="https://wa.me/917840004702"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-1 rounded bg-emerald-500/20 text-emerald-400 hover:bg-emerald-500/30 transition-colors ml-auto"
+                        title="Chat on WhatsApp"
+                      >
+                        <MessageSquare className="w-3.5 h-3.5" />
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Sales */}
+                  <div className="bg-slate-900/60 p-3.5 rounded-xl border border-slate-700/60">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded">
+                        SALES
+                      </span>
+                    </div>
+                    <div className="font-bold text-white text-sm mt-1.5">Mr. Arun Saxena</div>
+                    <div className="flex items-center gap-2 mt-2">
+                      <a
+                        href="tel:7840004701"
+                        className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-amber-400 hover:text-amber-300 transition-colors"
+                      >
+                        <Phone className="w-3.5 h-3.5" />
+                        7840004701
+                      </a>
+                      <a
+                        href="https://wa.me/917840004701"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-1 rounded bg-emerald-500/20 text-emerald-400 hover:bg-emerald-500/30 transition-colors ml-auto"
+                        title="Chat on WhatsApp"
+                      >
+                        <MessageSquare className="w-3.5 h-3.5" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* KAESER */}
+            <div className="bg-slate-800/80 border border-slate-700 hover:border-amber-400/50 rounded-2xl p-6 transition-all duration-300 shadow-xl flex flex-col justify-between group">
+              <div>
+                <div className="flex items-center justify-between mb-4 pb-3 border-b border-slate-700/80">
+                  <div className="h-8 bg-white/95 px-2.5 py-1 rounded-lg flex items-center justify-center">
+                    <img src="/images/logos/logo-kaeser.svg" alt="Kaeser Kompressoren" className="h-5 w-auto object-contain" />
+                  </div>
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded">
+                    Air Compressors
+                  </span>
+                </div>
+                <h3 className="text-base font-bold text-white mb-4">Kaeser Kompressoren</h3>
+
+                <div className="space-y-3">
+                  {/* Sales Bhiwadi */}
+                  <div className="bg-slate-900/60 p-2.5 rounded-xl border border-slate-700/60">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[9px] font-bold uppercase tracking-wider text-amber-400 bg-amber-400/10 px-1.5 py-0.5 rounded">
+                        SALES (BHIWADI)
+                      </span>
+                    </div>
+                    <div className="font-bold text-white text-xs mt-1">Mr. Subhash</div>
+                    <div className="flex items-center justify-between mt-1">
+                      <a href="tel:9212303793" className="text-xs font-mono font-bold text-amber-400 flex items-center gap-1">
+                        <Phone className="w-3 h-3" /> 9212303793
+                      </a>
+                      <a href="https://wa.me/919212303793" target="_blank" rel="noopener noreferrer" className="p-1 rounded bg-emerald-500/20 text-emerald-400">
+                        <MessageSquare className="w-3 h-3" />
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Sales Haridwar */}
+                  <div className="bg-slate-900/60 p-2.5 rounded-xl border border-slate-700/60">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[9px] font-bold uppercase tracking-wider text-amber-400 bg-amber-400/10 px-1.5 py-0.5 rounded">
+                        SALES (HARIDWAR)
+                      </span>
+                    </div>
+                    <div className="font-bold text-white text-xs mt-1">Mr. Surendra Upadhyay</div>
+                    <div className="flex items-center justify-between mt-1">
+                      <a href="tel:9212303793" className="text-xs font-mono font-bold text-amber-400 flex items-center gap-1">
+                        <Phone className="w-3 h-3" /> 9212303793
+                      </a>
+                      <a href="https://wa.me/919212303793" target="_blank" rel="noopener noreferrer" className="p-1 rounded bg-emerald-500/20 text-emerald-400">
+                        <MessageSquare className="w-3 h-3" />
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Service Bhiwadi - Vikram */}
+                  <div className="bg-slate-900/60 p-2.5 rounded-xl border border-slate-700/60">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[9px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-400/10 px-1.5 py-0.5 rounded">
+                        SERVICE (BHIWADI)
+                      </span>
+                    </div>
+                    <div className="font-bold text-white text-xs mt-1">Mr. Vikram Pradhan</div>
+                    <div className="flex items-center justify-between mt-1">
+                      <a href="tel:9212303795" className="text-xs font-mono font-bold text-amber-400 flex items-center gap-1">
+                        <Phone className="w-3 h-3" /> 9212303795
+                      </a>
+                      <a href="https://wa.me/919212303795" target="_blank" rel="noopener noreferrer" className="p-1 rounded bg-emerald-500/20 text-emerald-400">
+                        <MessageSquare className="w-3 h-3" />
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Service Bhiwadi - Sumit */}
+                  <div className="bg-slate-900/60 p-2.5 rounded-xl border border-slate-700/60">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[9px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-400/10 px-1.5 py-0.5 rounded">
+                        SERVICE (BHIWADI)
+                      </span>
+                    </div>
+                    <div className="font-bold text-white text-xs mt-1">Mr. Sumit Tiwari</div>
+                    <div className="flex items-center justify-between mt-1">
+                      <a href="tel:9911978822" className="text-xs font-mono font-bold text-amber-400 flex items-center gap-1">
+                        <Phone className="w-3 h-3" /> 9911978822
+                      </a>
+                      <a href="https://wa.me/919911978822" target="_blank" rel="noopener noreferrer" className="p-1 rounded bg-emerald-500/20 text-emerald-400">
+                        <MessageSquare className="w-3 h-3" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* EP EQUIPMENT */}
+            <div className="bg-slate-800/80 border border-slate-700 hover:border-amber-400/50 rounded-2xl p-6 transition-all duration-300 shadow-xl flex flex-col justify-between group">
+              <div>
+                <div className="flex items-center justify-between mb-4 pb-3 border-b border-slate-700/80">
+                  <div className="h-8 bg-white/95 px-2.5 py-1 rounded-lg flex items-center justify-center">
+                    <img src="/images/logos/logo-ep.png" alt="EP Equipment" className="h-5 w-auto object-contain" />
+                  </div>
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded">
+                    Forklifts &amp; MHE
+                  </span>
+                </div>
+                <h3 className="text-base font-bold text-white mb-4">EP Equipment</h3>
+
+                <div className="space-y-4">
+                  {/* Sales */}
+                  <div className="bg-slate-900/60 p-4 rounded-xl border border-slate-700/60">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded">
+                        SALES &amp; CONSULTATION
+                      </span>
+                    </div>
+                    <div className="font-bold text-white text-sm mt-2">Mr. Samar Pratap Singh</div>
+                    <p className="text-[11px] text-gray-400 mt-0.5">Electric &amp; Diesel Forklifts, Stackers</p>
+                    <div className="flex items-center gap-2 mt-3 pt-2 border-t border-slate-800">
+                      <a
+                        href="tel:9278977225"
+                        className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-amber-400 hover:text-amber-300 transition-colors"
+                      >
+                        <Phone className="w-3.5 h-3.5" />
+                        9278977225
+                      </a>
+                      <a
+                        href="https://wa.me/919278977225"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-1.5 rounded bg-emerald-500/20 text-emerald-400 hover:bg-emerald-500/30 transition-colors ml-auto"
+                        title="Chat on WhatsApp"
+                      >
+                        <MessageSquare className="w-3.5 h-3.5" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* AIRPIPE */}
+            <div className="bg-slate-800/80 border border-slate-700 hover:border-amber-400/50 rounded-2xl p-6 transition-all duration-300 shadow-xl flex flex-col justify-between group">
+              <div>
+                <div className="flex items-center justify-between mb-4 pb-3 border-b border-slate-700/80">
+                  <div className="h-8 bg-white/95 px-2.5 py-1 rounded-lg flex items-center justify-center">
+                    <img src="/images/logos/logo-airpipe.png" alt="AIRpipe" className="h-5 w-auto object-contain" />
+                  </div>
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded">
+                    Air Piping
+                  </span>
+                </div>
+                <h3 className="text-base font-bold text-white mb-4">AIRpipe Systems</h3>
+
+                <div className="space-y-4">
+                  {/* Contact */}
+                  <div className="bg-slate-900/60 p-4 rounded-xl border border-slate-700/60">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-blue-400 bg-blue-400/10 px-2 py-0.5 rounded">
+                        DIRECT CONTACT / SALES
+                      </span>
+                    </div>
+                    <div className="font-bold text-white text-sm mt-2">Mrs. Vaishali</div>
+                    <p className="text-[11px] text-gray-400 mt-0.5">Quick-Connect Aluminium &amp; Stainless Piping</p>
+                    <div className="flex items-center gap-2 mt-3 pt-2 border-t border-slate-800">
+                      <a
+                        href="tel:9911931177"
+                        className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-amber-400 hover:text-amber-300 transition-colors"
+                      >
+                        <Phone className="w-3.5 h-3.5" />
+                        9911931177
+                      </a>
+                      <a
+                        href="https://wa.me/919911931177"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-1.5 rounded bg-emerald-500/20 text-emerald-400 hover:bg-emerald-500/30 transition-colors ml-auto"
+                        title="Chat on WhatsApp"
+                      >
+                        <MessageSquare className="w-3.5 h-3.5" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </Container>
       </section>

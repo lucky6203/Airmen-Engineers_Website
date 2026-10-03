@@ -9,10 +9,99 @@ export const COMPANY_TAGLINE = 'Industrial Air Compressor & Material Handling So
 export const COMPANY_ESTABLISHED = 1996;
 
 export const COMPANY_DESCRIPTION = 
-  'Airmen Engineers is a leading supplier, distributor, and service provider of industrial air compressors, material handling equipment, compressed air piping systems, smart monitoring solutions, and power generation equipment. Established in 1996, we have built a reputation for engineering excellence and reliable after-sales support across India.';
+  'Airmen Engineers is a premier industrial engineering partner and precision manufacturer. Alongside Tier-1 OEM alliances for Kaeser compressors, EP forklifts, Greaves power systems, and AIRpipe networks, we operate a dedicated in-house closed-die forging and CNC machining plant in Gajraula (U.P.) producing high-precision automotive components.';
 
 export const COMPANY_SHORT_DESCRIPTION = 
-  'Leading supplier of industrial air compressors, forklifts, compressed air piping, smart monitoring and power solutions since 1996.';
+  'Authorized Tier-1 OEM distributor and precision automotive forging & CNC machining manufacturer since 1996.';
+
+export interface BrandContactPerson {
+  brand: string;
+  brandKey: 'greaves' | 'kaeser' | 'ep' | 'airpipe';
+  role: 'Sales' | 'Service' | 'Direct Contact';
+  location?: string;
+  name: string;
+  phone: string;
+  displayPhone: string;
+}
+
+export const BRAND_CONTACTS: Record<'greaves' | 'kaeser' | 'ep' | 'airpipe', BrandContactPerson[]> = {
+  greaves: [
+    {
+      brand: 'Greaves Cotton',
+      brandKey: 'greaves',
+      role: 'Service',
+      name: 'Mr. Gopal',
+      phone: '+917840004702',
+      displayPhone: '7840004702',
+    },
+    {
+      brand: 'Greaves Cotton',
+      brandKey: 'greaves',
+      role: 'Sales',
+      name: 'Mr. Arun Saxena',
+      phone: '+917840004701',
+      displayPhone: '7840004701',
+    },
+  ],
+  kaeser: [
+    {
+      brand: 'Kaeser Kompressoren',
+      brandKey: 'kaeser',
+      role: 'Sales',
+      location: 'Bhiwadi',
+      name: 'Mr. Subhash',
+      phone: '+919212303793',
+      displayPhone: '9212303793',
+    },
+    {
+      brand: 'Kaeser Kompressoren',
+      brandKey: 'kaeser',
+      role: 'Sales',
+      location: 'Haridwar',
+      name: 'Mr. Surendra Upadhyay',
+      phone: '+919212303793',
+      displayPhone: '9212303793',
+    },
+    {
+      brand: 'Kaeser Kompressoren',
+      brandKey: 'kaeser',
+      role: 'Service',
+      location: 'Bhiwadi',
+      name: 'Mr. Vikram Pradhan',
+      phone: '+919212303795',
+      displayPhone: '9212303795',
+    },
+    {
+      brand: 'Kaeser Kompressoren',
+      brandKey: 'kaeser',
+      role: 'Service',
+      location: 'Bhiwadi',
+      name: 'Mr. Sumit Tiwari',
+      phone: '+919911978822',
+      displayPhone: '9911978822',
+    },
+  ],
+  ep: [
+    {
+      brand: 'EP Equipment',
+      brandKey: 'ep',
+      role: 'Sales',
+      name: 'Mr. Samar Pratap Singh',
+      phone: '+919278977225',
+      displayPhone: '9278977225',
+    },
+  ],
+  airpipe: [
+    {
+      brand: 'AIRpipe',
+      brandKey: 'airpipe',
+      role: 'Direct Contact',
+      name: 'Mrs. Vaishali',
+      phone: '+919911931177',
+      displayPhone: '9911931177',
+    },
+  ],
+};
 
 export const CONTACT_INFO: ContactInfo = {
   registeredOffice: {
@@ -29,13 +118,19 @@ export const CONTACT_INFO: ContactInfo = {
   },
   serviceEnquiry: {
     label: 'Service Enquiry',
-    phone: ['+91-9212303792', '+91-9212303795'],
-    email: ['ajay.mishra@airmen.in', 'vikram.pradhan@airmen.in'],
+    phone: ['+91-7840004702', '+91-9212303795', '+91-9911978822'],
+    email: ['vikram.pradhan@airmen.in', 'service@airmen.in'],
   },
   branch: {
     label: 'Branch Office',
     address: 'DHARUHERA, Vipul Garden, Haryana',
-    phone: ['+91-9212303791'],
+    phone: ['+91-9212303793', '+91-9212303795'],
+    email: ['sales@airmen.in'],
+  },
+  manufacturingPlant: {
+    label: 'Gajraula Manufacturing Plant',
+    address: 'Gajraula Industrial Area, Uttar Pradesh, INDIA',
+    phone: ['+91-9212303791', '+91-8588855726'],
     email: ['sales@airmen.in'],
   },
 };
@@ -71,6 +166,11 @@ export const COMPANY_TIMELINE: TimelineEvent[] = [
     description: 'Introduced AIRpipe compressed air piping solutions for efficient distribution systems.',
   },
   {
+    year: '2018',
+    title: 'Gajraula Manufacturing Plant',
+    description: 'Commissioned dedicated in-house forging & multi-axis CNC machining facility in Gajraula (U.P.) producing high-precision automotive components.',
+  },
+  {
     year: '2020',
     title: 'Power Solutions',
     description: 'Added Greaves Cotton power generation solutions to the product portfolio.',
@@ -78,7 +178,7 @@ export const COMPANY_TIMELINE: TimelineEvent[] = [
   {
     year: 'Today',
     title: 'Industry Leader',
-    description: 'Serving 5000+ customers across multiple industries with comprehensive engineering solutions.',
+    description: 'Serving 5000+ customers across multiple industries with comprehensive engineering & manufacturing solutions.',
   },
 ];
 

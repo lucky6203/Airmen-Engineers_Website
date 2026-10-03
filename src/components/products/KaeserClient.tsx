@@ -245,17 +245,14 @@ export default function KaeserClient({ products, brand }: KaeserClientProps) {
   return (
     <div className="bg-gray-50 min-h-screen">
       {/* ── Hero Section ────────────────────────── */}
-      <section className="relative py-20 lg:py-28 bg-[#050B14] overflow-hidden border-b border-white/5">
-        {/* Ambient Glows */}
-        <div className="absolute top-1/4 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-gold/10 rounded-full blur-[130px] pointer-events-none" />
-        <div className="absolute bottom-0 right-10 w-[500px] h-[500px] bg-amber-500/5 rounded-full blur-[120px] pointer-events-none" />
-        <div className="absolute inset-0 bg-[radial-gradient(#ffffff0a_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none opacity-40" />
+      <section className="relative overflow-hidden bg-gradient-to-br from-navy-dark via-navy to-[#0a1628] text-white py-14 sm:py-20 border-b border-gold/20">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,163,35,0.18),transparent_55%)] pointer-events-none" />
 
         <Container className="relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Content */}
             <div className="lg:col-span-7">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold/10 border border-gold/25 text-gold text-xs font-semibold tracking-widest uppercase mb-6 animate-fade-in-up">
+              <div className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-gold mb-6 animate-fade-in-up">
                 <span className="w-2 h-2 rounded-full bg-gold animate-pulse" />
                 MADE IN GERMANY • DSD SERIES BROCHURE
               </div>
@@ -719,16 +716,59 @@ export default function KaeserClient({ products, brand }: KaeserClientProps) {
             Our certified compressed air engineers conduct Air Demand Analysis (ADA) to measure your exact plant flow requirements, 
             eliminating pressure drops and optimizing life-cycle power costs.
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-4 mb-6">
             <Button href="/contact" size="lg" showArrow id="kaeser-consultation-cta">
               Schedule Free Air Audit
             </Button>
             <a
-              href="tel:+919810054215"
-              className="inline-flex items-center gap-2 px-6 py-3.5 bg-white border border-gray-300 text-navy font-semibold rounded-lg hover:border-gold hover:text-gold transition-colors text-sm"
+              href="tel:9212303793"
+              className="inline-flex items-center gap-2 px-6 py-3.5 bg-navy text-white font-semibold rounded-lg hover:bg-navy-light transition-colors text-sm shadow-md"
             >
-              Call Kaeser Specialist: +91 98100 54215
+              Call Sales (Bhiwadi / Haridwar): 9212303793
             </a>
+          </div>
+
+          {/* Direct Technical Contacts Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-left pt-6 border-t border-gray-200">
+            <div className="bg-white p-3.5 rounded-xl border border-gray-200 shadow-sm">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-amber-600 bg-amber-50 px-2 py-0.5 rounded">
+                SALES (BHIWADI)
+              </span>
+              <div className="font-bold text-navy text-xs mt-1.5">Mr. Subhash</div>
+              <a href="tel:9212303793" className="text-xs font-mono font-bold text-navy hover:text-gold transition-colors block mt-1">
+                9212303793
+              </a>
+            </div>
+
+            <div className="bg-white p-3.5 rounded-xl border border-gray-200 shadow-sm">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-amber-600 bg-amber-50 px-2 py-0.5 rounded">
+                SALES (HARIDWAR)
+              </span>
+              <div className="font-bold text-navy text-xs mt-1.5">Mr. Surendra Upadhyay</div>
+              <a href="tel:9212303793" className="text-xs font-mono font-bold text-navy hover:text-gold transition-colors block mt-1">
+                9212303793
+              </a>
+            </div>
+
+            <div className="bg-white p-3.5 rounded-xl border border-gray-200 shadow-sm">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded">
+                SERVICE (BHIWADI)
+              </span>
+              <div className="font-bold text-navy text-xs mt-1.5">Mr. Vikram Pradhan</div>
+              <a href="tel:9212303795" className="text-xs font-mono font-bold text-navy hover:text-gold transition-colors block mt-1">
+                9212303795
+              </a>
+            </div>
+
+            <div className="bg-white p-3.5 rounded-xl border border-gray-200 shadow-sm">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded">
+                SERVICE (BHIWADI)
+              </span>
+              <div className="font-bold text-navy text-xs mt-1.5">Mr. Sumit Tiwari</div>
+              <a href="tel:9911978822" className="text-xs font-mono font-bold text-navy hover:text-gold transition-colors block mt-1">
+                9911978822
+              </a>
+            </div>
           </div>
         </Container>
       </section>

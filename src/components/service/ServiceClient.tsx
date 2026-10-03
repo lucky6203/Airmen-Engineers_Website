@@ -186,39 +186,27 @@ export default function ServiceClient() {
   return (
     <div className="bg-gray-50 min-h-screen">
       {/* ── Hero Section ────────────────────────── */}
-      <section className="relative py-16 sm:py-24 lg:py-28 bg-[#060D17] text-white overflow-hidden border-b border-white/10">
-        {/* Real Industrial Workshop Background */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/about-1.jpg"
-            alt="Airmen Engineers Technical Workshop"
-            fill
-            className="object-cover opacity-20 mix-blend-luminosity"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#060D17] via-[#060D17]/90 to-[#060D17]/70 max-sm:from-[#060D17]/95" />
-        </div>
-
-        <div className="absolute inset-0 bg-[radial-gradient(#f59e0b_1px,transparent_1px)] [background-size:32px_32px] opacity-10 pointer-events-none" />
+      <section className="relative overflow-hidden bg-gradient-to-br from-navy-dark via-navy to-[#0a1628] text-white py-14 sm:py-20 border-b border-gold/20">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,163,35,0.18),transparent_55%)] pointer-events-none" />
 
         <Container className="relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
             {/* Left Content Column */}
             <div className="lg:col-span-7 flex flex-col items-start text-left max-sm:items-center max-sm:text-center space-y-6">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/25 text-amber-400 text-xs font-semibold uppercase tracking-wider max-sm:mx-auto">
+              <div className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-gold max-sm:mx-auto">
                 <Sparkles className="w-3.5 h-3.5" />
                 24/7 OEM-CERTIFIED TECHNICAL SUPPORT & MAINTENANCE
               </div>
 
-              <h1 className="text-3xl sm:text-5xl lg:text-[3.25rem] font-extrabold tracking-tight text-white leading-[1.12]">
-                Service &amp; Technical<br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500">
+              <h1 className="text-3xl sm:text-5xl lg:text-[3.25rem] font-black tracking-tight text-white leading-[1.12]">
+                Service &amp; Technical <br />
+                <span className="text-gold">
                   After-Sales Engineering
                 </span>
               </h1>
 
-              <p className="text-gray-300 text-sm sm:text-base lg:text-lg leading-relaxed max-w-xl">
+              <p className="text-sm sm:text-base lg:text-lg text-slate-300 leading-relaxed max-w-xl">
                 29+ years of technical excellence protecting industrial manufacturing plants. Authorized after-sales support for Kaeser Compressors, EP Lithium Forklifts, Greaves Power DG Sets, and AIRpipe piping networks.
               </p>
 

@@ -87,11 +87,11 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                           ))
                         )}
                         <Link
-                          href="/products"
+                          href={item.href}
                           onClick={onClose}
                           className="block px-3 py-2 text-sm font-semibold text-gold hover:text-gold-dark transition-colors"
                         >
-                          View All Products →
+                          View All {item.label} →
                         </Link>
                       </div>
                     )}

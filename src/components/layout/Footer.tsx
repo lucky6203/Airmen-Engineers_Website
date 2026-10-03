@@ -50,7 +50,7 @@ export default function Footer() {
               {/* Products */}
               <div className="text-center md:text-left">
                 <h4 className="font-heading text-sm font-semibold uppercase tracking-wider mb-5 text-white">
-                  Products
+                  Industrial Products
                 </h4>
                 <ul className="space-y-3">
                   {FOOTER_LINKS.products.map((link) => (

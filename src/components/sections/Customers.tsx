@@ -136,53 +136,53 @@ export default function Customers() {
           {CLIENTS_WITH_IMAGES.map((client, index) => (
             <div
               key={client.id}
-              className="group relative bg-white/[0.03] hover:bg-white/[0.06] backdrop-blur-sm border border-white/10 hover:border-gold/50 rounded-2xl p-6 sm:p-7 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_-15px_rgba(234,179,8,0.2)] flex flex-col justify-between"
+              className="group relative bg-white/[0.03] hover:bg-white/[0.06] backdrop-blur-sm border border-white/10 hover:border-gold/50 rounded-2xl p-5 sm:p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_35px_-10px_rgba(234,179,8,0.2)] flex flex-col justify-between"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               {/* Subtle gold glow accent at top right of card on hover */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gold/5 group-hover:bg-gold/15 rounded-bl-full transition-all duration-500 pointer-events-none blur-xl" />
+              <div className="absolute top-0 right-0 w-28 h-28 bg-gold/5 group-hover:bg-gold/15 rounded-bl-full transition-all duration-500 pointer-events-none blur-xl" />
 
               <div>
-                {/* Logo Display Pod */}
-                <div className="relative bg-white rounded-xl h-28 w-full flex items-center justify-center p-5 shadow-sm border border-white/80 group-hover:shadow-[0_8px_30px_rgba(255,255,255,0.15)] transition-all duration-300 overflow-hidden">
+                {/* Logo Display Pod — normalized height and optical padding */}
+                <div className="relative bg-white rounded-xl h-20 sm:h-22 w-full flex items-center justify-center p-3 sm:p-4 shadow-sm border border-white/80 group-hover:shadow-[0_4px_20px_rgba(255,255,255,0.12)] transition-all duration-300 overflow-hidden">
                   <div className="relative w-full h-full flex items-center justify-center">
                     <img
                       src={client.logo}
                       alt={`${client.name} Logo`}
-                      className="max-h-14 max-w-[85%] w-auto object-contain transition-all duration-500 group-hover:scale-105"
+                      className="h-9 sm:h-11 max-w-[80%] w-auto object-contain transition-all duration-300 group-hover:scale-105"
                       loading="lazy"
                     />
                   </div>
                 </div>
 
                 {/* Meta details */}
-                <div className="mt-6">
+                <div className="mt-4 sm:mt-5">
                   <div className="flex items-center justify-between gap-2 mb-2">
-                    <span className="text-xs font-semibold uppercase tracking-wider text-gold bg-gold/10 border border-gold/20 px-2.5 py-1 rounded-md">
+                    <span className="text-xs font-semibold uppercase tracking-wider text-amber-300 bg-amber-400/10 border border-amber-400/25 px-2.5 py-0.5 rounded-md">
                       {client.tag}
                     </span>
-                    <span className="text-xs text-gray-500 font-medium">
+                    <span className="text-xs text-slate-400 font-medium">
                       {client.category}
                     </span>
                   </div>
 
-                  <h3 className="text-xl font-heading font-bold text-white group-hover:text-gold transition-colors duration-300">
+                  <h3 className="text-lg sm:text-xl font-heading font-bold text-white group-hover:text-gold transition-colors duration-300">
                     {client.fullName}
                   </h3>
 
-                  <p className="text-sm text-gray-400 mt-2.5 leading-relaxed line-clamp-2">
+                  <p className="text-sm text-slate-300 mt-2 leading-relaxed line-clamp-2">
                     {client.highlight}
                   </p>
                 </div>
               </div>
 
               {/* Card Footer */}
-              <div className="pt-5 mt-5 border-t border-white/10 flex items-center justify-between text-xs">
-                <span className="inline-flex items-center gap-1.5 text-gray-400 group-hover:text-gray-200 transition-colors">
+              <div className="pt-4 mt-4 border-t border-white/10 flex items-center justify-between text-xs">
+                <span className="inline-flex items-center gap-1.5 text-slate-300 group-hover:text-white transition-colors">
                   <CheckCircle2 className="w-4 h-4 text-gold flex-shrink-0" />
                   Verified Industrial Partner
                 </span>
-                <span className="text-gray-500 group-hover:text-gold transition-colors font-medium">
+                <span className="text-slate-400 group-hover:text-gold transition-colors font-medium">
                   29+ Yrs Trust
                 </span>
               </div>
@@ -191,23 +191,23 @@ export default function Customers() {
         </div>
 
         {/* Industrial Performance Proof Bar */}
-        <div className="bg-white/[0.02] border border-white/10 rounded-2xl p-6 sm:p-8 backdrop-blur-md">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 divide-y lg:divide-y-0 lg:divide-x divide-white/10">
+        <div className="bg-white/[0.02] border border-white/10 rounded-2xl p-4 sm:p-6 lg:p-8 backdrop-blur-md">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-3 gap-y-5 sm:gap-6 lg:gap-8 lg:divide-x lg:divide-white/10">
             {TRUST_STATS.map((stat, idx) => {
               const Icon = stat.icon;
               return (
                 <div
                   key={stat.label}
-                  className={`flex items-center gap-4 ${idx > 0 ? 'pt-4 lg:pt-0 lg:pl-6' : ''}`}
+                  className={`flex items-center gap-2.5 sm:gap-3.5 lg:gap-4 ${idx > 0 ? 'lg:pl-6' : ''}`}
                 >
-                  <div className="w-12 h-12 rounded-xl bg-gold/10 border border-gold/20 flex items-center justify-center flex-shrink-0 text-gold">
-                    <Icon className="w-6 h-6" />
+                  <div className="w-9 h-9 sm:w-11 sm:h-11 lg:w-12 lg:h-12 rounded-lg sm:rounded-xl bg-gold/10 border border-gold/20 flex items-center justify-center flex-shrink-0 text-gold">
+                    <Icon className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
                   </div>
-                  <div>
-                    <div className="text-2xl sm:text-3xl font-heading font-bold text-white tracking-tight">
+                  <div className="min-w-0">
+                    <div className="text-base min-[380px]:text-lg sm:text-2xl lg:text-3xl font-heading font-bold text-white tracking-tight whitespace-nowrap">
                       {stat.value}
                     </div>
-                    <div className="text-xs sm:text-sm text-gray-400 mt-0.5">
+                    <div className="text-[11px] sm:text-xs lg:text-sm text-gray-400 mt-0.5 leading-tight line-clamp-2">
                       {stat.label}
                     </div>
                   </div>

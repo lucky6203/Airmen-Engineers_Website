@@ -377,66 +377,201 @@ export default function FeaturedEquipment() {
       <Container>
         {/* Section Heading */}
         <div className="text-center mb-8 sm:mb-12">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-100 text-amber-800">
-            <Sparkles className="w-3.5 h-3.5 text-amber-600" />
-            Engineering & Manufacturing Showcase
-          </span>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-navy mt-3 tracking-tight">
-            Tier-1 Industrial Equipment & In-House Manufacturing
+            Industrial Products &amp; Manufacturing Engineering
           </h2>
-          <p className="text-slate-600 mt-2 text-xs sm:text-sm lg:text-base max-w-3xl mx-auto leading-relaxed">
-            Authorized sales, turnkey engineering, and authorized service partner for global leaders alongside our state-of-the-art Gajraula Plant (U.P.) for precision closed-die forging and CNC-machined automotive components.
+          <p className="text-slate-600 mt-2 text-xs sm:text-sm lg:text-base max-w-2xl mx-auto leading-relaxed">
+            Authorized industrial equipment dealerships &amp; turnkey engineering alongside our in-house Gajraula forging and CNC precision manufacturing plant.
           </p>
         </div>
 
-        {/* ── Category Switcher Tabs ── */}
-        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-8 sm:mb-10">
-          {CATEGORIES.map((cat) => {
-            const isSelected = activeCategory === cat.key;
-            return (
-              <button
-                key={cat.key}
-                onClick={() => handleCategorySwitch(cat.key)}
-                className={`inline-flex items-center gap-2.5 px-4 sm:px-6 py-2.5 sm:py-3.5 rounded-xl text-xs sm:text-sm font-bold transition-all border-2 shadow-sm ${
-                  isSelected
-                    ? 'bg-navy text-white border-navy shadow-lg shadow-navy/20 scale-[1.02]'
-                    : 'bg-white hover:bg-gray-50 text-slate-700 border-gray-200 hover:border-gray-300'
+        {/* ── Two Specialized Divisions Cards ── */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 mb-8 sm:mb-10">
+          {/* Card 1: Division 01 */}
+          <div
+            onClick={() => handleCategorySwitch('industrial')}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                handleCategorySwitch('industrial');
+              }
+            }}
+            className={`group text-left p-6 sm:p-7 rounded-2xl sm:rounded-3xl border-2 transition-all duration-300 cursor-pointer flex flex-col justify-between ${
+              activeCategory === 'industrial'
+                ? 'bg-gradient-to-br from-amber-50/50 via-white to-slate-50/80 border-amber-500 shadow-xl shadow-amber-500/10 ring-2 ring-amber-400/30'
+                : 'bg-white hover:bg-slate-50/60 border-gray-200 hover:border-amber-400/60 shadow-sm hover:shadow-md'
+            }`}
+            role="button"
+            tabIndex={0}
+            aria-pressed={activeCategory === 'industrial'}
+          >
+            <div>
+              <h3 className="text-xl sm:text-2xl font-black text-navy leading-snug">
+                Industrial Products &amp; Services
+              </h3>
+
+              <p className="text-sm font-semibold text-amber-700 mt-1">
+                Authorized Sales &amp; Service Partner
+              </p>
+
+              <div className="flex flex-wrap items-center gap-2 pt-3 pb-2 text-xs font-semibold text-slate-700">
+                <span className="px-2.5 py-1 bg-white rounded-lg border border-gray-200 shadow-xs">Kaeser</span>
+                <span className="text-slate-300 font-bold">•</span>
+                <span className="px-2.5 py-1 bg-white rounded-lg border border-gray-200 shadow-xs">Greaves</span>
+                <span className="text-slate-300 font-bold">•</span>
+                <span className="px-2.5 py-1 bg-white rounded-lg border border-gray-200 shadow-xs">EPL</span>
+                <span className="text-slate-300 font-bold">•</span>
+                <span className="px-2.5 py-1 bg-white rounded-lg border border-gray-200 shadow-xs">AIRpipe</span>
+              </div>
+
+              {/* List Content */}
+              <ul className="mt-4 pt-3.5 border-t border-gray-100 space-y-2.5 text-xs sm:text-[13px] text-slate-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <span><strong>Kaeser (Germany):</strong> Rotary Screw Compressors &amp; Air Treatment</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <span><strong>EP Equipment:</strong> Lithium-Ion Electric Forklifts &amp; Stackers</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <span><strong>Greaves Cotton:</strong> CPCB IV+ Heavy-Duty Diesel Generator Sets</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <span><strong>AIRpipe:</strong> Quick-Connect Aluminum Compressed Air Piping</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <span><strong>24/7 OEM Support:</strong> Emergency AMC, Overhauls &amp; Genuine Spares</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Card 1 Footer Button Link */}
+            <div className="pt-5 mt-5 border-t border-gray-100 flex items-center justify-between">
+              <Link
+                href="/products"
+                onClick={(e) => e.stopPropagation()}
+                className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+                  activeCategory === 'industrial'
+                    ? 'bg-navy text-white hover:bg-slate-800 shadow-md shadow-navy/20'
+                    : 'bg-gray-100 text-slate-700 hover:bg-navy hover:text-white'
                 }`}
-                role="tab"
-                aria-selected={isSelected}
-                tabIndex={0}
               >
-                <span className={isSelected ? 'text-gold' : 'text-slate-500'}>
-                  {cat.icon}
-                </span>
-                <span>{cat.label}</span>
-                <span className={`text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full font-semibold hidden sm:inline-block ${
-                  isSelected 
-                    ? 'bg-white/20 text-white' 
-                    : 'bg-gray-100 text-slate-600'
-                }`}>
-                  {cat.tag}
-                </span>
-              </button>
-            );
-          })}
+                <span>EXPLORE</span>
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+              <span className="text-xs text-slate-400 font-medium">
+                4 Tier-1 Lines
+              </span>
+            </div>
+          </div>
+
+          {/* Card 2: Division 02 */}
+          <div
+            onClick={() => handleCategorySwitch('manufacturing')}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                handleCategorySwitch('manufacturing');
+              }
+            }}
+            className={`group text-left p-6 sm:p-7 rounded-2xl sm:rounded-3xl border-2 transition-all duration-300 cursor-pointer flex flex-col justify-between ${
+              activeCategory === 'manufacturing'
+                ? 'bg-gradient-to-br from-amber-50/50 via-white to-slate-50/80 border-amber-500 shadow-xl shadow-amber-500/10 ring-2 ring-amber-400/30'
+                : 'bg-white hover:bg-slate-50/60 border-gray-200 hover:border-amber-400/60 shadow-sm hover:shadow-md'
+            }`}
+            role="button"
+            tabIndex={0}
+            aria-pressed={activeCategory === 'manufacturing'}
+          >
+            <div>
+              <h3 className="text-xl sm:text-2xl font-black text-navy leading-snug">
+                Manufacturing &amp; Engineering
+              </h3>
+
+              <p className="text-sm font-semibold text-amber-700 mt-1">
+                In-House Manufacturing &amp; Precision Forging
+              </p>
+
+              <div className="flex flex-wrap items-center gap-2 pt-3 pb-2 text-xs font-semibold text-slate-700">
+                <span className="px-2.5 py-1 bg-white rounded-lg border border-gray-200 shadow-xs">Gajraula Plant</span>
+                <span className="text-slate-300 font-bold">•</span>
+                <span className="px-2.5 py-1 bg-white rounded-lg border border-gray-200 shadow-xs">Forging</span>
+                <span className="text-slate-300 font-bold">•</span>
+                <span className="px-2.5 py-1 bg-white rounded-lg border border-gray-200 shadow-xs">CNC</span>
+              </div>
+
+              {/* List Content */}
+              <ul className="mt-4 pt-3.5 border-t border-gray-100 space-y-2.5 text-xs sm:text-[13px] text-slate-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <span><strong>Closed-Die Forging:</strong> High-integrity hot &amp; warm forged blanks</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <span><strong>CNC Machining:</strong> Multi-axis turning with ±0.01 mm precision</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <span><strong>Automotive Flanges:</strong> Heavy-duty stepped &amp; structural flanges</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <span><strong>Bushings &amp; Spacers:</strong> Micro-alloy sleeves &amp; bearing retainers</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                  <span><strong>Gajraula Plant (U.P.):</strong> In-house metallurgy &amp; 100% drawing compliance</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Card 2 Footer Button Link */}
+            <div className="pt-5 mt-5 border-t border-gray-100 flex items-center justify-between">
+              <Link
+                href="/manufacturing-products"
+                onClick={(e) => e.stopPropagation()}
+                className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+                  activeCategory === 'manufacturing'
+                    ? 'bg-navy text-white hover:bg-slate-800 shadow-md shadow-navy/20'
+                    : 'bg-gray-100 text-slate-700 hover:bg-navy hover:text-white'
+                }`}
+              >
+                <span>EXPLORE</span>
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+              <span className="text-xs text-slate-400 font-medium">
+                In-House Plant
+              </span>
+            </div>
+          </div>
         </div>
 
         {/* ── Component / Product Navigation Pills ── */}
-        <div className="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-3 mb-6 sm:mb-8 scrollbar-none">
-          {items.map((item) => (
-            <button
-              key={item.id}
-              onClick={() => setActiveTab(item.id)}
-              className={`px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap flex-shrink-0 ${
-                activeTab === item.id
-                  ? 'bg-gold text-navy shadow-md shadow-gold/20 scale-105 ring-2 ring-gold/40'
-                  : 'bg-gray-100 hover:bg-gray-200 text-slate-700'
-              }`}
-            >
-              {item.pillLabel || item.brand}
-            </button>
-          ))}
+        <div className="relative group/tabs mb-6 sm:mb-8">
+          <div className="flex items-center justify-start sm:justify-center gap-2.5 sm:gap-3 overflow-x-auto py-2 px-1 scrollbar-none">
+            {items.map((item) => {
+              const isPillActive = activeTab === item.id;
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => setActiveTab(item.id)}
+                  className={`inline-flex items-center justify-center px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all whitespace-nowrap flex-shrink-0 border leading-none cursor-pointer ${
+                    isPillActive
+                      ? 'bg-gold text-navy border-amber-400 shadow-md shadow-gold/25 ring-2 ring-amber-400/40'
+                      : 'bg-gray-100 hover:bg-gray-200 text-slate-700 border-transparent'
+                  }`}
+                >
+                  {item.pillLabel || item.brand}
+                </button>
+              );
+            })}
+          </div>
+          {/* Subtle gradient fade to signal additional tabs on the right on mobile */}
+          <div className="sm:hidden pointer-events-none absolute right-0 top-0 bottom-2 w-8 bg-gradient-to-l from-white to-transparent" />
         </div>
 
         {/* Featured Item Display Card */}
@@ -451,7 +586,7 @@ export default function FeaturedEquipment() {
                   className="w-full h-full object-contain transform transition-transform duration-500 group-hover:scale-105"
                 />
 
-                <div className="absolute top-3 left-3 sm:top-4 sm:left-4 bg-navy text-white text-[11px] sm:text-xs font-semibold px-2.5 sm:px-3 py-1 rounded-md shadow-sm">
+                <div className="absolute top-3 left-3 sm:top-4 sm:left-4 bg-navy text-white text-xs font-semibold px-2.5 sm:px-3 py-1 rounded-md shadow-sm">
                   {currentItem.badge}
                 </div>
 
@@ -464,19 +599,22 @@ export default function FeaturedEquipment() {
                 </div>
               </div>
 
-              {/* Thumbnails row */}
-              <div className="flex items-center gap-2.5 overflow-x-auto pb-1 scrollbar-none">
+              {/* Thumbnails row — accessible view switchers with active indicator */}
+              <div className="flex items-center gap-2.5 overflow-x-auto pb-1 scrollbar-none" role="tablist" aria-label="Product image gallery">
                 {currentItem.images.map((img, idx) => (
                   <button
                     key={idx}
+                    type="button"
                     onClick={() => handleImageSwitch(currentItem.id, idx)}
-                    className={`relative w-20 sm:w-24 h-16 sm:h-18 rounded-xl overflow-hidden border-2 bg-white p-1 transition-all flex-shrink-0 ${
+                    aria-label={`View photo ${idx + 1} of ${currentItem.name}`}
+                    aria-current={activeImageIndex === idx ? 'true' : undefined}
+                    className={`relative w-20 sm:w-24 h-16 sm:h-18 rounded-xl overflow-hidden border-2 bg-white p-1 transition-all flex-shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold ${
                       activeImageIndex === idx
-                        ? 'border-amber-500 ring-2 ring-amber-500/20'
-                        : 'border-gray-200 opacity-60 hover:opacity-100'
+                        ? 'border-amber-500 ring-2 ring-amber-500/30'
+                        : 'border-gray-200 opacity-70 hover:opacity-100'
                     }`}
                   >
-                    <img src={img} alt="" className="w-full h-full object-contain" />
+                    <img src={img} alt={`Thumbnail ${idx + 1}`} className="w-full h-full object-contain" />
                   </button>
                 ))}
               </div>
@@ -485,7 +623,7 @@ export default function FeaturedEquipment() {
             {/* Right: Specifications, Highlights & CTA */}
             <div className="lg:col-span-6 space-y-5 sm:space-y-6">
               <div>
-                <span className="text-[11px] sm:text-xs font-bold text-amber-700 uppercase tracking-wider bg-amber-100/80 px-2.5 py-1 rounded-md">
+                <span className="text-xs font-bold text-amber-700 uppercase tracking-wider bg-amber-100/80 px-2.5 py-1 rounded-md">
                   {currentItem.category}
                 </span>
                 <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-navy mt-2.5 sm:mt-3 leading-tight">
@@ -500,7 +638,7 @@ export default function FeaturedEquipment() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 bg-white p-3.5 sm:p-4 rounded-2xl border border-gray-200">
                 {currentItem.specs.map((spec, i) => (
                   <div key={i} className="bg-slate-50 p-2.5 sm:p-3 rounded-xl border border-gray-100">
-                    <span className="text-[10px] sm:text-[11px] font-medium text-slate-500 block uppercase">
+                    <span className="text-xs font-medium text-slate-500 block uppercase">
                       {spec.label}
                     </span>
                     <span className="text-xs sm:text-sm font-bold text-navy mt-0.5 block font-mono">
@@ -523,15 +661,23 @@ export default function FeaturedEquipment() {
                 ))}
               </div>
 
-              {/* Action Buttons */}
-              <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-2">
+              {/* Action Buttons — Unified visual hierarchy */}
+              <div className="flex flex-col sm:flex-row items-center sm:items-center justify-center sm:justify-start gap-3 sm:gap-4 pt-2 w-full">
+                <Link
+                  href="/contact"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-gold hover:bg-gold-dark text-navy font-bold text-xs sm:text-sm shadow-sm hover:shadow transition-all text-center"
+                >
+                  Request Technical Quotation
+                  <ChevronRight className="w-4 h-4" />
+                </Link>
+
                 <Button
                   href={currentItem.link}
-                  size="md"
+                  size="sm"
                   showArrow
-                  className="bg-navy hover:bg-navy-light text-white font-bold px-5 sm:px-6 shadow-md text-xs sm:text-sm"
+                  className="w-full sm:w-auto justify-center bg-navy hover:bg-navy-light text-white font-semibold px-4 sm:px-5 py-2.5 rounded-lg shadow-sm text-xs sm:text-sm text-center"
                 >
-                  {currentItem.ctaText || `View Full ${currentItem.brand} Catalogue`}
+                  {currentItem.ctaText || `View ${currentItem.brand} Catalogue`}
                 </Button>
 
                 {currentItem.brochureLink ? (
@@ -539,28 +685,20 @@ export default function FeaturedEquipment() {
                     href={currentItem.brochureLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 bg-white hover:bg-gray-100 text-slate-800 font-semibold rounded-lg border border-gray-300 text-xs shadow-sm transition-colors"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 bg-white hover:bg-gray-100 text-slate-800 font-semibold rounded-lg border border-gray-300 text-xs sm:text-sm shadow-sm transition-colors text-center"
                   >
                     <FileDown className="w-4 h-4 text-amber-600" />
-                    Download Brochure (PDF)
+                    Brochure (PDF)
                   </a>
                 ) : (
                   <Link
                     href="/contact"
-                    className="inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 bg-white hover:bg-gray-100 text-slate-800 font-semibold rounded-lg border border-gray-300 text-xs shadow-sm transition-colors"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 bg-white hover:bg-gray-100 text-slate-800 font-semibold rounded-lg border border-gray-300 text-xs sm:text-sm shadow-sm transition-colors text-center"
                   >
                     <FileDown className="w-4 h-4 text-amber-600" />
                     {currentItem.secondaryCtaText || 'Submit Drawing for RFQ'}
                   </Link>
                 )}
-
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center gap-1.5 text-xs text-slate-600 hover:text-amber-600 transition-colors"
-                >
-                  Request Technical Quotation
-                  <ChevronRight className="w-3.5 h-3.5" />
-                </Link>
               </div>
             </div>
           </div>
@@ -648,12 +786,12 @@ export default function FeaturedEquipment() {
                           className="w-full h-full object-contain group-hover:scale-105 transition-transform"
                         />
                       </div>
-                      <span className="text-[10px] text-gold font-semibold uppercase tracking-wider block">
+                      <span className="text-xs text-gold font-semibold uppercase tracking-wider block">
                         {item.category}
                       </span>
-                      <h5 className="text-xs sm:text-sm font-bold text-white group-hover:text-gold transition-colors line-clamp-2 mt-1">
+                      <h4 className="text-xs sm:text-sm font-bold text-white group-hover:text-gold transition-colors line-clamp-2 mt-1">
                         {item.title}
-                      </h5>
+                      </h4>
                     </Link>
                   ))}
                 </div>

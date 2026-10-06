@@ -49,9 +49,9 @@ export default function Footer() {
             <div className="w-full lg:w-3/5 grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10">
               {/* Products */}
               <div className="text-center md:text-left">
-                <h4 className="font-heading text-sm font-semibold uppercase tracking-wider mb-5 text-white">
+                <h3 className="font-heading text-sm sm:text-base font-semibold mb-4 text-white">
                   Industrial Products
-                </h4>
+                </h3>
                 <ul className="space-y-3">
                   {FOOTER_LINKS.products.map((link) => (
                     <li key={link.label}>
@@ -69,9 +69,9 @@ export default function Footer() {
 
               {/* Services */}
               <div className="text-center md:text-left">
-                <h4 className="font-heading text-sm font-semibold uppercase tracking-wider mb-5 text-white">
+                <h3 className="font-heading text-sm sm:text-base font-semibold mb-4 text-white">
                   Services
-                </h4>
+                </h3>
                 <ul className="space-y-3">
                   {FOOTER_LINKS.services.map((link) => (
                     <li key={link.label}>
@@ -89,9 +89,9 @@ export default function Footer() {
 
               {/* Company */}
               <div className="text-center md:text-left">
-                <h4 className="font-heading text-sm font-semibold uppercase tracking-wider mb-5 text-white">
+                <h3 className="font-heading text-sm sm:text-base font-semibold mb-4 text-white">
                   Company
-                </h4>
+                </h3>
                 <ul className="space-y-3">
                   {FOOTER_LINKS.company.map((link) => (
                     <li key={link.label}>
@@ -109,9 +109,9 @@ export default function Footer() {
 
               {/* Quick Links */}
               <div className="text-center md:text-left">
-                <h4 className="font-heading text-sm font-semibold uppercase tracking-wider mb-5 text-white">
+                <h3 className="font-heading text-sm sm:text-base font-semibold mb-4 text-white">
                   Quick Links
-                </h4>
+                </h3>
                 <ul className="space-y-3">
                   <li>
                     <Link href="/privacy-policy" className="text-sm text-gray-400 hover:text-gold transition-colors inline-flex items-center justify-center md:justify-start gap-1 group">

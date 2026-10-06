@@ -254,16 +254,17 @@ export default function CustomerClient() {
                   <span>Select Client Plant to Inspect Live Machinery:</span>
                 </div>
                 
-                <div className="flex flex-wrap gap-2">
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-2.5 w-full">
                   {CLIENT_SPOTLIGHTS.map((c) => {
                     const isActive = activeHeroClient === c.id;
                     return (
                       <button
                         key={c.id}
                         onClick={() => setActiveHeroClient(c.id)}
-                        className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-bold transition-all duration-200 border cursor-pointer ${
+                        title={c.name}
+                        className={`w-full flex items-center gap-2 px-2.5 sm:px-3 py-2 rounded-xl text-xs font-bold transition-all duration-200 border cursor-pointer text-left ${
                           isActive
-                            ? 'bg-amber-500 text-slate-950 border-amber-400 shadow-lg shadow-amber-500/25 scale-105'
+                            ? 'bg-amber-500 text-slate-950 border-amber-400 shadow-lg shadow-amber-500/25 ring-1 ring-amber-400'
                             : 'bg-white/5 hover:bg-white/10 text-gray-300 border-white/10 hover:border-amber-400/40'
                         }`}
                       >
@@ -276,7 +277,7 @@ export default function CustomerClient() {
                             className="max-h-3 w-auto object-contain"
                           />
                         </span>
-                        <span>{c.name}</span>
+                        <span className="truncate">{c.name}</span>
                       </button>
                     );
                   })}
@@ -331,127 +332,46 @@ export default function CustomerClient() {
             </div>
 
             {/* Right Column: Visual 3-Image Machinery & Plant Bento Showcase */}
-            <div className="lg:col-span-6 w-full space-y-3.5">
+            <div className="lg:col-span-6 w-full space-y-3 sm:space-y-3.5">
               
               {/* Image 1: Main Dynamic Plant Machinery Showcase Card */}
-              <div className="relative rounded-3xl overflow-hidden bg-slate-950 border border-white/20 shadow-2xl shadow-black/80 group">
-                
-                {/* Real Machinery Image with Transition */}
-                <div className="relative h-64 sm:h-72 w-full overflow-hidden">
+              <div className="relative rounded-3xl overflow-hidden bg-black border border-white/20 shadow-2xl shadow-black/80 group">
+                <div className="relative h-60 min-[400px]:h-72 sm:h-80 lg:h-[330px] w-full overflow-hidden flex items-center justify-center p-2 sm:p-4">
                   <Image
                     key={heroClient.id}
                     src={heroClient.plantImage || '/images/about-2.jpg'}
                     alt={`${heroClient.name || 'Client'} Plant Installation`}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                    className="object-contain group-hover:scale-105 transition-transform duration-700 ease-out"
                     priority
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-black/30" />
-                  <div className="absolute inset-0 bg-gradient-to-r from-slate-950/70 via-transparent to-slate-950/50" />
                 </div>
-
-                {/* Top Floating Badges on Image */}
-                <div className="absolute top-4 left-4 right-4 flex items-center justify-between gap-2 z-10">
-                  <div className="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-2xl bg-white/95 backdrop-blur-md border border-white/20 shadow-xl">
-                    <div className="h-6 w-16 relative flex items-center justify-center">
-                      <Image
-                        src={heroClient.logo || '/images/clients/hero-motocorp-logo.svg'}
-                        alt={heroClient.name || 'Client Logo'}
-                        width={65}
-                        height={24}
-                        className="max-h-5 w-auto object-contain"
-                      />
-                    </div>
-                    <span className="text-[10px] font-extrabold text-slate-900 border-l border-gray-300 pl-2">
-                      {heroClient.name}
-                    </span>
-                  </div>
-
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-950/80 backdrop-blur-md border border-emerald-500/40 text-emerald-300 text-[10px] font-bold shadow-lg">
-                    <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-                    <span>{heroClient.keyMetric.label}: <strong className="text-white">{heroClient.keyMetric.value}</strong></span>
-                  </div>
-                </div>
-
-                {/* Bottom Overlay Info on Image */}
-                <div className="absolute bottom-0 inset-x-0 p-5 bg-gradient-to-t from-slate-950 via-slate-950/90 to-transparent z-10">
-                  <div className="flex flex-wrap items-center justify-between gap-2 mb-1.5">
-                    <h3 className="text-lg font-bold text-white flex items-center gap-2">
-                      <span>{heroClient.fullName}</span>
-                      <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30 font-semibold">
-                        {heroClient.partnershipYears}
-                      </span>
-                    </h3>
-                  </div>
-
-                  <p className="text-xs text-amber-300/90 font-medium mb-2 flex items-center gap-1">
-                    <span>📍</span> {heroClient.plantLocation} • {heroClient.plantTagline}
-                  </p>
-
-                  <div className="flex flex-wrap items-center gap-1.5 text-[10px]">
-                    <span className="px-2.5 py-1 rounded-lg bg-white/10 border border-white/15 text-gray-200 font-medium">
-                      ⚙️ {heroClient.equipmentSupplied[0]}
-                    </span>
-                    <span className="px-2.5 py-1 rounded-lg bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 font-medium">
-                      ✓ CAMC Support
-                    </span>
-                  </div>
-                </div>
-
               </div>
 
-              {/* Dual Lower Real Machinery & Field Images (Images 2 & 3) */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+              {/* Dual Lower Real Machinery Cards — 2 Columns on Mobile & Desktop */}
+              <div className="grid grid-cols-2 gap-3 sm:gap-3.5">
                 
-                {/* Image 2: Workshop & Field Engineering Unit */}
-                <div className="relative rounded-3xl overflow-hidden bg-slate-950 border border-white/15 shadow-xl group h-36">
-                  <Image
-                    src="/images/about-1.jpg"
-                    alt="Airmen Field Engineering Workshop"
-                    fill
-                    className="object-cover opacity-60 group-hover:scale-105 group-hover:opacity-75 transition-all duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-slate-950/20" />
-                  
-                  <div className="absolute inset-0 p-4 flex flex-col justify-between z-10">
-                    <span className="inline-flex items-center gap-1 text-[10px] font-extrabold uppercase tracking-wider text-amber-400 bg-black/60 backdrop-blur-md px-2 py-0.5 rounded-md border border-white/10 w-fit">
-                      <Clock className="w-3 h-3 text-amber-400" />
-                      24/7 Breakdown Reach
-                    </span>
-                    <div>
-                      <div className="text-xs font-bold text-white leading-tight">
-                        &lt; 2–4 Hours Response SLA
-                      </div>
-                      <p className="text-[10px] text-gray-300 mt-0.5">
-                        Gurugram, Neemrana &amp; Haridwar Squads
-                      </p>
-                    </div>
+                {/* Image 2: Kaeser Piston Compressor on White Card */}
+                <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden bg-white border border-white/20 shadow-xl group h-32 min-[400px]:h-36 sm:h-44 p-2 sm:p-3 flex items-center justify-center">
+                  <div className="relative w-full h-full">
+                    <Image
+                      src="/images/about-1.jpg"
+                      alt="Kaeser Reciprocating Piston Compressor"
+                      fill
+                      className="object-contain group-hover:scale-105 transition-transform duration-500 ease-out"
+                    />
                   </div>
                 </div>
 
-                {/* Image 3: Genuine Factory-Original Spares & Machinery */}
-                <div className="relative rounded-3xl overflow-hidden bg-slate-950 border border-white/15 shadow-xl group h-36">
-                  <Image
-                    src="/images/about-3.jpg"
-                    alt="Kaeser & EP Machinery Installation"
-                    fill
-                    className="object-cover opacity-60 group-hover:scale-105 group-hover:opacity-75 transition-all duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-slate-950/20" />
-                  
-                  <div className="absolute inset-0 p-4 flex flex-col justify-between z-10">
-                    <span className="inline-flex items-center gap-1 text-[10px] font-extrabold uppercase tracking-wider text-emerald-400 bg-black/60 backdrop-blur-md px-2 py-0.5 rounded-md border border-white/10 w-fit">
-                      <ShieldCheck className="w-3 h-3 text-emerald-400" />
-                      Factory Genuine Spares
-                    </span>
-                    <div>
-                      <div className="text-xs font-bold text-white leading-tight">
-                        100% OEM Authenticity
-                      </div>
-                      <p className="text-[10px] text-gray-300 mt-0.5">
-                        German Kaeser &amp; EP Fleet Logistics
-                      </p>
-                    </div>
+                {/* Image 3: Kaeser SXC Compact Tower Compressor on White Card */}
+                <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden bg-white border border-white/20 shadow-xl group h-32 min-[400px]:h-36 sm:h-44 p-2 sm:p-3 flex items-center justify-center">
+                  <div className="relative w-full h-full">
+                    <Image
+                      src="/images/about-3.jpg"
+                      alt="Kaeser SXC Compact Rotary Screw Compressor"
+                      fill
+                      className="object-contain group-hover:scale-105 transition-transform duration-500 ease-out"
+                    />
                   </div>
                 </div>
 

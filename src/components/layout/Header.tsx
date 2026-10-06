@@ -65,10 +65,10 @@ export default function Header() {
               <img src="/images/main-logo.png" alt="Airmen Engineers" className="h-10 sm:h-12 w-auto object-contain flex-shrink-0" />
               {/* Logo Text — single line, professional serif */}
               <span
-                className="text-navy font-bold tracking-wide whitespace-nowrap leading-none text-base sm:text-xl md:text-2xl"
+                className="text-navy font-bold whitespace-nowrap leading-none text-base sm:text-xl md:text-2xl"
                 style={{ fontFamily: "'Times New Roman', 'Georgia', 'Palatino Linotype', serif" }}
               >
-                AIRMAN ENGINEERS
+                Airman Engineers
               </span>
             </Link>
 
@@ -109,10 +109,10 @@ export default function Header() {
                 href="/contact" 
                 size="sm" 
                 onClick={() => setActiveMenu(null)}
-                className="hidden lg:inline-flex" 
+                className="hidden lg:inline-flex bg-gold text-navy hover:bg-gold-dark font-bold shadow-sm" 
                 id="header-cta"
               >
-                GET A QUOTE
+                Get a Quote
               </Button>
 
               {/* Mobile Menu Toggle */}

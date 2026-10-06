@@ -63,6 +63,11 @@ export default function Hero() {
       id="hero"
       className="relative w-full max-w-full overflow-hidden bg-white group select-none"
     >
+      {/* Accessible Primary Page Heading (H1) */}
+      <h1 className="sr-only">
+        Airmen Engineers — Industrial Equipment &amp; In-House Precision Manufacturing
+      </h1>
+
       {/* ========================================
           HERO IMAGE SLIDER CONTAINER
           Identical width & height for all slides

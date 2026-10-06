@@ -36,9 +36,10 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           'fixed top-0 right-0 w-[85vw] max-w-sm h-full bg-white z-[var(--z-mobile-menu)] lg:hidden',
           'transform transition-transform duration-300 ease-in-out',
           'flex flex-col shadow-2xl',
-          isOpen ? 'translate-x-0' : 'translate-x-full'
+          isOpen ? 'translate-x-0 visible' : 'translate-x-full invisible pointer-events-none'
         )}
         id="mobile-menu"
+        aria-hidden={!isOpen}
       >
         <div className="p-4 border-b border-gray-100">
           <span

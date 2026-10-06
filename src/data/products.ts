@@ -19,6 +19,7 @@ export const BRANDS: Record<string, Brand> = {
     id: 'aim',
     name: 'AIM',
     slug: 'aim',
+    logo: '/images/logos/aims-partners-logo.jpg',
     description: 'Anest Iwata Motherson (AIM) — A joint venture between Anest Iwata (Japan) and Sumi Motherson Group, manufacturing high-quality reciprocating and scroll air compressors in India.',
     country: 'India / Japan',
   },

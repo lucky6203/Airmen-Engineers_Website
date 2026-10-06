@@ -3,31 +3,11 @@
 import React, { useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import {
-  Wind,
-  Truck,
-  GitBranch,
-  BatteryCharging,
-  ArrowRight,
-} from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 import Container from '@/components/common/Container';
 import SectionHeading from '@/components/common/SectionHeading';
 import { PRODUCT_CATEGORIES } from '@/data/products';
-
-// ============================================
-// ICON MAP
-// ============================================
-
-const ICON_MAP: Record<
-  string,
-  React.ComponentType<{ className?: string }>
-> = {
-  Wind,
-  Truck,
-  GitBranch,
-  BatteryCharging,
-};
 
 // ============================================
 // CATEGORY IMAGES
@@ -36,7 +16,7 @@ const ICON_MAP: Record<
 const CATEGORY_IMAGES: Record<string, string> = {
   'air-compressors': '/images/compressors/kaeser-dsd-main.jpg',
   'material-handling': '/images/forklifts/models/efl253-battery.png',
-  'compressed-air-piping': '/images/banner-2.jpg',
+  'compressed-air-piping': '/images/Banner-6.jpg',
   'power-solutions': '/images/greaves/products/greaves-canopy-industrial.jpg',
 };
 
@@ -91,9 +71,6 @@ function SolutionCard({
     x: 0,
     y: 0,
   });
-
-  const IconComponent =
-    ICON_MAP[category.icon] || Wind;
 
   const brandNames = category.brands
     .map((brand) => brand.name)
@@ -165,7 +142,7 @@ function SolutionCard({
 
       <Link
         href={`/${firstBrandSlug}`}
-        className="block w-full h-full"
+        className="block w-full h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 rounded-2xl"
       >
 
         <div
@@ -178,11 +155,13 @@ function SolutionCard({
             bg-[#dfe1e4]
             border
             border-gray-200/50
+            hover:border-gold/60
             shadow-lg
             hover:shadow-2xl
-            transition-shadow
+            transition-all
             duration-300
             group
+            cursor-pointer
           "
           style={{
             transform: `
@@ -239,9 +218,9 @@ function SolutionCard({
               inset-0
               z-10
               bg-gradient-to-t
-              from-navy
-              via-navy/70
-              to-transparent
+              from-[#0a192f]
+              via-[#0a192f]/85
+              to-[#0a192f]/30
             "
           />
 
@@ -261,39 +240,6 @@ function SolutionCard({
               sm:p-6
             "
           >
-
-            {/* ICON */}
-
-            <div
-              className="
-                mt-2
-                mb-auto
-                flex
-                h-12
-                w-12
-                sm:h-14
-                sm:w-14
-                items-center
-                justify-center
-                rounded-xl
-                bg-gold/20
-                backdrop-blur-md
-                transition-transform
-                duration-500
-                group-hover:-translate-y-2
-                max-sm:mx-auto
-              "
-            >
-              <IconComponent
-                className="
-                  h-6
-                  w-6
-                  sm:h-7
-                  sm:w-7
-                  text-gold
-                "
-              />
-            </div>
 
             {/* TEXT */}
 
@@ -348,32 +294,42 @@ function SolutionCard({
                 {brandNames}
               </p>
 
-              {/* EXPLORE */}
-
-              <div
-                className="
-                  flex
-                  items-center
-                  gap-2
-                  text-sm
-                  font-semibold
-                  text-white
-                  transition-colors
-                  group-hover:text-gold
-                  max-sm:justify-center
-                "
-              >
-                <span>Explore</span>
-
-                <ArrowRight
+              {/* EXPLORE CTA BADGE */}
+              <div className="pt-2 max-sm:flex max-sm:justify-center">
+                <span
                   className="
-                    h-4
-                    w-4
-                    transition-transform
+                    inline-flex
+                    items-center
+                    gap-2
+                    px-4
+                    py-2
+                    rounded-lg
+                    bg-white/15
+                    backdrop-blur-md
+                    border
+                    border-white/20
+                    text-xs
+                    font-bold
+                    text-white
+                    transition-all
                     duration-300
-                    group-hover:translate-x-2
+                    group-hover:bg-gold
+                    group-hover:text-navy
+                    group-hover:border-gold
+                    group-hover:shadow-md
                   "
-                />
+                >
+                  <span>Explore Equipment</span>
+                  <ArrowRight
+                    className="
+                      h-3.5
+                      w-3.5
+                      transition-transform
+                      duration-300
+                      group-hover:translate-x-1.5
+                    "
+                  />
+                </span>
               </div>
 
             </div>

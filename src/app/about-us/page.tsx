@@ -160,10 +160,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6 text-center lg:text-left flex flex-col items-center lg:items-start">
-              <div className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-gold">
-                <Sparkles className="w-3.5 h-3.5" />
-                ESTABLISHED 1996 • 29+ YEARS OF INDUSTRIAL EXCELLENCE
-              </div>
+
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
                 Engineering Trust.<br />
@@ -291,9 +288,7 @@ export default function AboutPage() {
       <section className="py-20 lg:py-24 bg-slate-50 border-b border-gray-200" id="partners">
         <Container>
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <span className="text-xs font-bold uppercase tracking-wider text-amber-600 bg-amber-100 px-3 py-1 rounded-full">
-              Global Standards • Local Execution
-            </span>
+
             <h2 className="text-3xl sm:text-4xl font-extrabold text-navy mt-3">
               Authorized Tier-1 OEM Alliances
             </h2>
@@ -504,8 +499,7 @@ export default function AboutPage() {
           {/* Core Values 4-Pillars */}
           <div>
             <div className="text-center max-w-2xl mx-auto mb-10">
-              <span className="text-xs font-bold uppercase tracking-wider text-amber-600">The Airmen Way</span>
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-navy mt-1">Our Core Operating Values</h3>
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-navy">Our Core Operating Values</h3>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -530,9 +524,7 @@ export default function AboutPage() {
       <section className="py-20 lg:py-24 bg-slate-50 border-b border-gray-200">
         <Container>
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="text-xs font-bold uppercase tracking-wider text-amber-600 bg-amber-100 px-3 py-1 rounded-full">
-              Our Milestones
-            </span>
+
             <h2 className="text-3xl sm:text-4xl font-extrabold text-navy mt-3">
               Growing Together Since 1996
             </h2>
@@ -575,8 +567,7 @@ export default function AboutPage() {
       <section className="py-20 bg-white border-b border-gray-200">
         <Container>
           <div className="text-center max-w-2xl mx-auto mb-14">
-            <span className="text-xs font-bold uppercase tracking-wider text-amber-600">Our Footprint</span>
-            <h2 className="text-3xl font-extrabold text-navy mt-1">Regional Offices &amp; Facilities</h2>
+            <h2 className="text-3xl font-extrabold text-navy">Regional Offices &amp; Facilities</h2>
             <p className="text-slate-600 mt-2 text-sm">
               Strategically located offices and workshop facilities ensuring rapid on-site service across North India.
             </p>
@@ -630,10 +621,7 @@ export default function AboutPage() {
       <section className="py-16 lg:py-20 bg-slate-50 border-b border-gray-200">
         <Container>
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-100 text-amber-800">
-              <ShieldCheck className="w-3.5 h-3.5 text-amber-600" />
-              Tier-1 Industrial Footprint
-            </span>
+
             <h2 className="text-2xl sm:text-3xl font-extrabold text-navy mt-3">
               Trusted by India&apos;s Foremost Industrial Leaders
             </h2>
@@ -683,9 +671,7 @@ export default function AboutPage() {
       <section className="py-20 bg-navy text-white text-center relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#f59e0b_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
         <Container className="relative z-10 max-w-3xl mx-auto space-y-6">
-          <span className="text-xs font-bold uppercase tracking-wider text-amber-400 bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">
-            Ready to Upgrade Your Plant Efficiency?
-          </span>
+
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white">
             Partner With <span className="text-gold">Airmen Engineers</span>
           </h2>

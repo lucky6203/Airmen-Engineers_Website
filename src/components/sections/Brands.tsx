@@ -12,7 +12,7 @@ import { BRAND_LIST } from '@/data/products';
 const LOGO_MAP: Record<string, string> = {
   kaeser: '/images/logos/logo-kaeser.svg',
   greaves: '/images/logos/logo-greaves.svg',
-
+  aim: '/images/logos/aims-partners-logo.jpg',
   ep: '/images/logos/logo-ep.png',
   airpipe: '/images/logos/logo-airpipe.png',
 };
@@ -21,15 +21,15 @@ export default function Brands() {
   const brands = [...BRAND_LIST, ...BRAND_LIST]; // Duplicate for seamless loop
 
   return (
-    <section className="py-3 sm:py-4 bg-gray-50 border-y border-gray-200 overflow-hidden" id="trusted-brands">
+    <section className="py-8 sm:py-10 lg:py-12 bg-gray-50 border-y border-gray-200 overflow-hidden" id="trusted-brands">
       <Container>
-        <p className="text-center text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] text-gray-400 mb-2">
-          Authorized Dealer & Service Partner
+        <p className="text-center text-xs font-semibold tracking-wider text-slate-500 mb-4 sm:mb-6">
+          Authorized Dealer &amp; Service Partner
         </p>
       </Container>
 
       {/* Marquee */}
-      <div className="relative group">
+      <div className="relative group overflow-hidden w-full max-w-full">
         <div className="flex animate-marquee group-hover:[animation-play-state:paused]">
           {brands.map((brand, index) => (
             <div
@@ -43,7 +43,7 @@ export default function Brands() {
                       src={LOGO_MAP[brand.id]}
                       alt={brand.name}
                       fill
-                      className="object-contain"
+                      className="object-contain mix-blend-multiply"
                     />
                   </div>
                 ) : (
@@ -58,7 +58,7 @@ export default function Brands() {
                         {brand.name}
                       </span>
                       {brand.country && (
-                        <span className="text-[9px] text-gray-400 uppercase tracking-wider">
+                        <span className="text-xs text-slate-500 font-medium">
                           {brand.country}
                         </span>
                       )}

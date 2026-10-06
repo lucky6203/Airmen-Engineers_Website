@@ -16,7 +16,8 @@ import {
   Boxes, 
   ArrowRight,
   ShieldCheck,
-  CheckCircle2
+  CheckCircle2,
+  Cog
 } from 'lucide-react';
 import Container from '@/components/common/Container';
 
@@ -126,7 +127,7 @@ export default function IndustriesServed() {
                     <div className={`w-12 h-12 rounded-xl flex items-center justify-center border ${ind.accent}`}>
                       <Icon className="w-6 h-6" />
                     </div>
-                    <span className="text-[11px] font-mono text-gray-400 uppercase tracking-wider">
+                    <span className="text-xs font-mono text-slate-400">
                       {ind.tagline}
                     </span>
                   </div>
@@ -135,18 +136,18 @@ export default function IndustriesServed() {
                     {ind.name}
                   </h3>
 
-                  <p className="text-gray-400 text-xs sm:text-sm leading-relaxed mb-6">
+                  <p className="text-slate-300 text-sm leading-relaxed mb-5">
                     {ind.description}
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-white/10 space-y-2">
-                  <div className="flex items-start gap-2 text-xs text-gray-300">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-amber-400 mt-0.5 flex-shrink-0" />
+                <div className="pt-4 border-t border-white/10 space-y-2.5">
+                  <div className="flex items-start gap-2 text-xs text-slate-300">
+                    <Cog className="w-4 h-4 text-amber-400 mt-0.5 flex-shrink-0" />
                     <span><strong className="text-white font-medium">Flagship Systems:</strong> {ind.keyEquipment}</span>
                   </div>
-                  <div className="flex items-start gap-2 text-xs text-amber-400/90 font-medium">
-                    <ShieldCheck className="w-3.5 h-3.5 text-amber-400 mt-0.5 flex-shrink-0" />
+                  <div className="flex items-start gap-2 text-xs text-amber-300/90 font-medium">
+                    <ShieldCheck className="w-4 h-4 text-amber-400 mt-0.5 flex-shrink-0" />
                     <span>{ind.clientsHighlight}</span>
                   </div>
                 </div>
@@ -156,16 +157,16 @@ export default function IndustriesServed() {
         </div>
 
         {/* Audit Callout Banner */}
-        <div className="mt-14 p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-amber-500/20 via-blue-500/10 to-transparent border border-white/15 flex flex-col sm:flex-row items-center justify-between gap-6 backdrop-blur-sm">
+        <div className="mt-14 p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-amber-500/15 via-blue-500/10 to-transparent border border-white/15 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 backdrop-blur-sm">
           <div>
-            <h4 className="text-lg font-bold text-white">Need an Industry-Specific Engineering Assessment?</h4>
-            <p className="text-xs sm:text-sm text-gray-300 mt-1">
+            <h3 className="text-lg font-bold text-white">Need an Industry-Specific Engineering Assessment?</h3>
+            <p className="text-sm text-slate-300 mt-1">
               Our application engineers conduct on-site pressure profiling, load harmonic audits, and acoustic mapping.
             </p>
           </div>
           <Link
             href="/contact"
-            className="flex-shrink-0 inline-flex items-center gap-2 px-6 py-3 bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold rounded-xl text-xs uppercase tracking-wider shadow-lg transition-transform hover:scale-105"
+            className="flex-shrink-0 inline-flex items-center gap-2 px-6 py-3 bg-amber-500 hover:bg-amber-600 text-slate-950 font-semibold rounded-xl text-sm shadow-lg transition-transform hover:scale-105"
           >
             Consult Engineering Team
             <ArrowRight className="w-4 h-4" />

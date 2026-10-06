@@ -35,7 +35,7 @@ export default function Button({
   id,
 }: ButtonProps) {
   const baseStyles =
-    'inline-flex items-center justify-center gap-2 font-heading font-semibold tracking-wide uppercase transition-all duration-300 rounded-lg relative overflow-hidden group';
+    'inline-flex items-center justify-center gap-2 font-heading font-semibold tracking-normal transition-all duration-300 rounded-lg relative overflow-hidden group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2';
 
   const variants = {
     primary:

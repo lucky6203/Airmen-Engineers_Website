@@ -8,6 +8,7 @@
 import React, { useState, useMemo, useRef } from 'react';
 import Link from 'next/link';
 import {
+  type LucideIcon,
   Building2,
   Cpu,
   FlaskConical,
@@ -55,7 +56,7 @@ import {
 import { CONTACT_INFO } from '@/data/company';
 
 // Icon mapping helper for site presets
-const ICON_MAP: Record<string, React.ElementType> = {
+const ICON_MAP: Record<string, LucideIcon> = {
   Building2,
   Cpu,
   FlaskConical,

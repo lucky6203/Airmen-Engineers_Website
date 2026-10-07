@@ -102,7 +102,7 @@ const TRUST_STATS = [
 
 export default function Customers() {
   return (
-    <section className="py-24 bg-[#050B14] relative overflow-hidden border-t border-b border-white/5" id="clients">
+    <section className="py-10 sm:py-14 bg-[#050B14] relative overflow-hidden border-t border-b border-white/5" id="clients">
       {/* Ambient Radial Lighting & Industrial Glows */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[450px] bg-gold/10 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-0 right-10 w-[400px] h-[400px] bg-blue-500/5 rounded-full blur-[100px] pointer-events-none" />
@@ -110,11 +110,11 @@ export default function Customers() {
 
       <Container className="relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold/10 border border-gold/25 text-gold text-xs font-semibold tracking-widest uppercase mb-4 animate-fade-in-up">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
+          {/* <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold/10 border border-gold/25 text-gold text-xs font-semibold tracking-widest uppercase mb-4 animate-fade-in-up">
             <span className="w-2 h-2 rounded-full bg-gold animate-pulse" />
             Trusted By Industry Leaders
-          </div>
+          </div> */}
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-white tracking-tight leading-tight">
             Powering India&apos;s Foremost{' '}

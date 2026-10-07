@@ -27,16 +27,17 @@ const CATEGORY_IMAGES: Record<string, string> = {
 export default function Solutions() {
   return (
     <section
-      className="section-padding bg-gray-50"
+      className="py-10 sm:py-14 bg-gray-50 border-b border-gray-200"
       id="solutions"
     >
       <Container>
 
         <SectionHeading
-          overline="What We Offer"
+          // overline="What We Offer"
           title="Complete Industrial Solutions"
           subtitle="From compressed air to material handling, smart monitoring to power generation — we provide end-to-end engineering solutions for your industry."
           align="center"
+          className="mb-6 sm:mb-8"
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

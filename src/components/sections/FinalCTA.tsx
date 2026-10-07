@@ -24,7 +24,7 @@ export default function FinalCTA() {
   }, []);
 
   return (
-    <section className="relative py-24 bg-navy overflow-hidden" id="final-cta">
+    <section className="relative py-12 sm:py-16 bg-navy overflow-hidden" id="final-cta">
       {/* Decorative particles */}
       <div className="absolute inset-0">
         {particles.map((p) => (
@@ -50,7 +50,7 @@ export default function FinalCTA() {
 
       <Container className="relative z-10">
         <div className="text-center max-w-2xl mx-auto">
-          <span className="overline mb-4 block">Get Started</span>
+          {/* <span className="overline mb-4 block">Get Started</span> */}
           <h2 className="text-white mb-4">
             Ready to Improve Your{' '}
             <span className="text-gold">Operations?</span>

@@ -142,6 +142,9 @@ export type RequirementType =
 export interface NavItem {
   label: string;
   href: string;
+  description?: string;
+  badge?: string;
+  sectionTitle?: string;
   children?: NavItem[];
   megaMenu?: MegaMenuCategory[];
 }

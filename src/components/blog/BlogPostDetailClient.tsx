@@ -74,11 +74,9 @@ export default function BlogPostDetailClient({ slug }: Props) {
           <p className="text-slate-400 text-sm mb-6">
             The requested technical article may have been removed or is stored in a different browser session.
           </p>
-          <Link href="/blog">
-            <Button variant="primary" size="md">
-              <ArrowLeft className="w-4 h-4 mr-2" /> Back to Knowledge Hub
-            </Button>
-          </Link>
+          <Button href="/blog" variant="primary" size="md">
+            <ArrowLeft className="w-4 h-4 mr-2" /> Back to Knowledge Hub
+          </Button>
         </div>
       </Container>
     );
@@ -298,16 +296,12 @@ export default function BlogPostDetailClient({ slug }: Props) {
               </p>
             </div>
             <div className="flex flex-wrap gap-3 shrink-0">
-              <Link href="/contact">
-                <Button variant="primary" size="md">
-                  Request Free Audit
-                </Button>
-              </Link>
-              <Link href="/rental">
-                <Button variant="secondary" size="md">
-                  Explore Rentals
-                </Button>
-              </Link>
+              <Button href="/contact" variant="primary" size="md">
+                Request Free Audit
+              </Button>
+              <Button href="/a-rental-compressor" variant="secondary" size="md">
+                Explore Rentals
+              </Button>
             </div>
           </div>
         </div>

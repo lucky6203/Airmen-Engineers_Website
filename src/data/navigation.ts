@@ -76,20 +76,65 @@ export const MANUFACTURING_MENU_CATEGORIES: MegaMenuCategory[] = [
   },
 ];
 
+export const PRODUCTS_MEGA_MENU: MegaMenuCategory[] = [
+  {
+    title: 'Industrial Products',
+    icon: 'Wind',
+    items: [
+      { label: 'Kaeser Compressors', href: '/kaeser', description: 'German rotary screw air compressors & blowers' },
+      { label: 'EP Li-Ion Forklifts', href: '/ep-forklifts', description: 'Electric, diesel & warehouse forklifts' },
+      { label: 'Greaves Cotton DG Sets', href: '/greaves', description: 'CPCB IV+ heavy-duty diesel generator sets' },
+      { label: 'AIRpipe Systems', href: '/airpipe', description: 'Quick-connect aluminium & steel air piping' },
+      { label: 'AIM Compressors', href: '/aim', description: 'Reciprocating, piston & scroll compressors' },
+      { label: 'All Industrial Products →', href: '/products', description: 'Explore complete authorized dealership lines' },
+    ],
+  },
+  {
+    title: 'Manufactured Products',
+    icon: 'Factory',
+    items: [
+      { label: 'Forged Wheel Hubs & Flanges', href: '/manufacturing-products#forged-wheel-hub', description: 'Closed-die grain flow integrity & precision CNC boring' },
+      { label: 'Bushings & Precision Spacers', href: '/manufacturing-products#micro-tolerance-spacer', description: 'Micro-alloy sleeves, bearing retainers & collars' },
+      { label: 'Profiled Bearing Rings & Retainers', href: '/manufacturing-products#surface-profile-ring', description: 'Contoured CNC profiling with ±0.01 mm precision' },
+      { label: 'Heavy-Duty Structural Flanges', href: '/manufacturing-products#structural-stepped-flange', description: 'Automotive stepped mounting flanges & bosses' },
+      { label: 'Gajraula Manufacturing Plant (U.P.)', href: '/manufacturing-products', description: 'In-house metallurgy, forging & multi-axis CNC lathes' },
+      { label: 'All Manufactured Products →', href: '/manufacturing-products', description: 'Explore complete in-house manufactured range' },
+    ],
+  },
+];
+
 export const NAV_ITEMS: NavItem[] = [
   { label: 'Home', href: '/' },
   { label: 'About Us', href: '/about-us' },
   {
-    label: 'Industrial Products',
+    label: 'Products',
     href: '/products',
-    megaMenu: MEGA_MENU_CATEGORIES,
+    megaMenu: PRODUCTS_MEGA_MENU,
   },
   {
-    label: 'Manufacturing Products',
-    href: '/manufacturing-products',
-    megaMenu: MANUFACTURING_MENU_CATEGORIES,
+    label: 'Services',
+    href: '/service',
+    children: [
+      {
+        label: 'Engineering Services & AMC',
+        href: '/service',
+        description: 'Preventive maintenance, AMC contracts, genuine spare parts & technical support',
+      },
+      {
+        label: 'Air Compressor Rental',
+        href: '/a-rental-compressor',
+        description: '10 HP to 75 HP emergency standby & temporary hire units',
+        badge: 'Rental',
+      },
+      {
+        label: 'Generator Sizing Calculator',
+        href: '/generator-sizing-calculator',
+        description: 'Estimate generator capacity (kVA) based on your site equipment loads',
+        badge: 'Free Service',
+        sectionTitle: 'Free Services',
+      },
+    ],
   },
-  { label: 'Services', href: '/service' },
   { label: 'Industries', href: '/industries' },
   { label: 'Customers', href: '/customer' },
   { label: 'Blog', href: '/blog' },
@@ -112,6 +157,7 @@ export const FOOTER_LINKS = {
     { label: 'Spare Parts', href: '/service' },
     { label: 'Energy Audit', href: '/service' },
     { label: 'Compressor Rental', href: '/a-rental-compressor' },
+    { label: 'Generator Sizing Calculator (Free)', href: '/generator-sizing-calculator' },
   ],
   company: [
     { label: 'About Us', href: '/about-us' },

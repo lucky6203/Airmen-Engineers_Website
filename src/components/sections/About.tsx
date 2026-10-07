@@ -13,15 +13,16 @@ import { COMPANY_STATS, COMPANY_DESCRIPTION } from '@/data/company';
 
 export default function About() {
   return (
-    <section className="section-padding bg-gray-50" id="about-preview">
+    <section className="py-10 sm:py-14 bg-white border-b border-gray-200 overflow-hidden" id="about-preview">
       <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left — Content */}
           <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
             <SectionHeading
-              overline="About Airmen Engineers"
+              // overline="About Airmen Engineers"
               title="Engineering Trust Since 1996"
               subtitle={COMPANY_DESCRIPTION}
+              className="mb-6 sm:mb-8"
             />
 
             {/* Stats Grid */}

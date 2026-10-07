@@ -17,13 +17,14 @@ export default function BlogPreview() {
   const posts = BLOG_POSTS.slice(0, 3);
 
   return (
-    <section className="section-padding bg-gray-50" id="blog-preview">
+    <section className="py-10 sm:py-14 bg-gray-50 border-b border-gray-200" id="blog-preview">
       <Container>
         <SectionHeading
-          overline="Insights & Articles"
+          // overline="Insights & Articles"
           title="Industrial Knowledge Hub"
           subtitle="Expert insights on air compressors, energy efficiency, maintenance, and industrial technology."
           align="center"
+          className="mb-6 sm:mb-8"
         />
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">

@@ -3,6 +3,7 @@ import './globals.css';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import FloatingWidget from '@/components/common/FloatingWidget';
+import CookieConsent from '@/components/common/CookieConsent';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://airmen.in'),
@@ -19,6 +20,15 @@ export const metadata: Metadata = {
     'material handling', 'energy audit', 'Airmen Engineers',
   ],
   authors: [{ name: 'Airmen Engineers' }],
+  icons: {
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico' },
+    ],
+    apple: [
+      { url: '/images/logos/Airmen Engineers AE Logo.png' },
+    ],
+  },
   openGraph: {
     type: 'website',
     locale: 'en_IN',
@@ -69,6 +79,8 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="canonical" href="https://airmen.in" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="alternate icon" href="/favicon.ico" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
@@ -79,6 +91,7 @@ export default function RootLayout({
         <main id="lqd-site-content">{children}</main>
         <Footer />
         <FloatingWidget />
+        <CookieConsent />
       </body>
     </html>
   );

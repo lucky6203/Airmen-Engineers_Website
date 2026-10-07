@@ -16,7 +16,7 @@ const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
 
 export default function WhyAirmen() {
   return (
-    <section className="section-padding bg-gray-50 relative overflow-hidden" id="why-airmen">
+    <section className="py-10 sm:py-14 bg-gray-50 border-b border-gray-200 relative overflow-hidden" id="why-airmen">
       {/* Decorative Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute top-[-10%] left-[-5%] w-96 h-96 bg-gold/5 rounded-full blur-3xl" />
@@ -25,13 +25,14 @@ export default function WhyAirmen() {
 
       <Container className="relative z-10">
         <SectionHeading
-          overline="Why Choose Us"
+          // overline="Why Choose Us"
           title="Built on Experience. Driven by Excellence."
           subtitle="With nearly three decades of expertise, we deliver industrial solutions you can depend on."
           align="center"
+          className="mb-6 sm:mb-8"
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mt-6 sm:mt-8">
           {WHY_AIRMEN.map((feature, index) => {
             const IconComponent = ICON_MAP[feature.icon] || Award;
             return (

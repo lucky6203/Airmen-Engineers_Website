@@ -157,6 +157,7 @@ export default function ContactClient() {
   const [isUrgent, setIsUrgent] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [ticketId, setTicketId] = useState('');
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   const selectedLoc = LOCATIONS.find((l) => l.id === activeLocationId) || LOCATIONS[0];
@@ -180,6 +181,7 @@ export default function ContactClient() {
   const selectedRequirement = watch('requirementType');
 
   const onSubmit = async (data: EnquiryFormValues) => {
+    setErrorMessage(null);
     try {
       const payload = {
         ...data,
@@ -198,9 +200,13 @@ export default function ContactClient() {
         const randomRef = 'AE-' + Math.floor(100000 + Math.random() * 900000);
         setTicketId(randomRef);
         setSubmitted(true);
+      } else {
+        const errData = await res.json().catch(() => ({}));
+        setErrorMessage(errData.error || 'Failed to submit enquiry. Please call our hotline at +91-9212303791.');
       }
     } catch (err) {
       console.error('Contact form submission error:', err);
+      setErrorMessage('Network connection error. Please call our 24/7 hotline directly at +91-9212303791.');
     }
   };
 
@@ -208,6 +214,7 @@ export default function ContactClient() {
     reset();
     setSubmitted(false);
     setIsUrgent(false);
+    setErrorMessage(null);
   };
 
   return (
@@ -852,6 +859,16 @@ export default function ContactClient() {
                     </div>
 
                     {/* Submit Button */}
+                    {errorMessage && (
+                      <div className="p-4 rounded-2xl bg-red-50 border border-red-200 text-red-700 text-xs sm:text-sm flex items-start gap-2.5">
+                        <AlertTriangle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
+                        <div>
+                          <span className="font-bold block">Submission Error</span>
+                          <span>{errorMessage}</span>
+                        </div>
+                      </div>
+                    )}
+
                     <button
                       type="submit"
                       disabled={isSubmitting}
@@ -1183,7 +1200,7 @@ export default function ContactClient() {
                   Call +91-9212303791
                 </a>
                 <Link
-                  href="/rental"
+                  href="/a-rental-compressor"
                   className="px-6 py-3 rounded-xl bg-white/10 hover:bg-white/15 text-white font-heading font-bold text-xs uppercase tracking-wider border border-white/20 transition-all"
                 >
                   Explore Standby Rentals

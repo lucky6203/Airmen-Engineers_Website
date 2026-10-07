@@ -21,24 +21,24 @@ export default function Brands() {
   const brands = [...BRAND_LIST, ...BRAND_LIST]; // Duplicate for seamless loop
 
   return (
-    <section className="py-8 sm:py-10 lg:py-12 bg-gray-50 border-y border-gray-200 overflow-hidden" id="trusted-brands">
+    <section className="py-2.5 sm:py-3.5 bg-gray-50 border-y border-gray-200 overflow-hidden" id="trusted-brands">
       <Container>
-        <p className="text-center text-xs font-semibold tracking-wider text-slate-500 mb-4 sm:mb-6">
+        <p className="text-center text-[10px] sm:text-xs font-bold uppercase tracking-widest text-slate-500 mb-2 sm:mb-2.5">
           Authorized Dealer &amp; Service Partner
         </p>
       </Container>
 
       {/* Marquee */}
       <div className="relative group overflow-hidden w-full max-w-full">
-        <div className="flex animate-marquee group-hover:[animation-play-state:paused]">
+        <div className="flex items-center animate-marquee group-hover:[animation-play-state:paused]">
           {brands.map((brand, index) => (
             <div
               key={`${brand.id}-${index}`}
-              className="flex-shrink-0 mx-6 lg:mx-8 flex items-center justify-center min-w-[120px] sm:min-w-[140px] h-9 sm:h-11"
+              className="flex-shrink-0 mx-4 sm:mx-6 lg:mx-8 flex items-center justify-center min-w-[100px] sm:min-w-[120px] h-7 sm:h-8"
             >
-              <div className="flex items-center gap-2 opacity-65 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0">
+              <div className="flex items-center gap-2 opacity-70 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0">
                 {LOGO_MAP[brand.id] ? (
-                  <div className="relative w-24 sm:w-28 h-7 sm:h-8 flex items-center justify-center">
+                  <div className="relative w-20 sm:w-24 h-6 sm:h-7 flex items-center justify-center">
                     <Image
                       src={LOGO_MAP[brand.id]}
                       alt={brand.name}

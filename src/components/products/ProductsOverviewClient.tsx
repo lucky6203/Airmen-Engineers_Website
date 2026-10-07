@@ -942,7 +942,7 @@ export default function ProductsOverviewClient({
               </Link>
 
               <Link
-                href="/services"
+                href="/service"
                 className="
                   inline-flex
                   min-h-11

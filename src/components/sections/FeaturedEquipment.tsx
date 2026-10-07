@@ -9,17 +9,27 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { 
-  ArrowRight, 
-  CheckCircle2, 
-  FileDown, 
+import {
+  ArrowRight,
+  ArrowUpRight,
+  CheckCircle2,
+  FileDown,
   Sparkles,
   ChevronRight,
   Hammer,
   Factory,
   ShieldCheck,
   Microscope,
-  Building2
+  Building2,
+  Truck,
+  Clock,
+  Compass,
+  GitBranch,
+  SlidersHorizontal,
+  Crosshair,
+  Zap,
+  Wind,
+  Cog
 } from 'lucide-react';
 import Container from '@/components/common/Container';
 import Button from '@/components/common/Button';
@@ -174,7 +184,7 @@ const MANUFACTURING_ITEMS: EquipmentItem[] = [
     pillLabel: 'Wheel Hubs & Flanges',
     category: 'Flanges & Hubs',
     brand: 'Airmen Manufacturing',
-    brandLogo: '/images/main-logo.png',
+    brandLogo: '/images/logos/Airmen Engineers AE Logo.png',
     badge: 'Gajraula Plant (U.P.) • Closed-Die Forged',
     description: 'High-tensile forged automotive wheel hubs and structural flanges precision-machined on multi-axis CNC turning centers at our Gajraula Plant (U.P.). Manufactured to stringent OEM engineering drawings with closed-die grain flow integrity, critical concentricity, and precision finish boring.',
     images: [
@@ -205,7 +215,7 @@ const MANUFACTURING_ITEMS: EquipmentItem[] = [
     pillLabel: 'Structural Flanges',
     category: 'Structural Components',
     brand: 'Airmen Manufacturing',
-    brandLogo: '/images/main-logo.png',
+    brandLogo: '/images/logos/Airmen Engineers AE Logo.png',
     badge: 'Controlled Forging • CNC Facing & Boring',
     description: 'Heavy-duty automotive grade alloy steel structural components and stepped mounting flanges. Machined with tight-tolerance stepped outer diameters, controlled chamfer angles, and surface flatness for heavy vehicle chassis and powertrain assemblies.',
     images: [
@@ -236,7 +246,7 @@ const MANUFACTURING_ITEMS: EquipmentItem[] = [
     pillLabel: 'Profiled Rings & Retainers',
     category: 'Rings & Retainers',
     brand: 'Airmen Manufacturing',
-    brandLogo: '/images/main-logo.png',
+    brandLogo: '/images/logos/Airmen Engineers AE Logo.png',
     badge: 'Contoured CNC Profiling • ±0.01 mm Precision',
     description: 'High-precision contoured rings and retaining collars engineered for rotating shafts and bearing assemblies. Features controlled groove depths, tight radial concentricity, and micro-smooth surface profiles produced under strict statistical process control (SPC).',
     images: [
@@ -267,7 +277,7 @@ const MANUFACTURING_ITEMS: EquipmentItem[] = [
     pillLabel: 'Bushings & Spacers',
     category: 'Bushings & Spacers',
     brand: 'Airmen Manufacturing',
-    brandLogo: '/images/main-logo.png',
+    brandLogo: '/images/logos/Airmen Engineers AE Logo.png',
     badge: 'Micro-Alloy Forged • High-Speed Boring',
     description: 'Concentric automotive spacers, precision sleeves, and bearing collars manufactured from forged blanks. Designed for high radial and thrust loads, featuring micro-machined bores and parallel faces for zero axial binding in automotive gearboxes and suspension systems.',
     images: [
@@ -320,485 +330,257 @@ const MFG_GALLERY_PREVIEW = [
 
 type CategoryKey = 'industrial' | 'manufacturing';
 
-const CATEGORIES: { 
-  key: CategoryKey; 
-  label: string; 
+const CATEGORIES: {
+  key: CategoryKey;
+  label: string;
   tag: string;
-  icon: React.ReactNode; 
-  items: EquipmentItem[] 
+  icon: React.ReactNode;
+  items: EquipmentItem[]
 }[] = [
-  {
-    key: 'industrial',
-    label: 'Industrial Products & Services',
-    tag: 'Tier-1 Dealerships',
-    icon: <Factory className="w-4 h-4" />,
-    items: INDUSTRIAL_ITEMS,
-  },
-  {
-    key: 'manufacturing',
-    label: 'Manufacturing Products (Gajraula Plant)',
-    tag: 'In-House Precision Forgings',
-    icon: <Hammer className="w-4 h-4" />,
-    items: MANUFACTURING_ITEMS,
-  },
-];
+    {
+      key: 'industrial',
+      label: 'Industrial Products & Services',
+      tag: 'Tier-1 Dealerships',
+      icon: <Factory className="w-4 h-4" />,
+      items: INDUSTRIAL_ITEMS,
+    },
+    {
+      key: 'manufacturing',
+      label: 'Manufacturing Products (Gajraula Plant)',
+      tag: 'In-House Precision Forgings',
+      icon: <Hammer className="w-4 h-4" />,
+      items: MANUFACTURING_ITEMS,
+    },
+  ];
 
 export default function FeaturedEquipment() {
-  const [activeCategory, setActiveCategory] = useState<CategoryKey>('industrial');
-  const currentCategory = CATEGORIES.find((c) => c.key === activeCategory) || CATEGORIES[0];
-  const items = currentCategory.items;
-
-  const [activeTab, setActiveTab] = useState(items[0].id);
-  const [activeImageIndexes, setActiveImageIndexes] = useState<Record<string, number>>({});
-
-  // When category changes, reset to first item in that category
-  const handleCategorySwitch = (key: CategoryKey) => {
-    setActiveCategory(key);
-    const cat = CATEGORIES.find((c) => c.key === key);
-    if (cat && cat.items.length > 0) {
-      setActiveTab(cat.items[0].id);
-    }
-  };
-
-  const currentItem = items.find((item) => item.id === activeTab) || items[0];
-  const activeImageIndex = activeImageIndexes[currentItem.id] || 0;
-
-  const handleImageSwitch = (itemId: string, index: number) => {
-    setActiveImageIndexes((prev) => ({
-      ...prev,
-      [itemId]: index,
-    }));
-  };
-
-  const isManufacturing = activeCategory === 'manufacturing';
-
   return (
-    <section className="py-16 sm:py-20 lg:py-24 bg-white border-b border-gray-200" id="featured-equipment">
-      <Container>
-        {/* Section Heading */}
-        <div className="text-center mb-8 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-navy mt-3 tracking-tight">
-            Industrial Products &amp; Manufacturing Engineering
+    <section className="pt-10 sm:pt-14 pb-8 sm:pb-10 bg-[#FAFAFC] relative overflow-hidden border-b border-gray-200" id="featured-equipment">
+      {/* Subtle technical engineering background curves matching mockup */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-30 select-none">
+        <div className="absolute -top-32 -right-32 w-[600px] h-[600px] rounded-full border border-amber-400/40" />
+        <div className="absolute -top-16 -right-16 w-[780px] h-[780px] rounded-full border border-amber-300/30" />
+        <div className="absolute 0 -right-0 w-[960px] h-[960px] rounded-full border border-slate-300/40" />
+        <div className="absolute top-1/2 -left-48 w-[640px] h-[640px] rounded-full border border-slate-300/30" />
+      </div>
+
+      <Container className="relative z-10">
+        {/* Section Eyebrow & Heading */}
+        <div className="text-center mb-6 sm:mb-8 max-w-4xl mx-auto">
+          {/* Eyebrow with gold accent dashes */}
+          {/* <div className="flex items-center justify-center gap-2.5 sm:gap-3 mb-3 sm:mb-4">
+            <span className="w-8 sm:w-10 h-0.5 bg-amber-500 rounded-full" />
+            <span className="text-xs sm:text-[13px] font-extrabold tracking-widest text-slate-800 uppercase">
+              OUR BUSINESS DIVISIONS
+            </span>
+            <span className="w-8 sm:w-10 h-0.5 bg-amber-500 rounded-full" />
+          </div> */}
+
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[46px] font-black text-navy tracking-tight leading-tight font-heading">
+            Multiple Businesses.{' '}
+            <span className="text-amber-400">One Engineering Standard.</span>
           </h2>
-          <p className="text-slate-600 mt-2 text-xs sm:text-sm lg:text-base max-w-2xl mx-auto leading-relaxed">
-            Authorized industrial equipment dealerships &amp; turnkey engineering alongside our in-house Gajraula forging and CNC precision manufacturing plant.
+
+          <p className="text-slate-600 mt-2.5 sm:mt-3 text-xs sm:text-sm md:text-base max-w-2xl sm:max-w-3xl mx-auto leading-relaxed font-normal">
+            Airmen Engineers supplies world-class industrial equipment across India — and forges precision components at our own manufacturing plant in Gajraula. Whatever we supply, whatever we build, one uncompromising standard runs through it all.
           </p>
         </div>
 
         {/* ── Two Specialized Divisions Cards ── */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 mb-8 sm:mb-10">
-          {/* Card 1: Division 01 */}
-          <div
-            onClick={() => handleCategorySwitch('industrial')}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                handleCategorySwitch('industrial');
-              }
-            }}
-            className={`group text-left p-6 sm:p-7 rounded-2xl sm:rounded-3xl border-2 transition-all duration-300 cursor-pointer flex flex-col justify-between ${
-              activeCategory === 'industrial'
-                ? 'bg-gradient-to-br from-amber-50/50 via-white to-slate-50/80 border-amber-500 shadow-xl shadow-amber-500/10 ring-2 ring-amber-400/30'
-                : 'bg-white hover:bg-slate-50/60 border-gray-200 hover:border-amber-400/60 shadow-sm hover:shadow-md'
-            }`}
-            role="button"
-            tabIndex={0}
-            aria-pressed={activeCategory === 'industrial'}
-          >
-            <div>
-              <h3 className="text-xl sm:text-2xl font-black text-navy leading-snug">
-                Industrial Products &amp; Services
-              </h3>
-
-              <p className="text-sm font-semibold text-amber-700 mt-1">
-                Authorized Sales &amp; Service Partner
-              </p>
-
-              <div className="flex flex-wrap items-center gap-2 pt-3 pb-2 text-xs font-semibold text-slate-700">
-                <span className="px-2.5 py-1 bg-white rounded-lg border border-gray-200 shadow-xs">Kaeser</span>
-                <span className="text-slate-300 font-bold">•</span>
-                <span className="px-2.5 py-1 bg-white rounded-lg border border-gray-200 shadow-xs">Greaves</span>
-                <span className="text-slate-300 font-bold">•</span>
-                <span className="px-2.5 py-1 bg-white rounded-lg border border-gray-200 shadow-xs">EPL</span>
-                <span className="text-slate-300 font-bold">•</span>
-                <span className="px-2.5 py-1 bg-white rounded-lg border border-gray-200 shadow-xs">AIRpipe</span>
-              </div>
-
-              {/* List Content */}
-              <ul className="mt-4 pt-3.5 border-t border-gray-100 space-y-2.5 text-xs sm:text-[13px] text-slate-700">
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
-                  <span><strong>Kaeser (Germany):</strong> Rotary Screw Compressors &amp; Air Treatment</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
-                  <span><strong>EP Equipment:</strong> Lithium-Ion Electric Forklifts &amp; Stackers</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
-                  <span><strong>Greaves Cotton:</strong> CPCB IV+ Heavy-Duty Diesel Generator Sets</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
-                  <span><strong>AIRpipe:</strong> Quick-Connect Aluminum Compressed Air Piping</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
-                  <span><strong>24/7 OEM Support:</strong> Emergency AMC, Overhauls &amp; Genuine Spares</span>
-                </li>
-              </ul>
-            </div>
-
-            {/* Card 1 Footer Button Link */}
-            <div className="pt-5 mt-5 border-t border-gray-100 flex items-center justify-between">
-              <Link
-                href="/products"
-                onClick={(e) => e.stopPropagation()}
-                className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
-                  activeCategory === 'industrial'
-                    ? 'bg-navy text-white hover:bg-slate-800 shadow-md shadow-navy/20'
-                    : 'bg-gray-100 text-slate-700 hover:bg-navy hover:text-white'
-                }`}
-              >
-                <span>EXPLORE</span>
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </Link>
-              <span className="text-xs text-slate-400 font-medium">
-                4 Tier-1 Lines
-              </span>
-            </div>
-          </div>
-
-          {/* Card 2: Division 02 */}
-          <div
-            onClick={() => handleCategorySwitch('manufacturing')}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                handleCategorySwitch('manufacturing');
-              }
-            }}
-            className={`group text-left p-6 sm:p-7 rounded-2xl sm:rounded-3xl border-2 transition-all duration-300 cursor-pointer flex flex-col justify-between ${
-              activeCategory === 'manufacturing'
-                ? 'bg-gradient-to-br from-amber-50/50 via-white to-slate-50/80 border-amber-500 shadow-xl shadow-amber-500/10 ring-2 ring-amber-400/30'
-                : 'bg-white hover:bg-slate-50/60 border-gray-200 hover:border-amber-400/60 shadow-sm hover:shadow-md'
-            }`}
-            role="button"
-            tabIndex={0}
-            aria-pressed={activeCategory === 'manufacturing'}
-          >
-            <div>
-              <h3 className="text-xl sm:text-2xl font-black text-navy leading-snug">
-                Manufacturing &amp; Engineering
-              </h3>
-
-              <p className="text-sm font-semibold text-amber-700 mt-1">
-                In-House Manufacturing &amp; Precision Forging
-              </p>
-
-              <div className="flex flex-wrap items-center gap-2 pt-3 pb-2 text-xs font-semibold text-slate-700">
-                <span className="px-2.5 py-1 bg-white rounded-lg border border-gray-200 shadow-xs">Gajraula Plant</span>
-                <span className="text-slate-300 font-bold">•</span>
-                <span className="px-2.5 py-1 bg-white rounded-lg border border-gray-200 shadow-xs">Forging</span>
-                <span className="text-slate-300 font-bold">•</span>
-                <span className="px-2.5 py-1 bg-white rounded-lg border border-gray-200 shadow-xs">CNC</span>
-              </div>
-
-              {/* List Content */}
-              <ul className="mt-4 pt-3.5 border-t border-gray-100 space-y-2.5 text-xs sm:text-[13px] text-slate-700">
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
-                  <span><strong>Closed-Die Forging:</strong> High-integrity hot &amp; warm forged blanks</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
-                  <span><strong>CNC Machining:</strong> Multi-axis turning with ±0.01 mm precision</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
-                  <span><strong>Automotive Flanges:</strong> Heavy-duty stepped &amp; structural flanges</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
-                  <span><strong>Bushings &amp; Spacers:</strong> Micro-alloy sleeves &amp; bearing retainers</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
-                  <span><strong>Gajraula Plant (U.P.):</strong> In-house metallurgy &amp; 100% drawing compliance</span>
-                </li>
-              </ul>
-            </div>
-
-            {/* Card 2 Footer Button Link */}
-            <div className="pt-5 mt-5 border-t border-gray-100 flex items-center justify-between">
-              <Link
-                href="/manufacturing-products"
-                onClick={(e) => e.stopPropagation()}
-                className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer ${
-                  activeCategory === 'manufacturing'
-                    ? 'bg-navy text-white hover:bg-slate-800 shadow-md shadow-navy/20'
-                    : 'bg-gray-100 text-slate-700 hover:bg-navy hover:text-white'
-                }`}
-              >
-                <span>EXPLORE</span>
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </Link>
-              <span className="text-xs text-slate-400 font-medium">
-                In-House Plant
-              </span>
-            </div>
-          </div>
-        </div>
-
-        {/* ── Component / Product Navigation Pills ── */}
-        <div className="relative group/tabs mb-6 sm:mb-8">
-          <div className="flex items-center justify-start sm:justify-center gap-2.5 sm:gap-3 overflow-x-auto py-2 px-1 scrollbar-none">
-            {items.map((item) => {
-              const isPillActive = activeTab === item.id;
-              return (
-                <button
-                  key={item.id}
-                  onClick={() => setActiveTab(item.id)}
-                  className={`inline-flex items-center justify-center px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all whitespace-nowrap flex-shrink-0 border leading-none cursor-pointer ${
-                    isPillActive
-                      ? 'bg-gold text-navy border-amber-400 shadow-md shadow-gold/25 ring-2 ring-amber-400/40'
-                      : 'bg-gray-100 hover:bg-gray-200 text-slate-700 border-transparent'
-                  }`}
-                >
-                  {item.pillLabel || item.brand}
-                </button>
-              );
-            })}
-          </div>
-          {/* Subtle gradient fade to signal additional tabs on the right on mobile */}
-          <div className="sm:hidden pointer-events-none absolute right-0 top-0 bottom-2 w-8 bg-gradient-to-l from-white to-transparent" />
-        </div>
-
-        {/* Featured Item Display Card */}
-        <div className="bg-slate-50 border border-gray-200 rounded-3xl p-5 sm:p-8 lg:p-10 shadow-sm hover:shadow-md transition-shadow">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
-            {/* Left: Product Images with Dynamic Switcher */}
-            <div className="lg:col-span-6 space-y-4">
-              <div className="relative rounded-2xl overflow-hidden bg-white border border-gray-200 aspect-[4/3] flex items-center justify-center p-4 sm:p-6 shadow-sm group">
-                <img
-                  src={currentItem.images[activeImageIndex]}
-                  alt={`${currentItem.name} photo`}
-                  className="w-full h-full object-contain transform transition-transform duration-500 group-hover:scale-105"
-                />
-
-                <div className="absolute top-3 left-3 sm:top-4 sm:left-4 bg-navy text-white text-xs font-semibold px-2.5 sm:px-3 py-1 rounded-md shadow-sm">
-                  {currentItem.badge}
-                </div>
-
-                <div className="absolute top-3 right-3 sm:top-4 sm:right-4 bg-white/95 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg shadow-sm border border-gray-200">
-                  <img
-                    src={currentItem.brandLogo}
-                    alt={currentItem.brand}
-                    className="h-5 sm:h-6 w-auto object-contain"
-                  />
-                </div>
-              </div>
-
-              {/* Thumbnails row — accessible view switchers with active indicator */}
-              <div className="flex items-center gap-2.5 overflow-x-auto pb-1 scrollbar-none" role="tablist" aria-label="Product image gallery">
-                {currentItem.images.map((img, idx) => (
-                  <button
-                    key={idx}
-                    type="button"
-                    onClick={() => handleImageSwitch(currentItem.id, idx)}
-                    aria-label={`View photo ${idx + 1} of ${currentItem.name}`}
-                    aria-current={activeImageIndex === idx ? 'true' : undefined}
-                    className={`relative w-20 sm:w-24 h-16 sm:h-18 rounded-xl overflow-hidden border-2 bg-white p-1 transition-all flex-shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold ${
-                      activeImageIndex === idx
-                        ? 'border-amber-500 ring-2 ring-amber-500/30'
-                        : 'border-gray-200 opacity-70 hover:opacity-100'
-                    }`}
-                  >
-                    <img src={img} alt={`Thumbnail ${idx + 1}`} className="w-full h-full object-contain" />
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Right: Specifications, Highlights & CTA */}
-            <div className="lg:col-span-6 space-y-5 sm:space-y-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-0">
+          {/* ── Card 1: Division 01 ── */}
+          <div className="text-left rounded-3xl sm:rounded-[36px] bg-white border border-slate-200/90 transition-all duration-300 overflow-hidden relative flex flex-col md:flex-row justify-between shadow-xl shadow-slate-200/60">
+            {/* Left Content Area */}
+            <div className="flex-1 p-6 sm:p-8 flex flex-col justify-between relative z-10">
               <div>
-                <span className="text-xs font-bold text-amber-700 uppercase tracking-wider bg-amber-100/80 px-2.5 py-1 rounded-md">
-                  {currentItem.category}
-                </span>
-                <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-navy mt-2.5 sm:mt-3 leading-tight">
-                  {currentItem.name}
+                {/* Title */}
+                <h3 className="text-2xl sm:text-3xl lg:text-[34px] font-black text-navy leading-[1.18] tracking-tight mt-3 sm:mt-4">
+                  Industrial <br/>
+                  <span className="text-amber-400">Products  &amp; Services</span>
                 </h3>
-                <p className="text-slate-600 text-xs sm:text-sm lg:text-base leading-relaxed mt-2 sm:mt-2.5">
-                  {currentItem.description}
+
+                {/* Accent Underline Bar */}
+                <div className="w-12 h-1 bg-amber-400 rounded-full mt-2.5 mb-3.5" />
+
+                {/* Subtitle */}
+                <p className="text-slate-600 text-xs sm:text-[13px] leading-relaxed font-normal">
+                  Authorized partner for the machines that run your factory — supplied, installed, serviced and monitored end-to-end.
                 </p>
-              </div>
 
-              {/* Specs Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 bg-white p-3.5 sm:p-4 rounded-2xl border border-gray-200">
-                {currentItem.specs.map((spec, i) => (
-                  <div key={i} className="bg-slate-50 p-2.5 sm:p-3 rounded-xl border border-gray-100">
-                    <span className="text-xs font-medium text-slate-500 block uppercase">
-                      {spec.label}
-                    </span>
-                    <span className="text-xs sm:text-sm font-bold text-navy mt-0.5 block font-mono">
-                      {spec.value}
-                    </span>
-                  </div>
-                ))}
-              </div>
-
-              {/* Features List */}
-              <div className="space-y-2">
-                <span className="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-1.5 sm:mb-2">
-                  Key Engineering Advantages
-                </span>
-                {currentItem.features.map((feature, i) => (
-                  <div key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700">
-                    <CheckCircle2 className="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" />
-                    <span>{feature}</span>
-                  </div>
-                ))}
-              </div>
-
-              {/* Action Buttons — Unified visual hierarchy */}
-              <div className="flex flex-col sm:flex-row items-center sm:items-center justify-center sm:justify-start gap-3 sm:gap-4 pt-2 w-full">
-                <Link
-                  href="/contact"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-gold hover:bg-gold-dark text-navy font-bold text-xs sm:text-sm shadow-sm hover:shadow transition-all text-center"
-                >
-                  Request Technical Quotation
-                  <ChevronRight className="w-4 h-4" />
-                </Link>
-
-                <Button
-                  href={currentItem.link}
-                  size="sm"
-                  showArrow
-                  className="w-full sm:w-auto justify-center bg-navy hover:bg-navy-light text-white font-semibold px-4 sm:px-5 py-2.5 rounded-lg shadow-sm text-xs sm:text-sm text-center"
-                >
-                  {currentItem.ctaText || `View ${currentItem.brand} Catalogue`}
-                </Button>
-
-                {currentItem.brochureLink ? (
-                  <a
-                    href={currentItem.brochureLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 bg-white hover:bg-gray-100 text-slate-800 font-semibold rounded-lg border border-gray-300 text-xs sm:text-sm shadow-sm transition-colors text-center"
-                  >
-                    <FileDown className="w-4 h-4 text-amber-600" />
-                    Brochure (PDF)
-                  </a>
-                ) : (
+                {/* 2x2 Feature Pills */}
+                <div className="grid grid-cols-2 gap-2.5 sm:gap-3 my-5 sm:my-6">
+                  {/* Forklifts */}
                   <Link
-                    href="/contact"
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 bg-white hover:bg-gray-100 text-slate-800 font-semibold rounded-lg border border-gray-300 text-xs sm:text-sm shadow-sm transition-colors text-center"
+                    href="/ep-forklifts"
+                    className="p-2.5 sm:p-3 rounded-2xl border text-left cursor-pointer transition-all flex flex-col justify-center bg-slate-50/70 hover:bg-white border-slate-200/80 hover:border-amber-300 hover:shadow-xs group/pill"
                   >
-                    <FileDown className="w-4 h-4 text-amber-600" />
-                    {currentItem.secondaryCtaText || 'Submit Drawing for RFQ'}
+                    <span className="text-xs sm:text-[13px] font-bold text-navy block leading-snug group-hover/pill:text-amber-600 transition-colors">
+                      Forklifts
+                    </span>
+                    <span className="text-[10px] sm:text-[11px] text-slate-500 block font-medium leading-none mt-1">
+                      Sales &amp; Service
+                    </span>
                   </Link>
-                )}
+
+                  {/* DG Sets */}
+                  <Link
+                    href="/greaves"
+                    className="p-2.5 sm:p-3 rounded-2xl border text-left cursor-pointer transition-all flex flex-col justify-center bg-slate-50/70 hover:bg-white border-slate-200/80 hover:border-amber-300 hover:shadow-xs group/pill"
+                  >
+                    <span className="text-xs sm:text-[13px] font-bold text-navy block leading-snug group-hover/pill:text-amber-600 transition-colors">
+                      DG Sets
+                    </span>
+                    <span className="text-[10px] sm:text-[11px] text-slate-500 block font-medium leading-none mt-1">
+                      Power Solutions
+                    </span>
+                  </Link>
+
+                  {/* Air Compressors */}
+                  <Link
+                    href="/kaeser"
+                    className="p-2.5 sm:p-3 rounded-2xl border text-left cursor-pointer transition-all flex flex-col justify-center bg-slate-50/70 hover:bg-white border-slate-200/80 hover:border-amber-300 hover:shadow-xs group/pill"
+                  >
+                    <span className="text-xs sm:text-[13px] font-bold text-navy block leading-snug group-hover/pill:text-amber-600 transition-colors">
+                      Air Compressors
+                    </span>
+                    <span className="text-[10px] sm:text-[11px] text-slate-500 block font-medium leading-none mt-1">
+                      Industrial Air Systems
+                    </span>
+                  </Link>
+
+                  {/* Air Piping */}
+                  <Link
+                    href="/airpipe"
+                    className="p-2.5 sm:p-3 rounded-2xl border text-left cursor-pointer transition-all flex flex-col justify-center bg-slate-50/70 hover:bg-white border-slate-200/80 hover:border-amber-300 hover:shadow-xs group/pill"
+                  >
+                    <span className="text-xs sm:text-[13px] font-bold text-navy block leading-snug group-hover/pill:text-amber-600 transition-colors">
+                      Air Piping
+                    </span>
+                    <span className="text-[10px] sm:text-[11px] text-slate-500 block font-medium leading-none mt-1">
+                      Design &amp; Installation
+                    </span>
+                  </Link>
+                </div>
+              </div>
+
+              {/* Bottom CTA Button */}
+              <div className="pt-2">
+                <Link
+                  href="/products"
+                  className="inline-flex items-center gap-3 px-5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-navy text-white hover:bg-slate-800 text-xs sm:text-[13px] font-bold tracking-wider uppercase transition-all shadow-md group/btn w-fit cursor-pointer"
+                >
+                  <span>EXPLORE INDUSTRIAL PRODUCTS</span>
+                  <span className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center group-hover/btn:translate-x-0.5 transition-transform">
+                    <ArrowRight className="w-3.5 h-3.5 text-white stroke-[2.5]" />
+                  </span>
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Visual Area with Angled Image */}
+            <div className="w-full md:w-[42%] relative min-h-[240px] md:min-h-full overflow-hidden shrink-0">
+              <div className="relative w-full h-full min-h-[240px] md:min-h-[380px] md:[clip-path:polygon(14%_0,100%_0,100%_100%,0%_100%)]">
+                <img
+                  src="/images/divisions/division-01-plant.jpg"
+                  alt="Industrial Products & Services Facility"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy/30 via-transparent to-transparent pointer-events-none" />
               </div>
             </div>
           </div>
-        </div>
 
-        {/* ── Gajraula Plant Infrastructure & Capability Highlights (Appears on Manufacturing Tab) ── */}
-        {isManufacturing && (
-          <div className="mt-10 sm:mt-12 space-y-8 animate-fadeIn">
-            {/* 4 Pillars of Manufacturing Division */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow">
-                <div className="w-10 h-10 rounded-xl bg-navy/5 flex items-center justify-center text-navy mb-3">
-                  <Building2 className="w-5 h-5 text-navy" />
-                </div>
-                <h4 className="font-bold text-navy text-sm">Gajraula Plant (U.P.)</h4>
-                <p className="text-xs text-slate-600 mt-1 leading-relaxed">
-                  Dedicated in-house manufacturing facility with multi-axis CNC machine shop and closed-die forging presses.
+          {/* ── Card 2: Division 02 ── */}
+          <div className="text-left rounded-3xl sm:rounded-[36px] bg-[#0A1422] border-2 border-amber-500/40 transition-all duration-300 overflow-hidden relative flex flex-col md:flex-row justify-between shadow-2xl shadow-navy/60">
+            {/* Left Content Area */}
+            <div className="flex-1 p-6 sm:p-8 flex flex-col justify-between relative z-10">
+              <div>
+                {/* Title */}
+                <h3 className="text-2xl sm:text-3xl lg:text-[34px] font-black text-white leading-[1.18] tracking-tight mt-3 sm:mt-4">
+                  Forging &amp;
+                  <br />
+                  <span className="text-amber-400">Manufacturing</span>
+                </h3>
+
+                {/* Accent Underline Bar */}
+                <div className="w-12 h-1 bg-amber-400 rounded-full mt-2.5 mb-3.5" />
+
+                {/* Subtitle */}
+                <p className="text-slate-300 text-xs sm:text-[13px] leading-relaxed font-normal">
+                  Forged and machined precision components — gears, shafts and engineered parts — made at our Gajraula plant.
                 </p>
-              </div>
 
-              <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow">
-                <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-600 mb-3">
-                  <Hammer className="w-5 h-5 text-amber-600" />
-                </div>
-                <h4 className="font-bold text-navy text-sm">Closed-Die Forgings</h4>
-                <p className="text-xs text-slate-600 mt-1 leading-relaxed">
-                  High-tensile alloy and carbon steels engineered with continuous metallurgical grain flow for extreme fatigue life.
-                </p>
-              </div>
-
-              <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow">
-                <div className="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-600 mb-3">
-                  <Microscope className="w-5 h-5 text-blue-600" />
-                </div>
-                <h4 className="font-bold text-navy text-sm">100% CMM Inspection</h4>
-                <p className="text-xs text-slate-600 mt-1 leading-relaxed">
-                  Precision Coordinate Measuring Machines, bore micrometers, and surface profilometers ensuring ±0.01 mm tolerances.
-                </p>
-              </div>
-
-              <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow">
-                <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-600 mb-3">
-                  <ShieldCheck className="w-5 h-5 text-emerald-600" />
-                </div>
-                <h4 className="font-bold text-navy text-sm">Client Drawing Compliance</h4>
-                <p className="text-xs text-slate-600 mt-1 leading-relaxed">
-                  100% adherence to customer 2D/3D drawings, custom heat treatments, and complete Material Test Certificates (MTC).
-                </p>
-              </div>
-            </div>
-
-            {/* Component Preview Strip */}
-            <div className="bg-slate-900 text-white rounded-3xl p-6 sm:p-8 lg:p-10 shadow-xl relative overflow-hidden">
-              <div className="relative z-10">
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
-                  <div>
-                    <span className="text-gold text-xs font-bold uppercase tracking-wider">
-                      Explore Gajraula Plant Component Families
-                    </span>
-                    <h3 className="text-xl sm:text-2xl font-extrabold text-white mt-1">
-                      More Precision Automotive Components
-                    </h3>
-                  </div>
-
+                {/* 2x2 Feature Pills */}
+                <div className="grid grid-cols-2 gap-2.5 sm:gap-3 my-5 sm:my-6">
+                  {/* Forged Parts */}
                   <Link
                     href="/manufacturing-products"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 bg-gold hover:bg-gold-light text-navy font-bold rounded-xl text-xs sm:text-sm transition-colors shadow-lg shadow-gold/20 flex-shrink-0"
+                    className="p-2.5 sm:p-3 rounded-2xl border text-center cursor-pointer transition-all flex items-center justify-center bg-[#132238] hover:bg-[#182848] border-[#223854] hover:border-amber-400/60 group/pill"
                   >
-                    View All 20+ Components
-                    <ArrowRight className="w-4 h-4" />
+                    <span className="text-xs sm:text-[13px] font-bold text-white block leading-snug group-hover/pill:text-amber-400 transition-colors">
+                      Forged Parts
+                    </span>
+                  </Link>
+
+                  {/* Machined Parts */}
+                  <Link
+                    href="/manufacturing-products"
+                    className="p-2.5 sm:p-3 rounded-2xl border text-center cursor-pointer transition-all flex items-center justify-center bg-[#132238] hover:bg-[#182848] border-[#223854] hover:border-amber-400/60 group/pill"
+                  >
+                    <span className="text-xs sm:text-[13px] font-bold text-white block leading-snug group-hover/pill:text-amber-400 transition-colors">
+                      Machined Parts
+                    </span>
+                  </Link>
+
+                  {/* Gears & Shafts */}
+                  <Link
+                    href="/manufacturing-products"
+                    className="p-2.5 sm:p-3 rounded-2xl border text-center cursor-pointer transition-all flex items-center justify-center bg-[#132238] hover:bg-[#182848] border-[#223854] hover:border-amber-400/60 group/pill"
+                  >
+                    <span className="text-xs sm:text-[13px] font-bold text-white block leading-snug group-hover/pill:text-amber-400 transition-colors">
+                      Gears &amp; Shafts
+                    </span>
+                  </Link>
+
+                  {/* Gajraula Plant */}
+                  <Link
+                    href="/manufacturing-products"
+                    className="p-2.5 sm:p-3 rounded-2xl border text-center cursor-pointer transition-all flex items-center justify-center bg-[#132238] hover:bg-[#182848] border-[#223854] hover:border-amber-400/60 group/pill"
+                  >
+                    <span className="text-xs sm:text-[13px] font-bold text-white block leading-snug group-hover/pill:text-amber-400 transition-colors">
+                      Gajraula Plant
+                    </span>
                   </Link>
                 </div>
+              </div>
 
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  {MFG_GALLERY_PREVIEW.map((item, idx) => (
-                    <Link
-                      key={idx}
-                      href="/manufacturing-products"
-                      className="group bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl p-3 sm:p-4 transition-all block text-left"
-                    >
-                      <div className="relative aspect-square rounded-xl overflow-hidden bg-white/95 mb-3 p-2 flex items-center justify-center">
-                        <img
-                          src={item.image}
-                          alt={item.title}
-                          className="w-full h-full object-contain group-hover:scale-105 transition-transform"
-                        />
-                      </div>
-                      <span className="text-xs text-gold font-semibold uppercase tracking-wider block">
-                        {item.category}
-                      </span>
-                      <h4 className="text-xs sm:text-sm font-bold text-white group-hover:text-gold transition-colors line-clamp-2 mt-1">
-                        {item.title}
-                      </h4>
-                    </Link>
-                  ))}
-                </div>
+              {/* Bottom CTA Button */}
+              <div className="pt-2">
+                <Link
+                  href="/manufacturing-products"
+                  className="inline-flex items-center gap-3 px-6 sm:px-7 py-2.5 sm:py-3 rounded-full bg-gradient-to-r from-amber-400 to-amber-500 text-navy hover:from-amber-300 hover:to-amber-400 text-xs sm:text-[13px] font-black tracking-wider uppercase transition-all shadow-lg shadow-amber-500/25 group/btn w-fit cursor-pointer"
+                >
+                  <span>SEE THE PLANT</span>
+                  <span className="w-6 h-6 rounded-full bg-navy/15 flex items-center justify-center group-hover/btn:translate-x-0.5 transition-transform">
+                    <ArrowRight className="w-3.5 h-3.5 text-navy stroke-[2.5]" />
+                  </span>
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Visual Area with Angled Image */}
+            <div className="w-full md:w-[42%] relative min-h-[240px] md:min-h-full overflow-hidden shrink-0">
+              <div className="relative w-full h-full min-h-[240px] md:min-h-[380px] md:[clip-path:polygon(14%_0,100%_0,100%_100%,0%_100%)]">
+                <img
+                  src="/images/divisions/division-02-machining.jpg"
+                  alt="Forging & Manufacturing CNC Facility"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy/40 via-transparent to-transparent pointer-events-none" />
               </div>
             </div>
           </div>
-        )}
+        </div>
       </Container>
     </section>
   );

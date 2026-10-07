@@ -125,29 +125,29 @@
 html {
   width: 100%;
   max-width: 100%;
-
+  overflow-x: hidden;
   scroll-behavior: smooth;
-
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-
 body {
   width: 100%;
   max-width: 100%;
-
   margin: 0;
   padding: 0;
-
   font-family: var(--font-body);
-
   color: var(--charcoal);
   background-color: var(--white);
-
   line-height: 1.6;
-
   overflow-x: hidden;
+  position: relative;
+}
+
+#lqd-site-content {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 

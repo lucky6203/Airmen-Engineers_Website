@@ -6,8 +6,8 @@ import EPForkliftsClient from '@/components/products/EPForkliftsClient';
 import { getProductsByBrand, BRANDS } from '@/data/products';
 
 export const metadata: Metadata = {
-  title: 'EP Forklifts — 2025 Material Handling Product Range | Airmen Engineers',
-  description: 'Explore the full 2025 EP Equipment product range: Lithium-Ion electric forklifts (1.5T - 25T), heavy diesel trucks, pallet trucks (BOPT & E-HPT), reach trucks, stackers, and VNA narrow aisle equipment.',
+  title: 'EP Forklifts — Material Handling & Lithium-Ion Equipment | Airmen Engineers',
+  description: 'Explore the complete EP Equipment industrial portfolio: Lithium-Ion electric forklifts (1.5T to 25T), heavy diesel trucks, pallet trucks (BOPT & E-HPT), reach trucks, stackers, and VNA warehouse equipment.',
 };
 
 export default function EPForkliftsPage() {

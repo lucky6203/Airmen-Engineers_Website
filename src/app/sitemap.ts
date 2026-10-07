@@ -17,8 +17,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/aim',
     '/ep-forklifts',
     '/airpipe',
-
     '/greaves',
+    '/manufacturing-products',
+    '/generator-sizing-calculator',
+    '/free-services',
+    '/privacy-policy',
+    '/terms',
+    '/refund-policy',
+    '/sitemap',
   ];
 
   return routes.map((route) => ({

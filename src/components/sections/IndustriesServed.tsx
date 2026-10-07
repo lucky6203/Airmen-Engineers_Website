@@ -97,15 +97,15 @@ const INDUSTRIES: IndustrySector[] = [
 
 export default function IndustriesServed() {
   return (
-    <section className="py-20 lg:py-28 bg-[#070E18] text-white border-b border-white/10 relative overflow-hidden" id="industries">
+    <section className="py-10 sm:py-14 bg-[#070E18] text-white border-b border-white/10 relative overflow-hidden" id="industries">
       {/* Subtle background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-amber-500/5 rounded-full blur-[160px] pointer-events-none" />
 
       <Container className="relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-500/10 border border-amber-500/25 text-amber-400">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
+          {/* <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-500/10 border border-amber-500/25 text-amber-400">
             Sector Proven Expertise
-          </span>
+          </span> */}
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white mt-3 tracking-tight">
             Powering India&apos;s Core Manufacturing Industries
           </h2>

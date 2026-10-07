@@ -581,7 +581,11 @@ export default function AboutPage() {
               <span className="text-[11px] font-bold uppercase tracking-wider text-amber-700 bg-amber-100 px-2 py-0.5 rounded">Corporate Hub</span>
               <h4 className="text-lg font-bold text-navy mt-2 mb-1">{CONTACT_INFO.registeredOffice.label}</h4>
               <p className="text-xs text-slate-600 leading-relaxed mb-4">{CONTACT_INFO.registeredOffice.address}</p>
-              <div className="text-xs font-mono text-slate-700 font-semibold">{CONTACT_INFO.registeredOffice.phone.join(' / ')}</div>
+              <div className="text-xs font-mono text-slate-700 font-semibold flex flex-wrap gap-1.5">
+                <a href="tel:+919212303791" className="hover:text-gold transition-colors">+91-9212303791</a>
+                <span>/</span>
+                <a href="tel:+918588855726" className="hover:text-gold transition-colors">+91-8588855726</a>
+              </div>
             </div>
 
             <div className="bg-slate-50 border border-gray-200 rounded-2xl p-6 text-center sm:text-left flex flex-col items-center sm:items-start">
@@ -591,7 +595,11 @@ export default function AboutPage() {
               <span className="text-[11px] font-bold uppercase tracking-wider text-amber-700 bg-amber-100 px-2 py-0.5 rounded">Central Workshop &amp; Warehouse</span>
               <h4 className="text-lg font-bold text-navy mt-2 mb-1">{CONTACT_INFO.headOffice.label}</h4>
               <p className="text-xs text-slate-600 leading-relaxed mb-4">{CONTACT_INFO.headOffice.address}</p>
-              <div className="text-xs font-mono text-slate-700 font-semibold">{CONTACT_INFO.headOffice.phone.join(' / ')}</div>
+              <div className="text-xs font-mono text-slate-700 font-semibold flex flex-wrap gap-1.5">
+                <a href="tel:+919212303791" className="hover:text-gold transition-colors">+91-9212303791</a>
+                <span>/</span>
+                <a href="tel:+918588855726" className="hover:text-gold transition-colors">+91-8588855726</a>
+              </div>
             </div>
 
             <div className="bg-slate-50 border border-gray-200 rounded-2xl p-6 text-center sm:text-left flex flex-col items-center sm:items-start">
@@ -601,7 +609,11 @@ export default function AboutPage() {
               <span className="text-[11px] font-bold uppercase tracking-wider text-amber-700 bg-amber-100 px-2 py-0.5 rounded">Industrial Corridor Hub</span>
               <h4 className="text-lg font-bold text-navy mt-2 mb-1">{CONTACT_INFO.branch?.label || 'Branch Office'}</h4>
               <p className="text-xs text-slate-600 leading-relaxed mb-4">Servicing Dharuhera, Manesar, Bawal, Neemrana &amp; Bhiwadi industrial belts.</p>
-              <div className="text-xs font-mono text-slate-700 font-semibold">{CONTACT_INFO.branch?.phone ? CONTACT_INFO.branch.phone.join(' / ') : '+91-9212303791'}</div>
+              <div className="text-xs font-mono text-slate-700 font-semibold flex flex-wrap gap-1.5">
+                <a href="tel:+919212303793" className="hover:text-gold transition-colors">+91-9212303793</a>
+                <span>/</span>
+                <a href="tel:+919212303795" className="hover:text-gold transition-colors">+91-9212303795</a>
+              </div>
             </div>
 
             <div className="bg-slate-50 border border-gray-200 rounded-2xl p-6 text-center sm:text-left flex flex-col items-center sm:items-start">
@@ -611,7 +623,11 @@ export default function AboutPage() {
               <span className="text-[11px] font-bold uppercase tracking-wider text-amber-700 bg-amber-100 px-2 py-0.5 rounded">Manufacturing Division</span>
               <h4 className="text-lg font-bold text-navy mt-2 mb-1">Gajraula Plant (U.P.)</h4>
               <p className="text-xs text-slate-600 leading-relaxed mb-4">Dedicated closed-die forging, multi-axis CNC lathe turning, and precision machining plant.</p>
-              <div className="text-xs font-mono text-slate-700 font-semibold">+91-9212303791 / sales@airmen.in</div>
+              <div className="text-xs font-mono text-slate-700 font-semibold flex flex-wrap gap-1.5">
+                <a href="tel:+919212303791" className="hover:text-gold transition-colors">+91-9212303791</a>
+                <span>/</span>
+                <a href="mailto:sales@airmen.in" className="hover:text-gold transition-colors">sales@airmen.in</a>
+              </div>
             </div>
           </div>
         </Container>

@@ -10,9 +10,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { 
   ArrowRight, 
-  CheckCircle2, 
-  ShieldCheck, 
-  Sparkles, 
   Wind, 
   Truck, 
   Flame, 
@@ -54,7 +51,7 @@ const INDUSTRY_SHOWCASE: IndustryItem[] = [
   {
     id: 'automobile',
     name: 'Automobile & Auto Components',
-    badge: 'Automotive & Mobility',
+    badge: '',
     tagline: 'High-volume 24/7 pneumatic automation & assembly line handling',
     category: 'automotive',
     image: '/images/banner-1.jpg',
@@ -77,7 +74,7 @@ const INDUSTRY_SHOWCASE: IndustryItem[] = [
   {
     id: 'japanese-industries',
     name: 'Japanese Industrial MNCs & Corridors',
-    badge: 'Japanese Excellence & Kaizen',
+    badge: '',
     tagline: 'Standardized German precision & Japanese quality compliance',
     category: 'japanese',
     image: '/images/about-2.jpg',
@@ -99,7 +96,7 @@ const INDUSTRY_SHOWCASE: IndustryItem[] = [
   {
     id: 'pharmaceutical',
     name: 'Pharmaceutical & Cleanrooms',
-    badge: 'ISO 8573-1 Class 0 Purity',
+    badge: '',
     tagline: '100% oil-free certified compressed air for sterile processes',
     category: 'clean-tech',
     image: '/images/about-3.jpg',
@@ -121,7 +118,7 @@ const INDUSTRY_SHOWCASE: IndustryItem[] = [
   {
     id: 'food-beverage',
     name: 'Food, Beverage & PET Packaging',
-    badge: 'HACCP & Food Grade Standards',
+    badge: '',
     tagline: 'High-pressure PET blowing and food-contact packaging machinery',
     category: 'clean-tech',
     image: '/images/compressors/kaeser-dsd-main.jpg',
@@ -143,7 +140,7 @@ const INDUSTRY_SHOWCASE: IndustryItem[] = [
   {
     id: 'textile-glass',
     name: 'Textile, Glass & Heavy Engineering',
-    badge: 'Heavy Duty 24x7 Base Load',
+    badge: '',
     tagline: 'Uninterrupted air flow for spinning mills, glass furnaces & heavy fabrication',
     category: 'heavy',
     image: '/images/compressors/kaeser-dsd-direct-drive.jpg',
@@ -165,7 +162,7 @@ const INDUSTRY_SHOWCASE: IndustryItem[] = [
   {
     id: 'electronics',
     name: 'Electronics & Semiconductor Assembly',
-    badge: 'Electrostatic & Precision Care',
+    badge: '',
     tagline: 'Stable pressure & micro-filtered dry air for PCB surface-mount lines',
     category: 'clean-tech',
     image: '/images/banner-2.jpg',
@@ -213,19 +210,14 @@ export default function IndustriesClient() {
   return (
     <div className="bg-gray-50 min-h-screen">
       {/* ── Hero Section with Left Text & Right 3-Card Bento Gallery ── */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-navy-dark via-navy to-[#0a1628] text-white py-14 sm:py-20 border-b border-gold/20">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,163,35,0.18),transparent_55%)] pointer-events-none" />
+      <section className="relative overflow-hidden bg-[#060D17] bg-gradient-to-b from-navy-dark via-navy to-[#060D17] text-white py-14 sm:py-20 border-b border-gold/20">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,163,35,0.08),transparent_60%)] pointer-events-none" />
 
         <Container className="relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
             {/* Left Content Column */}
             <div className="lg:col-span-6 xl:col-span-7 flex flex-col items-start text-left max-sm:items-center max-sm:text-center space-y-6">
-              <div className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-gold max-sm:mx-auto">
-                <Sparkles className="w-3.5 h-3.5" />
-                SERVING 5,000+ INDUSTRIAL PLANTS ACROSS INDIA
-              </div>
-
               <h1 className="text-3xl sm:text-5xl lg:text-[3.25rem] font-black tracking-tight text-white leading-[1.12]">
                 Powering Diverse <br />
                 <span className="text-gold">
@@ -245,12 +237,9 @@ export default function IndustriesClient() {
                   { title: 'Pharma & Cleanrooms', sub: '100% Oil-Free ISO 8573-1 Class 0' },
                   { title: 'Heavy Plant Engineering', sub: 'High-kVA 24/7 continuous backup' },
                 ].map((b, idx) => (
-                  <div key={idx} className="flex items-start gap-2.5 p-2.5 rounded-xl bg-white/5 border border-white/10 max-sm:justify-center">
-                    <CheckCircle2 className="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5" />
-                    <div className="text-left">
-                      <div className="text-xs font-bold text-white">{b.title}</div>
-                      <div className="text-[10px] text-gray-400">{b.sub}</div>
-                    </div>
+                  <div key={idx} className="p-2.5 rounded-xl bg-white/5 border border-white/10 text-left max-sm:text-center">
+                    <div className="text-xs font-bold text-white">{b.title}</div>
+                    <div className="text-[10px] text-gray-400 mt-0.5">{b.sub}</div>
                   </div>
                 ))}
               </div>
@@ -261,10 +250,18 @@ export default function IndustriesClient() {
                   Request Application Audit
                 </Button>
                 <Link
-                  href="/products"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 bg-white/10 hover:bg-white/15 text-white font-semibold rounded-xl border border-white/20 transition-all text-xs sm:text-sm"
+                  href="/manufacturing-infrastructure"
+                  className="inline-flex items-center gap-2 px-5 py-3.5 bg-amber-500/15 hover:bg-amber-500/25 text-amber-300 font-bold rounded-xl border border-amber-500/40 transition-all text-xs sm:text-sm"
                 >
-                  <span>Explore Machinery Portfolio</span>
+                  <i className="fa-solid fa-industry text-amber-400" />
+                  <span>Plant Infrastructure Tour</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+                <Link
+                  href="/products"
+                  className="inline-flex items-center gap-2 px-5 py-3.5 bg-white/10 hover:bg-white/15 text-white font-semibold rounded-xl border border-white/20 transition-all text-xs sm:text-sm"
+                >
+                  <span>Machinery Portfolio</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
@@ -306,21 +303,6 @@ export default function IndustriesClient() {
                     priority
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#060D17]/95 via-[#060D17]/35 to-transparent z-10" />
-                  
-                  <div className="absolute top-3.5 left-4 z-20">
-                    <span className="text-amber-400 font-extrabold text-[10px] sm:text-xs uppercase tracking-wider bg-black/70 px-2.5 py-1 rounded-full border border-amber-500/30 backdrop-blur-md">
-                      AUTOMOTIVE &amp; JAPANESE CORRIDORS
-                    </span>
-                  </div>
-
-                  <div className="absolute bottom-4 sm:bottom-5 left-4 sm:left-5 right-4 sm:right-5 z-20">
-                    <h3 className="text-white font-bold text-base sm:text-xl leading-snug drop-shadow-md group-hover:text-amber-300 transition-colors">
-                      Automated Assembly &amp; Pneumatic Systems
-                    </h3>
-                    <p className="text-xs text-gray-300 mt-1 line-clamp-1">
-                      Trusted by Hero MotoCorp, Mikuni, Nidec &amp; Asahi AIS
-                    </p>
-                  </div>
                 </Link>
 
                 {/* 2. Bottom Left Card: Warehouse & Logistics Handling */}
@@ -329,21 +311,13 @@ export default function IndustriesClient() {
                   className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-[#070e1b] border border-white/15 shadow-xl group hover:border-red-400/50 transition-all duration-300"
                 >
                   <Image
-                    src="/images/forklifts/indoor-outdoor-truck.webp"
+                    src="/images/gujraula_plant_img/2333.jpg.jpeg"
                     alt="Warehouse & Material Handling Fleet"
                     fill
                     className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
-                  
-                  <div className="absolute bottom-3 left-3 right-3 text-left">
-                    <span className="text-[10px] font-bold text-red-400 uppercase tracking-wider block">
-                      WAREHOUSE &amp; LOGISTICS
-                    </span>
-                    <span className="text-xs font-bold text-white block mt-0.5 leading-tight">
-                      Zero-Emission Li-Ion Fleet
-                    </span>
-                  </div>
+
                 </Link>
 
                 {/* 3. Bottom Right Card: Heavy Continuous Plant Power */}
@@ -352,21 +326,13 @@ export default function IndustriesClient() {
                   className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-slate-900 border border-white/15 shadow-xl group hover:border-emerald-400/50 transition-all duration-300"
                 >
                   <Image
-                    src="/images/greaves/products/greaves-canopy-industrial.jpg"
+                    src="/images/compressors/kaeser-dsd-main.jpg"
                     alt="Continuous Plant Power Generation"
                     fill
                     className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
-                  
-                  <div className="absolute bottom-3 left-3 right-3 text-left">
-                    <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-wider block">
-                      24X7 CONTINUOUS POWER
-                    </span>
-                    <span className="text-xs font-bold text-white block mt-0.5 leading-tight">
-                      CPCB IV+ Silent Gensets
-                    </span>
-                  </div>
+                
                 </Link>
 
               </div>
@@ -429,7 +395,7 @@ export default function IndustriesClient() {
                   <button
                     key={tab.id}
                     onClick={() => setSelectedFilter(tab.id as any)}
-                    className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap ${
+                    className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
                       isActive
                         ? 'bg-navy text-white shadow-md scale-105'
                         : 'bg-gray-100 hover:bg-gray-200 text-slate-700'
@@ -439,6 +405,13 @@ export default function IndustriesClient() {
                   </button>
                 );
               })}
+              <Link
+                href="/manufacturing-infrastructure"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold bg-amber-500/10 text-amber-700 hover:bg-amber-500/20 border border-amber-500/30 transition-all whitespace-nowrap"
+              >
+                <i className="fa-solid fa-industry text-amber-600" />
+                <span>Plant Infrastructure →</span>
+              </Link>
             </div>
 
             {/* Search Input */}
@@ -523,7 +496,7 @@ export default function IndustriesClient() {
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                           {industry.criticalNeeds.map((need, nIdx) => (
                             <div key={nIdx} className="flex items-start gap-2 p-2 rounded-xl bg-slate-50 border border-gray-100 text-xs text-slate-700">
-                              <CheckCircle2 className="w-3.5 h-3.5 text-amber-500 flex-shrink-0 mt-0.5" />
+                              <span className="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0 mt-1.5" />
                               <span className="leading-snug">{need}</span>
                             </div>
                           ))}

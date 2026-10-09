@@ -128,8 +128,8 @@ export const CONTACT_INFO: ContactInfo = {
     email: ['sales@airmen.in'],
   },
   manufacturingPlant: {
-    label: 'Gajraula Manufacturing Plant',
-    address: 'Gajraula Industrial Area, Uttar Pradesh, INDIA',
+    label: 'Plant (Works)',
+    address: 'I-44/45, Gajraula (Amroha), Uttar Pradesh, INDIA',
     phone: ['+91-9212303791', '+91-8588855726'],
     email: ['sales@airmen.in'],
   },

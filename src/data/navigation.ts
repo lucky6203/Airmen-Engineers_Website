@@ -135,7 +135,23 @@ export const NAV_ITEMS: NavItem[] = [
       },
     ],
   },
-  { label: 'Industries', href: '/industries' },
+  {
+    label: 'Industries',
+    href: '/industries',
+    children: [
+      {
+        label: 'Industries We Serve',
+        href: '/industries',
+        description: 'Automotive, Pharma, Glass, Heavy Engineering & Warehousing sectors',
+      },
+      {
+        label: 'Manufacturing Infrastructure',
+        href: '/manufacturing-infrastructure',
+        description: 'Gajraula plant overview, closed-die forging, heat treatment, CNC machining & labs',
+        badge: 'Plant Tour',
+      },
+    ],
+  },
   { label: 'Customers', href: '/customer' },
   { label: 'Blog', href: '/blog' },
   { label: 'Contact', href: '/contact' },
@@ -161,7 +177,8 @@ export const FOOTER_LINKS = {
   ],
   company: [
     { label: 'About Us', href: '/about-us' },
-    { label: 'Industries', href: '/industries' },
+    { label: 'Industries We Serve', href: '/industries' },
+    { label: 'Manufacturing Infrastructure', href: '/manufacturing-infrastructure' },
     { label: 'Customers', href: '/customer' },
     { label: 'Blog', href: '/blog' },
     { label: 'Contact', href: '/contact' },

@@ -27,7 +27,6 @@ import {
   RotateCcw,
   Printer,
   PhoneCall,
-  CheckCircle2,
   Zap,
   Gauge,
   Thermometer,
@@ -36,7 +35,6 @@ import {
   FileSpreadsheet,
   AlertTriangle,
   Info,
-  ShieldCheck,
 } from 'lucide-react';
 import Container from '@/components/common/Container';
 import Button from '@/components/common/Button';
@@ -396,7 +394,7 @@ export default function GeneratorCalculator() {
                               {preset.defaultLoads.length} default loads
                             </span>
                             {isSelected && (
-                              <CheckCircle2 className="w-4 h-4 text-amber-600" />
+                              <i className="fa-solid fa-circle-check text-amber-600 text-sm" />
                             )}
                           </div>
                         </button>
@@ -455,7 +453,7 @@ export default function GeneratorCalculator() {
                   {/* Added Notice Toast */}
                   {addedNotice && (
                     <div className="bg-emerald-50 border border-emerald-300 text-emerald-800 text-xs sm:text-sm px-4 py-2.5 rounded-xl flex items-center gap-2 animate-in fade-in duration-150">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                      <i className="fa-solid fa-check text-emerald-600 text-sm flex-shrink-0" />
                       <span>{addedNotice}</span>
                     </div>
                   )}
@@ -1089,18 +1087,13 @@ export default function GeneratorCalculator() {
 
                   {/* PARTNERSHIP HIGHLIGHT — GREAVES COTTON DG SETS */}
                   <div className="bg-amber-50/60 border border-amber-200 rounded-2xl p-5 sm:p-6 flex flex-col md:flex-row items-center justify-between gap-4">
-                    <div className="flex items-start gap-3.5">
-                      <div className="w-10 h-10 rounded-xl bg-amber-500 text-navy flex items-center justify-center font-bold flex-shrink-0">
-                        <ShieldCheck className="w-5 h-5 text-navy" />
-                      </div>
-                      <div>
-                        <h4 className="text-base font-bold text-navy">
-                          Authorized Partner for Greaves Cotton DG Sets
-                        </h4>
-                        <p className="text-xs sm:text-sm text-slate-600 mt-0.5 leading-relaxed">
-                          Airmen Engineers supplies, commissions, and services CPCB IV+ compliant Greaves diesel generator sets with Genius IoT smart remote monitoring.
-                        </p>
-                      </div>
+                    <div>
+                      <h4 className="text-base font-bold text-navy">
+                        Authorized Partner for Greaves Cotton DG Sets
+                      </h4>
+                      <p className="text-xs sm:text-sm text-slate-600 mt-0.5 leading-relaxed">
+                        Airmen Engineers supplies, commissions, and services CPCB IV+ compliant Greaves diesel generator sets with Genius IoT smart remote monitoring.
+                      </p>
                     </div>
                     <Link
                       href="/greaves"

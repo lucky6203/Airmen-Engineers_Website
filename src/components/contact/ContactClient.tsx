@@ -15,12 +15,9 @@ import {
   Mail,
   MapPin,
   Clock,
-  CheckCircle2,
   AlertTriangle,
-  Sparkles,
   MessageSquare,
   ExternalLink,
-  ShieldCheck,
   ArrowRight,
   Wrench,
   Truck,
@@ -74,10 +71,10 @@ const LOCATIONS = [
   },
   {
     id: 'corridor',
-    badge: 'NH-48 Industrial Corridor Cell',
+    // badge: 'NH-48 Industrial Corridor Cell',
     title: 'Dharuhera Corridor Hub',
     subtitle: 'Vipul Garden, NH-48 Haryana',
-    address: CONTACT_INFO.branch?.address || 'DHARUHERA, Vipul Garden, Haryana',
+    address: CONTACT_INFO.branch?.address || '',
     phones: CONTACT_INFO.branch?.phone || ['+91-9212303793'],
     emails: CONTACT_INFO.branch?.email || ['sales@airmen.in'],
     hours: 'Rapid Field Engineering Unit (24/7 On-Call)',
@@ -101,7 +98,6 @@ const DEPARTMENTS = [
     phone: '+91-9212303793',
     altPhone: '+91-7840004701',
     email: 'sales@airmen.in',
-    contactPerson: 'Mr. Subhash (Kaeser) • Mr. Arun Saxena (Greaves)',
   },
   {
     title: '24/7 Breakdown & Service Hotline',
@@ -111,7 +107,6 @@ const DEPARTMENTS = [
     phone: '+91-7840004702',
     altPhone: '+91-9212303795',
     email: 'service@airmen.in',
-    contactPerson: 'Mr. Gopal (Greaves) • Mr. Vikram Pradhan (Kaeser)',
   },
   {
     title: 'Material Handling & Forklifts',
@@ -120,7 +115,6 @@ const DEPARTMENTS = [
     badge: 'EP Forklifts Desk',
     phone: '+91-9278977225',
     email: 'sales@airmen.in',
-    contactPerson: 'Mr. Samar Pratap Singh / Sales Lead',
   },
   {
     title: 'AIRpipe Piping & Plant Infrastructure',
@@ -129,7 +123,6 @@ const DEPARTMENTS = [
     badge: 'Piping Division',
     phone: '+91-9911931177',
     email: 'sales@airmen.in',
-    contactPerson: 'Mrs. Vaishali / AIRpipe Desk',
   },
 ];
 
@@ -221,16 +214,11 @@ export default function ContactClient() {
     <div className="bg-white text-navy min-h-screen">
       
       {/* ── 1. Hero Section: Corporate Deep Navy & Gold ───────────── */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-navy-dark via-navy to-[#0a1628] text-white py-14 sm:py-20 border-b border-gold/20">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,163,35,0.18),transparent_55%)] pointer-events-none" />
+      <section className="relative overflow-hidden bg-[#060D17] bg-gradient-to-b from-navy-dark via-navy to-[#060D17] text-white py-14 sm:py-20 border-b border-gold/20">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,163,35,0.08),transparent_60%)] pointer-events-none" />
 
         <Container className="relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-6">
-            <div className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-gold">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>24/7 NATIONWIDE ENGINEERING CONNECT • ESTABLISHED 1996</span>
-            </div>
-
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-tight">
               Connect With Our <br className="hidden sm:inline" />
               <span className="text-gold">
@@ -290,9 +278,6 @@ export default function ContactClient() {
       <section className="py-16 sm:py-20 bg-white border-b border-gray-200">
         <Container>
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="text-xs font-bold uppercase tracking-wider text-amber-700 bg-amber-100 px-3 py-1 rounded-full">
-              Direct Department Routing
-            </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-navy mt-3">
               Connect Directly with the Right Technical Cell
             </h2>
@@ -328,9 +313,6 @@ export default function ContactClient() {
                   </div>
 
                   <div className="pt-4 border-t border-gray-200 space-y-2">
-                    <div className="text-[11px] text-slate-500">
-                      Lead: <span className="text-navy font-semibold">{dept.contactPerson}</span>
-                    </div>
 
                     <a
                       href={`tel:${dept.phone.replace(/[^+\d]/g, '')}`}
@@ -369,9 +351,6 @@ export default function ContactClient() {
       <section className="py-16 sm:py-20 bg-slate-900 text-white border-b border-slate-800">
         <Container>
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="text-xs font-bold uppercase tracking-wider text-amber-400 bg-amber-400/10 border border-amber-400/20 px-3.5 py-1.5 rounded-full inline-block">
-              Authorized Partner Directory
-            </span>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white mt-3.5 tracking-tight">
               Brand-Specific Sales &amp; Service Contacts
             </h2>
@@ -384,29 +363,26 @@ export default function ContactClient() {
             {/* GREAVES */}
             <div className="bg-slate-800/80 border border-slate-700 hover:border-amber-400/50 rounded-2xl p-6 transition-all duration-300 shadow-xl flex flex-col justify-between group">
               <div>
-                <div className="flex items-center justify-between mb-4 pb-3 border-b border-slate-700/80">
-                  <div className="h-8 bg-white/95 px-2.5 py-1 rounded-lg flex items-center justify-center">
+                <div className="flex flex-col items-center text-center mb-4 pb-4 border-b border-slate-700/80">
+                  <div className="h-9 bg-white/95 px-3 py-1.5 rounded-lg flex items-center justify-center shadow-sm mb-3">
                     <img src="/images/logos/logo-greaves.svg" alt="Greaves Cotton" className="h-5 w-auto object-contain" />
                   </div>
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded">
-                    Power Gensets
-                  </span>
+                  <h3 className="text-base font-bold text-white mb-2 text-center">Greaves Cotton</h3>
                 </div>
-                <h3 className="text-base font-bold text-white mb-4">Greaves Cotton</h3>
 
                 <div className="space-y-4">
                   {/* Service */}
-                  <div className="bg-slate-900/60 p-3.5 rounded-xl border border-slate-700/60">
+                  <div className="bg-slate-900/60 p-4 rounded-xl border border-slate-700/60">
                     <div className="flex items-center justify-between">
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-400/10 px-2 py-0.5 rounded">
+                      <span className="text-[13px] font-bold uppercase tracking-wider text-white px-2 py-0.5 rounded">
                         SERVICE
                       </span>
                     </div>
-                    <div className="font-bold text-white text-sm mt-1.5">Mr. Gopal</div>
-                    <div className="flex items-center gap-2 mt-2">
+                    <p className="text-[11px] text-gray-400 mt-0.5">24/7 Breakdown &amp; Maintenance Support</p>
+                    <div className="flex items-center gap-2 mt-3 pt-2 border-t border-slate-800">
                       <a
                         href="tel:7840004702"
-                        className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-amber-400 hover:text-amber-300 transition-colors"
+                        className="inline-flex items-center gap-1.5 text-[18px] font-mono font-bold text-white hover:text-white transition-colors"
                       >
                         <Phone className="w-3.5 h-3.5" />
                         7840004702
@@ -415,26 +391,26 @@ export default function ContactClient() {
                         href="https://wa.me/917840004702"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-1 rounded bg-emerald-500/20 text-emerald-400 hover:bg-emerald-500/30 transition-colors ml-auto"
+                        className="p-1.5 rounded bg-emerald-500/20 text-emerald-400 hover:bg-emerald-500/30 transition-colors ml-auto flex items-center justify-center w-7 h-7"
                         title="Chat on WhatsApp"
                       >
-                        <MessageSquare className="w-3.5 h-3.5" />
+                        <i className="fa-brands fa-whatsapp text-sm" />
                       </a>
                     </div>
                   </div>
 
                   {/* Sales */}
-                  <div className="bg-slate-900/60 p-3.5 rounded-xl border border-slate-700/60">
+                  <div className="bg-slate-900/60 p-4 rounded-xl border border-slate-700/60">
                     <div className="flex items-center justify-between">
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded">
+                      <span className="text-[13px] font-bold uppercase tracking-wider text-white px-2 py-0.5 rounded">
                         SALES
                       </span>
                     </div>
-                    <div className="font-bold text-white text-sm mt-1.5">Mr. Arun Saxena</div>
-                    <div className="flex items-center gap-2 mt-2">
+                    <p className="text-[11px] text-gray-400 mt-0.5">CPCB IV+ Diesel Gensets 5 to 2500 kVA</p>
+                    <div className="flex items-center gap-2 mt-3 pt-2 border-t border-slate-800">
                       <a
                         href="tel:7840004701"
-                        className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-amber-400 hover:text-amber-300 transition-colors"
+                        className="inline-flex items-center gap-1.5 text-[18px] font-mono font-bold text-white hover:text-white transition-colors"
                       >
                         <Phone className="w-3.5 h-3.5" />
                         7840004701
@@ -443,10 +419,10 @@ export default function ContactClient() {
                         href="https://wa.me/917840004701"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-1 rounded bg-emerald-500/20 text-emerald-400 hover:bg-emerald-500/30 transition-colors ml-auto"
+                        className="p-1.5 rounded bg-emerald-500/20 text-emerald-400 hover:bg-emerald-500/30 transition-colors ml-auto flex items-center justify-center w-7 h-7"
                         title="Chat on WhatsApp"
                       >
-                        <MessageSquare className="w-3.5 h-3.5" />
+                        <i className="fa-brands fa-whatsapp text-sm" />
                       </a>
                     </div>
                   </div>
@@ -457,85 +433,66 @@ export default function ContactClient() {
             {/* KAESER */}
             <div className="bg-slate-800/80 border border-slate-700 hover:border-amber-400/50 rounded-2xl p-6 transition-all duration-300 shadow-xl flex flex-col justify-between group">
               <div>
-                <div className="flex items-center justify-between mb-4 pb-3 border-b border-slate-700/80">
-                  <div className="h-8 bg-white/95 px-2.5 py-1 rounded-lg flex items-center justify-center">
+                <div className="flex flex-col items-center text-center mb-4 pb-4 border-b border-slate-700/80">
+                  <div className="h-9 bg-white/95 px-3 py-1.5 rounded-lg flex items-center justify-center shadow-sm mb-3">
                     <img src="/images/logos/logo-kaeser.svg" alt="Kaeser Kompressoren" className="h-5 w-auto object-contain" />
                   </div>
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded">
-                    Air Compressors
-                  </span>
+                  <h3 className="text-base font-bold text-white mb-2 text-center">Kaeser Kompressoren</h3>
                 </div>
-                <h3 className="text-base font-bold text-white mb-4">Kaeser Kompressoren</h3>
 
-                <div className="space-y-3">
+                <div className="space-y-4">
                   {/* Sales Bhiwadi */}
-                  <div className="bg-slate-900/60 p-2.5 rounded-xl border border-slate-700/60">
+                  <div className="bg-slate-900/60 p-4 rounded-xl border border-slate-700/60">
                     <div className="flex items-center justify-between">
-                      <span className="text-[9px] font-bold uppercase tracking-wider text-amber-400 bg-amber-400/10 px-1.5 py-0.5 rounded">
+                      <span className="text-[13px] font-bold uppercase tracking-wider text-white px-2 py-0.5 rounded">
                         SALES (BHIWADI)
                       </span>
                     </div>
-                    <div className="font-bold text-white text-xs mt-1">Mr. Subhash</div>
-                    <div className="flex items-center justify-between mt-1">
-                      <a href="tel:9212303793" className="text-xs font-mono font-bold text-amber-400 flex items-center gap-1">
-                        <Phone className="w-3 h-3" /> 9212303793
+                    <p className="text-[11px] text-gray-400 mt-0.5">Mr. Subhash</p>
+                    <div className="flex items-center gap-2 mt-3 pt-2 border-t border-slate-800">
+                      <a
+                        href="tel:9212303793"
+                        className="inline-flex items-center gap-1.5 text-[18px] font-mono font-bold text-white hover:text-white transition-colors"
+                      >
+                        <Phone className="w-3.5 h-3.5" />
+                        9212303793
                       </a>
-                      <a href="https://wa.me/919212303793" target="_blank" rel="noopener noreferrer" className="p-1 rounded bg-emerald-500/20 text-emerald-400">
-                        <MessageSquare className="w-3 h-3" />
-                      </a>
-                    </div>
-                  </div>
-
-                  {/* Sales Haridwar */}
-                  <div className="bg-slate-900/60 p-2.5 rounded-xl border border-slate-700/60">
-                    <div className="flex items-center justify-between">
-                      <span className="text-[9px] font-bold uppercase tracking-wider text-amber-400 bg-amber-400/10 px-1.5 py-0.5 rounded">
-                        SALES (HARIDWAR)
-                      </span>
-                    </div>
-                    <div className="font-bold text-white text-xs mt-1">Mr. Surendra Upadhyay</div>
-                    <div className="flex items-center justify-between mt-1">
-                      <a href="tel:9212303793" className="text-xs font-mono font-bold text-amber-400 flex items-center gap-1">
-                        <Phone className="w-3 h-3" /> 9212303793
-                      </a>
-                      <a href="https://wa.me/919212303793" target="_blank" rel="noopener noreferrer" className="p-1 rounded bg-emerald-500/20 text-emerald-400">
-                        <MessageSquare className="w-3 h-3" />
+                      <a
+                        href="https://wa.me/919212303793"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-1.5 rounded bg-emerald-500/20 text-emerald-400 hover:bg-emerald-500/30 transition-colors ml-auto flex items-center justify-center w-7 h-7"
+                        title="Chat on WhatsApp"
+                      >
+                        <i className="fa-brands fa-whatsapp text-sm" />
                       </a>
                     </div>
                   </div>
 
                   {/* Service Bhiwadi - Vikram */}
-                  <div className="bg-slate-900/60 p-2.5 rounded-xl border border-slate-700/60">
+                  <div className="bg-slate-900/60 p-4 rounded-xl border border-slate-700/60">
                     <div className="flex items-center justify-between">
-                      <span className="text-[9px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-400/10 px-1.5 py-0.5 rounded">
+                      <span className="text-[13px] font-bold uppercase tracking-wider text-white px-2 py-0.5 rounded">
                         SERVICE (BHIWADI)
                       </span>
                     </div>
-                    <div className="font-bold text-white text-xs mt-1">Mr. Vikram Pradhan</div>
-                    <div className="flex items-center justify-between mt-1">
-                      <a href="tel:9212303795" className="text-xs font-mono font-bold text-amber-400 flex items-center gap-1">
-                        <Phone className="w-3 h-3" /> 9212303795
+                    <p className="text-[11px] text-gray-400 mt-0.5">Mr. Vikram Pradhan</p>
+                    <div className="flex items-center gap-2 mt-3 pt-2 border-t border-slate-800">
+                      <a
+                        href="tel:9212303795"
+                        className="inline-flex items-center gap-1.5 text-[18px] font-mono font-bold text-white hover:text-white transition-colors"
+                      >
+                        <Phone className="w-3.5 h-3.5" />
+                        9212303795
                       </a>
-                      <a href="https://wa.me/919212303795" target="_blank" rel="noopener noreferrer" className="p-1 rounded bg-emerald-500/20 text-emerald-400">
-                        <MessageSquare className="w-3 h-3" />
-                      </a>
-                    </div>
-                  </div>
-
-                  {/* Service Bhiwadi - Sumit */}
-                  <div className="bg-slate-900/60 p-2.5 rounded-xl border border-slate-700/60">
-                    <div className="flex items-center justify-between">
-                      <span className="text-[9px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-400/10 px-1.5 py-0.5 rounded">
-                        SERVICE (BHIWADI)
-                      </span>
-                    </div>
-                    <div className="font-bold text-white text-xs mt-1">Mr. Sumit Tiwari</div>
-                    <div className="flex items-center justify-between mt-1">
-                      <a href="tel:9911978822" className="text-xs font-mono font-bold text-amber-400 flex items-center gap-1">
-                        <Phone className="w-3 h-3" /> 9911978822
-                      </a>
-                      <a href="https://wa.me/919911978822" target="_blank" rel="noopener noreferrer" className="p-1 rounded bg-emerald-500/20 text-emerald-400">
-                        <MessageSquare className="w-3 h-3" />
+                      <a
+                        href="https://wa.me/919212303795"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-1.5 rounded bg-emerald-500/20 text-emerald-400 hover:bg-emerald-500/30 transition-colors ml-auto flex items-center justify-center w-7 h-7"
+                        title="Chat on WhatsApp"
+                      >
+                        <i className="fa-brands fa-whatsapp text-sm" />
                       </a>
                     </div>
                   </div>
@@ -546,30 +503,26 @@ export default function ContactClient() {
             {/* EP EQUIPMENT */}
             <div className="bg-slate-800/80 border border-slate-700 hover:border-amber-400/50 rounded-2xl p-6 transition-all duration-300 shadow-xl flex flex-col justify-between group">
               <div>
-                <div className="flex items-center justify-between mb-4 pb-3 border-b border-slate-700/80">
-                  <div className="h-8 bg-white/95 px-2.5 py-1 rounded-lg flex items-center justify-center">
+                <div className="flex flex-col items-center text-center mb-4 pb-4 border-b border-slate-700/80">
+                  <div className="h-9 bg-white/95 px-3 py-1.5 rounded-lg flex items-center justify-center shadow-sm mb-3">
                     <img src="/images/logos/logo-ep.png" alt="EP Equipment" className="h-5 w-auto object-contain" />
                   </div>
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded">
-                    Forklifts &amp; MHE
-                  </span>
+                  <h3 className="text-base font-bold text-white mb-2 text-center">EP Equipment</h3>
                 </div>
-                <h3 className="text-base font-bold text-white mb-4">EP Equipment</h3>
 
                 <div className="space-y-4">
                   {/* Sales */}
                   <div className="bg-slate-900/60 p-4 rounded-xl border border-slate-700/60">
                     <div className="flex items-center justify-between">
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded">
+                      <span className="text-[13px] font-bold uppercase tracking-wider text-white px-2 py-0.5 rounded">
                         SALES &amp; CONSULTATION
                       </span>
                     </div>
-                    <div className="font-bold text-white text-sm mt-2">Mr. Samar Pratap Singh</div>
                     <p className="text-[11px] text-gray-400 mt-0.5">Electric &amp; Diesel Forklifts, Stackers</p>
                     <div className="flex items-center gap-2 mt-3 pt-2 border-t border-slate-800">
                       <a
                         href="tel:9278977225"
-                        className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-amber-400 hover:text-amber-300 transition-colors"
+                        className="inline-flex items-center gap-1.5 text-[18px] font-mono font-bold text-white hover:text-white transition-colors"
                       >
                         <Phone className="w-3.5 h-3.5" />
                         9278977225
@@ -578,10 +531,10 @@ export default function ContactClient() {
                         href="https://wa.me/919278977225"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-1.5 rounded bg-emerald-500/20 text-emerald-400 hover:bg-emerald-500/30 transition-colors ml-auto"
+                        className="p-1.5 rounded bg-emerald-500/20 text-emerald-400 hover:bg-emerald-500/30 transition-colors ml-auto flex items-center justify-center w-7 h-7"
                         title="Chat on WhatsApp"
                       >
-                        <MessageSquare className="w-3.5 h-3.5" />
+                        <i className="fa-brands fa-whatsapp text-sm" />
                       </a>
                     </div>
                   </div>
@@ -592,30 +545,26 @@ export default function ContactClient() {
             {/* AIRPIPE */}
             <div className="bg-slate-800/80 border border-slate-700 hover:border-amber-400/50 rounded-2xl p-6 transition-all duration-300 shadow-xl flex flex-col justify-between group">
               <div>
-                <div className="flex items-center justify-between mb-4 pb-3 border-b border-slate-700/80">
-                  <div className="h-8 bg-white/95 px-2.5 py-1 rounded-lg flex items-center justify-center">
+                <div className="flex flex-col items-center text-center mb-4 pb-4 border-b border-slate-700/80">
+                  <div className="h-9 bg-white/95 px-3 py-1.5 rounded-lg flex items-center justify-center shadow-sm mb-3">
                     <img src="/images/logos/logo-airpipe.png" alt="AIRpipe" className="h-5 w-auto object-contain" />
                   </div>
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded">
-                    Air Piping
-                  </span>
+                  <h3 className="text-base font-bold text-white mb-2 text-center">AIRpipe Systems</h3>
                 </div>
-                <h3 className="text-base font-bold text-white mb-4">AIRpipe Systems</h3>
 
                 <div className="space-y-4">
                   {/* Contact */}
                   <div className="bg-slate-900/60 p-4 rounded-xl border border-slate-700/60">
                     <div className="flex items-center justify-between">
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-blue-400 bg-blue-400/10 px-2 py-0.5 rounded">
+                      <span className="text-[13px] font-bold uppercase tracking-wider text-white  px-2 py-0.5 rounded">
                         DIRECT CONTACT / SALES
                       </span>
                     </div>
-                    <div className="font-bold text-white text-sm mt-2">Mrs. Vaishali</div>
                     <p className="text-[11px] text-gray-400 mt-0.5">Quick-Connect Aluminium &amp; Stainless Piping</p>
                     <div className="flex items-center gap-2 mt-3 pt-2 border-t border-slate-800">
                       <a
                         href="tel:9911931177"
-                        className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-amber-400 hover:text-amber-300 transition-colors"
+                        className="inline-flex items-center gap-1.5 text-[18px] font-mono font-bold text-white hover:text-white transition-colors"
                       >
                         <Phone className="w-3.5 h-3.5" />
                         9911931177
@@ -624,10 +573,10 @@ export default function ContactClient() {
                         href="https://wa.me/919911931177"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-1.5 rounded bg-emerald-500/20 text-emerald-400 hover:bg-emerald-500/30 transition-colors ml-auto"
+                        className="p-1.5 rounded bg-emerald-500/20 text-emerald-400 hover:bg-emerald-500/30 transition-colors ml-auto flex items-center justify-center w-7 h-7"
                         title="Chat on WhatsApp"
                       >
-                        <MessageSquare className="w-3.5 h-3.5" />
+                        <i className="fa-brands fa-whatsapp text-sm" />
                       </a>
                     </div>
                   </div>
@@ -653,8 +602,8 @@ export default function ContactClient() {
                     <span className="text-[11px] font-bold uppercase tracking-wider text-amber-700 bg-amber-100 px-3 py-1 rounded-full">
                       Fast Quotation &amp; Support Request
                     </span>
-                    <span className="text-xs text-slate-500 flex items-center gap-1.5 font-semibold">
-                      <ShieldCheck className="w-4 h-4 text-emerald-600" /> Authorized OEM Partner
+                    <span className="text-xs text-slate-500 font-semibold">
+                      Authorized OEM Partner
                     </span>
                   </div>
                   <h2 className="text-2xl sm:text-3xl font-extrabold text-navy">
@@ -669,7 +618,7 @@ export default function ContactClient() {
                   /* Success State */
                   <div className="py-12 px-4 text-center space-y-6 animate-in zoom-in-95 duration-300">
                     <div className="w-20 h-20 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto shadow-sm">
-                      <CheckCircle2 className="w-10 h-10" />
+                      <i className="fa-solid fa-check text-4xl" />
                     </div>
 
                     <div className="space-y-2">
@@ -902,9 +851,6 @@ export default function ContactClient() {
               {/* Location Selector Tabs */}
               <div className="bg-white border border-gray-200 rounded-3xl p-6 sm:p-7 shadow-xl shadow-navy/5 space-y-5">
                 <div>
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-amber-700 bg-amber-100 px-3 py-1 rounded-full">
-                    Regional Facility Switcher
-                  </span>
                   <h3 className="text-xl font-bold text-navy mt-2">
                     Airmen Facilities &amp; Hubs
                   </h3>
@@ -1009,7 +955,7 @@ export default function ContactClient() {
                     <ul className="space-y-1 text-xs text-slate-700">
                       {selectedLoc.highlights.map((h, i) => (
                         <li key={i} className="flex items-start gap-2">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 shrink-0 mt-1.5" />
                           <span>{h}</span>
                         </li>
                       ))}
@@ -1064,9 +1010,6 @@ export default function ContactClient() {
         <Container>
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
             <div>
-              <span className="text-[10px] font-bold uppercase tracking-wider text-amber-700 bg-amber-100 px-3 py-1 rounded-full">
-                Interactive Navigation Map
-              </span>
               <h3 className="text-xl sm:text-2xl font-bold text-navy mt-1.5">
                 Location View: {selectedLoc.title}
               </h3>

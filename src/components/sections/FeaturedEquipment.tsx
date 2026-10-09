@@ -12,13 +12,8 @@ import Link from 'next/link';
 import {
   ArrowRight,
   ArrowUpRight,
-  CheckCircle2,
   FileDown,
-  Sparkles,
   ChevronRight,
-  Hammer,
-  Factory,
-  ShieldCheck,
   Microscope,
   Building2,
   Truck,
@@ -328,30 +323,6 @@ const MFG_GALLERY_PREVIEW = [
   },
 ];
 
-type CategoryKey = 'industrial' | 'manufacturing';
-
-const CATEGORIES: {
-  key: CategoryKey;
-  label: string;
-  tag: string;
-  icon: React.ReactNode;
-  items: EquipmentItem[]
-}[] = [
-    {
-      key: 'industrial',
-      label: 'Industrial Products & Services',
-      tag: 'Tier-1 Dealerships',
-      icon: <Factory className="w-4 h-4" />,
-      items: INDUSTRIAL_ITEMS,
-    },
-    {
-      key: 'manufacturing',
-      label: 'Manufacturing Products (Gajraula Plant)',
-      tag: 'In-House Precision Forgings',
-      icon: <Hammer className="w-4 h-4" />,
-      items: MANUFACTURING_ITEMS,
-    },
-  ];
 
 export default function FeaturedEquipment() {
   return (

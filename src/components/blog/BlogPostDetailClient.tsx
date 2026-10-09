@@ -16,9 +16,7 @@ import {
   ArrowLeft,
   Share2,
   BookOpen,
-  Sparkles,
   Phone,
-  CheckCircle2,
   ExternalLink
 } from 'lucide-react';
 import Container from '@/components/common/Container';
@@ -197,7 +195,7 @@ export default function BlogPostDetailClient({ slug }: Props) {
           >
             {copied ? (
               <>
-                <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                <i className="fa-solid fa-check text-emerald-400 text-xs" />
                 <span className="text-emerald-400">Link Copied!</span>
               </>
             ) : (
@@ -217,7 +215,7 @@ export default function BlogPostDetailClient({ slug }: Props) {
             </span>
             {post.isUserCreated && (
               <span className="px-3 py-1 text-xs font-semibold rounded-lg bg-cyan-500/10 text-cyan-300 border border-cyan-500/20 flex items-center gap-1.5">
-                <Sparkles className="w-3 h-3 text-cyan-400" /> Community Contribution
+                <i className="fa-solid fa-users text-xs text-cyan-400" /> Community Contribution
               </span>
             )}
           </div>

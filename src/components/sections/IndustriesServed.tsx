@@ -14,10 +14,7 @@ import {
   Factory, 
   FlaskConical, 
   Boxes, 
-  ArrowRight,
-  ShieldCheck,
-  CheckCircle2,
-  Cog
+  ArrowRight
 } from 'lucide-react';
 import Container from '@/components/common/Container';
 
@@ -141,15 +138,13 @@ export default function IndustriesServed() {
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-white/10 space-y-2.5">
-                  <div className="flex items-start gap-2 text-xs text-slate-300">
-                    <Cog className="w-4 h-4 text-amber-400 mt-0.5 flex-shrink-0" />
-                    <span><strong className="text-white font-medium">Flagship Systems:</strong> {ind.keyEquipment}</span>
-                  </div>
-                  <div className="flex items-start gap-2 text-xs text-amber-300/90 font-medium">
-                    <ShieldCheck className="w-4 h-4 text-amber-400 mt-0.5 flex-shrink-0" />
-                    <span>{ind.clientsHighlight}</span>
-                  </div>
+                <div className="pt-4 border-t border-white/10 space-y-2 text-xs">
+                  <p className="text-slate-300">
+                    <strong className="text-white font-medium">Flagship Systems:</strong> {ind.keyEquipment}
+                  </p>
+                  <p className="text-amber-400 font-medium">
+                    {ind.clientsHighlight}
+                  </p>
                 </div>
               </div>
             );
@@ -161,16 +156,26 @@ export default function IndustriesServed() {
           <div>
             <h3 className="text-lg font-bold text-white">Need an Industry-Specific Engineering Assessment?</h3>
             <p className="text-sm text-slate-300 mt-1">
-              Our application engineers conduct on-site pressure profiling, load harmonic audits, and acoustic mapping.
+              Explore our 50,000+ sq. ft. Gajraula manufacturing infrastructure or consult our application engineers for on-site audits.
             </p>
           </div>
-          <Link
-            href="/contact"
-            className="flex-shrink-0 inline-flex items-center gap-2 px-6 py-3 bg-amber-500 hover:bg-amber-600 text-slate-950 font-semibold rounded-xl text-sm shadow-lg transition-transform hover:scale-105"
-          >
-            Consult Engineering Team
-            <ArrowRight className="w-4 h-4" />
-          </Link>
+          <div className="flex flex-wrap items-center gap-3 shrink-0">
+            <Link
+              href="/manufacturing-infrastructure"
+              className="inline-flex items-center gap-2 px-5 py-3 bg-white/10 hover:bg-white/15 text-white font-semibold rounded-xl text-sm border border-white/20 transition-all"
+            >
+              <i className="fa-solid fa-industry text-amber-400" />
+              <span>Plant Infrastructure</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold rounded-xl text-sm shadow-lg transition-transform hover:scale-105"
+            >
+              Consult Engineering Team
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </Container>
     </section>

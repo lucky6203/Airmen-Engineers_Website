@@ -73,9 +73,7 @@ export default function Footer() {
                   className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-gold hover:border-gold transition-colors"
                   aria-label="Airmen Engineers LinkedIn"
                 >
-                  <svg className="w-4 h-4 pointer-events-none" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                  </svg>
+                  <i className="fa-brands fa-linkedin-in text-base pointer-events-none" />
                 </a>
                 <a
                   href={`https://wa.me/${WHATSAPP_NUMBER}`}
@@ -84,21 +82,21 @@ export default function Footer() {
                   className="w-10 h-10 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 hover:text-emerald-300 hover:border-emerald-400 transition-colors"
                   aria-label="Direct WhatsApp Message"
                 >
-                  <MessageSquare className="w-4 h-4" />
+                  <i className="fa-brands fa-whatsapp text-lg pointer-events-none" />
                 </a>
                 <a
                   href={`mailto:${emailPrimary}`}
                   className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-gold hover:border-gold transition-colors"
                   aria-label="Send Email"
                 >
-                  <Mail className="w-4 h-4" />
+                  <i className="fa-solid fa-envelope text-sm pointer-events-none" />
                 </a>
                 <a
                   href={`tel:${phonePrimary}`}
                   className="w-10 h-10 rounded-full bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-gold hover:text-amber-300 hover:border-gold transition-colors"
                   aria-label="Call Registered Office"
                 >
-                  <Phone className="w-4 h-4" />
+                  <i className="fa-solid fa-phone text-sm pointer-events-none" />
                 </a>
               </div>
             </div>
@@ -203,7 +201,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar with Dynamic Year & Cookie Preferences */}
-      <div className="py-6 bg-navy-dark">
+      <div className="py-6 bg-[#060D17] border-t border-white/5">
         <Container>
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400 text-center sm:text-left">
             <div>

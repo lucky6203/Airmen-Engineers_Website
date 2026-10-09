@@ -272,18 +272,18 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               href={`tel:${phoneRaw}`}
               className="flex items-center gap-2.5 px-3 py-2 rounded-xl text-navy hover:text-gold hover:bg-gray-50 font-semibold font-mono transition-colors min-h-[40px]"
             >
-              <Phone className="w-4 h-4 text-amber-500 flex-shrink-0" />
+              <i className="fa-solid fa-phone text-xs text-amber-500 flex-shrink-0" />
               <span>+91-9212303791</span>
             </a>
             <a
               href={`mailto:${emailRaw}`}
               className="flex items-center gap-2.5 px-3 py-2 rounded-xl text-navy hover:text-gold hover:bg-gray-50 font-semibold font-mono transition-colors min-h-[40px]"
             >
-              <Mail className="w-4 h-4 text-amber-500 flex-shrink-0" />
+              <i className="fa-solid fa-envelope text-xs text-amber-500 flex-shrink-0" />
               <span>{emailRaw}</span>
             </a>
             <div className="flex items-start gap-2.5 px-3 py-1.5 text-slate-500 text-[11px]">
-              <MapPin className="w-4 h-4 text-slate-400 flex-shrink-0 mt-0.5" />
+              <i className="fa-solid fa-location-dot text-xs text-slate-400 flex-shrink-0 mt-0.5" />
               <span>Plot No. C-53, Prahalad Vihar, Rohini, Delhi 110085</span>
             </div>
           </div>
@@ -296,7 +296,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             className="flex flex-col items-center justify-center gap-1 py-2.5 rounded-xl bg-navy text-white text-xs font-semibold hover:bg-navy-light transition-colors min-h-[44px]"
             aria-label="Call Airmen Engineers"
           >
-            <Phone className="w-4 h-4 text-amber-400" />
+            <i className="fa-solid fa-phone text-xs text-amber-400" />
             Call
           </a>
           <a
@@ -306,7 +306,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             className="flex flex-col items-center justify-center gap-1 py-2.5 rounded-xl bg-emerald-600 text-white text-xs font-semibold hover:bg-emerald-700 transition-colors min-h-[44px]"
             aria-label="Chat on WhatsApp"
           >
-            <MessageCircle className="w-4 h-4" />
+            <i className="fa-brands fa-whatsapp text-sm" />
             WhatsApp
           </a>
           <Link
@@ -315,7 +315,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             className="flex flex-col items-center justify-center gap-1 py-2.5 rounded-xl bg-gold text-navy text-xs font-bold hover:bg-gold-dark transition-colors min-h-[44px]"
             aria-label="Get a Quote"
           >
-            <FileText className="w-4 h-4" />
+            <i className="fa-solid fa-file-lines text-xs" />
             Quote
           </Link>
         </div>

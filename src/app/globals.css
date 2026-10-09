@@ -16,6 +16,7 @@
 :root {
   /* Colors */
   --navy: #0A1628;
+  --navy-dark: #060D17;
   --navy-light: #132240;
   --navy-medium: #1A2D4A;
   --charcoal: #1E293B;
@@ -96,6 +97,7 @@
 
 @theme {
   --color-navy: #0A1628;
+  --color-navy-dark: #060D17;
   --color-navy-light: #132240;
   --color-navy-medium: #1A2D4A;
   --color-charcoal: #1E293B;

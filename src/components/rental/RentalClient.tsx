@@ -12,7 +12,6 @@ import {
   Zap, 
   Shield, 
   Gauge, 
-  CheckCircle, 
   AlertCircle, 
   Phone, 
   MessageCircle,
@@ -78,8 +77,8 @@ export default function RentalClient() {
   return (
     <>
       {/* Hero Banner */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-navy-dark via-navy to-[#0a1628] text-white py-14 sm:py-20 border-b border-gold/20">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,163,35,0.18),transparent_55%)] pointer-events-none" />
+      <section className="relative overflow-hidden bg-[#060D17] bg-gradient-to-b from-navy-dark via-navy to-[#060D17] text-white py-14 sm:py-20 border-b border-gold/20">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,163,35,0.08),transparent_60%)] pointer-events-none" />
         <Container className="relative z-10">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-gold mb-4">
@@ -125,7 +124,7 @@ export default function RentalClient() {
                   'Optional refrigerated air dryers and in-line particulate filters provided',
                 ].map((item) => (
                   <div key={item} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700">
-                    <CheckCircle className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 flex-shrink-0 mt-2" />
                     <span>{item}</span>
                   </div>
                 ))}
@@ -168,7 +167,7 @@ export default function RentalClient() {
               {submitted ? (
                 <div className="text-center py-10 space-y-4 animate-in zoom-in-95 duration-300">
                   <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto shadow-sm">
-                    <CheckCircle className="w-8 h-8 text-emerald-600" />
+                    <i className="fa-solid fa-check text-2xl text-emerald-600" />
                   </div>
                   <div>
                     <h4 className="text-xl font-bold text-navy">Rental Request Submitted!</h4>

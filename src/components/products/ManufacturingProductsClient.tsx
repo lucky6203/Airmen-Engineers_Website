@@ -9,16 +9,11 @@ import React, { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
 import {
   Factory,
-  Layers,
-  ShieldCheck,
-  CheckCircle2,
   PhoneCall,
   MessageCircle,
   FileText,
   Search,
   ArrowRight,
-  Sparkles,
-  Settings,
   Sliders,
   Maximize2,
   X,
@@ -77,11 +72,11 @@ const HERO_GALLERY_ITEMS = [
 ];
 
 const CATEGORY_TABS = [
-  { id: 'all', label: 'All Components', icon: Sliders },
-  { id: 'flanges-hubs', label: 'Flanges & Hubs', icon: Factory },
-  { id: 'bushings-spacers', label: 'Bushings & Spacers', icon: Layers },
-  { id: 'rings-retainers', label: 'Rings & Retainers', icon: Compass },
-  { id: 'critical-profiles', label: 'Critical Profiles', icon: ShieldCheck },
+  { id: 'all', label: 'All Components', icon: 'fa-solid fa-sliders' },
+  { id: 'flanges-hubs', label: 'Flanges & Hubs', icon: 'fa-solid fa-industry' },
+  { id: 'bushings-spacers', label: 'Bushings & Spacers', icon: 'fa-solid fa-layer-group' },
+  { id: 'rings-retainers', label: 'Rings & Retainers', icon: 'fa-solid fa-compass' },
+  { id: 'critical-profiles', label: 'Critical Profiles', icon: 'fa-solid fa-shield-halved' },
 ];
 
 export default function ManufacturingProductsClient() {
@@ -126,16 +121,12 @@ export default function ManufacturingProductsClient() {
   return (
     <div className="min-h-screen bg-slate-50">
       {/* Hero Banner */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-navy-dark via-navy to-[#0a1628] text-white py-14 sm:py-20 border-b border-gold/20">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,163,35,0.18),transparent_55%)] pointer-events-none" />
+      <section className="relative overflow-hidden bg-[#060D17] bg-gradient-to-b from-navy-dark via-navy to-[#060D17] text-white py-14 sm:py-20 border-b border-gold/20">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,163,35,0.08),transparent_60%)] pointer-events-none" />
         <Container>
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             {/* Left Content Column */}
             <div className="lg:col-span-7">
-              <div className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-gold mb-4">
-                <Factory className="h-4 w-4" />
-                Gajraula Manufacturing Plant (U.P.)
-              </div>
 
               <h1 className="text-3xl sm:text-5xl lg:text-5xl xl:text-6xl font-black tracking-tight text-white mb-6 leading-tight">
                 Precision CNC-Machined <span className="text-gold">Forged Automotive Components</span>
@@ -209,9 +200,9 @@ export default function ManufacturingProductsClient() {
                 {/* Main Showcase Image Card */}
                 <div className="relative h-64 sm:h-72 w-full rounded-2xl bg-gradient-to-b from-white via-slate-50 to-gray-100 flex items-center justify-center p-6 border border-white/30 shadow-inner overflow-hidden group">
                   {/* Category Pill */}
-                  <span className="absolute top-3 left-3 px-3 py-1 rounded-full bg-navy/90 text-gold text-[11px] font-bold uppercase tracking-wider border border-gold/30 backdrop-blur-sm z-10">
+                  {/* <span className="absolute top-3 left-3 px-3 py-1 rounded-full bg-navy/90 text-gold text-[11px] font-bold uppercase tracking-wider border border-gold/30 backdrop-blur-sm z-10">
                     {activeHeroItem.category}
-                  </span>
+                  </span> */}
 
                   {/* Zoom Action */}
                   <button
@@ -240,17 +231,6 @@ export default function ManufacturingProductsClient() {
                   >
                     <ChevronRight className="w-4 h-4" />
                   </button>
-
-                  {/* Floating Spec Badges */}
-                  <div className="absolute bottom-3 left-3 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white/95 text-slate-800 text-[10px] font-bold shadow-md border border-gray-200">
-                    <CheckCircle2 className="w-3 h-3 text-gold" />
-                    Closed-Die Forging
-                  </div>
-                  <div className="absolute bottom-3 right-3 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-navy text-gold text-[10px] font-bold shadow-md border border-gold/30">
-                    <ShieldCheck className="w-3 h-3 text-gold" />
-                    ±0.01 mm CNC Turning
-                  </div>
-
                   {/* Component Image */}
                   <img
                     key={activeHeroItem.image}
@@ -278,11 +258,10 @@ export default function ManufacturingProductsClient() {
                       <button
                         key={item.id}
                         onClick={() => setGalleryIndex(idx)}
-                        className={`relative rounded-xl p-1.5 flex items-center justify-center transition-all duration-200 aspect-square overflow-hidden ${
-                          isActive
+                        className={`relative rounded-xl p-1.5 flex items-center justify-center transition-all duration-200 aspect-square overflow-hidden ${isActive
                             ? 'bg-white ring-2 ring-gold scale-105 shadow-lg'
                             : 'bg-white/10 hover:bg-white/20 opacity-70 hover:opacity-100'
-                        }`}
+                          }`}
                         title={item.title}
                       >
                         <img
@@ -307,19 +286,17 @@ export default function ManufacturingProductsClient() {
             {/* Category Tabs */}
             <div className="flex items-center gap-2 overflow-x-auto pb-2 lg:pb-0 scrollbar-none">
               {CATEGORY_TABS.map((tab) => {
-                const Icon = tab.icon;
                 const isActive = activeCategory === tab.id;
                 return (
                   <button
                     key={tab.id}
                     onClick={() => setActiveCategory(tab.id)}
-                    className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold whitespace-nowrap transition-all ${
-                      isActive
+                    className={`flex items-center gap-2 px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold whitespace-nowrap transition-all ${isActive
                         ? 'bg-navy text-gold shadow-sm'
                         : 'bg-gray-100 text-charcoal hover:bg-gray-200'
-                    }`}
+                      }`}
                   >
-                    <Icon className={`w-4 h-4 ${isActive ? 'text-gold' : 'text-slate-500'}`} />
+                    <i className={`${tab.icon} text-xs ${isActive ? 'text-gold' : 'text-slate-500'}`} />
                     {tab.label}
                   </button>
                 );
@@ -551,9 +528,6 @@ export default function ManufacturingProductsClient() {
       <section className="bg-navy py-16 text-white border-t border-gold/20">
         <Container>
           <div className="max-w-3xl mx-auto text-center mb-12">
-            <span className="text-xs font-bold uppercase tracking-wider text-gold">
-              Manufacturing Infrastructure & Quality
-            </span>
             <h2 className="text-2xl sm:text-4xl font-extrabold text-white mt-2 mb-4">
               State-of-the-Art Machining at Gajraula Facility
             </h2>
@@ -564,9 +538,6 @@ export default function ManufacturingProductsClient() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="bg-white/5 border border-white/10 rounded-xl p-6 hover:border-gold/50 transition-colors">
-              <div className="w-10 h-10 rounded-lg bg-gold/15 text-gold flex items-center justify-center mb-4">
-                <Factory className="w-5 h-5 text-gold" />
-              </div>
               <h3 className="text-base font-bold text-white mb-2">Closed-Die Forging</h3>
               <p className="text-xs text-slate-300 leading-relaxed">
                 Superior metallurgical grain alignment ensuring exceptional mechanical strength and fatigue resistance under high stress.
@@ -574,9 +545,6 @@ export default function ManufacturingProductsClient() {
             </div>
 
             <div className="bg-white/5 border border-white/10 rounded-xl p-6 hover:border-gold/50 transition-colors">
-              <div className="w-10 h-10 rounded-lg bg-gold/15 text-gold flex items-center justify-center mb-4">
-                <Settings className="w-5 h-5 text-gold" />
-              </div>
               <h3 className="text-base font-bold text-white mb-2">Multi-Axis CNC Machining</h3>
               <p className="text-xs text-slate-300 leading-relaxed">
                 Precision turning, facing, boring, grooving, and contour profiling maintaining micrometer-level dimensional consistency.
@@ -584,9 +552,6 @@ export default function ManufacturingProductsClient() {
             </div>
 
             <div className="bg-white/5 border border-white/10 rounded-xl p-6 hover:border-gold/50 transition-colors">
-              <div className="w-10 h-10 rounded-lg bg-gold/15 text-gold flex items-center justify-center mb-4">
-                <ShieldCheck className="w-5 h-5 text-gold" />
-              </div>
               <h3 className="text-base font-bold text-white mb-2">100% Inspection Control</h3>
               <p className="text-xs text-slate-300 leading-relaxed">
                 CMM coordinate measuring, surface roughness profilometers, and calibrated gauges guaranteeing zero dimensional deviation.
@@ -594,10 +559,7 @@ export default function ManufacturingProductsClient() {
             </div>
 
             <div className="bg-white/5 border border-white/10 rounded-xl p-6 hover:border-gold/50 transition-colors">
-              <div className="w-10 h-10 rounded-lg bg-gold/15 text-gold flex items-center justify-center mb-4">
-                <CheckCircle2 className="w-5 h-5 text-gold" />
-              </div>
-              <h3 className="text-base font-bold text-white mb-2">PPAP & Drawing Compliance</h3>
+              <h3 className="text-base font-bold text-white mb-2">PPAP &amp; Drawing Compliance</h3>
               <p className="text-xs text-slate-300 leading-relaxed">
                 Strict adherence to customer-approved 2D drawings, process control plans, and comprehensive pre-dispatch inspection reports.
               </p>

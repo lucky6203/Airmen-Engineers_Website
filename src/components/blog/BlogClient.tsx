@@ -20,8 +20,6 @@ import {
   Edit3,
   Share2,
   X,
-  CheckCircle2,
-  Sparkles,
   BookOpen,
   ArrowRight,
   RotateCcw,
@@ -340,14 +338,14 @@ export default function BlogClient() {
       {/* Toast Notification */}
       {toastMessage && (
         <div className="fixed bottom-6 right-6 z-50 flex items-center gap-2.5 px-5 py-3.5 bg-slate-900 text-white rounded-2xl shadow-2xl border border-amber-500/40 animate-bounce">
-          <CheckCircle2 className="w-5 h-5 text-amber-400" />
+          <i className="fa-solid fa-check text-amber-400 text-sm" />
           <span className="text-xs sm:text-sm font-semibold">{toastMessage}</span>
         </div>
       )}
 
       {/* ── Modern High-Impact Hero Section ──────────────────────── */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-navy-dark via-navy to-[#0a1628] text-white py-14 sm:py-20 border-b border-gold/20">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,163,35,0.18),transparent_55%)] pointer-events-none" />
+      <section className="relative overflow-hidden bg-[#060D17] bg-gradient-to-b from-navy-dark via-navy to-[#060D17] text-white py-14 sm:py-20 border-b border-gold/20">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,163,35,0.08),transparent_60%)] pointer-events-none" />
 
         <Container className="relative z-10">
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
@@ -355,7 +353,7 @@ export default function BlogClient() {
             {/* Left Content */}
             <div className="max-w-2xl text-left space-y-4">
               <div className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-gold">
-                <Sparkles className="w-3.5 h-3.5" />
+                <i className="fa-solid fa-newspaper text-xs text-gold" />
                 <span>INDUSTRIAL KNOWLEDGE HUB • TECHNICAL ARTICLES &amp; CASE STUDIES</span>
               </div>
 
@@ -1035,7 +1033,7 @@ export default function BlogClient() {
                   type="submit"
                   className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold shadow-lg shadow-amber-500/25 transition-all cursor-pointer"
                 >
-                  <CheckCircle2 className="w-4 h-4" />
+                  <i className="fa-solid fa-check text-xs" />
                   <span>{editingPostId ? 'Save Changes' : 'Publish Article Now'}</span>
                 </button>
               </div>

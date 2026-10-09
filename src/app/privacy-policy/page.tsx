@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Container from '@/components/common/Container';
 import Breadcrumb from '@/components/common/Breadcrumb';
-import { ShieldCheck, Mail, Phone, Lock, Eye, FileText } from 'lucide-react';
+import { Mail, Phone, Lock, Eye, FileText } from 'lucide-react';
 import { CONTACT_INFO } from '@/data/company';
 
 export const metadata: Metadata = {
@@ -19,12 +19,11 @@ export default function PrivacyPolicyPage() {
       <Breadcrumb items={[{ label: 'Privacy Policy' }]} />
 
       {/* Header Banner */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-navy-dark via-navy to-[#0a1628] text-white py-14 sm:py-20 border-b border-gold/20">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,163,35,0.18),transparent_55%)] pointer-events-none" />
+      <section className="relative overflow-hidden bg-[#060D17] bg-gradient-to-b from-navy-dark via-navy to-[#060D17] text-white py-14 sm:py-20 border-b border-gold/20">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,163,35,0.08),transparent_60%)] pointer-events-none" />
         <Container className="relative z-10">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-gold mb-4">
-              <ShieldCheck className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center rounded-full border border-gold/40 bg-gold/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-gold mb-4">
               Corporate Compliance
             </div>
             <h1 className="text-3xl sm:text-5xl font-black text-white mb-4">
@@ -72,8 +71,7 @@ export default function PrivacyPolicyPage() {
             </div>
 
             <div>
-              <h2 className="text-xl sm:text-2xl font-bold text-navy mb-3 flex items-center gap-2 font-heading">
-                <ShieldCheck className="w-5 h-5 text-gold flex-shrink-0" />
+              <h2 className="text-xl sm:text-2xl font-bold text-navy mb-3 font-heading">
                 3. Confidentiality &amp; Non-Disclosure
               </h2>
               <p>

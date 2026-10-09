@@ -10,9 +10,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import {
   ArrowRight,
-  CheckCircle2,
-  ShieldCheck,
-  Sparkles,
   Wind,
   Truck,
   Flame,
@@ -38,7 +35,7 @@ interface ClientSpotlight {
   name: string;
   fullName: string;
   category: 'automotive' | 'japanese' | 'fmeg' | 'heavy' | 'all';
-  sectorLabel: string;
+  // sectorLabel: string;
   logo: string;
   plantImage: string;
   plantTagline: string;
@@ -56,7 +53,6 @@ const CLIENT_SPOTLIGHTS: ClientSpotlight[] = [
     name: 'Hero MotoCorp',
     fullName: 'Hero MotoCorp Ltd.',
     category: 'automotive',
-    sectorLabel: 'Automotive OEM Leader',
     logo: '/images/clients/hero-motocorp-logo.svg',
     plantImage: '/images/compressors/kaeser-dsd-main.jpg',
     plantTagline: 'Pneumatic Assembly Line & Paint Shop Operations',
@@ -76,7 +72,7 @@ const CLIENT_SPOTLIGHTS: ClientSpotlight[] = [
     name: 'Havells India',
     fullName: 'Havells India Ltd.',
     category: 'fmeg',
-    sectorLabel: 'Electrical & FMEG Manufacturing',
+    // sectorLabel: 'Electrical & FMEG Manufacturing',
     logo: '/images/clients/havells-logo.svg',
     plantImage: '/images/banner-2.jpg',
     plantTagline: 'FMEG High-Precision IIoT Automated Production',
@@ -96,7 +92,7 @@ const CLIENT_SPOTLIGHTS: ClientSpotlight[] = [
     name: 'Asahi India Glass (AIS)',
     fullName: 'Asahi India Glass Ltd.',
     category: 'heavy',
-    sectorLabel: 'Integrated Glass & Automotive Safety',
+    // sectorLabel: 'Integrated Glass & Automotive Safety',
     logo: '/images/clients/asahi-ais.png',
     plantImage: '/images/compressors/kaeser-dsd-direct-drive.jpg',
     plantTagline: 'Continuous 24/7 Float Glass & Tempering Lines',
@@ -116,7 +112,7 @@ const CLIENT_SPOTLIGHTS: ClientSpotlight[] = [
     name: 'Mikuni India',
     fullName: 'Mikuni Corporation',
     category: 'japanese',
-    sectorLabel: 'Precision Japanese Automotive Components',
+    // sectorLabel: 'Precision Japanese Automotive Components',
     logo: '/images/clients/mikuni-logo.svg',
     plantImage: '/images/about-3.jpg',
     plantTagline: 'Japanese 5S Precision Auto Components Bay',
@@ -136,7 +132,7 @@ const CLIENT_SPOTLIGHTS: ClientSpotlight[] = [
     name: 'Nidec Corporation',
     fullName: 'Nidec India Pvt. Ltd.',
     category: 'japanese',
-    sectorLabel: 'Electric Motors & Industrial Automation',
+    // sectorLabel: 'Electric Motors & Industrial Automation',
     logo: '/images/clients/nidec-logo.svg',
     plantImage: '/images/banner-1.jpg',
     plantTagline: 'Automated Electric Motor Winding & Assembly Bays',
@@ -156,7 +152,7 @@ const CLIENT_SPOTLIGHTS: ClientSpotlight[] = [
     name: 'Yokohama Tire',
     fullName: 'Yokohama India Pvt. Ltd.',
     category: 'automotive',
-    sectorLabel: 'Tire & Rubber Manufacturing',
+    // sectorLabel: 'Tire & Rubber Manufacturing',
     logo: '/images/clients/yokohama-logo.svg',
     plantImage: '/images/banner-3.jpg',
     plantTagline: 'Continuous Curing Press Pneumatics & Power Backup',
@@ -196,7 +192,7 @@ export default function CustomerClient() {
     const matchesSearch =
       client.name.toLowerCase().includes(q) ||
       client.fullName.toLowerCase().includes(q) ||
-      client.sectorLabel.toLowerCase().includes(q) ||
+      // client.sectorLabel.toLowerCase().includes(q) ||
       client.plantLocation.toLowerCase().includes(q) ||
       client.equipmentSupplied.some(e => e.toLowerCase().includes(q));
     return matchesCategory && matchesSearch;
@@ -205,8 +201,8 @@ export default function CustomerClient() {
   return (
     <div className="bg-gray-50 min-h-screen">
       {/* ── Interactive Hero Section with Real Machinery Images ── */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-navy-dark via-navy to-[#0a1628] text-white py-14 sm:py-20 border-b border-gold/20">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,163,35,0.18),transparent_55%)] pointer-events-none" />
+      <section className="relative overflow-hidden bg-[#060D17] bg-gradient-to-b from-navy-dark via-navy to-[#060D17] text-white py-14 sm:py-20 border-b border-gold/20">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,163,35,0.08),transparent_60%)] pointer-events-none" />
 
         <Container className="relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
@@ -214,26 +210,6 @@ export default function CustomerClient() {
             {/* Left Column: Desktop Left-Aligned Content with Interactive Switcher */}
             <div className="lg:col-span-6 flex flex-col items-start text-left max-sm:items-center max-sm:text-center space-y-5">
               
-              {/* Trust & Live Operational Status Pill */}
-              <div className="flex flex-wrap items-center gap-2 max-sm:justify-center">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold/10 border border-gold/40 text-[11px] font-bold text-gold">
-                  <span className="flex h-2 w-2 relative">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                  </span>
-                  <span className="font-bold uppercase tracking-wider">
-                    5,000+ INDUSTRIAL CLIENTS
-                  </span>
-                  <span className="text-gold/50">•</span>
-                  <span className="text-slate-300">ESTD 1996</span>
-                </div>
-
-                <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gold/10 border border-gold/30 text-gold text-[11px] font-bold">
-                  <Star className="w-3 h-3 fill-gold text-gold" />
-                  <span>4.9/5 Plant Rating</span>
-                </div>
-              </div>
-
               {/* High-Impact Headline */}
               <h1 className="text-3xl sm:text-4xl lg:text-[3.15rem] font-black tracking-tight text-white leading-[1.14]">
                 Where India&apos;s Industrial Titans<br />
@@ -249,10 +225,6 @@ export default function CustomerClient() {
 
               {/* Interactive Client Plant Switcher ("Kuch Alag" Feature) */}
               <div className="w-full pt-1">
-                <div className="text-[11px] font-extrabold uppercase tracking-wider text-amber-400/90 mb-2 flex items-center gap-1.5">
-                  <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-                  <span>Select Client Plant to Inspect Live Machinery:</span>
-                </div>
                 
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-2.5 w-full">
                   {CLIENT_SPOTLIGHTS.map((c) => {
@@ -386,10 +358,6 @@ export default function CustomerClient() {
         <div className="mt-10 pt-6 pb-6 border-t border-white/10 bg-slate-950/70 backdrop-blur-md">
           <Container>
             <div className="flex flex-col sm:flex-row items-center justify-between gap-3 mb-4">
-              <span className="text-[11px] font-extrabold uppercase tracking-wider text-amber-400/90 flex items-center gap-2">
-                <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-                Featured Corporate Client Partners Across India
-              </span>
               <span className="text-[11px] text-gray-400 font-medium">
                 Automotive OEM • Japanese Corridors • Glass • FMEG
               </span>
@@ -499,9 +467,9 @@ export default function CustomerClient() {
                         />
                       </div>
                       <div>
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-amber-600 bg-amber-50 border border-amber-200/60 px-2 py-0.5 rounded">
+                        {/* <span className="text-[10px] font-bold uppercase tracking-wider text-amber-600 bg-amber-50 border border-amber-200/60 px-2 py-0.5 rounded">
                           {client.sectorLabel}
-                        </span>
+                        </span> */}
                         <h3 className="text-xl font-bold text-navy mt-1 group-hover:text-amber-600 transition-colors">
                           {client.fullName}
                         </h3>
@@ -532,8 +500,8 @@ export default function CustomerClient() {
                       </h4>
                       <div className="space-y-2">
                         {client.equipmentSupplied.map((eq, eIdx) => (
-                          <div key={eIdx} className="flex items-start gap-2.5 text-xs text-slate-700 bg-slate-50 p-2.5 rounded-xl border border-gray-100">
-                            <CheckCircle2 className="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" />
+                          <div key={eIdx} className="flex items-start gap-2 text-xs text-slate-700 bg-slate-50 p-2.5 rounded-xl border border-gray-100">
+                            <span className="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0 mt-1.5" />
                             <span className="font-medium">{eq}</span>
                           </div>
                         ))}
@@ -544,8 +512,7 @@ export default function CustomerClient() {
 
                 {/* Footer Bar */}
                 <div className="p-6 sm:p-8 pt-0 mt-2 flex items-center justify-between text-xs border-t border-gray-100 pt-4">
-                  <span className="font-semibold text-slate-500 flex items-center gap-1.5">
-                    <ShieldCheck className="w-4 h-4 text-emerald-500" />
+                  <span className="font-semibold text-slate-500">
                     {client.partnershipYears}
                   </span>
                   <Link
@@ -578,10 +545,7 @@ export default function CustomerClient() {
       <section className="py-16 sm:py-24 bg-[#070E18] text-white border-t border-b border-white/10">
         <Container>
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-500/10 border border-amber-500/25 text-amber-400">
-              <Factory className="w-3.5 h-3.5" />
-              Broad Industrial Footprint
-            </span>
+            
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white mt-3">
               Key Sectors We Empower
             </h2>

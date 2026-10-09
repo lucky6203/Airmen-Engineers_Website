@@ -5,13 +5,17 @@
 // ============================================
 
 import React from 'react';
-import { Award, Handshake, Wrench, Headphones, Zap, Clock } from 'lucide-react';
 import Container from '@/components/common/Container';
 import SectionHeading from '@/components/common/SectionHeading';
 import { WHY_AIRMEN } from '@/data/company';
 
-const ICON_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
-  Award, Handshake, Wrench, HeadsetIcon: Headphones, Zap, Clock,
+const FA_ICON_MAP: Record<string, string> = {
+  Award: 'fa-solid fa-award',
+  Handshake: 'fa-solid fa-handshake',
+  Wrench: 'fa-solid fa-screwdriver-wrench',
+  HeadsetIcon: 'fa-solid fa-headset',
+  Zap: 'fa-solid fa-bolt',
+  Clock: 'fa-solid fa-clock',
 };
 
 export default function WhyAirmen() {
@@ -34,7 +38,7 @@ export default function WhyAirmen() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mt-6 sm:mt-8">
           {WHY_AIRMEN.map((feature, index) => {
-            const IconComponent = ICON_MAP[feature.icon] || Award;
+            const faIcon = FA_ICON_MAP[feature.icon] || 'fa-solid fa-award';
             return (
               <div
                 key={feature.title}
@@ -51,7 +55,7 @@ export default function WhyAirmen() {
                   
                   {/* Icon Box */}
                   <div className="relative w-full h-full bg-navy rounded-2xl flex items-center justify-center transform transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110 shadow-lg">
-                    <IconComponent className="w-8 h-8 text-gold drop-shadow-md" />
+                    <i className={`${faIcon} text-2xl text-gold drop-shadow-md`} />
                   </div>
                 </div>
 

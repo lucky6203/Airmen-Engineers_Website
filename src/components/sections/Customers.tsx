@@ -7,7 +7,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { CheckCircle2, ArrowRight, ShieldCheck, Factory, Award, Clock } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import Container from '@/components/common/Container';
 
 interface ClientItem {
@@ -79,22 +79,18 @@ const CLIENTS_WITH_IMAGES: ClientItem[] = [
 
 const TRUST_STATS = [
   {
-    icon: Factory,
     value: '5,000+',
     label: 'Industrial Plants Served',
   },
   {
-    icon: Award,
     value: '29+ Years',
     label: 'Proven Engineering Legacy',
   },
   {
-    icon: ShieldCheck,
     value: '100% Genuine',
     label: 'OEM Kaeser & EP Spares',
   },
   {
-    icon: Clock,
     value: '24/7',
     label: 'Rapid Response Support',
   },
@@ -178,8 +174,7 @@ export default function Customers() {
 
               {/* Card Footer */}
               <div className="pt-4 mt-4 border-t border-white/10 flex items-center justify-between text-xs">
-                <span className="inline-flex items-center gap-1.5 text-slate-300 group-hover:text-white transition-colors">
-                  <CheckCircle2 className="w-4 h-4 text-gold flex-shrink-0" />
+                <span className="text-slate-300 group-hover:text-white transition-colors font-medium">
                   Verified Industrial Partner
                 </span>
                 <span className="text-slate-400 group-hover:text-gold transition-colors font-medium">
@@ -193,27 +188,19 @@ export default function Customers() {
         {/* Industrial Performance Proof Bar */}
         <div className="bg-white/[0.02] border border-white/10 rounded-2xl p-4 sm:p-6 lg:p-8 backdrop-blur-md">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-3 gap-y-5 sm:gap-6 lg:gap-8 lg:divide-x lg:divide-white/10">
-            {TRUST_STATS.map((stat, idx) => {
-              const Icon = stat.icon;
-              return (
-                <div
-                  key={stat.label}
-                  className={`flex items-center gap-2.5 sm:gap-3.5 lg:gap-4 ${idx > 0 ? 'lg:pl-6' : ''}`}
-                >
-                  <div className="w-9 h-9 sm:w-11 sm:h-11 lg:w-12 lg:h-12 rounded-lg sm:rounded-xl bg-gold/10 border border-gold/20 flex items-center justify-center flex-shrink-0 text-gold">
-                    <Icon className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
-                  </div>
-                  <div className="min-w-0">
-                    <div className="text-base min-[380px]:text-lg sm:text-2xl lg:text-3xl font-heading font-bold text-white tracking-tight whitespace-nowrap">
-                      {stat.value}
-                    </div>
-                    <div className="text-[11px] sm:text-xs lg:text-sm text-gray-400 mt-0.5 leading-tight line-clamp-2">
-                      {stat.label}
-                    </div>
-                  </div>
+            {TRUST_STATS.map((stat, idx) => (
+              <div
+                key={stat.label}
+                className={`flex flex-col justify-center ${idx > 0 ? 'lg:pl-6' : ''}`}
+              >
+                <div className="text-xl min-[380px]:text-2xl sm:text-3xl lg:text-4xl font-heading font-extrabold text-gold tracking-tight whitespace-nowrap">
+                  {stat.value}
                 </div>
-              );
-            })}
+                <div className="text-xs sm:text-sm text-gray-300 mt-1 leading-snug">
+                  {stat.label}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 

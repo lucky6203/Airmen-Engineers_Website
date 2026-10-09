@@ -9,19 +9,16 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { 
   Zap, 
-  ShieldCheck, 
   Wrench, 
   Gauge, 
   FileDown, 
   ArrowRight, 
-  CheckCircle2, 
   Layers, 
   Flame, 
   Wind, 
   Cpu, 
   ExternalLink,
   ChevronRight,
-  Settings,
   Droplets
 } from 'lucide-react';
 import Container from '@/components/common/Container';
@@ -245,8 +242,8 @@ export default function KaeserClient({ products, brand }: KaeserClientProps) {
   return (
     <div className="bg-gray-50 min-h-screen">
       {/* ── Hero Section ────────────────────────── */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-navy-dark via-navy to-[#0a1628] text-white py-14 sm:py-20 border-b border-gold/20">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,163,35,0.18),transparent_55%)] pointer-events-none" />
+      <section className="relative overflow-hidden bg-[#060D17] bg-gradient-to-b from-navy-dark via-navy to-[#060D17] text-white py-14 sm:py-20 border-b border-gold/20">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,163,35,0.08),transparent_60%)] pointer-events-none" />
 
         <Container className="relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -335,8 +332,7 @@ export default function KaeserClient({ products, brand }: KaeserClientProps) {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-3 text-xs text-gray-300 bg-white/5 p-3 rounded-xl border border-white/10">
-                  <ShieldCheck className="w-5 h-5 text-gold flex-shrink-0" />
+                <div className="text-xs text-gray-300 bg-white/5 p-3 rounded-xl border border-white/10">
                   <span>Authorized Sales, OEM Spares &amp; Preventive Maintenance Partner across India.</span>
                 </div>
               </div>
@@ -379,7 +375,7 @@ export default function KaeserClient({ products, brand }: KaeserClientProps) {
 
             <div className="flex items-start gap-4 p-4 rounded-xl hover:bg-gray-50 transition-colors">
               <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center text-gold flex-shrink-0 border border-gold/20">
-                <Settings className="w-6 h-6" />
+                <i className="fa-solid fa-temperature-half text-xl" />
               </div>
               <div>
                 <h4 className="font-heading font-bold text-navy text-base mb-1">
@@ -519,7 +515,7 @@ export default function KaeserClient({ products, brand }: KaeserClientProps) {
                         </span>
                         {product.features.slice(0, 3).map((feat, idx) => (
                           <div key={idx} className="flex items-start gap-2 text-xs text-slate-600">
-                            <CheckCircle2 className="w-4 h-4 text-gold flex-shrink-0 mt-0.5" />
+                            <span className="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0 mt-1.5" />
                             <span>{feat}</span>
                           </div>
                         ))}

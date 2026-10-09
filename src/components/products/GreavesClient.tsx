@@ -10,12 +10,10 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { 
   Zap, 
-  ShieldCheck, 
   Wrench, 
   Gauge, 
   FileDown, 
   ArrowRight, 
-  CheckCircle2, 
   Layers, 
   Flame, 
   Fuel, 
@@ -25,7 +23,6 @@ import {
   Settings,
   Activity,
   Server,
-  Sparkles,
   PhoneCall,
   Calendar,
   Clock,
@@ -469,18 +466,13 @@ export default function GreavesClient({ products, brand }: GreavesClientProps) {
   return (
     <>
       {/* ── Brand Dark Luxury Hero Section ── */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-navy-dark via-navy to-[#0a1628] text-white py-14 sm:py-20 border-b border-gold/20">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,163,35,0.18),transparent_55%)] pointer-events-none" />
+      <section className="relative overflow-hidden bg-[#060D17] bg-gradient-to-b from-navy-dark via-navy to-[#060D17] text-white py-14 sm:py-20 border-b border-gold/20">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,163,35,0.08),transparent_60%)] pointer-events-none" />
 
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-gold">
-                <Sparkles className="w-3.5 h-3.5" />
-                CPCB IV+ Compliant Gensets • 165+ Years of Indian Heritage
-              </div>
-
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
                 Greaves <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500">Cotton</span>
               </h1>
@@ -505,9 +497,8 @@ export default function GreavesClient({ products, brand }: GreavesClientProps) {
                 ].map((badge, idx) => (
                   <span 
                     key={idx}
-                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-medium bg-white/5 border border-white/10 text-gray-200"
+                    className="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-white/5 border border-white/10 text-gray-200"
                   >
-                    <CheckCircle2 className="w-3 h-3 text-amber-400 flex-shrink-0" />
                     {badge}
                   </span>
                 ))}
@@ -553,9 +544,6 @@ export default function GreavesClient({ products, brand }: GreavesClientProps) {
                     alt="Greaves CPCB IV+ Silent Generator Set"
                     className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute top-3 left-3 bg-[#0a192f]/90 border border-amber-500/40 text-amber-400 text-xs font-semibold px-2.5 py-1 rounded-md shadow-sm">
-                    CPCB IV+ Heavy-Duty Canopy
-                  </div>
                   <div className="absolute bottom-3 right-3 bg-white/95 px-3 py-1.5 rounded-lg shadow-md border border-gray-200">
                     <img
                       src="/images/logos/logo-greaves.svg"
@@ -590,9 +578,7 @@ export default function GreavesClient({ products, brand }: GreavesClientProps) {
       <section className="py-16 bg-slate-50 border-b border-gray-200">
         <Container>
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="text-xs font-bold uppercase tracking-wider text-amber-600 bg-amber-100 px-3 py-1 rounded-full">
-              The Greaves Advantage
-            </span>
+            
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-3">
               Engineered for Uncompromising Reliability & Performance
             </h2>
@@ -638,7 +624,7 @@ export default function GreavesClient({ products, brand }: GreavesClientProps) {
             {/* Pillar 4 */}
             <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
               <div className="w-12 h-12 rounded-lg bg-purple-500/10 text-purple-600 flex items-center justify-center mb-4 group-hover:bg-purple-600 group-hover:text-white transition-colors">
-                <ShieldCheck className="w-6 h-6" />
+                <i className="fa-solid fa-shield-halved text-xl" />
               </div>
               <h3 className="text-lg font-bold text-slate-900 mb-2">Maximum Value & Warranty</h3>
               <p className="text-sm text-slate-600 leading-relaxed">
@@ -654,9 +640,7 @@ export default function GreavesClient({ products, brand }: GreavesClientProps) {
         <Container>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
             <div>
-              <span className="text-xs font-bold uppercase tracking-wider text-amber-600">
-                Complete Generator Lineup
-              </span>
+              
               <h2 className="text-3xl font-extrabold text-slate-900 mt-2">
                 Explore Greaves Power Systems
               </h2>
@@ -707,9 +691,9 @@ export default function GreavesClient({ products, brand }: GreavesClientProps) {
                           alt={`${product.name} visual ${activeIndex + 1}`}
                           className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                         />
-                        <div className="absolute top-3 left-3 bg-[#0a192f] text-white text-[11px] font-semibold px-2.5 py-0.5 rounded-md shadow-sm">
+                        {/* <div className="absolute top-3 left-3 bg-[#0a192f] text-white text-[11px] font-semibold px-2.5 py-0.5 rounded-md shadow-sm">
                           CPCB IV+ Certified
-                        </div>
+                        </div> */}
                       </div>
 
                       {/* Thumbnail Switcher (if more than 1 image) */}
@@ -795,7 +779,7 @@ export default function GreavesClient({ products, brand }: GreavesClientProps) {
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                           {product.features.map((feature, fIdx) => (
                             <div key={fIdx} className="flex items-start gap-2 text-xs text-slate-700">
-                              <CheckCircle2 className="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" />
+                              <span className="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0 mt-1.5" />
                               <span>{feature}</span>
                             </div>
                           ))}
@@ -835,9 +819,6 @@ export default function GreavesClient({ products, brand }: GreavesClientProps) {
         <Container>
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10">
             <div>
-              <span className="text-xs font-bold uppercase tracking-wider text-amber-400 bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">
-                Official Engineering Data (Pages 6 – 22)
-              </span>
               <h2 className="text-3xl font-extrabold text-white mt-3">
                 Complete Technical Specifications Matrix
               </h2>
@@ -937,10 +918,10 @@ export default function GreavesClient({ products, brand }: GreavesClientProps) {
         <Container>
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8 p-8 sm:p-12 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-xl">
             <div className="space-y-4 max-w-2xl">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-950 text-amber-400 text-xs font-bold uppercase tracking-wider">
+              {/* <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-950 text-amber-400 text-xs font-bold uppercase tracking-wider">
                 <FileDown className="w-3.5 h-3.5" />
                 Comprehensive 28-Page Engineering Brochure
-              </span>
+              </span> */}
               <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-950 leading-tight">
                 Download the Official Greaves CPCB IV+ Product Catalogue
               </h2>
@@ -975,9 +956,6 @@ export default function GreavesClient({ products, brand }: GreavesClientProps) {
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <span className="text-xs font-bold uppercase tracking-wider text-amber-400 bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">
-                Airmen Engineers Technical Support
-              </span>
               <h2 className="text-3xl sm:text-4xl font-extrabold text-white">
                 Need Help Sizing Your Diesel Generator Set?
               </h2>
@@ -986,24 +964,14 @@ export default function GreavesClient({ products, brand }: GreavesClientProps) {
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <CheckCircle2 className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-bold text-white">Turnkey Commissioning</h4>
-                    <p className="text-xs text-gray-400">Foundation, exhaust ducting, acoustic room treatment, and AMF panels.</p>
-                  </div>
+                <div className="flex flex-col gap-1 p-3.5 rounded-xl bg-white/5 border border-white/10">
+                  <h4 className="text-sm font-bold text-white">Turnkey Commissioning</h4>
+                  <p className="text-xs text-gray-400">Foundation, exhaust ducting, acoustic room treatment, and AMF panels.</p>
                 </div>
 
-                <div className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <CheckCircle2 className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-bold text-white">24x7 Emergency Service</h4>
-                    <p className="text-xs text-gray-400">Rapid on-site response and genuine Greaves spares inventory.</p>
-                  </div>
+                <div className="flex flex-col gap-1 p-3.5 rounded-xl bg-white/5 border border-white/10">
+                  <h4 className="text-sm font-bold text-white">24x7 Emergency Service</h4>
+                  <p className="text-xs text-gray-400">Rapid on-site response and genuine Greaves spares inventory.</p>
                 </div>
               </div>
             </div>

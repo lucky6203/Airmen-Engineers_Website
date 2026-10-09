@@ -10,12 +10,10 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { 
   Wind, 
-  ShieldCheck, 
   Wrench, 
   Gauge, 
   FileDown, 
   ArrowRight, 
-  CheckCircle2, 
   Layers, 
   Droplets,
   ExternalLink,
@@ -23,7 +21,6 @@ import {
   Settings,
   Phone,
   MessageSquare,
-  Sparkles,
   Zap,
   Activity,
   Award,
@@ -120,8 +117,8 @@ export default function AirpipeClient({ products, brand }: AirpipeClientProps) {
     <div className="bg-white text-navy min-h-screen">
       
       {/* ── 1. Hero Section: Corporate Deep Navy & Gold ───────────── */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-navy-dark via-navy to-[#0a1628] text-white py-14 sm:py-20 border-b border-gold/20">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,163,35,0.18),transparent_55%)] pointer-events-none" />
+      <section className="relative overflow-hidden bg-[#060D17] bg-gradient-to-b from-navy-dark via-navy to-[#060D17] text-white py-14 sm:py-20 border-b border-gold/20">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,163,35,0.08),transparent_60%)] pointer-events-none" />
         <div className="absolute inset-0 z-0">
           <img
             src="/images/banner-2.jpg"
@@ -136,7 +133,7 @@ export default function AirpipeClient({ products, brand }: AirpipeClientProps) {
             {/* Left Content */}
             <div className="lg:col-span-8 space-y-6">
               <div className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-gold">
-                <Sparkles className="w-3.5 h-3.5" />
+                <i className="fa-solid fa-certificate text-xs text-gold" />
                 <span>OFFICIAL 2026–27 INSTALLATION CATALOGUE • 12 YEARS OF EXCELLENCE</span>
               </div>
 
@@ -268,24 +265,24 @@ export default function AirpipeClient({ products, brand }: AirpipeClientProps) {
             {/* Advantage 1 */}
             <div className="bg-slate-50 border border-gray-200 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 group">
               <div className="w-14 h-14 rounded-2xl bg-navy text-amber-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <ShieldCheck className="w-7 h-7" />
+                <i className="fa-solid fa-shield-halved text-2xl" />
               </div>
               <h3 className="text-xl font-bold text-navy mb-3">Superior Reliability &amp; Longevity</h3>
               <ul className="space-y-2.5 text-xs sm:text-sm text-slate-600">
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
+                <li className="flex items-start gap-2.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 flex-shrink-0 mt-2" />
                   <span><strong>Metal Clamshell Connectors:</strong> Built from durable marine-grade alloy, far stronger and more impact-resistant than polymer fittings.</span>
                 </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
+                <li className="flex items-start gap-2.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 flex-shrink-0 mt-2" />
                   <span><strong>Dual Clamping Technology:</strong> Grab ring for DN20–50; lugged ring for DN63–200 ensuring zero risk of pipe disconnection.</span>
                 </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
+                <li className="flex items-start gap-2.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 flex-shrink-0 mt-2" />
                   <span><strong>Active Concentric Seals:</strong> Patented seal design with double the lifespan of competitor NBR/EPDM O-rings.</span>
                 </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
+                <li className="flex items-start gap-2.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 flex-shrink-0 mt-2" />
                   <span><strong>10-Year Manufacturer Warranty:</strong> Guaranteed against material defects and premature degradation.</span>
                 </li>
               </ul>
@@ -294,24 +291,24 @@ export default function AirpipeClient({ products, brand }: AirpipeClientProps) {
             {/* Advantage 2 */}
             <div className="bg-slate-50 border border-gray-200 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 group">
               <div className="w-14 h-14 rounded-2xl bg-amber-500 text-navy flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <Zap className="w-7 h-7" />
+                <i className="fa-solid fa-bolt text-2xl" />
               </div>
               <h3 className="text-xl font-bold text-navy mb-3">10% – 30% Energy &amp; Cost Savings</h3>
               <ul className="space-y-2.5 text-xs sm:text-sm text-slate-600">
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
+                <li className="flex items-start gap-2.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 flex-shrink-0 mt-2" />
                   <span><strong>Ultra-Low Friction Bore:</strong> Mirror-smooth extruded aluminium interior reduces friction factor from 0.03 (rusty GI) down to 0.009.</span>
                 </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
+                <li className="flex items-start gap-2.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 flex-shrink-0 mt-2" />
                   <span><strong>Minimal Pressure Drop:</strong> Full-bore connectors eliminate turbulent choking at joints, allowing compressors to run at lower set pressures.</span>
                 </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
+                <li className="flex items-start gap-2.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 flex-shrink-0 mt-2" />
                   <span><strong>Zero Leak Guarantee:</strong> Eliminates continuous compressed air leakage that wastes 20%+ of industrial compressor electricity.</span>
                 </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
+                <li className="flex items-start gap-2.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 flex-shrink-0 mt-2" />
                   <span><strong>Clean Air Protection:</strong> Prevents rust scales and oxide dust from fouling downstream valves, actuators, and pneumatic tools.</span>
                 </li>
               </ul>
@@ -320,24 +317,24 @@ export default function AirpipeClient({ products, brand }: AirpipeClientProps) {
             {/* Advantage 3 */}
             <div className="bg-slate-50 border border-gray-200 rounded-2xl p-8 hover:shadow-xl transition-all duration-300 group">
               <div className="w-14 h-14 rounded-2xl bg-blue-600 text-white flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <Wrench className="w-7 h-7" />
+                <i className="fa-solid fa-wrench text-2xl" />
               </div>
               <h3 className="text-xl font-bold text-navy mb-3">Quick &amp; Easy Modular Installation</h3>
               <ul className="space-y-2.5 text-xs sm:text-sm text-slate-600">
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
+                <li className="flex items-start gap-2.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 flex-shrink-0 mt-2" />
                   <span><strong>No Hot Work / Welding:</strong> 100% mechanical connection — no open flame, no welding permits, and no threaded pipe cutting machines.</span>
                 </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
+                <li className="flex items-start gap-2.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 flex-shrink-0 mt-2" />
                   <span><strong>5x Faster Erection:</strong> Drastically slashes labor hours and plant shutdown times during initial installation or factory expansions.</span>
                 </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
+                <li className="flex items-start gap-2.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 flex-shrink-0 mt-2" />
                   <span><strong>100% Reusable &amp; Expandable:</strong> Pipes and fittings can be effortlessly disassembled, relocated, or reconfigured as lines change.</span>
                 </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" />
+                <li className="flex items-start gap-2.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 flex-shrink-0 mt-2" />
                   <span><strong>Lightweight Rigging:</strong> Aluminum pipe weighs 75% less than carbon steel, reducing structural roof truss loads.</span>
                 </li>
               </ul>

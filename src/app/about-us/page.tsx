@@ -9,28 +9,7 @@ import Link from 'next/link';
 import Container from '@/components/common/Container';
 import Breadcrumb from '@/components/common/Breadcrumb';
 import Button from '@/components/common/Button';
-import { 
-  Award, 
-  Handshake, 
-  Wrench, 
-  Headphones, 
-  Zap, 
-  Clock, 
-  Target, 
-  Eye, 
-  ShieldCheck, 
-  CheckCircle2, 
-  Building2, 
-  MapPin, 
-  Sparkles, 
-  ArrowRight,
-  PhoneCall,
-  Activity,
-  Layers,
-  Leaf,
-  Truck,
-  Factory
-} from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { 
   COMPANY_DESCRIPTION, 
   COMPANY_STATS, 
@@ -89,22 +68,18 @@ const CORE_VALUES = [
   {
     title: 'Engineering Rigor',
     description: 'Certified OEM technicians trained directly at manufacturer headquarters. We conduct comprehensive pressure profiling, load harmonic audits, and room acoustic mapping before every installation.',
-    icon: Wrench,
   },
   {
     title: 'Customer Obsession & Rapid SLA',
     description: 'Guaranteed technical response within 4 business hours. Dedicated fleet of mobile service vans carrying fast-moving OEM spares to minimize plant downtime.',
-    icon: Clock,
   },
   {
     title: 'Clean Energy & Sustainability',
     description: 'Actively accelerating industrial green transitions with zero-emission Lithium-ion forklifts, up to 96% heat recovery compressors, and low-emission CPCB IV+ power solutions.',
-    icon: Leaf,
   },
   {
     title: 'Uncompromised Integrity & Genuine Spares',
     description: '100% genuine OEM spare parts, transparent lifecycle cost assessments, and ISO-standard installation practices without cutting corners.',
-    icon: ShieldCheck,
   },
 ];
 
@@ -153,8 +128,8 @@ export default function AboutPage() {
       <Breadcrumb items={[{ label: 'About Us' }]} />
 
       {/* ── Hero Section ────────────────────────── */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-navy-dark via-navy to-[#0a1628] text-white py-14 sm:py-20 border-b border-gold/20">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,163,35,0.18),transparent_55%)] pointer-events-none" />
+      <section className="relative overflow-hidden bg-[#060D17] bg-gradient-to-b from-navy-dark via-navy to-[#060D17] text-white py-14 sm:py-20 border-b border-gold/20">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,163,35,0.08),transparent_60%)] pointer-events-none" />
 
         <Container className="relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -182,9 +157,8 @@ export default function AboutPage() {
                 ].map((item, idx) => (
                   <span 
                     key={idx}
-                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-medium bg-white/5 border border-white/10 text-gray-200"
+                    className="inline-flex items-center px-3 py-1.5 rounded-md text-xs font-semibold bg-white/5 border border-white/10 text-gray-200"
                   >
-                    <CheckCircle2 className="w-3.5 h-3.5 text-amber-400 flex-shrink-0" />
                     {item}
                   </span>
                 ))}
@@ -216,10 +190,7 @@ export default function AboutPage() {
                     priority
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-transparent to-transparent" />
-                  <div className="absolute bottom-4 left-4 text-white">
-                    <span className="text-xs uppercase tracking-widest text-amber-400 font-mono">Operations Hub</span>
-                    <h4 className="text-base font-bold">State-of-the-Art Workshop &amp; Warehouse</h4>
-                  </div>
+                 
                 </div>
 
                 <div className="aspect-[4/3] relative rounded-2xl overflow-hidden shadow-2xl border border-white/15">
@@ -312,9 +283,9 @@ export default function AboutPage() {
                     />
                   </div>
 
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-amber-700 bg-amber-50 border border-amber-200/60 px-2 py-0.5 rounded block w-fit mb-2">
+                  {/* <span className="text-[11px] font-bold uppercase tracking-wider text-amber-700 bg-amber-50 border border-amber-200/60 px-2 py-0.5 rounded block w-fit mb-2">
                     {partner.badge}
-                  </span>
+                  </span> */}
 
                   <h3 className="text-lg font-bold text-navy mt-1">
                     {partner.name}
@@ -345,16 +316,12 @@ export default function AboutPage() {
       </section>
 
       {/* ── In-House Manufacturing Division (Gajraula Plant) ─────────── */}
-      <section className="py-20 lg:py-24 bg-gradient-to-br from-navy-dark via-navy to-[#0a1628] text-white relative overflow-hidden border-b border-gold/20" id="manufacturing-plant">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,163,35,0.18),transparent_55%)] pointer-events-none" />
+      <section className="py-20 lg:py-24 bg-[#060D17] bg-gradient-to-b from-navy-dark via-navy to-[#060D17] text-white relative overflow-hidden border-b border-gold/20" id="manufacturing-plant">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,163,35,0.08),transparent_60%)] pointer-events-none" />
         
         <Container className="relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16">
             <div className="lg:col-span-7 space-y-5 text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-gold">
-                <Factory className="w-3.5 h-3.5" />
-                Gajraula Plant (U.P.) • In-House Manufacturing
-              </div>
 
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight">
                 Precision Forged &amp; CNC-Machined <br />
@@ -438,9 +405,9 @@ export default function AboutPage() {
                     alt={part.title}
                     className="max-h-36 max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
                   />
-                  <span className="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-wider text-gold bg-gold/15 border border-gold/30 px-2 py-0.5 rounded-full">
+                  {/* <span className="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-wider text-gold bg-gold/15 border border-gold/30 px-2 py-0.5 rounded-full">
                     {part.category}
-                  </span>
+                  </span> */}
                 </div>
                 <div className="p-5 flex-1 flex flex-col justify-between">
                   <div>
@@ -466,14 +433,11 @@ export default function AboutPage() {
           {/* Mission & Vision Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
             <div className="bg-gradient-to-br from-navy to-[#0F223D] text-white rounded-3xl p-8 sm:p-10 shadow-xl relative overflow-hidden">
-              <div className="w-14 h-14 rounded-2xl bg-amber-500 text-slate-950 flex items-center justify-center mb-6 shadow-lg shadow-amber-500/25 mx-auto sm:mx-0">
-                <Target className="w-7 h-7" />
-              </div>
-              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4 text-center sm:text-left">Our Mission</h3>
+              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-6 text-center sm:text-left">Our Mission</h3>
               <ul className="space-y-4">
                 {MISSION.map((item, idx) => (
                   <li key={idx} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" />
+                    <span className="w-2 h-2 rounded-full bg-amber-400 flex-shrink-0 mt-2" />
                     <p className="text-gray-200 text-sm sm:text-base leading-relaxed">{item}</p>
                   </li>
                 ))}
@@ -481,14 +445,11 @@ export default function AboutPage() {
             </div>
 
             <div className="bg-gradient-to-br from-[#0F223D] to-navy text-white rounded-3xl p-8 sm:p-10 shadow-xl relative overflow-hidden">
-              <div className="w-14 h-14 rounded-2xl bg-amber-500 text-slate-950 flex items-center justify-center mb-6 shadow-lg shadow-amber-500/25 mx-auto sm:mx-0">
-                <Eye className="w-7 h-7" />
-              </div>
-              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4 text-center sm:text-left">Our Vision</h3>
+              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-6 text-center sm:text-left">Our Vision</h3>
               <ul className="space-y-4">
                 {VISION.map((item, idx) => (
                   <li key={idx} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" />
+                    <span className="w-2 h-2 rounded-full bg-amber-400 flex-shrink-0 mt-2" />
                     <p className="text-gray-200 text-sm sm:text-base leading-relaxed">{item}</p>
                   </li>
                 ))}
@@ -504,12 +465,8 @@ export default function AboutPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {CORE_VALUES.map((val) => {
-                const Icon = val.icon;
                 return (
                   <div key={val.title} className="p-6 rounded-2xl bg-slate-50 border border-gray-200 hover:shadow-md transition-shadow text-center sm:text-left flex flex-col items-center sm:items-start">
-                    <div className="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-600 flex items-center justify-center mb-4">
-                      <Icon className="w-6 h-6" />
-                    </div>
                     <h4 className="text-base font-bold text-navy mb-2">{val.title}</h4>
                     <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{val.description}</p>
                   </div>
@@ -575,11 +532,7 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="bg-slate-50 border border-gray-200 rounded-2xl p-6 text-center sm:text-left flex flex-col items-center sm:items-start">
-              <div className="w-10 h-10 rounded-lg bg-navy text-amber-400 flex items-center justify-center mb-4">
-                <Building2 className="w-5 h-5" />
-              </div>
-              <span className="text-[11px] font-bold uppercase tracking-wider text-amber-700 bg-amber-100 px-2 py-0.5 rounded">Corporate Hub</span>
-              <h4 className="text-lg font-bold text-navy mt-2 mb-1">{CONTACT_INFO.registeredOffice.label}</h4>
+              <h4 className="text-lg font-bold text-navy mb-1">{CONTACT_INFO.registeredOffice.label}</h4>
               <p className="text-xs text-slate-600 leading-relaxed mb-4">{CONTACT_INFO.registeredOffice.address}</p>
               <div className="text-xs font-mono text-slate-700 font-semibold flex flex-wrap gap-1.5">
                 <a href="tel:+919212303791" className="hover:text-gold transition-colors">+91-9212303791</a>
@@ -589,11 +542,7 @@ export default function AboutPage() {
             </div>
 
             <div className="bg-slate-50 border border-gray-200 rounded-2xl p-6 text-center sm:text-left flex flex-col items-center sm:items-start">
-              <div className="w-10 h-10 rounded-lg bg-navy text-amber-400 flex items-center justify-center mb-4">
-                <Wrench className="w-5 h-5" />
-              </div>
-              <span className="text-[11px] font-bold uppercase tracking-wider text-amber-700 bg-amber-100 px-2 py-0.5 rounded">Central Workshop &amp; Warehouse</span>
-              <h4 className="text-lg font-bold text-navy mt-2 mb-1">{CONTACT_INFO.headOffice.label}</h4>
+              <h4 className="text-lg font-bold text-navy mb-1">{CONTACT_INFO.headOffice.label}</h4>
               <p className="text-xs text-slate-600 leading-relaxed mb-4">{CONTACT_INFO.headOffice.address}</p>
               <div className="text-xs font-mono text-slate-700 font-semibold flex flex-wrap gap-1.5">
                 <a href="tel:+919212303791" className="hover:text-gold transition-colors">+91-9212303791</a>
@@ -603,11 +552,7 @@ export default function AboutPage() {
             </div>
 
             <div className="bg-slate-50 border border-gray-200 rounded-2xl p-6 text-center sm:text-left flex flex-col items-center sm:items-start">
-              <div className="w-10 h-10 rounded-lg bg-navy text-amber-400 flex items-center justify-center mb-4">
-                <MapPin className="w-5 h-5" />
-              </div>
-              <span className="text-[11px] font-bold uppercase tracking-wider text-amber-700 bg-amber-100 px-2 py-0.5 rounded">Industrial Corridor Hub</span>
-              <h4 className="text-lg font-bold text-navy mt-2 mb-1">{CONTACT_INFO.branch?.label || 'Branch Office'}</h4>
+              <h4 className="text-lg font-bold text-navy mb-1">{CONTACT_INFO.branch?.label || 'Branch Office'}</h4>
               <p className="text-xs text-slate-600 leading-relaxed mb-4">Servicing Dharuhera, Manesar, Bawal, Neemrana &amp; Bhiwadi industrial belts.</p>
               <div className="text-xs font-mono text-slate-700 font-semibold flex flex-wrap gap-1.5">
                 <a href="tel:+919212303793" className="hover:text-gold transition-colors">+91-9212303793</a>
@@ -617,11 +562,7 @@ export default function AboutPage() {
             </div>
 
             <div className="bg-slate-50 border border-gray-200 rounded-2xl p-6 text-center sm:text-left flex flex-col items-center sm:items-start">
-              <div className="w-10 h-10 rounded-lg bg-navy text-gold flex items-center justify-center mb-4">
-                <Factory className="w-5 h-5 text-gold" />
-              </div>
-              <span className="text-[11px] font-bold uppercase tracking-wider text-amber-700 bg-amber-100 px-2 py-0.5 rounded">Manufacturing Division</span>
-              <h4 className="text-lg font-bold text-navy mt-2 mb-1">Gajraula Plant (U.P.)</h4>
+              <h4 className="text-lg font-bold text-navy mb-1">Gajraula Plant (U.P.)</h4>
               <p className="text-xs text-slate-600 leading-relaxed mb-4">Dedicated closed-die forging, multi-axis CNC lathe turning, and precision machining plant.</p>
               <div className="text-xs font-mono text-slate-700 font-semibold flex flex-wrap gap-1.5">
                 <a href="tel:+919212303791" className="hover:text-gold transition-colors">+91-9212303791</a>
@@ -702,7 +643,7 @@ export default function AboutPage() {
               href="tel:+919212303791"
               className="inline-flex items-center gap-2 px-6 py-3.5 bg-white/10 hover:bg-white/15 text-white font-semibold rounded-lg border border-white/20 transition-all text-sm"
             >
-              <PhoneCall className="w-4 h-4 text-amber-400" />
+              <i className="fa-solid fa-phone text-amber-400 text-sm" />
               Call +91-9212303791
             </a>
           </div>

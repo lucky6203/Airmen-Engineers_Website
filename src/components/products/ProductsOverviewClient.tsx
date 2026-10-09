@@ -4,9 +4,7 @@ import React, { useMemo, useState } from 'react';
 import Link from 'next/link';
 import {
   ArrowRight,
-  CheckCircle2,
   FileDown,
-  Sparkles,
   Wind,
   Truck,
   Flame,
@@ -15,7 +13,6 @@ import {
   PhoneCall,
   Search,
   ExternalLink,
-  ShieldCheck,
 } from 'lucide-react';
 
 import Container from '@/components/common/Container';
@@ -127,14 +124,14 @@ export default function ProductsOverviewClient({
           PAGE HERO
       ===================================================== */}
 
-      <section className="relative overflow-hidden bg-gradient-to-br from-navy-dark via-navy to-[#0a1628] text-white py-14 sm:py-20 border-b border-gold/20">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,163,35,0.18),transparent_55%)] pointer-events-none" />
+      <section className="relative overflow-hidden bg-[#060D17] bg-gradient-to-b from-navy-dark via-navy to-[#060D17] text-white py-14 sm:py-20 border-b border-gold/20">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,163,35,0.08),transparent_60%)] pointer-events-none" />
         <Container>
           <div className="relative z-10 max-w-4xl">
-            <div className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-gold mb-4">
-              <Sparkles className="h-3.5 w-3.5" />
+            {/* <div className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-gold mb-4">
+              <i className="fa-solid fa-boxes-stacked text-xs text-gold" />
               Industrial Equipment Catalog
-            </div>
+            </div> */}
 
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white mb-6 leading-tight">
               Products & <span className="text-gold">Engineering Solutions</span>
@@ -638,15 +635,7 @@ export default function ProductsOverviewClient({
                                 "
                                 >
 
-                                  <CheckCircle2
-                                    className="
-                                    mt-0.5
-                                    h-3.5
-                                    w-3.5
-                                    shrink-0
-                                    text-green-600
-                                  "
-                                  />
+                                  <span className="w-1.5 h-1.5 rounded-full bg-green-600 shrink-0 mt-1.5" />
 
                                   <span>
                                     {feature}
@@ -868,18 +857,6 @@ export default function ProductsOverviewClient({
                   text-amber-400
                 "
               >
-                <ShieldCheck className="h-5 w-5" />
-
-                <span
-                  className="
-                    text-xs
-                    font-bold
-                    uppercase
-                    tracking-wider
-                  "
-                >
-                  Industrial Support
-                </span>
               </div>
 
               <h2

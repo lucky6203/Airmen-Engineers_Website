@@ -10,17 +10,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { 
   Wrench, 
-  ShieldCheck, 
   Activity, 
   PhoneCall, 
   Clock, 
-  CheckCircle2, 
   Package, 
   Cpu, 
   FileText, 
   Headphones, 
   ArrowRight, 
-  Sparkles, 
   Wind, 
   Truck, 
   Flame, 
@@ -36,7 +33,7 @@ const CORE_SERVICES = [
   {
     id: 'compressor-service',
     title: 'Kaeser Compressor Overhaul & Servicing',
-    badge: 'Kaeser Kompressoren (Germany)',
+    // badge: 'Kaeser Kompressoren (Germany)',
     icon: Wind,
     image: '/images/compressors/kaeser-dsd-maintenance.jpg',
     description: 'Specialized overhauling and preventive maintenance for rotary screw and reciprocating air compressors. We use genuine SIGMA FLUID lubricants, OEM separator cartridges, and precision 1:1 direct coupling alignments.',
@@ -52,9 +49,9 @@ const CORE_SERVICES = [
   {
     id: 'forklift-service',
     title: 'EP Lithium-Ion Forklift & BOPT Maintenance',
-    badge: 'EP Equipment (Global Leader)',
+    // badge: 'EP Equipment (Global Leader)',
     icon: Truck,
-    image: '/images/forklifts/indoor-outdoor-truck.webp',
+    image: '/images/forklifts/extracted/R197.png',
     description: 'Certified material handling technicians for EP Lithium-ion forklifts, electric pallet trucks (BOPT & E-HPT), stackers, and reach trucks. Complete BMS battery health monitoring and hydraulic mast rebuilds.',
     specs: [
       '80V & 618V Li-Ion battery cell diagnostic testing',
@@ -68,9 +65,9 @@ const CORE_SERVICES = [
   {
     id: 'dg-service',
     title: 'Greaves Cotton DG Set & CPCB IV+ Care',
-    badge: 'Greaves Cotton (Est. 1859)',
+    // badge: 'Greaves Cotton (Est. 1859)',
     icon: Flame,
-    image: '/images/greaves/products/greaves-canopy-airflow.jpg',
+    image: '/images/greaves/products/greaves-engine-powertrain.jpg',
     description: 'Pan-India preventive and scheduled maintenance for Greaves Cotton industrial diesel generators (5 kVA to 2500 kVA). Full CPCB IV+ emission aftertreatment maintenance including DOC, DPF, and SCR systems.',
     specs: [
       '500h & 750h scheduled lube oil & filter changes',
@@ -84,9 +81,9 @@ const CORE_SERVICES = [
   {
     id: 'energy-audit',
     title: 'Compressed Air Energy Audits',
-    badge: 'IIoT Energy Optimization',
+    // badge: 'IIoT Energy Optimization',
     icon: Activity,
-    image: '/images/greaves/products/greaves-genius-iot.jpg',
+    image: '/images/compressors/kaeser-p7-0-830x665.jpg',
     description: 'Advanced data-logged compressed air audits using ultrasonic leak detection cameras, flow meters, and power analyzers. We help plants reduce their specific energy consumption (kWh/m³) by up to 25%.',
     specs: [
       'Acoustic ultrasonic leak detection (pinpointing CFM loss)',
@@ -100,7 +97,7 @@ const CORE_SERVICES = [
   {
     id: 'spare-parts',
     title: 'Fast & Genuine OEM Spare Parts Hub',
-    badge: '10,000+ Local Inventory',
+    // badge: '10,000+ Local Inventory',
     icon: Package,
     image: '/images/about-1.jpg',
     description: 'Over 10,000 genuine OEM spare parts stocked across our central NCR warehouse for immediate same-day dispatch. Eliminates long lead times and protects machinery warranties.',
@@ -116,9 +113,9 @@ const CORE_SERVICES = [
   {
     id: 'piping-service',
     title: 'AIRpipe Fast-Connect Piping Retrofits',
-    badge: '10-Year Zero Leak Guarantee',
+    // badge: '10-Year Zero Leak Guarantee',
     icon: Wrench,
-    image: '/images/about-2.jpg',
+    image: '/images/divisions/division-01-plant.jpg',
     description: 'Turnkey aluminium and stainless steel compressed air piping installation, drop-leg additions, and plant expansion retrofits. Zero-corrosion smooth bore ensures minimum pressure drop.',
     specs: [
       'DN20 to DN200 modular quick-connect piping',
@@ -186,19 +183,14 @@ export default function ServiceClient() {
   return (
     <div className="bg-gray-50 min-h-screen">
       {/* ── Hero Section ────────────────────────── */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-navy-dark via-navy to-[#0a1628] text-white py-14 sm:py-20 border-b border-gold/20">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,163,35,0.18),transparent_55%)] pointer-events-none" />
+      <section className="relative overflow-hidden bg-[#060D17] bg-gradient-to-b from-navy-dark via-navy to-[#060D17] text-white py-14 sm:py-20 border-b border-gold/20">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,163,35,0.08),transparent_60%)] pointer-events-none" />
 
         <Container className="relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
             {/* Left Content Column */}
             <div className="lg:col-span-7 flex flex-col items-start text-left max-sm:items-center max-sm:text-center space-y-6">
-              <div className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-gold max-sm:mx-auto">
-                <Sparkles className="w-3.5 h-3.5" />
-                24/7 OEM-CERTIFIED TECHNICAL SUPPORT & MAINTENANCE
-              </div>
-
               <h1 className="text-3xl sm:text-5xl lg:text-[3.25rem] font-black tracking-tight text-white leading-[1.12]">
                 Service &amp; Technical <br />
                 <span className="text-gold">
@@ -218,12 +210,9 @@ export default function ServiceClient() {
                   { title: 'Certified Engineers', sub: 'Trained by German & OEM teams' },
                   { title: '5,000+ Plants Supported', sub: 'Across North India since 1996' },
                 ].map((b, idx) => (
-                  <div key={idx} className="flex items-start gap-2.5 p-2.5 rounded-xl bg-white/5 border border-white/10 max-sm:justify-center">
-                    <CheckCircle2 className="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5" />
-                    <div className="text-left">
-                      <div className="text-xs font-bold text-white">{b.title}</div>
-                      <div className="text-[10px] text-gray-400">{b.sub}</div>
-                    </div>
+                  <div key={idx} className="p-2.5 rounded-xl bg-white/5 border border-white/10 text-left max-sm:text-center">
+                    <div className="text-xs font-bold text-white">{b.title}</div>
+                    <div className="text-[10px] text-gray-400 mt-0.5">{b.sub}</div>
                   </div>
                 ))}
               </div>
@@ -289,10 +278,6 @@ export default function ServiceClient() {
       <section className="py-16 sm:py-24 bg-white" id="services-grid">
         <Container>
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-500/10 border border-amber-500/25 text-amber-600">
-              <Wrench className="w-3.5 h-3.5" />
-              Specialized Engineering Support
-            </span>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-navy mt-3">
               Comprehensive After-Sales Services
             </h2>
@@ -320,9 +305,9 @@ export default function ServiceClient() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                       
-                      <span className={`absolute top-3 left-3 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full border backdrop-blur-md ${srv.tagColor}`}>
+                      {/* <span className={`absolute top-3 left-3 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full border backdrop-blur-md ${srv.tagColor}`}>
                         {srv.badge}
-                      </span>
+                      </span> */}
                     </div>
 
                     {/* Content */}
@@ -342,7 +327,7 @@ export default function ServiceClient() {
                       <div className="mt-4 pt-4 border-t border-gray-100 space-y-2">
                         {srv.specs.map((item, idx) => (
                           <div key={idx} className="flex items-start gap-2 text-xs text-slate-700">
-                            <CheckCircle2 className="w-3.5 h-3.5 text-amber-500 flex-shrink-0 mt-0.5" />
+                            <span className="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0 mt-1.5" />
                             <span>{item}</span>
                           </div>
                         ))}
@@ -370,10 +355,7 @@ export default function ServiceClient() {
       <section className="py-16 sm:py-24 bg-[#070E18] text-white border-t border-b border-white/10" id="amc-packages">
         <Container>
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-500/10 border border-amber-500/25 text-amber-400">
-              <ShieldCheck className="w-3.5 h-3.5" />
-              Service Level Agreements
-            </span>
+           
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white mt-3">
               Annual Maintenance Contracts (AMC)
             </h2>
@@ -416,7 +398,7 @@ export default function ServiceClient() {
                   <div className="space-y-3 my-6">
                     {tier.features.map((feat, fIdx) => (
                       <div key={fIdx} className="flex items-start gap-2.5 text-xs text-gray-200">
-                        <CheckCircle2 className="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-amber-400 flex-shrink-0 mt-1.5" />
                         <span>{feat}</span>
                       </div>
                     ))}
@@ -444,10 +426,7 @@ export default function ServiceClient() {
       <section className="py-16 sm:py-24 bg-white">
         <Container>
           <div className="text-center max-w-3xl mx-auto mb-14">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-navy/5 border border-navy/10 text-navy">
-              <Clock className="w-3.5 h-3.5 text-amber-500" />
-              Standard Operating Procedure
-            </span>
+            
             <h2 className="text-3xl sm:text-4xl font-extrabold text-navy mt-3">
               How Our Service Team Works
             </h2>

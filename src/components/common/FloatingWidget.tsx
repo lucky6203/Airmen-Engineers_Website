@@ -23,7 +23,7 @@ export default function FloatingWidget() {
             className="flex items-center gap-3 bg-white rounded-full pl-4 pr-5 py-2.5 shadow-lg hover:shadow-xl transition-shadow group"
           >
             <div className="w-8 h-8 bg-navy rounded-full flex items-center justify-center">
-              <Phone className="w-4 h-4 text-white" />
+              <i className="fa-solid fa-phone text-xs text-white" />
             </div>
             <span className="text-sm font-medium text-navy group-hover:text-gold transition-colors">
               Call Us
@@ -37,7 +37,7 @@ export default function FloatingWidget() {
             className="flex items-center gap-3 bg-white rounded-full pl-4 pr-5 py-2.5 shadow-lg hover:shadow-xl transition-shadow group"
           >
             <div className="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center">
-              <MessageCircle className="w-4 h-4 text-white" />
+              <i className="fa-brands fa-whatsapp text-base text-white" />
             </div>
             <span className="text-sm font-medium text-navy group-hover:text-green-600 transition-colors">
               WhatsApp
@@ -49,7 +49,7 @@ export default function FloatingWidget() {
             className="flex items-center gap-3 bg-white rounded-full pl-4 pr-5 py-2.5 shadow-lg hover:shadow-xl transition-shadow group"
           >
             <div className="w-8 h-8 bg-gold rounded-full flex items-center justify-center">
-              <FileText className="w-4 h-4 text-navy" />
+              <i className="fa-solid fa-file-lines text-xs text-navy" />
             </div>
             <span className="text-sm font-medium text-navy group-hover:text-gold transition-colors">
               Get Quote
@@ -71,9 +71,9 @@ export default function FloatingWidget() {
         id="floating-contact-widget"
       >
         {isOpen ? (
-          <X className="w-5 h-5" />
+          <i className="fa-solid fa-xmark text-lg text-white" />
         ) : (
-          <MessageCircle className="w-5 h-5" />
+          <i className="fa-brands fa-whatsapp text-2xl text-navy" />
         )}
       </button>
     </div>

@@ -9,12 +9,10 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { 
   BatteryCharging, 
-  ShieldCheck, 
   Wrench, 
   Zap, 
   FileDown, 
   ArrowRight, 
-  CheckCircle2, 
   Layers, 
   Gauge, 
   Cpu, 
@@ -268,17 +266,13 @@ export default function EPForkliftsClient({ products, brand }: EPForkliftsClient
   return (
     <div className="bg-gray-50 min-h-screen">
       {/* ── Hero Section ────────────────────────── */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-navy-dark via-navy to-[#0a1628] text-white py-14 sm:py-20 border-b border-gold/20">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,163,35,0.18),transparent_55%)] pointer-events-none" />
+      <section className="relative overflow-hidden bg-[#060D17] bg-gradient-to-b from-navy-dark via-navy to-[#060D17] text-white py-14 sm:py-20 border-b border-gold/20">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,163,35,0.08),transparent_60%)] pointer-events-none" />
 
         <Container className="relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Content */}
             <div className="lg:col-span-7">
-              <div className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-gold mb-6 animate-fade-in-up">
-                <span className="w-2 h-2 rounded-full bg-gold animate-pulse" />
-                2025 Product Range Overview
-              </div>
 
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-white tracking-tight leading-tight mb-6">
                 Pioneering The Material Handling Technology That the{' '}
@@ -357,8 +351,7 @@ export default function EPForkliftsClient({ products, brand }: EPForkliftsClient
                   </div>
                 </div>
 
-                <div className="flex items-center gap-3 text-xs text-gray-300 bg-white/5 p-3 rounded-xl border border-white/10">
-                  <ShieldCheck className="w-5 h-5 text-gold flex-shrink-0" />
+                <div className="text-xs text-gray-300 bg-white/5 p-3 rounded-xl border border-white/10">
                   <span>Authorized Sales, OEM Spares &amp; Preventive Maintenance Partner across India.</span>
                 </div>
               </div>
@@ -435,7 +428,7 @@ export default function EPForkliftsClient({ products, brand }: EPForkliftsClient
         <Container>
           {/* Section Heading */}
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="overline mb-3 block text-gold">COMPREHENSIVE RANGE</span>
+            {/* <span className="overline mb-3 block text-gold">COMPREHENSIVE RANGE</span> */}
             <h2 className="text-3xl lg:text-4xl font-heading font-bold text-navy mb-4">
               Explore EP Forklifts by Application
             </h2>
@@ -476,11 +469,6 @@ export default function EPForkliftsClient({ products, brand }: EPForkliftsClient
                     {/* Image Stage */}
                     <div className="relative bg-gradient-to-b from-gray-100/70 to-white p-6 sm:p-8 flex items-center justify-center border-b border-gray-100 min-h-[300px]">
                       {/* Brand Tag */}
-                      <div className="absolute top-4 left-4 z-10">
-                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase bg-navy text-white tracking-wider">
-                          EP Equipment
-                        </span>
-                      </div>
 
                       {/* Main Active Image */}
                       <div className="relative w-full h-56 flex items-center justify-center">
@@ -540,7 +528,7 @@ export default function EPForkliftsClient({ products, brand }: EPForkliftsClient
                         </span>
                         {product.features.slice(0, 3).map((feat, idx) => (
                           <div key={idx} className="flex items-start gap-2 text-xs text-slate-600">
-                            <CheckCircle2 className="w-4 h-4 text-gold flex-shrink-0 mt-0.5" />
+                            <span className="w-1.5 h-1.5 rounded-full bg-gold flex-shrink-0 mt-1.5" />
                             <span>{feat}</span>
                           </div>
                         ))}
@@ -579,7 +567,6 @@ export default function EPForkliftsClient({ products, brand }: EPForkliftsClient
       <section className="py-20 bg-white border-t border-b border-gray-200">
         <Container>
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="overline mb-3 block text-gold">SPECIFICATIONS MATRIX</span>
             <h2 className="text-3xl lg:text-4xl font-heading font-bold text-navy mb-4">
               All 2025 EP Models at a Glance
             </h2>
@@ -651,9 +638,7 @@ export default function EPForkliftsClient({ products, brand }: EPForkliftsClient
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               {/* Left Details */}
               <div className="lg:col-span-8">
-                <span className="text-xs uppercase tracking-widest text-gold font-bold mb-3 block">
-                  OFFICIAL TECHNICAL CATALOGUE
-                </span>
+              
 
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-bold text-white mb-4">
                   Download AMPL Product Range (Printable PDF)
@@ -690,11 +675,6 @@ export default function EPForkliftsClient({ products, brand }: EPForkliftsClient
               <div className="lg:col-span-4 flex justify-center">
                 <div className="relative group cursor-pointer">
                   <div className="w-56 h-72 bg-gradient-to-br from-white/15 to-white/5 border border-white/20 rounded-2xl p-6 shadow-2xl flex flex-col justify-between transform group-hover:-rotate-2 group-hover:scale-105 transition-all duration-500">
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs font-bold text-gold tracking-wider">ASCENDIX / EP</span>
-                      <span className="text-[10px] bg-gold/20 text-gold px-2 py-0.5 rounded font-mono">2025</span>
-                    </div>
-
                     <div className="text-center my-auto">
                       <img
                         src="/images/logos/logo-ep.png"

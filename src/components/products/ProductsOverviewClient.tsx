@@ -124,20 +124,15 @@ export default function ProductsOverviewClient({
           PAGE HERO
       ===================================================== */}
 
-      <section className="relative overflow-hidden bg-[#060D17] bg-gradient-to-b from-navy-dark via-navy to-[#060D17] text-white py-14 sm:py-20 border-b border-gold/20">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,163,35,0.08),transparent_60%)] pointer-events-none" />
+      <section className="relative overflow-hidden bg-[#FAF7F2] py-14 sm:py-20 border-b border-stone-200/80">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(245,158,11,0.06),transparent_60%)] pointer-events-none" />
         <Container>
           <div className="relative z-10 max-w-4xl">
-            {/* <div className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-gold mb-4">
-              <i className="fa-solid fa-boxes-stacked text-xs text-gold" />
-              Industrial Equipment Catalog
-            </div> */}
-
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white mb-6 leading-tight">
-              Products & <span className="text-gold">Engineering Solutions</span>
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 mb-6 leading-tight">
+              Products & <span className="text-amber-500">Engineering Solutions</span>
             </h1>
 
-            <p className="text-sm sm:text-base lg:text-lg text-slate-300 leading-relaxed mb-4 max-w-3xl">
+            <p className="text-sm sm:text-base lg:text-lg text-slate-600 leading-relaxed mb-4 max-w-3xl">
               Explore our complete range of authorized industrial equipment: German Kaeser rotary screw compressors, EP Lithium-ion forklifts, Greaves Cotton power generators, and AIRpipe aluminium distribution systems designed for demanding industrial operations.
             </p>
           </div>

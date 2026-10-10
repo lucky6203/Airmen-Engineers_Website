@@ -7,24 +7,24 @@
 import React, { useState } from 'react';
 import Container from '@/components/common/Container';
 import SectionHeading from '@/components/common/SectionHeading';
-import { 
-  Clock, 
-  Zap, 
-  Shield, 
-  Gauge, 
-  AlertCircle, 
-  Phone, 
+import {
+  Clock,
+  Zap,
+  Shield,
+  Gauge,
+  AlertCircle,
+  Phone,
   MessageCircle,
   RotateCcw
 } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { 
-  rentalSchema, 
-  RentalFormValues, 
-  HP_OPTIONS, 
-  DURATION_OPTIONS, 
-  REQUIREMENT_OPTIONS 
+import {
+  rentalSchema,
+  RentalFormValues,
+  HP_OPTIONS,
+  DURATION_OPTIONS,
+  REQUIREMENT_OPTIONS
 } from '@/lib/validations';
 import { CONTACT_INFO, WHATSAPP_NUMBER } from '@/data/company';
 
@@ -34,11 +34,11 @@ export default function RentalClient() {
 
   const phone = CONTACT_INFO.registeredOffice.phone[0].replace(/[^+\d]/g, '');
 
-  const { 
-    register, 
-    handleSubmit, 
+  const {
+    register,
+    handleSubmit,
     reset,
-    formState: { errors, isSubmitting } 
+    formState: { errors, isSubmitting }
   } = useForm<RentalFormValues>({
     resolver: zodResolver(rentalSchema) as unknown as import('react-hook-form').Resolver<RentalFormValues>,
     defaultValues: {
@@ -51,10 +51,10 @@ export default function RentalClient() {
   const onSubmit = async (data: RentalFormValues) => {
     setErrorMessage(null);
     try {
-      const res = await fetch('/api/rental', { 
-        method: 'POST', 
-        headers: { 'Content-Type': 'application/json' }, 
-        body: JSON.stringify(data) 
+      const res = await fetch('/api/rental', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
       });
 
       if (res.ok) {
@@ -77,17 +77,17 @@ export default function RentalClient() {
   return (
     <>
       {/* Hero Banner */}
-      <section className="relative overflow-hidden bg-[#060D17] bg-gradient-to-b from-navy-dark via-navy to-[#060D17] text-white py-14 sm:py-20 border-b border-gold/20">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,163,35,0.08),transparent_60%)] pointer-events-none" />
+      <section className="relative overflow-hidden bg-[#FAF7F2] py-14 sm:py-20 border-b border-stone-200/80">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(245,158,11,0.06),transparent_60%)] pointer-events-none" />
         <Container className="relative z-10">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-gold mb-4">
+            <div className="inline-flex items-center gap-2 rounded-full border border-amber-300 bg-amber-50 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-amber-800 mb-4">
               Standby &amp; Emergency Fleet
             </div>
-            <h1 className="text-3xl sm:text-5xl font-black text-white mb-4">
-              Keep Your Operations <span className="text-gold">Running</span>
+            <h1 className="text-3xl sm:text-5xl font-black text-slate-900 mb-4">
+              Keep Your Operations <span className="text-amber-500">Running</span>
             </h1>
-            <p className="text-slate-300 text-sm sm:text-lg leading-relaxed">
+            <p className="text-slate-600 text-sm sm:text-lg leading-relaxed">
               Ready-to-deploy industrial screw compressors from 10 HP to 75 HP providing clean, moisture-free compressed air for planned plant overhauls, seasonal peak spikes, or sudden machine breakdowns.
             </p>
           </div>
@@ -204,22 +204,22 @@ export default function RentalClient() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-semibold text-navy mb-1">Your Full Name *</label>
-                      <input 
-                        type="text" 
-                        {...register('name')} 
-                        placeholder="e.g. Ramesh Verma" 
-                        className="w-full px-3.5 py-2.5 bg-white border border-gray-200 rounded-xl text-xs sm:text-sm focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-colors" 
+                      <input
+                        type="text"
+                        {...register('name')}
+                        placeholder="e.g. Ramesh Verma"
+                        className="w-full px-3.5 py-2.5 bg-white border border-gray-200 rounded-xl text-xs sm:text-sm focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-colors"
                       />
                       {errors.name && <p className="text-[11px] text-red-500 mt-1">{errors.name?.message}</p>}
                     </div>
 
                     <div>
                       <label className="block text-xs font-semibold text-navy mb-1">Company / Plant Name *</label>
-                      <input 
-                        type="text" 
-                        {...register('company')} 
-                        placeholder="e.g. Hero Motors Ancillary" 
-                        className="w-full px-3.5 py-2.5 bg-white border border-gray-200 rounded-xl text-xs sm:text-sm focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-colors" 
+                      <input
+                        type="text"
+                        {...register('company')}
+                        placeholder="e.g. Hero Motors Ancillary"
+                        className="w-full px-3.5 py-2.5 bg-white border border-gray-200 rounded-xl text-xs sm:text-sm focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-colors"
                       />
                       {errors.company && <p className="text-[11px] text-red-500 mt-1">{errors.company?.message}</p>}
                     </div>
@@ -228,22 +228,22 @@ export default function RentalClient() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-semibold text-navy mb-1">Direct Phone Number *</label>
-                      <input 
-                        type="tel" 
-                        {...register('phone')} 
-                        placeholder="+91 98765 43210" 
-                        className="w-full px-3.5 py-2.5 bg-white border border-gray-200 rounded-xl text-xs sm:text-sm focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-colors font-mono" 
+                      <input
+                        type="tel"
+                        {...register('phone')}
+                        placeholder="+91 98765 43210"
+                        className="w-full px-3.5 py-2.5 bg-white border border-gray-200 rounded-xl text-xs sm:text-sm focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-colors font-mono"
                       />
                       {errors.phone && <p className="text-[11px] text-red-500 mt-1">{errors.phone?.message}</p>}
                     </div>
 
                     <div>
                       <label className="block text-xs font-semibold text-navy mb-1">Official Work Email *</label>
-                      <input 
-                        type="email" 
-                        {...register('email')} 
-                        placeholder="r.verma@company.com" 
-                        className="w-full px-3.5 py-2.5 bg-white border border-gray-200 rounded-xl text-xs sm:text-sm focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-colors" 
+                      <input
+                        type="email"
+                        {...register('email')}
+                        placeholder="r.verma@company.com"
+                        className="w-full px-3.5 py-2.5 bg-white border border-gray-200 rounded-xl text-xs sm:text-sm focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-colors"
                       />
                       {errors.email && <p className="text-[11px] text-red-500 mt-1">{errors.email?.message}</p>}
                     </div>
@@ -252,8 +252,8 @@ export default function RentalClient() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-semibold text-navy mb-1">Required Horsepower (HP)</label>
-                      <select 
-                        {...register('requiredHP')} 
+                      <select
+                        {...register('requiredHP')}
                         className="w-full px-3.5 py-2.5 bg-white border border-gray-200 rounded-xl text-xs sm:text-sm focus:border-gold focus:ring-1 focus:ring-gold outline-none cursor-pointer"
                       >
                         {HP_OPTIONS.map((hp) => <option key={hp} value={hp}>{hp}</option>)}
@@ -263,8 +263,8 @@ export default function RentalClient() {
 
                     <div>
                       <label className="block text-xs font-semibold text-navy mb-1">Rental Duration</label>
-                      <select 
-                        {...register('rentalDuration')} 
+                      <select
+                        {...register('rentalDuration')}
                         className="w-full px-3.5 py-2.5 bg-white border border-gray-200 rounded-xl text-xs sm:text-sm focus:border-gold focus:ring-1 focus:ring-gold outline-none cursor-pointer"
                       >
                         {DURATION_OPTIONS.map((d) => <option key={d} value={d}>{d}</option>)}
@@ -275,8 +275,8 @@ export default function RentalClient() {
 
                   <div>
                     <label className="block text-xs font-semibold text-navy mb-1">Requirement Purpose</label>
-                    <select 
-                      {...register('requirementType')} 
+                    <select
+                      {...register('requirementType')}
                       className="w-full px-3.5 py-2.5 bg-white border border-gray-200 rounded-xl text-xs sm:text-sm focus:border-gold focus:ring-1 focus:ring-gold outline-none cursor-pointer"
                     >
                       {REQUIREMENT_OPTIONS.map((o) => <option key={o.value} value={o.value}>{o.label}</option>)}
@@ -285,17 +285,17 @@ export default function RentalClient() {
 
                   <div>
                     <label className="block text-xs font-semibold text-navy mb-1">Site Location &amp; Pressure (Bar) Details</label>
-                    <textarea 
-                      {...register('message')} 
-                      rows={3} 
-                      placeholder="e.g. Required at Manesar plant, operating at 7.5 Bar pressure. Need delivery by tomorrow morning." 
-                      className="w-full px-3.5 py-2.5 bg-white border border-gray-200 rounded-xl text-xs sm:text-sm focus:border-gold focus:ring-1 focus:ring-gold outline-none resize-none" 
+                    <textarea
+                      {...register('message')}
+                      rows={3}
+                      placeholder="e.g. Required at Manesar plant, operating at 7.5 Bar pressure. Need delivery by tomorrow morning."
+                      className="w-full px-3.5 py-2.5 bg-white border border-gray-200 rounded-xl text-xs sm:text-sm focus:border-gold focus:ring-1 focus:ring-gold outline-none resize-none"
                     />
                     {errors.message && <p className="text-[11px] text-red-500 mt-1">{errors.message?.message}</p>}
                   </div>
 
-                  <button 
-                    type="submit" 
+                  <button
+                    type="submit"
                     disabled={isSubmitting}
                     className="w-full bg-gold text-navy font-heading font-bold py-3.5 rounded-xl hover:bg-gold-dark transition-all disabled:opacity-50 uppercase tracking-wider text-xs shadow-md cursor-pointer"
                   >

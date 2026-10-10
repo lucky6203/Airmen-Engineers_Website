@@ -453,52 +453,48 @@ export default function ManufacturingInfrastructureClient() {
   return (
     <div className="bg-[#060D17] text-slate-100 min-h-screen">
       {/* ============================================================== */}
-      {/* 1. HERO BANNER (AESPL-PPT_HR.pptx Inspired) */}
+      {/* 1. HERO BANNER (Service Page Template Colors) */}
       {/* ============================================================== */}
-      <section className="relative pt-12 pb-20 overflow-hidden bg-gradient-to-b from-[#040810] via-[#081220] to-[#0A1628] border-b border-slate-800">
-        {/* Subtle radial ambient gradients */}
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-10 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
-
+      <section className="relative pt-14 pb-20 overflow-hidden bg-[#FAF7F2] border-b border-stone-200/80">
         <Container>
           <div className="max-w-4xl mx-auto text-center space-y-6">
             {/* Plant Identification Badge */}
-            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-bold uppercase tracking-wider">
-              <i className="fa-solid fa-industry text-amber-400" />
+            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-amber-50 border border-amber-300 text-amber-800 text-xs font-bold uppercase tracking-wider">
+              <i className="fa-solid fa-industry text-amber-600" />
               <span>Plant (Works): I-44/45, Gajraula (Amroha), Uttar Pradesh</span>
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight">
-              Manufacturing Plant <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-300 to-yellow-500">Infrastructure</span>
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-tight">
+              Manufacturing Plant <span className="text-amber-500">Infrastructure</span>
             </h1>
 
             {/* Official Tagline from PPT */}
-            <p className="text-base sm:text-xl font-semibold text-amber-300 tracking-wide">
+            <p className="text-base sm:text-xl font-semibold text-amber-600 tracking-wide">
               &ldquo;With experience of more than 30 years and support from Kaeser Compressor Business, we have commissioned this state-of-the-art manufacturing facility in Gajraula (U.P.), India.&rdquo;
             </p>
 
-            <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-3xl mx-auto">
-              Integrated automotive & heavy industrial manufacturing facility: from prime billet cold sawing and closed-die forging to in-house SCADA heat treatment, 45+ CNC lathes & VMCs, 3D CMM metrology, and custom special-purpose compressor engineering.
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-3xl mx-auto">
+              Integrated automotive &amp; heavy industrial manufacturing facility: from prime billet cold sawing and closed-die forging to in-house SCADA heat treatment, 45+ CNC lathes &amp; VMCs, 3D CMM metrology, and custom special-purpose compressor engineering.
             </p>
 
             {/* Quick KPI Strip */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-3">
-              <div className="bg-slate-900/80 backdrop-blur border border-slate-800 rounded-xl p-4 text-center">
-                <div className="text-2xl sm:text-3xl font-black text-amber-400">30+ Years</div>
-                <div className="text-xs text-slate-400 uppercase font-bold tracking-wider mt-1">Engineering Heritage</div>
+              <div className="bg-white border border-stone-200/90 rounded-2xl p-4 text-center shadow-xs">
+                <div className="text-2xl sm:text-3xl font-black text-amber-600">30+ Years</div>
+                <div className="text-xs text-slate-500 uppercase font-bold tracking-wider mt-1">Engineering Heritage</div>
               </div>
-              <div className="bg-slate-900/80 backdrop-blur border border-slate-800 rounded-xl p-4 text-center">
-                <div className="text-2xl sm:text-3xl font-black text-white">I-44/45</div>
-                <div className="text-xs text-slate-400 uppercase font-bold tracking-wider mt-1">Gajraula Works Plant</div>
+              <div className="bg-white border border-stone-200/90 rounded-2xl p-4 text-center shadow-xs">
+                <div className="text-2xl sm:text-3xl font-black text-slate-900">I-44/45</div>
+                <div className="text-xs text-slate-500 uppercase font-bold tracking-wider mt-1">Gajraula Works Plant</div>
               </div>
-              <div className="bg-slate-900/80 backdrop-blur border border-slate-800 rounded-xl p-4 text-center">
-                <div className="text-2xl sm:text-3xl font-black text-amber-400">ISO 9001</div>
-                <div className="text-xs text-slate-400 uppercase font-bold tracking-wider mt-1">Certified & IATF Aligned</div>
+              <div className="bg-white border border-stone-200/90 rounded-2xl p-4 text-center shadow-xs">
+                <div className="text-2xl sm:text-3xl font-black text-amber-600">ISO 9001</div>
+                <div className="text-xs text-slate-500 uppercase font-bold tracking-wider mt-1">Certified &amp; IATF Aligned</div>
               </div>
-              <div className="bg-slate-900/80 backdrop-blur border border-slate-800 rounded-xl p-4 text-center">
-                <div className="text-2xl sm:text-3xl font-black text-white">±0.01 mm</div>
-                <div className="text-xs text-slate-400 uppercase font-bold tracking-wider mt-1">Precision Tolerance</div>
+              <div className="bg-white border border-stone-200/90 rounded-2xl p-4 text-center shadow-xs">
+                <div className="text-2xl sm:text-3xl font-black text-slate-900">±0.01 mm</div>
+                <div className="text-xs text-slate-500 uppercase font-bold tracking-wider mt-1">Precision Tolerance</div>
               </div>
             </div>
 
@@ -507,7 +503,7 @@ export default function ManufacturingInfrastructureClient() {
               <button
                 type="button"
                 onClick={() => setIsModalOpen(true)}
-                className="px-6 py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-sm tracking-wide transition-all shadow-lg shadow-amber-500/20 flex items-center gap-2 cursor-pointer"
+                className="px-6 py-3.5 rounded-xl bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold text-sm tracking-wide transition-all shadow-md flex items-center gap-2 cursor-pointer"
               >
                 <i className="fa-solid fa-calendar-check text-slate-950" />
                 <span>Schedule Gajraula Plant Visit</span>
@@ -516,18 +512,18 @@ export default function ManufacturingInfrastructureClient() {
               <button
                 type="button"
                 onClick={() => scrollToSection('metso-story')}
-                className="px-6 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-sm tracking-wide border border-slate-700 transition-all flex items-center gap-2 cursor-pointer"
+                className="px-6 py-3.5 rounded-xl bg-white hover:bg-stone-50 text-slate-800 font-bold text-sm tracking-wide border border-stone-300 transition-all shadow-xs flex items-center gap-2 cursor-pointer"
               >
-                <i className="fa-solid fa-trophy text-amber-400" />
+                <i className="fa-solid fa-trophy text-amber-500" />
                 <span>Metso Outotec Global Case Study</span>
               </button>
 
               <button
                 type="button"
                 onClick={() => scrollToSection('certifications')}
-                className="px-6 py-3.5 rounded-xl bg-slate-800/60 hover:bg-slate-800 text-slate-200 hover:text-white font-bold text-sm tracking-wide border border-slate-700/60 transition-all flex items-center gap-2 cursor-pointer"
+                className="px-6 py-3.5 rounded-xl bg-stone-100 hover:bg-stone-200 text-slate-800 font-bold text-sm tracking-wide border border-stone-200 transition-all flex items-center gap-2 cursor-pointer"
               >
-                <i className="fa-solid fa-certificate text-amber-400" />
+                <i className="fa-solid fa-certificate text-amber-600" />
                 <span>ISO Certifications</span>
               </button>
             </div>
@@ -1419,7 +1415,7 @@ export default function ManufacturingInfrastructureClient() {
                       required
                       value={formCompany}
                       onChange={(e) => setFormCompany(e.target.value)}
-                      placeholder="e.g. Metso Outotec / Tier-1 OEM"
+                      placeholder="e.g. Metso Outotec / OEM"
                       className="w-full px-3.5 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-white text-xs placeholder:text-slate-500 focus:outline-none focus:border-amber-400"
                     />
                   </div>

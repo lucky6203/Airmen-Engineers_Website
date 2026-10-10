@@ -24,16 +24,16 @@ export default function AIMPage() {
       <Breadcrumb items={[{ label: 'Products', href: '/products' }, { label: 'AIM' }]} />
 
       {/* Hero */}
-      <section className="relative overflow-hidden bg-[#060D17] bg-gradient-to-b from-navy-dark via-navy to-[#060D17] text-white py-14 sm:py-20 border-b border-gold/20">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,163,35,0.08),transparent_60%)] pointer-events-none" />
+      <section className="relative overflow-hidden bg-[#FAF7F2] py-14 sm:py-20 border-b border-stone-200/80">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(245,158,11,0.06),transparent_60%)] pointer-events-none" />
         <Container>
           <div className="relative z-10 max-w-3xl">
-            <div className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-gold mb-4">
+            <div className="inline-flex items-center gap-2 rounded-full border border-amber-300 bg-amber-50 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-amber-800 mb-4">
               Air Compressors
             </div>
-            <h1 className="text-3xl sm:text-5xl font-black text-white mb-6">AIM <span className="text-gold">Compressors</span></h1>
-            <p className="text-slate-300 text-lg leading-relaxed mb-8">{brand.description}</p>
-            <Button href="/contact" showArrow>Enquire Now</Button>
+            <h1 className="text-3xl sm:text-5xl font-black text-slate-900 mb-6">AIM <span className="text-amber-500">Compressors</span></h1>
+            <p className="text-slate-600 text-lg leading-relaxed mb-8">{brand.description}</p>
+            <Button href="/contact" showArrow className="bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold shadow-md">Enquire Now</Button>
           </div>
         </Container>
       </section>

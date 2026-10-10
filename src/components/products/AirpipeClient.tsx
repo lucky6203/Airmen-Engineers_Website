@@ -8,13 +8,13 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { 
-  Wind, 
-  Wrench, 
-  Gauge, 
-  FileDown, 
-  ArrowRight, 
-  Layers, 
+import {
+  Wind,
+  Wrench,
+  Gauge,
+  FileDown,
+  ArrowRight,
+  Layers,
   Droplets,
   ExternalLink,
   ChevronRight,
@@ -115,54 +115,46 @@ export default function AirpipeClient({ products, brand }: AirpipeClientProps) {
 
   return (
     <div className="bg-white text-navy min-h-screen">
-      
-      {/* ── 1. Hero Section: Corporate Deep Navy & Gold ───────────── */}
-      <section className="relative overflow-hidden bg-[#060D17] bg-gradient-to-b from-navy-dark via-navy to-[#060D17] text-white py-14 sm:py-20 border-b border-gold/20">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,163,35,0.08),transparent_60%)] pointer-events-none" />
-        <div className="absolute inset-0 z-0">
-          <img
-            src="/images/banner-2.jpg"
-            alt="AIRpipe Industrial Distribution System"
-            className="w-full h-full object-cover opacity-15 mix-blend-luminosity scale-105"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/80 to-[#0a1628]/90" />
-        </div>
+
+      {/* ── 1. Hero Section: Service Page Template Colors ───────────── */}
+      <section className="relative overflow-hidden bg-[#FAF7F2] py-14 sm:py-20 border-b border-stone-200/80">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(245,158,11,0.06),transparent_60%)] pointer-events-none" />
 
         <Container className="relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Content */}
             <div className="lg:col-span-8 space-y-6">
-              <div className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-gold">
-                <i className="fa-solid fa-certificate text-xs text-gold" />
+              <div className="inline-flex items-center gap-2 rounded-full border border-amber-300 bg-amber-50 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-amber-800">
+                <i className="fa-solid fa-certificate text-xs text-amber-600" />
                 <span>OFFICIAL 2026–27 INSTALLATION CATALOGUE • 12 YEARS OF EXCELLENCE</span>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-tight">
                 AIRpipe Modular <br className="hidden sm:inline" />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500">
+                <span className="text-amber-500">
                   Aluminium Piping Systems
                 </span>
               </h1>
 
-              <p className="text-gray-300 text-base sm:text-lg max-w-2xl leading-relaxed">
-                Engineered for superior performance across compressed air, vacuum, and inert gas transmission. 
-                Featuring mirror-smooth marine grade 6063-T5 aluminium, zero corrosion, 10-year limited warranty, 
+              <p className="text-slate-600 text-base sm:text-lg max-w-2xl leading-relaxed">
+                Engineered for superior performance across compressed air, vacuum, and inert gas transmission.
+                Featuring mirror-smooth marine grade 6063-T5 aluminium, zero corrosion, 10-year limited warranty,
                 and patented quick-connect clamshell technology that installs 5x faster than conventional steel.
               </p>
 
               {/* Direct Personnel Contact Pill */}
-              <div className="bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-4 max-w-xl">
+              <div className="bg-white border border-stone-200/90 shadow-xs p-4 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-4 max-w-xl">
                 <div>
-                  <span className="text-[10px] font-bold text-amber-400 uppercase tracking-wider block">
+                  <span className="text-[10px] font-bold text-amber-600 uppercase tracking-wider block">
                     AIRpipe Direct Sales &amp; Technical Support
                   </span>
-                  <div className="text-white font-bold text-base mt-0.5">Mrs. Vaishali</div>
-                  <div className="text-xs text-gray-300">Piping Design, Layout Estimation &amp; Quotations</div>
+                  <div className="text-slate-900 font-bold text-base mt-0.5">Mrs. Vaishali</div>
+                  <div className="text-xs text-slate-500">Piping Design, Layout Estimation &amp; Quotations</div>
                 </div>
                 <div className="flex items-center gap-2">
                   <a
                     href="tel:9911931177"
-                    className="inline-flex items-center gap-1.5 px-4 py-2 bg-gold hover:bg-gold-light text-navy font-bold rounded-xl text-xs shadow-md transition-colors"
+                    className="inline-flex items-center gap-1.5 px-4 py-2 bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold rounded-xl text-xs shadow-xs transition-colors"
                   >
                     <Phone className="w-3.5 h-3.5" />
                     9911931177
@@ -181,16 +173,16 @@ export default function AirpipeClient({ products, brand }: AirpipeClientProps) {
 
               {/* CTA Buttons */}
               <div className="flex flex-wrap items-center gap-4 pt-2">
-                <Button href="/contact" size="lg" showArrow className="bg-gold text-navy font-bold hover:bg-gold-light shadow-lg shadow-gold/20">
+                <Button href="/contact" size="lg" showArrow className="bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold shadow-md">
                   Request Turnkey Layout &amp; RFQ
                 </Button>
                 <a
                   href="/brochures/2026%20installation%20book%201.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl border border-white/20 text-sm backdrop-blur-sm transition-all"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 bg-white hover:bg-stone-50 text-slate-800 font-semibold rounded-xl border border-stone-300 text-sm shadow-xs transition-all"
                 >
-                  <FileDown className="w-4 h-4 text-amber-400" />
+                  <FileDown className="w-4 h-4 text-amber-500" />
                   Download 2026 Catalogue (PDF)
                 </a>
               </div>
@@ -198,8 +190,8 @@ export default function AirpipeClient({ products, brand }: AirpipeClientProps) {
 
             {/* Right Card / Logo Box */}
             <div className="lg:col-span-4 flex justify-center">
-              <div className="w-full max-w-sm bg-white/10 border border-white/20 rounded-3xl p-8 backdrop-blur-md shadow-2xl text-center space-y-6">
-                <div className="bg-white rounded-2xl p-6 shadow-md inline-block mx-auto">
+              <div className="w-full max-w-sm bg-white border border-stone-200/90 rounded-3xl p-8 shadow-xl text-center space-y-6">
+                <div className="bg-stone-50 rounded-2xl p-6 shadow-xs inline-block mx-auto border border-stone-200/80">
                   <img
                     src="/images/logos/logo-airpipe.png"
                     alt="AIRpipe Official Logo"
@@ -207,35 +199,35 @@ export default function AirpipeClient({ products, brand }: AirpipeClientProps) {
                   />
                 </div>
 
-                <div className="space-y-3 text-left border-t border-white/10 pt-6">
+                <div className="space-y-3 text-left border-t border-stone-200 pt-6">
                   <div className="flex items-center justify-between text-xs">
-                    <span className="text-gray-400">Manufacturer</span>
-                    <span className="text-white font-semibold">Instamod Air Pipe Pvt. Ltd.</span>
+                    <span className="text-slate-500">Manufacturer</span>
+                    <span className="text-slate-900 font-semibold">Instamod Air Pipe Pvt. Ltd.</span>
                   </div>
                   <div className="flex items-center justify-between text-xs">
-                    <span className="text-gray-400">Working Pressure</span>
-                    <span className="text-amber-400 font-mono font-bold">16 bar (DN20–150) / 13 bar</span>
+                    <span className="text-slate-500">Working Pressure</span>
+                    <span className="text-amber-600 font-mono font-bold">16 bar (DN20–150) / 13 bar</span>
                   </div>
                   <div className="flex items-center justify-between text-xs">
-                    <span className="text-gray-400">Vacuum Rating</span>
-                    <span className="text-white font-mono font-semibold">1 mbar (absolute)</span>
+                    <span className="text-slate-500">Vacuum Rating</span>
+                    <span className="text-slate-900 font-mono font-semibold">1 mbar (absolute)</span>
                   </div>
                   <div className="flex items-center justify-between text-xs">
-                    <span className="text-gray-400">Temperature Span</span>
-                    <span className="text-white font-mono font-semibold">-20°C to +80°C</span>
+                    <span className="text-slate-500">Temperature Span</span>
+                    <span className="text-slate-900 font-mono font-semibold">-20°C to +80°C</span>
                   </div>
                   <div className="flex items-center justify-between text-xs">
-                    <span className="text-gray-400">Warranty Coverage</span>
-                    <span className="text-emerald-400 font-bold">10-Year Limited Warranty</span>
+                    <span className="text-slate-500">Warranty Coverage</span>
+                    <span className="text-emerald-600 font-bold">10-Year Limited Warranty</span>
                   </div>
                   <div className="flex items-center justify-between text-xs">
-                    <span className="text-gray-400">Clean Air Compliance</span>
-                    <span className="text-white font-semibold">ISO 8573-1 Class 1.1.1</span>
+                    <span className="text-slate-500">Clean Air Compliance</span>
+                    <span className="text-slate-900 font-semibold">ISO 8573-1 Class 1.1.1</span>
                   </div>
                 </div>
 
                 <div className="pt-2">
-                  <span className="inline-block text-[11px] text-amber-300 font-medium">
+                  <span className="inline-block text-[11px] text-amber-700 font-medium bg-amber-50 px-3 py-1 rounded-full border border-amber-200">
                     Authorized Dealership &amp; Turnkey Installation
                   </span>
                 </div>
@@ -256,7 +248,7 @@ export default function AirpipeClient({ products, brand }: AirpipeClientProps) {
               Engineered for Superior Reliability &amp; Energy Savings
             </h2>
             <p className="text-slate-600 text-sm sm:text-base mt-2.5 leading-relaxed">
-              Compared to traditional carbon steel, GI, or PPR pipes, AIRpipe provides zero corrosion, 
+              Compared to traditional carbon steel, GI, or PPR pipes, AIRpipe provides zero corrosion,
               dramatically lower pressure drops, and 100% active leak-free seals that save substantial power.
             </p>
           </div>
@@ -381,11 +373,10 @@ export default function AirpipeClient({ products, brand }: AirpipeClientProps) {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all whitespace-nowrap flex-shrink-0 border ${
-                  activeTab === tab.id
+                className={`px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all whitespace-nowrap flex-shrink-0 border ${activeTab === tab.id
                     ? 'bg-navy text-white border-navy shadow-md shadow-navy/20 scale-105'
                     : 'bg-white hover:bg-gray-100 text-slate-700 border-gray-200'
-                }`}
+                  }`}
               >
                 {tab.label}
               </button>
@@ -394,7 +385,7 @@ export default function AirpipeClient({ products, brand }: AirpipeClientProps) {
 
           {/* Tab Content Display */}
           <div className="space-y-12">
-            
+
             {/* ── Section: Rigid Aluminium Pipes (Page 8) ── */}
             {(activeTab === 'all' || activeTab === 'pipes') && (
               <div className="bg-white border border-gray-200 rounded-3xl p-6 sm:p-10 shadow-sm">
@@ -413,27 +404,24 @@ export default function AirpipeClient({ products, brand }: AirpipeClientProps) {
                   <div className="flex items-center gap-2 p-1.5 bg-slate-100 rounded-xl">
                     <button
                       onClick={() => setSelectedPipeColor('blue')}
-                      className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 ${
-                        selectedPipeColor === 'blue' ? 'bg-blue-600 text-white shadow-sm' : 'text-slate-600 hover:text-navy'
-                      }`}
+                      className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 ${selectedPipeColor === 'blue' ? 'bg-blue-600 text-white shadow-sm' : 'text-slate-600 hover:text-navy'
+                        }`}
                     >
                       <span className="w-2.5 h-2.5 rounded-full bg-blue-300"></span>
                       Standard Blue (Air)
                     </button>
                     <button
                       onClick={() => setSelectedPipeColor('grey')}
-                      className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 ${
-                        selectedPipeColor === 'grey' ? 'bg-slate-700 text-white shadow-sm' : 'text-slate-600 hover:text-navy'
-                      }`}
+                      className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 ${selectedPipeColor === 'grey' ? 'bg-slate-700 text-white shadow-sm' : 'text-slate-600 hover:text-navy'
+                        }`}
                     >
                       <span className="w-2.5 h-2.5 rounded-full bg-gray-400"></span>
                       Industrial Grey (Vacuum)
                     </button>
                     <button
                       onClick={() => setSelectedPipeColor('yellow')}
-                      className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 ${
-                        selectedPipeColor === 'yellow' ? 'bg-amber-500 text-navy font-extrabold shadow-sm' : 'text-slate-600 hover:text-navy'
-                      }`}
+                      className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 ${selectedPipeColor === 'yellow' ? 'bg-amber-500 text-navy font-extrabold shadow-sm' : 'text-slate-600 hover:text-navy'
+                        }`}
                     >
                       <span className="w-2.5 h-2.5 rounded-full bg-yellow-200"></span>
                       Safety Yellow (Gases)
@@ -562,7 +550,7 @@ export default function AirpipeClient({ products, brand }: AirpipeClientProps) {
                   </span>
                   <h3 className="text-2xl font-bold text-navy mt-2">Quick Drop Condensate Trap Connectors</h3>
                   <p className="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
-                    Add new workstation drop points in under 5 minutes without cutting the main header pipe. 
+                    Add new workstation drop points in under 5 minutes without cutting the main header pipe.
                     The internal riser tube design acts as a complete water trap, preventing moisture from entering downstream machinery.
                   </p>
                 </div>
@@ -777,29 +765,25 @@ export default function AirpipeClient({ products, brand }: AirpipeClientProps) {
               <div
                 key={idx}
                 onClick={() => setActiveInstallationStep(idx)}
-                className={`p-6 rounded-2xl border transition-all cursor-pointer flex flex-col justify-between ${
-                  activeInstallationStep === idx
+                className={`p-6 rounded-2xl border transition-all cursor-pointer flex flex-col justify-between ${activeInstallationStep === idx
                     ? 'bg-navy text-white border-navy shadow-xl scale-[1.02]'
                     : 'bg-slate-50 hover:bg-slate-100 text-slate-800 border-gray-200'
-                }`}
+                  }`}
               >
                 <div>
-                  <span className={`text-2xl font-black font-mono block mb-2 ${
-                    activeInstallationStep === idx ? 'text-amber-400' : 'text-slate-400'
-                  }`}>
+                  <span className={`text-2xl font-black font-mono block mb-2 ${activeInstallationStep === idx ? 'text-amber-400' : 'text-slate-400'
+                    }`}>
                     {item.step}
                   </span>
                   <h4 className="font-bold text-sm mb-2 leading-snug">{item.title}</h4>
-                  <p className={`text-xs leading-relaxed ${
-                    activeInstallationStep === idx ? 'text-gray-300' : 'text-slate-600'
-                  }`}>
+                  <p className={`text-xs leading-relaxed ${activeInstallationStep === idx ? 'text-gray-300' : 'text-slate-600'
+                    }`}>
                     {item.desc}
                   </p>
                 </div>
 
-                <div className={`mt-4 pt-3 border-t text-[11px] font-medium ${
-                  activeInstallationStep === idx ? 'border-white/10 text-amber-300' : 'border-gray-200 text-amber-800'
-                }`}>
+                <div className={`mt-4 pt-3 border-t text-[11px] font-medium ${activeInstallationStep === idx ? 'border-white/10 text-amber-300' : 'border-gray-200 text-amber-800'
+                  }`}>
                   💡 {item.tip}
                 </div>
               </div>
@@ -820,7 +804,7 @@ export default function AirpipeClient({ products, brand }: AirpipeClientProps) {
           </h2>
 
           <p className="text-gray-300 text-base mb-8 max-w-2xl mx-auto leading-relaxed">
-            Our certified piping project engineers prepare complete 2D/3D ISO pipe routing drawings, 
+            Our certified piping project engineers prepare complete 2D/3D ISO pipe routing drawings,
             pressure drop calculations, and bill of materials (BOM) tailored to your plant layout.
           </p>
 

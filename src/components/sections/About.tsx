@@ -5,10 +5,10 @@
 // ============================================
 
 import React from 'react';
-import Image from 'next/image';
 import Container from '@/components/common/Container';
 import SectionHeading from '@/components/common/SectionHeading';
 import Button from '@/components/common/Button';
+import ProductAlbumGallery from './ProductAlbumGallery';
 import { COMPANY_STATS, COMPANY_DESCRIPTION } from '@/data/company';
 
 export default function About() {
@@ -50,40 +50,11 @@ export default function About() {
             </div>
           </div>
 
-          {/* Right — Visual */}
-          <div className="relative">
-            <div className="grid grid-cols-2 gap-4">
-              <div className="col-span-2 aspect-[16/9] relative rounded-2xl overflow-hidden shadow-lg border border-gray-100">
-                <Image
-                  src="/images/about-1.jpg"
-                  alt="Airmen Engineers Facility"
-                  fill
-                  className="object-cover hover:scale-105 transition-transform duration-700"
-                />
-              </div>
-              <div className="aspect-[4/3] relative rounded-2xl overflow-hidden shadow-lg border border-gray-100">
-                <Image
-                  src="/images/about-2.jpg"
-                  alt="Airmen Engineers Team"
-                  fill
-                  className="object-cover hover:scale-105 transition-transform duration-700"
-                />
-              </div>
-              <div className="aspect-[4/3] relative rounded-2xl overflow-hidden shadow-lg border border-gray-100">
-                <Image
-                  src="/images/about-3.jpg"
-                  alt="Airmen Engineers Workshop"
-                  fill
-                  className="object-cover hover:scale-105 transition-transform duration-700"
-                />
-              </div>
-            </div>
+          {/* Right — Visual (Replaced only the image block with the 3D Product Album frame) */}
+          <div className="relative w-full">
+            <ProductAlbumGallery />
 
-            {/* Accents */}
-            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gold/10 rounded-2xl -z-10" />
-            <div className="absolute -top-6 -left-6 w-24 h-24 bg-navy/5 rounded-2xl -z-10" />
-
-            {/* Credential Badge Cleanly Placed Below Images */}
+            {/* Credential Badge Cleanly Placed Below Images/Gallery */}
             <div className="mt-4 bg-navy/95 border border-white/15 text-white p-4 rounded-xl shadow-xl backdrop-blur-md">
               <span className="text-gold font-bold text-base block font-heading">29+ Years of Industrial Excellence</span>
               <span className="text-gray-300 text-xs">Authorized Sales, Turnkey Engineering &amp; 24/7 Service Network across North India.</span>

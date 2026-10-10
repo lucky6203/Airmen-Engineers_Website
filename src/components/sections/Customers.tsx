@@ -122,7 +122,7 @@ export default function Customers() {
           <div className="w-20 h-1 bg-gradient-to-r from-transparent via-gold to-transparent mx-auto my-6 rounded-full" />
 
           <p className="text-gray-400 text-base sm:text-lg leading-relaxed">
-            From precision Japanese OEMs to leading automotive and glass manufacturers, 
+            From precision Japanese OEMs to leading automotive and glass manufacturers,
             Airmen Engineers delivers uncompromising compressed air systems and round-the-clock maintenance reliability.
           </p>
         </div>

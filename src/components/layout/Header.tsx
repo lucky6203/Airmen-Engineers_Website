@@ -55,17 +55,17 @@ export default function Header() {
         <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-12">
           <div className="flex items-center justify-between h-20 sm:h-24 gap-4">
             {/* Logo — Left Aligned */}
-            <Link 
-              href="/" 
+            <Link
+              href="/"
               onClick={() => setActiveMenu(null)}
-              className="flex items-center py-1 group flex-shrink-0" 
+              className="flex items-center py-1 group flex-shrink-0"
               id="header-logo"
             >
               {/* Logo Image */}
-              <img 
-                src="/images/logos/Airmen Engineers AE Logo.png" 
-                alt="Airmen Engineers" 
-                className="h-14 sm:h-16 md:h-18 lg:h-20 max-h-[72px] sm:max-h-[82px] w-auto object-contain flex-shrink-0 transition-transform duration-200 group-hover:scale-[1.02]" 
+              <img
+                src="/images/logos/Airmen Engineers AE Logo.png"
+                alt="Airmen Engineers"
+                className="h-14 sm:h-16 md:h-18 lg:h-20 max-h-[72px] sm:max-h-[82px] w-auto object-contain flex-shrink-0 transition-transform duration-200 group-hover:scale-[1.02]"
               />
             </Link>
 
@@ -174,11 +174,11 @@ export default function Header() {
 
             {/* Right Actions */}
             <div className="flex items-center gap-3 flex-shrink-0">
-              <Button 
-                href="/contact" 
-                size="md" 
+              <Button
+                href="/contact"
+                size="md"
                 onClick={() => setActiveMenu(null)}
-                className="hidden lg:inline-flex bg-gold text-navy hover:bg-gold-dark font-extrabold text-[15px] sm:text-[16px] px-5 py-2.5 shadow-sm" 
+                className="hidden lg:inline-flex bg-gold text-navy hover:bg-gold-dark font-extrabold text-[15px] sm:text-[16px] px-5 py-2.5 shadow-sm"
                 id="header-cta"
               >
                 Get a Quote

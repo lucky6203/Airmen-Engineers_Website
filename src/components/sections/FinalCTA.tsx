@@ -24,7 +24,7 @@ export default function FinalCTA() {
   }, []);
 
   return (
-    <section className="relative py-12 sm:py-16 bg-navy overflow-hidden" id="final-cta">
+    <section className="relative py-8 sm:py-10 md:py-12 bg-navy overflow-hidden" id="final-cta">
       {/* Decorative particles */}
       <div className="absolute inset-0">
         {particles.map((p) => (
@@ -49,24 +49,24 @@ export default function FinalCTA() {
       </div>
 
       <Container className="relative z-10">
-        <div className="text-center max-w-2xl mx-auto">
+        <div className="text-center max-w-4xl mx-auto">
           {/* <span className="overline mb-4 block">Get Started</span> */}
-          <h2 className="text-white mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-white mb-2.5 sm:whitespace-nowrap tracking-tight leading-tight">
             Ready to Improve Your{' '}
             <span className="text-gold">Operations?</span>
           </h2>
-          <p className="text-gray-400 text-lg mb-10 leading-relaxed">
+          <p className="text-gray-300 text-sm sm:text-base mb-6 max-w-2xl mx-auto leading-relaxed">
             Talk to our engineering team about your industrial air compressor, 
             material handling, or compressed air requirement.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Button href="/contact" size="lg" showArrow id="final-cta-quote">
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
+            <Button href="/contact" size="md" showArrow id="final-cta-quote">
               Get a Quote
             </Button>
             <Button
               href="/contact"
               variant="dark"
-              size="lg"
+              size="md"
               id="final-cta-contact"
             >
               Contact Us
@@ -77,3 +77,7 @@ export default function FinalCTA() {
     </section>
   );
 }
+                  
+
+              
+   

@@ -5,11 +5,13 @@
 // Featuring Hero MotoCorp, Havells, Asahi Glass, Mikuni, Nidec, Yokohama
 // ============================================
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import {
   ArrowRight,
+  ChevronLeft,
+  ChevronRight,
   Wind,
   Truck,
   Flame,
@@ -27,6 +29,7 @@ import {
   Star,
   Users
 } from 'lucide-react';
+import { cn } from '@/lib/utils';
 import Container from '@/components/common/Container';
 import Button from '@/components/common/Button';
 
@@ -184,6 +187,11 @@ export default function CustomerClient() {
 
   const [activeHeroClient, setActiveHeroClient] = useState<string>('hero');
 
+  const [activeCardIndex, setActiveCardIndex] = useState(0);
+  const [isCardHovered, setIsCardHovered] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const cardTouchStartRef = useRef<number | null>(null);
+
   const heroClient = CLIENT_SPOTLIGHTS.find((c) => c.id === activeHeroClient) || CLIENT_SPOTLIGHTS[0];
 
   const filteredClients = CLIENT_SPOTLIGHTS.filter((client) => {
@@ -198,34 +206,92 @@ export default function CustomerClient() {
     return matchesCategory && matchesSearch;
   });
 
+  const totalCards = filteredClients.length;
+
+  // Responsive breakpoint check
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Reset active card index when filter changes
+  useEffect(() => {
+    setActiveCardIndex(0);
+  }, [selectedFilter, searchQuery]);
+
+  const handlePrevCard = useCallback(() => {
+    if (totalCards <= 1) return;
+    setActiveCardIndex((prev) => (prev - 1 + totalCards) % totalCards);
+  }, [totalCards]);
+
+  const handleNextCard = useCallback(() => {
+    if (totalCards <= 1) return;
+    setActiveCardIndex((prev) => (prev + 1) % totalCards);
+  }, [totalCards]);
+
+  // Auto-scroll interval (every 4s)
+  useEffect(() => {
+    if (isCardHovered || totalCards <= 1) return;
+    const interval = setInterval(() => {
+      setActiveCardIndex((prev) => (prev + 1) % totalCards);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [isCardHovered, totalCards]);
+
+  // Touch Swipe Handlers
+  const handleTouchStart = (e: React.TouchEvent) => {
+    cardTouchStartRef.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (cardTouchStartRef.current === null) return;
+    const diff = e.changedTouches[0].clientX - cardTouchStartRef.current;
+    if (Math.abs(diff) > 40) {
+      if (diff > 0) handlePrevCard();
+      else handleNextCard();
+    }
+    cardTouchStartRef.current = null;
+  };
+
+  // Circular offset relative to activeCardIndex
+  const getCardOffset = (index: number) => {
+    if (totalCards <= 1) return 0;
+    let diff = index - activeCardIndex;
+    if (diff > totalCards / 2) diff -= totalCards;
+    if (diff < -totalCards / 2) diff += totalCards;
+    return diff;
+  };
+
   return (
     <div className="bg-gray-50 min-h-screen">
       {/* ── Interactive Hero Section with Real Machinery Images ── */}
-      <section className="relative overflow-hidden bg-[#060D17] bg-gradient-to-b from-navy-dark via-navy to-[#060D17] text-white py-14 sm:py-20 border-b border-gold/20">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,163,35,0.08),transparent_60%)] pointer-events-none" />
+      <section className="relative overflow-hidden bg-[#FAF7F2] py-14 sm:py-20 border-b border-stone-200/80">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(245,158,11,0.06),transparent_60%)] pointer-events-none" />
 
         <Container className="relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
 
             {/* Left Column: Desktop Left-Aligned Content with Interactive Switcher */}
             <div className="lg:col-span-6 flex flex-col items-start text-left max-sm:items-center max-sm:text-center space-y-5">
-              
+
               {/* High-Impact Headline */}
-              <h1 className="text-3xl sm:text-4xl lg:text-[3.15rem] font-black tracking-tight text-white leading-[1.14]">
-                Where India&apos;s Industrial Titans<br />
-                <span className="text-gold">
-                  Rely for 99.9% Production Uptime
-                </span>
+              <h1 className="text-2xl sm:text-3xl lg:text-[2.5rem] font-black tracking-tight text-slate-900 leading-[1.15]">
+                <span className="block">Where India&apos;s</span>
+                <span className="block">Industrial Titans</span>
+                <span className="block text-amber-500">Rely for 99.9%</span>
+                <span className="block text-amber-500">Production Uptime</span>
               </h1>
 
               {/* Subheading */}
-              <p className="text-sm sm:text-base lg:text-lg text-slate-300 leading-relaxed max-w-xl font-normal">
+              <p className="text-sm sm:text-base lg:text-lg text-slate-600 leading-relaxed max-w-xl font-normal">
                 Authorized sales &amp; 24/7 service partner for German Kaeser rotary screw compressors, EP material handling, and Greaves power solutions across North India&apos;s critical automotive, Japanese, and heavy engineering corridors.
               </p>
 
               {/* Interactive Client Plant Switcher ("Kuch Alag" Feature) */}
               <div className="w-full pt-1">
-                
+
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-2.5 w-full">
                   {CLIENT_SPOTLIGHTS.map((c) => {
                     const isActive = activeHeroClient === c.id;
@@ -234,13 +300,12 @@ export default function CustomerClient() {
                         key={c.id}
                         onClick={() => setActiveHeroClient(c.id)}
                         title={c.name}
-                        className={`w-full flex items-center gap-2 px-2.5 sm:px-3 py-2 rounded-xl text-xs font-bold transition-all duration-200 border cursor-pointer text-left ${
-                          isActive
-                            ? 'bg-amber-500 text-slate-950 border-amber-400 shadow-lg shadow-amber-500/25 ring-1 ring-amber-400'
-                            : 'bg-white/5 hover:bg-white/10 text-gray-300 border-white/10 hover:border-amber-400/40'
-                        }`}
+                        className={`w-full flex items-center gap-2 px-2.5 sm:px-3 py-2 rounded-xl text-xs font-bold transition-all duration-200 border cursor-pointer text-left ${isActive
+                            ? 'bg-amber-500 text-slate-950 border-amber-500 shadow-md ring-1 ring-amber-400'
+                            : 'bg-white hover:bg-stone-50 text-slate-700 border-stone-200/90 hover:border-amber-400/60 shadow-xs'
+                          }`}
                       >
-                        <span className="relative w-4 h-4 flex-shrink-0 bg-white rounded-full p-0.5 flex items-center justify-center">
+                        <span className="relative w-4 h-4 flex-shrink-0 bg-stone-100 rounded-full p-0.5 flex items-center justify-center">
                           <Image
                             src={c.logo}
                             alt={c.name}
@@ -264,51 +329,51 @@ export default function CustomerClient() {
                   { value: '< 2–4h', label: 'Emergency Reach' },
                   { value: '29+ Yrs', label: 'Proven Trust' },
                 ].map((item, idx) => (
-                  <div 
-                    key={idx} 
-                    className="p-3 rounded-2xl bg-white/[0.04] border border-white/10 backdrop-blur-sm group hover:border-amber-400/40 transition-colors"
+                  <div
+                    key={idx}
+                    className="p-3 rounded-2xl bg-white border border-stone-200/90 shadow-xs group hover:border-amber-400/60 transition-colors"
                   >
-                    <div className="text-lg sm:text-xl font-extrabold text-amber-400 font-mono tracking-tight">
+                    <div className="text-lg sm:text-xl font-extrabold text-amber-600 font-mono tracking-tight">
                       {item.value}
                     </div>
-                    <div className="text-[11px] font-semibold text-gray-300 mt-0.5">{item.label}</div>
+                    <div className="text-[11px] font-semibold text-slate-600 mt-0.5">{item.label}</div>
                   </div>
                 ))}
               </div>
 
               {/* Action Buttons & Direct Support Helpline */}
               <div className="flex flex-wrap items-center gap-3 pt-1 w-full max-sm:justify-center">
-                <Button 
-                  href="/contact" 
-                  size="lg" 
-                  showArrow 
-                  className="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-6 shadow-xl shadow-amber-500/20 text-xs sm:text-sm"
+                <Button
+                  href="/contact"
+                  size="lg"
+                  showArrow
+                  className="bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold px-6 shadow-md text-xs sm:text-sm"
                 >
                   Partner With Airmen
                 </Button>
                 <a
                   href="#client-portfolio"
-                  className="inline-flex items-center gap-2 px-5 py-3.5 bg-white/10 hover:bg-white/15 text-white font-semibold rounded-xl border border-white/20 transition-all text-xs sm:text-sm backdrop-blur-md"
+                  className="inline-flex items-center gap-2 px-5 py-3.5 bg-white hover:bg-stone-50 text-slate-800 font-semibold rounded-xl border border-stone-300 transition-all text-xs sm:text-sm shadow-xs"
                 >
                   <span>All Case Studies</span>
-                  <ArrowRight className="w-4 h-4 text-amber-400" />
+                  <ArrowRight className="w-4 h-4 text-amber-500" />
                 </a>
                 <a
                   href="tel:+919810134027"
-                  className="inline-flex items-center gap-2 px-3.5 py-3 rounded-xl bg-slate-900/80 border border-emerald-500/30 hover:border-emerald-400 text-xs font-bold text-gray-300 hover:text-white transition-all max-sm:w-full max-sm:justify-center"
+                  className="inline-flex items-center gap-2 px-3.5 py-3 rounded-xl bg-white border border-emerald-500/40 hover:border-emerald-500 text-xs font-bold text-slate-700 hover:text-emerald-700 transition-all max-sm:w-full max-sm:justify-center shadow-xs"
                 >
-                  <PhoneCall className="w-3.5 h-3.5 text-emerald-400" />
-                  <span>24/7 Helpline: <strong className="text-white">+91-9810134027</strong></span>
+                  <PhoneCall className="w-3.5 h-3.5 text-emerald-600" />
+                  <span>24/7 Helpline: <strong className="text-slate-900">+91-9810134027</strong></span>
                 </a>
               </div>
             </div>
 
             {/* Right Column: Visual 3-Image Machinery & Plant Bento Showcase */}
             <div className="lg:col-span-6 w-full space-y-3 sm:space-y-3.5">
-              
+
               {/* Image 1: Main Dynamic Plant Machinery Showcase Card */}
-              <div className="relative rounded-3xl overflow-hidden bg-black border border-white/20 shadow-2xl shadow-black/80 group">
-                <div className="relative h-60 min-[400px]:h-72 sm:h-80 lg:h-[330px] w-full overflow-hidden flex items-center justify-center p-2 sm:p-4">
+              <div className="relative rounded-3xl overflow-hidden bg-white border border-stone-200/90 shadow-lg group">
+                <div className="relative h-60 min-[400px]:h-72 sm:h-80 lg:h-[330px] w-full overflow-hidden flex items-center justify-center p-2 sm:p-4 bg-gradient-to-b from-stone-50/50 to-white">
                   <Image
                     key={heroClient.id}
                     src={heroClient.plantImage || '/images/about-2.jpg'}
@@ -322,9 +387,9 @@ export default function CustomerClient() {
 
               {/* Dual Lower Real Machinery Cards — 2 Columns on Mobile & Desktop */}
               <div className="grid grid-cols-2 gap-3 sm:gap-3.5">
-                
+
                 {/* Image 2: Kaeser Piston Compressor on White Card */}
-                <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden bg-white border border-white/20 shadow-xl group h-32 min-[400px]:h-36 sm:h-44 p-2 sm:p-3 flex items-center justify-center">
+                <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden bg-white border border-stone-200/90 shadow-md group h-32 min-[400px]:h-36 sm:h-44 p-2 sm:p-3 flex items-center justify-center">
                   <div className="relative w-full h-full">
                     <Image
                       src="/images/about-1.jpg"
@@ -336,7 +401,7 @@ export default function CustomerClient() {
                 </div>
 
                 {/* Image 3: Kaeser SXC Compact Tower Compressor on White Card */}
-                <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden bg-white border border-white/20 shadow-xl group h-32 min-[400px]:h-36 sm:h-44 p-2 sm:p-3 flex items-center justify-center">
+                <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden bg-white border border-stone-200/90 shadow-md group h-32 min-[400px]:h-36 sm:h-44 p-2 sm:p-3 flex items-center justify-center">
                   <div className="relative w-full h-full">
                     <Image
                       src="/images/about-3.jpg"
@@ -355,10 +420,10 @@ export default function CustomerClient() {
         </Container>
 
         {/* ── Client Logo Marquee / Ticker Ribbon ─────────── */}
-        <div className="mt-10 pt-6 pb-6 border-t border-white/10 bg-slate-950/70 backdrop-blur-md">
+        <div className="mt-10 pt-6 pb-6 border-t border-stone-200/80 bg-stone-100/70">
           <Container>
             <div className="flex flex-col sm:flex-row items-center justify-between gap-3 mb-4">
-              <span className="text-[11px] text-gray-400 font-medium">
+              <span className="text-[11px] text-slate-500 font-semibold uppercase tracking-wider">
                 Automotive OEM • Japanese Corridors • Glass • FMEG
               </span>
             </div>
@@ -366,14 +431,13 @@ export default function CustomerClient() {
             {/* 6-logo showcase with crisp white containers */}
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 items-center">
               {CLIENT_SPOTLIGHTS.map((c) => (
-                <button 
-                  key={c.id} 
+                <button
+                  key={c.id}
                   onClick={() => setActiveHeroClient(c.id)}
-                  className={`flex flex-col items-center justify-center p-3 rounded-2xl transition-all group text-left cursor-pointer border ${
-                    activeHeroClient === c.id 
-                      ? 'bg-amber-500/15 border-amber-400 shadow-md scale-105' 
-                      : 'bg-white/[0.04] border-white/10 hover:border-amber-400/50 hover:bg-white/[0.08]'
-                  }`}
+                  className={`flex flex-col items-center justify-center p-3 rounded-2xl transition-all group text-left cursor-pointer border ${activeHeroClient === c.id
+                      ? 'bg-amber-500/15 border-amber-400 shadow-md scale-105'
+                      : 'bg-white border-stone-200/90 hover:border-amber-400/50 hover:shadow-xs'
+                    }`}
                 >
                   <div className="h-10 w-full relative flex items-center justify-center bg-white rounded-xl p-1.5 shadow-sm group-hover:scale-105 transition-transform">
                     <Image
@@ -384,12 +448,11 @@ export default function CustomerClient() {
                       className="max-h-7 w-auto object-contain"
                     />
                   </div>
-                  <span className={`text-[11px] font-bold mt-2 text-center transition-colors ${
-                    activeHeroClient === c.id ? 'text-amber-400' : 'text-gray-200 group-hover:text-amber-400'
-                  }`}>
+                  <span className={`text-[11px] font-bold mt-2 text-center transition-colors ${activeHeroClient === c.id ? 'text-amber-600' : 'text-slate-800 group-hover:text-amber-600'
+                    }`}>
                     {c.name}
                   </span>
-                  <span className="text-[9px] text-gray-400 text-center line-clamp-1">
+                  <span className="text-[9px] text-slate-500 text-center line-clamp-1">
                     {c.badge}
                   </span>
                 </button>
@@ -444,88 +507,244 @@ export default function CustomerClient() {
         </Container>
       </section>
 
-      {/* ── Detailed Client Case Cards ──────────── */}
-      <section className="py-16 sm:py-24">
+      {/* ── Detailed Client Case Cards — 3D Coverflow Slider ──────────── */}
+      <section className="py-16 sm:py-20 overflow-hidden" id="case-studies">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {filteredClients.map((client) => (
-              <div
-                key={client.id}
-                className="bg-white rounded-3xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1"
-              >
-                <div>
-                  {/* Top Bar with Logo & Metadata */}
-                  <div className="p-6 sm:p-8 bg-slate-50 border-b border-gray-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                    <div className="flex items-center gap-4">
-                      <div className="h-16 w-28 bg-white rounded-2xl border border-gray-200 p-2 flex items-center justify-center shadow-sm">
-                        <Image
-                          src={client.logo}
-                          alt={client.name}
-                          width={100}
-                          height={45}
-                          className="max-h-11 w-auto object-contain"
-                        />
-                      </div>
-                      <div>
-                        {/* <span className="text-[10px] font-bold uppercase tracking-wider text-amber-600 bg-amber-50 border border-amber-200/60 px-2 py-0.5 rounded">
-                          {client.sectorLabel}
-                        </span> */}
-                        <h3 className="text-xl font-bold text-navy mt-1 group-hover:text-amber-600 transition-colors">
-                          {client.fullName}
-                        </h3>
-                        <span className="text-xs text-slate-500 block mt-0.5">
-                          {client.plantLocation}
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="text-left sm:text-right flex-shrink-0">
-                      <span className="text-[10px] text-slate-400 block uppercase font-medium">{client.keyMetric.label}</span>
-                      <span className="text-lg font-extrabold text-navy font-mono text-emerald-600">
-                        {client.keyMetric.value}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Body Content */}
-                  <div className="p-6 sm:p-8">
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
-                      {client.operationalImpact}
-                    </p>
-
-                    {/* Equipment Supplied */}
-                    <div>
-                      <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3">
-                        Machinery &amp; Engineering Supplied:
-                      </h4>
-                      <div className="space-y-2">
-                        {client.equipmentSupplied.map((eq, eIdx) => (
-                          <div key={eIdx} className="flex items-start gap-2 text-xs text-slate-700 bg-slate-50 p-2.5 rounded-xl border border-gray-100">
-                            <span className="w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0 mt-1.5" />
-                            <span className="font-medium">{eq}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Footer Bar */}
-                <div className="p-6 sm:p-8 pt-0 mt-2 flex items-center justify-between text-xs border-t border-gray-100 pt-4">
-                  <span className="font-semibold text-slate-500">
-                    {client.partnershipYears}
-                  </span>
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-navy hover:text-amber-600 transition-colors"
-                  >
-                    <span>Request Similar Plant Setup</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
-                </div>
-              </div>
-            ))}
+          {/* Section Header (Image content badge removed as requested) */}
+          <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-navy tracking-tight">
+              India&apos;s Leading Industrial Plants
+            </h2>
+            <p className="text-slate-500 text-xs sm:text-sm mt-1.5 leading-relaxed">
+              Explore real machine installations and operational uptime delivered to Fortune 500 plants.
+            </p>
           </div>
+
+          {filteredClients.length > 0 ? (
+            <div
+              className="relative w-full py-4 select-none"
+              onMouseEnter={() => setIsCardHovered(true)}
+              onMouseLeave={() => setIsCardHovered(false)}
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
+            >
+              {/* 3D Coverflow Stage */}
+              <div
+                className="relative h-[560px] sm:h-[530px] md:h-[500px] w-full flex items-center justify-center overflow-hidden"
+                style={{ perspective: isMobile ? '850px' : '1300px' }}
+              >
+                {filteredClients.map((client, idx) => {
+                  const offset = getCardOffset(idx);
+                  const isActive = offset === 0;
+
+                  // Hide cards far away
+                  if (totalCards > 2 && Math.abs(offset) > 1) {
+                    return null;
+                  }
+
+                  let translateX = 0;
+                  let translateZ = 0;
+                  let rotateY = 0;
+                  let scale = 1;
+                  let zIndex = 30;
+                  let opacity = 1;
+
+                  if (offset === 0) {
+                    translateX = 0;
+                    translateZ = isMobile ? 30 : 60;
+                    rotateY = 0;
+                    scale = 1;
+                    zIndex = 30;
+                    opacity = 1;
+                  } else if (offset === 1) {
+                    translateX = isMobile ? 90 : 360;
+                    translateZ = isMobile ? -40 : -70;
+                    rotateY = isMobile ? -16 : -22;
+                    scale = isMobile ? 0.86 : 0.92;
+                    zIndex = 20;
+                    opacity = 0.82;
+                  } else if (offset === -1) {
+                    translateX = isMobile ? -90 : -360;
+                    translateZ = isMobile ? -40 : -70;
+                    rotateY = isMobile ? 16 : 22;
+                    scale = isMobile ? 0.86 : 0.92;
+                    zIndex = 20;
+                    opacity = 0.82;
+                  }
+
+                  return (
+                    <div
+                      key={client.id}
+                      onClick={() => !isActive && setActiveCardIndex(idx)}
+                      className={cn(
+                        'absolute transition-all duration-500 ease-out origin-center',
+                        isActive ? 'cursor-default' : 'cursor-pointer hover:opacity-100 hover:brightness-105'
+                      )}
+                      style={{
+                        transform: `translateX(${translateX}px) translateZ(${translateZ}px) rotateY(${rotateY}deg) scale(${scale})`,
+                        zIndex,
+                        opacity,
+                        transformStyle: 'preserve-3d',
+                      }}
+                    >
+                      {/* Realistic Ground Shadow for Center Card */}
+                      {isActive && (
+                        <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-4/5 h-8 bg-black/25 blur-xl rounded-full -z-10 pointer-events-none" />
+                      )}
+
+                      {/* Card Container with Comfortable Generous Width — No text clipping */}
+                      <div
+                        className={cn(
+                          'w-[92vw] sm:w-[540px] md:w-[620px] lg:w-[680px] min-h-[460px] sm:min-h-[440px] md:min-h-[420px]',
+                          'bg-white rounded-3xl border overflow-hidden transition-all duration-300 flex flex-col justify-between relative',
+                          isActive
+                            ? 'border-2 border-amber-400 shadow-2xl shadow-slate-900/15 ring-4 ring-amber-400/20'
+                            : 'border-slate-200/90 shadow-lg shadow-slate-900/5'
+                        )}
+                      >
+                        {/* Overlay Arrow Button for Left Card (Matching user screenshot) */}
+                        {offset === -1 && (
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handlePrevCard();
+                            }}
+                            className="absolute inset-0 z-40 flex items-center justify-center bg-black/15 hover:bg-black/25 backdrop-blur-[1px] transition-all cursor-pointer group"
+                            aria-label="Previous client"
+                          >
+                            <div className="w-12 h-12 rounded-full bg-slate-900/80 group-hover:bg-amber-400 text-white group-hover:text-slate-950 flex items-center justify-center shadow-2xl transition-all scale-100 group-hover:scale-110 border border-white/20">
+                              <ChevronLeft className="w-6 h-6 stroke-[2.5]" />
+                            </div>
+                          </button>
+                        )}
+
+                        {/* Overlay Arrow Button for Right Card (Matching user screenshot) */}
+                        {offset === 1 && (
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleNextCard();
+                            }}
+                            className="absolute inset-0 z-40 flex items-center justify-center bg-black/15 hover:bg-black/25 backdrop-blur-[1px] transition-all cursor-pointer group"
+                            aria-label="Next client"
+                          >
+                            <div className="w-12 h-12 rounded-full bg-slate-900/80 group-hover:bg-amber-400 text-white group-hover:text-slate-950 flex items-center justify-center shadow-2xl transition-all scale-100 group-hover:scale-110 border border-white/20">
+                              <ChevronRight className="w-6 h-6 stroke-[2.5]" />
+                            </div>
+                          </button>
+                        )}
+
+                        <div>
+                          {/* Top Bar with Logo & Metadata */}
+                          <div className="p-5 sm:p-6 bg-slate-50 border-b border-gray-100 flex items-center justify-between gap-4">
+                            <div className="flex items-center gap-3.5 min-w-0">
+                              <div className="h-14 w-24 sm:w-28 bg-white rounded-xl border border-gray-200/80 p-2 flex items-center justify-center shadow-xs shrink-0">
+                                <Image
+                                  src={client.logo}
+                                  alt={client.name}
+                                  width={100}
+                                  height={40}
+                                  className="max-h-9 w-auto object-contain"
+                                />
+                              </div>
+                              <div className="min-w-0">
+                                <h3 className="text-base sm:text-lg font-bold text-navy">
+                                  {client.fullName}
+                                </h3>
+                                <span className="text-xs text-slate-500 block mt-0.5">
+                                  {client.plantLocation}
+                                </span>
+                              </div>
+                            </div>
+
+                            <div className="text-right shrink-0">
+                              <span className="text-[10px] text-slate-400 block uppercase font-medium">{client.keyMetric.label}</span>
+                              <span className="text-base sm:text-lg font-extrabold font-mono text-emerald-600">
+                                {client.keyMetric.value}
+                              </span>
+                            </div>
+                          </div>
+
+                          {/* Body Content */}
+                          <div className="p-5 sm:p-6">
+                            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
+                              {client.operationalImpact}
+                            </p>
+
+                            {/* Equipment Supplied */}
+                            <div>
+                              <h4 className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 mb-2">
+                                Machinery &amp; Engineering Supplied:
+                              </h4>
+                              <div className="space-y-2">
+                                {client.equipmentSupplied.map((eq, eIdx) => (
+                                  <div key={eIdx} className="flex items-start gap-2.5 text-xs text-slate-700 bg-slate-50 p-2.5 rounded-xl border border-gray-100">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0 mt-1.5" />
+                                    <span className="font-medium leading-relaxed">{eq}</span>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Footer Bar */}
+                        <div className="p-5 sm:p-6 pt-0 flex items-center justify-between text-xs border-t border-gray-100 pt-3.5">
+                          <span className="font-semibold text-slate-500">
+                            {client.partnershipYears}
+                          </span>
+                          <Link
+                            href="/contact"
+                            className="inline-flex items-center gap-1.5 font-bold text-navy hover:text-amber-600 transition-colors"
+                          >
+                            <span>Request Similar Plant Setup</span>
+                            <ArrowRight className="w-3.5 h-3.5" />
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Bottom Navigation Dots & Indicators */}
+              {totalCards > 1 && (
+                <div className="mt-5 flex items-center justify-center gap-3">
+                  <button
+                    onClick={handlePrevCard}
+                    className="w-9 h-9 rounded-full bg-white hover:bg-amber-400 text-slate-700 hover:text-navy border border-slate-200 flex items-center justify-center font-bold transition-all shadow-xs active:scale-95 cursor-pointer"
+                    aria-label="Previous card"
+                  >
+                    ‹
+                  </button>
+
+                  <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 border border-slate-200/80 shadow-xs">
+                    {filteredClients.map((_, i) => (
+                      <button
+                        key={i}
+                        onClick={() => setActiveCardIndex(i)}
+                        className={cn(
+                          'rounded-full transition-all duration-300 cursor-pointer',
+                          i === activeCardIndex
+                            ? 'w-6 h-2 bg-amber-400'
+                            : 'w-2 h-2 bg-slate-300 hover:bg-slate-400'
+                        )}
+                        aria-label={`Go to client ${i + 1}`}
+                      />
+                    ))}
+                  </div>
+
+                  <button
+                    onClick={handleNextCard}
+                    className="w-9 h-9 rounded-full bg-white hover:bg-amber-400 text-slate-700 hover:text-navy border border-slate-200 flex items-center justify-center font-bold transition-all shadow-xs active:scale-95 cursor-pointer"
+                    aria-label="Next card"
+                  >
+                    ›
+                  </button>
+                </div>
+              )}
+            </div>
+          ) : null}
 
           {filteredClients.length === 0 && (
             <div className="text-center py-20 bg-white rounded-3xl border border-gray-200 p-8">
@@ -545,7 +764,7 @@ export default function CustomerClient() {
       <section className="py-16 sm:py-24 bg-[#070E18] text-white border-t border-b border-white/10">
         <Container>
           <div className="text-center max-w-3xl mx-auto mb-14">
-            
+
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white mt-3">
               Key Sectors We Empower
             </h2>

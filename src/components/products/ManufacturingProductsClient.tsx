@@ -121,30 +121,30 @@ export default function ManufacturingProductsClient() {
   return (
     <div className="min-h-screen bg-slate-50">
       {/* Hero Banner */}
-      <section className="relative overflow-hidden bg-[#060D17] bg-gradient-to-b from-navy-dark via-navy to-[#060D17] text-white py-14 sm:py-20 border-b border-gold/20">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,163,35,0.08),transparent_60%)] pointer-events-none" />
+      <section className="relative overflow-hidden bg-[#FAF7F2] py-14 sm:py-20 border-b border-stone-200/80">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(245,158,11,0.06),transparent_60%)] pointer-events-none" />
         <Container>
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             {/* Left Content Column */}
             <div className="lg:col-span-7">
 
-              <h1 className="text-3xl sm:text-5xl lg:text-5xl xl:text-6xl font-black tracking-tight text-white mb-6 leading-tight">
-                Precision CNC-Machined <span className="text-gold">Forged Automotive Components</span>
+              <h1 className="text-3xl sm:text-5xl lg:text-5xl xl:text-6xl font-black tracking-tight text-slate-900 mb-6 leading-tight">
+                Precision CNC-Machined <span className="text-amber-500">Forged Automotive Components</span>
               </h1>
 
-              <p className="text-sm sm:text-base lg:text-lg text-slate-300 leading-relaxed mb-8 max-w-2xl">
+              <p className="text-sm sm:text-base lg:text-lg text-slate-600 leading-relaxed mb-8 max-w-2xl">
                 Manufactured at our dedicated <strong>Gajraula Plant</strong> from premium forged material. Our component line involves critical CNC machining operations, micro-tolerance boring, surface profiling, and 100% quality inspection strictly adhering to approved client drawings.
               </p>
 
               <div className="flex flex-wrap items-center gap-4">
-                <Button href="/contact?subject=Gajraula%20Plant%20Manufacturing%20Inquiry" variant="primary" size="lg">
+                <Button href="/contact?subject=Gajraula%20Plant%20Manufacturing%20Inquiry" variant="primary" size="lg" className="bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold shadow-md">
                   Request Manufacturing Quote
                 </Button>
                 <a
                   href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hello Airmen Engineers, I would like to inquire about your Gajraula Plant precision CNC-machined forged components.')}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-lg bg-green-600 px-6 py-3 text-sm font-semibold text-white shadow-md hover:bg-green-700 transition-colors"
+                  className="inline-flex items-center gap-2 rounded-xl bg-emerald-600 px-6 py-3 text-sm font-semibold text-white shadow-md hover:bg-emerald-700 transition-colors"
                 >
                   <MessageCircle className="h-4 w-4" />
                   WhatsApp Technical Desk
@@ -152,22 +152,22 @@ export default function ManufacturingProductsClient() {
               </div>
 
               {/* Plant Stats Badges */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-10 pt-8 border-t border-white/10">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-10 pt-8 border-t border-stone-200">
                 <div>
-                  <span className="text-2xl font-black text-gold">20+</span>
-                  <p className="text-xs text-slate-400 mt-0.5">Automotive Part Families</p>
+                  <span className="text-2xl font-black text-amber-600">20+</span>
+                  <p className="text-xs text-slate-500 mt-0.5">Automotive Part Families</p>
                 </div>
                 <div>
-                  <span className="text-2xl font-black text-white">Closed-Die</span>
-                  <p className="text-xs text-slate-400 mt-0.5">Forged Raw Material</p>
+                  <span className="text-2xl font-black text-slate-900">Closed-Die</span>
+                  <p className="text-xs text-slate-500 mt-0.5">Forged Raw Material</p>
                 </div>
                 <div>
-                  <span className="text-2xl font-black text-gold">±0.01 mm</span>
-                  <p className="text-xs text-slate-400 mt-0.5">Machining Tolerances</p>
+                  <span className="text-2xl font-black text-amber-600">±0.01 mm</span>
+                  <p className="text-xs text-slate-500 mt-0.5">Machining Tolerances</p>
                 </div>
                 <div>
-                  <span className="text-2xl font-black text-white">100%</span>
-                  <p className="text-xs text-slate-400 mt-0.5">Drawing Inspection</p>
+                  <span className="text-2xl font-black text-slate-900">100%</span>
+                  <p className="text-xs text-slate-500 mt-0.5">Drawing Inspection</p>
                 </div>
               </div>
             </div>
@@ -175,24 +175,24 @@ export default function ManufacturingProductsClient() {
             {/* Right Interactive Image Gallery */}
             <div className="lg:col-span-5">
               <div
-                className="relative rounded-3xl bg-white/10 backdrop-blur-md border border-white/15 p-4 sm:p-5 shadow-2xl overflow-hidden"
+                className="relative rounded-3xl bg-white border border-stone-200/90 p-4 sm:p-5 shadow-xl overflow-hidden"
                 onMouseEnter={() => setIsGalleryHovered(true)}
                 onMouseLeave={() => setIsGalleryHovered(false)}
               >
                 {/* Ambient glow */}
-                <div className="absolute -top-16 -right-16 w-48 h-48 bg-gold/25 rounded-full blur-3xl pointer-events-none" />
+                <div className="absolute -top-16 -right-16 w-48 h-48 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
 
                 {/* Gallery Header */}
-                <div className="flex items-center justify-between pb-3 mb-3 border-b border-white/10">
+                <div className="flex items-center justify-between pb-3 mb-3 border-b border-stone-200">
                   <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-gold animate-pulse" />
-                    <span className="text-xs font-bold uppercase tracking-wider text-slate-200">
+                    <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
+                    <span className="text-xs font-bold uppercase tracking-wider text-slate-700">
                       Gajraula Plant Showcase
                     </span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="text-xs font-mono font-bold text-gold">
-                      0{galleryIndex + 1} <span className="text-white/40">/ 0{HERO_GALLERY_ITEMS.length}</span>
+                    <span className="text-xs font-mono font-bold text-amber-600">
+                      0{galleryIndex + 1} <span className="text-slate-400">/ 0{HERO_GALLERY_ITEMS.length}</span>
                     </span>
                   </div>
                 </div>

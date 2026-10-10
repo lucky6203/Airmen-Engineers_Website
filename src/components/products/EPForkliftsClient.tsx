@@ -7,16 +7,16 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { 
-  BatteryCharging, 
-  Wrench, 
-  Zap, 
-  FileDown, 
-  ArrowRight, 
-  Layers, 
-  Gauge, 
-  Cpu, 
-  Fuel, 
+import {
+  BatteryCharging,
+  Wrench,
+  Zap,
+  FileDown,
+  ArrowRight,
+  Layers,
+  Gauge,
+  Cpu,
+  Fuel,
   Truck,
   ExternalLink,
   ChevronRight
@@ -266,29 +266,29 @@ export default function EPForkliftsClient({ products, brand }: EPForkliftsClient
   return (
     <div className="bg-gray-50 min-h-screen">
       {/* ── Hero Section ────────────────────────── */}
-      <section className="relative overflow-hidden bg-[#060D17] bg-gradient-to-b from-navy-dark via-navy to-[#060D17] text-white py-14 sm:py-20 border-b border-gold/20">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,163,35,0.08),transparent_60%)] pointer-events-none" />
+      <section className="relative overflow-hidden bg-[#FAF7F2] py-14 sm:py-20 border-b border-stone-200/80">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(245,158,11,0.06),transparent_60%)] pointer-events-none" />
 
         <Container className="relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Content */}
             <div className="lg:col-span-7">
 
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-white tracking-tight leading-tight mb-6">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-slate-900 tracking-tight leading-tight mb-6">
                 Pioneering The Material Handling Technology That the{' '}
-                <span className="bg-gradient-to-r from-gold via-amber-300 to-gold bg-clip-text text-transparent">
+                <span className="text-amber-500">
                   World Deserves
                 </span>
               </h1>
 
-              <p className="text-gray-300 text-base sm:text-lg leading-relaxed mb-8 max-w-2xl">
-                Airmen Engineers brings you EP Equipment&apos;s full range of innovative lithium-ion electric forklifts, 
+              <p className="text-slate-600 text-base sm:text-lg leading-relaxed mb-8 max-w-2xl">
+                Airmen Engineers brings you EP Equipment&apos;s full range of innovative lithium-ion electric forklifts,
                 heavy diesel trucks, high-bay reach trucks, and warehouse stackers — complete with 29+ years of specialized service support.
               </p>
 
               {/* Action Buttons */}
               <div className="flex flex-wrap items-center gap-4">
-                <Button href="/contact" size="lg" showArrow id="ep-enquire-hero">
+                <Button href="/contact" size="lg" showArrow id="ep-enquire-hero" className="bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold shadow-md">
                   Request Equipment Quote
                 </Button>
 
@@ -296,10 +296,10 @@ export default function EPForkliftsClient({ products, brand }: EPForkliftsClient
                   href="/brochures/ep-product-range.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 px-6 py-3.5 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-lg border border-white/20 transition-all duration-300 text-sm backdrop-blur-sm group"
+                  className="inline-flex items-center gap-2.5 px-6 py-3.5 bg-white hover:bg-stone-50 text-slate-800 font-semibold rounded-xl border border-stone-300 transition-all duration-300 text-sm shadow-xs group"
                   id="ep-download-catalogue"
                 >
-                  <FileDown className="w-4 h-4 text-gold group-hover:scale-110 transition-transform" />
+                  <FileDown className="w-4 h-4 text-amber-500 group-hover:scale-110 transition-transform" />
                   <span>Download 2025 Brochure (PDF)</span>
                 </a>
 
@@ -308,7 +308,7 @@ export default function EPForkliftsClient({ products, brand }: EPForkliftsClient
                     href={brand.website}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs text-gray-400 hover:text-gold transition-colors py-2 px-3"
+                    className="inline-flex items-center gap-1.5 text-xs text-slate-500 hover:text-amber-600 transition-colors py-2 px-3"
                   >
                     <span>Visit EP Global</span>
                     <ExternalLink className="w-3.5 h-3.5" />
@@ -319,11 +319,11 @@ export default function EPForkliftsClient({ products, brand }: EPForkliftsClient
 
             {/* Right Visual Card */}
             <div className="lg:col-span-5">
-              <div className="relative bg-gradient-to-br from-white/10 to-white/[0.02] border border-white/15 rounded-3xl p-6 sm:p-8 backdrop-blur-xl shadow-2xl overflow-hidden">
-                <div className="absolute top-0 right-0 w-40 h-40 bg-gold/10 rounded-bl-full blur-2xl pointer-events-none" />
+              <div className="relative bg-white border border-stone-200/90 rounded-3xl p-6 sm:p-8 shadow-xl overflow-hidden">
+                <div className="absolute top-0 right-0 w-40 h-40 bg-amber-500/10 rounded-bl-full blur-2xl pointer-events-none" />
 
                 {/* EP Logo Header */}
-                <div className="bg-white rounded-2xl p-6 flex items-center justify-center shadow-inner mb-6 border border-white/80">
+                <div className="bg-stone-50 rounded-2xl p-6 flex items-center justify-center mb-6 border border-stone-200/80">
                   <img
                     src="/images/logos/logo-ep.png"
                     alt="EP Equipment Official Logo"
@@ -333,25 +333,25 @@ export default function EPForkliftsClient({ products, brand }: EPForkliftsClient
 
                 {/* Key Spec Badges */}
                 <div className="grid grid-cols-2 gap-3 mb-6">
-                  <div className="bg-white/5 border border-white/10 rounded-xl p-3.5">
-                    <span className="text-xs text-gray-400 block">Payload Capacity</span>
-                    <span className="text-lg font-bold text-white font-heading">1.0T – 25.0T</span>
+                  <div className="bg-stone-50 border border-stone-200 rounded-xl p-3.5">
+                    <span className="text-xs text-slate-500 block">Payload Capacity</span>
+                    <span className="text-lg font-bold text-slate-900 font-heading">1.0T – 25.0T</span>
                   </div>
-                  <div className="bg-white/5 border border-white/10 rounded-xl p-3.5">
-                    <span className="text-xs text-gray-400 block">Maximum Lift</span>
-                    <span className="text-lg font-bold text-gold font-heading">Up to 14.5 m</span>
+                  <div className="bg-stone-50 border border-stone-200 rounded-xl p-3.5">
+                    <span className="text-xs text-slate-500 block">Maximum Lift</span>
+                    <span className="text-lg font-bold text-amber-600 font-heading">Up to 14.5 m</span>
                   </div>
-                  <div className="bg-white/5 border border-white/10 rounded-xl p-3.5">
-                    <span className="text-xs text-gray-400 block">Battery Tech</span>
-                    <span className="text-lg font-bold text-white font-heading">80V – 618V Li-Ion</span>
+                  <div className="bg-stone-50 border border-stone-200 rounded-xl p-3.5">
+                    <span className="text-xs text-slate-500 block">Battery Tech</span>
+                    <span className="text-lg font-bold text-slate-900 font-heading">80V – 618V Li-Ion</span>
                   </div>
-                  <div className="bg-white/5 border border-white/10 rounded-xl p-3.5">
-                    <span className="text-xs text-gray-400 block">Service Support</span>
-                    <span className="text-lg font-bold text-gold font-heading">24/7 Dedicated</span>
+                  <div className="bg-stone-50 border border-stone-200 rounded-xl p-3.5">
+                    <span className="text-xs text-slate-500 block">Service Support</span>
+                    <span className="text-lg font-bold text-amber-600 font-heading">24/7 Dedicated</span>
                   </div>
                 </div>
 
-                <div className="text-xs text-gray-300 bg-white/5 p-3 rounded-xl border border-white/10">
+                <div className="text-xs text-slate-600 bg-stone-50 p-3 rounded-xl border border-stone-200">
                   <span>Authorized Sales, OEM Spares &amp; Preventive Maintenance Partner across India.</span>
                 </div>
               </div>
@@ -444,11 +444,10 @@ export default function EPForkliftsClient({ products, brand }: EPForkliftsClient
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider transition-all duration-300 ${
-                  activeTab === tab.id
+                className={`px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider transition-all duration-300 ${activeTab === tab.id
                     ? 'bg-navy text-white shadow-lg shadow-navy/20 scale-105 border border-gold/40'
                     : 'bg-white text-slate-600 hover:bg-gray-100 border border-gray-200 hover:text-navy'
-                }`}
+                  }`}
               >
                 {tab.label}
               </button>
@@ -487,9 +486,8 @@ export default function EPForkliftsClient({ products, brand }: EPForkliftsClient
                             <button
                               key={i}
                               onClick={() => handleThumbnailClick(product.id, imgUrl)}
-                              className={`w-8 h-8 rounded-lg overflow-hidden border-2 transition-all p-0.5 bg-white flex-shrink-0 ${
-                                activeImg === imgUrl ? 'border-gold ring-2 ring-gold/30 scale-105' : 'border-gray-200 opacity-60 hover:opacity-100 hover:border-gray-400'
-                              }`}
+                              className={`w-8 h-8 rounded-lg overflow-hidden border-2 transition-all p-0.5 bg-white flex-shrink-0 ${activeImg === imgUrl ? 'border-gold ring-2 ring-gold/30 scale-105' : 'border-gray-200 opacity-60 hover:opacity-100 hover:border-gray-400'
+                                }`}
                               title={`View image ${i + 1}`}
                             >
                               <img src={imgUrl} alt="" className="w-full h-full object-contain" />
@@ -538,9 +536,9 @@ export default function EPForkliftsClient({ products, brand }: EPForkliftsClient
 
                   {/* Card Action Footer */}
                   <div className="px-6 py-4 sm:px-8 sm:py-5 bg-gray-50 border-t border-gray-100 flex items-center justify-between gap-4">
-                    <Button 
-                      href={`/contact?product=${encodeURIComponent(product.name)}`} 
-                      size="sm" 
+                    <Button
+                      href={`/contact?product=${encodeURIComponent(product.name)}`}
+                      size="sm"
                       showArrow
                     >
                       Enquire for Model
@@ -638,14 +636,14 @@ export default function EPForkliftsClient({ products, brand }: EPForkliftsClient
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               {/* Left Details */}
               <div className="lg:col-span-8">
-              
+
 
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-heading font-bold text-white mb-4">
                   Download AMPL Product Range (Printable PDF)
                 </h2>
 
                 <p className="text-gray-300 text-sm sm:text-base leading-relaxed mb-6 max-w-2xl">
-                  Get immediate access to the complete 2025 EP Equipment catalog featuring detailed engineering schematics, 
+                  Get immediate access to the complete 2025 EP Equipment catalog featuring detailed engineering schematics,
                   battery Ampere-hour curves, mast dimensions, turning radii, and operational guides for all 22+ models.
                 </p>
 
@@ -707,7 +705,7 @@ export default function EPForkliftsClient({ products, brand }: EPForkliftsClient
             Need Expert Advice for Your Warehouse or Yard?
           </h2>
           <p className="text-slate-custom text-base mb-8 leading-relaxed">
-            Our material handling specialists conduct on-site aisle and payload assessments to recommend the exact forklift model, 
+            Our material handling specialists conduct on-site aisle and payload assessments to recommend the exact forklift model,
             mast height, and battery capacity for your facility.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">

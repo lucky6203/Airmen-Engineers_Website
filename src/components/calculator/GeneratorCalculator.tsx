@@ -309,8 +309,8 @@ export default function GeneratorCalculator() {
                         isActive
                           ? 'bg-amber-500/20 text-gold border border-gold/40 font-bold'
                           : isDone
-                          ? 'text-slate-300 hover:bg-slate-800 hover:text-white font-medium'
-                          : 'text-slate-500 hover:bg-slate-800/50'
+                            ? 'text-slate-300 hover:bg-slate-800 hover:text-white font-medium'
+                            : 'text-slate-500 hover:bg-slate-800/50'
                       )}
                     >
                       <span className="text-[11px] font-mono font-bold">{s.num}</span>

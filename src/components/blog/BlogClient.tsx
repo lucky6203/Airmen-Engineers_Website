@@ -344,67 +344,67 @@ export default function BlogClient() {
       )}
 
       {/* ── Modern High-Impact Hero Section ──────────────────────── */}
-      <section className="relative overflow-hidden bg-[#060D17] bg-gradient-to-b from-navy-dark via-navy to-[#060D17] text-white py-14 sm:py-20 border-b border-gold/20">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,163,35,0.08),transparent_60%)] pointer-events-none" />
+      <section className="relative overflow-hidden bg-[#FAF7F2] py-14 sm:py-20 border-b border-stone-200/80">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(245,158,11,0.06),transparent_60%)] pointer-events-none" />
 
         <Container className="relative z-10">
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
-            
+
             {/* Left Content */}
             <div className="max-w-2xl text-left space-y-4">
-              <div className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-gold">
-                <i className="fa-solid fa-newspaper text-xs text-gold" />
+              <div className="inline-flex items-center gap-2 rounded-full border border-amber-300 bg-amber-50 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-amber-800">
+                <i className="fa-solid fa-newspaper text-xs text-amber-600" />
                 <span>INDUSTRIAL KNOWLEDGE HUB • TECHNICAL ARTICLES &amp; CASE STUDIES</span>
               </div>
 
-              <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-white leading-tight">
+              <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-slate-900 leading-tight">
                 Industrial Engineering <br />
-                <span className="text-gold">
+                <span className="text-amber-500">
                   Insights &amp; Articles
                 </span>
               </h1>
 
-              <p className="text-sm sm:text-base lg:text-lg text-slate-300 leading-relaxed">
+              <p className="text-sm sm:text-base lg:text-lg text-slate-600 leading-relaxed">
                 Expert technical knowledge on Kaeser rotary screw compressors, ISO 8573-1 air purity standards, ultrasonic energy audits, and industrial material handling. Write and share your own engineering articles right from your browser!
               </p>
 
               {/* Stat Counters */}
               <div className="flex flex-wrap items-center gap-3 pt-2">
-                <div className="px-4 py-2 rounded-xl bg-white/[0.05] border border-white/10 backdrop-blur-sm">
-                  <div className="text-xl font-extrabold text-amber-400 font-mono">{posts.length}</div>
-                  <div className="text-[10px] text-gray-300 uppercase tracking-wider font-semibold">Total Articles</div>
+                <div className="px-4 py-2 rounded-xl bg-white border border-stone-200/90 shadow-xs">
+                  <div className="text-xl font-extrabold text-amber-600 font-mono">{posts.length}</div>
+                  <div className="text-[10px] text-slate-500 uppercase tracking-wider font-semibold">Total Articles</div>
                 </div>
-                <div className="px-4 py-2 rounded-xl bg-white/[0.05] border border-white/10 backdrop-blur-sm">
-                  <div className="text-xl font-extrabold text-emerald-400 font-mono">{userPublishedCount}</div>
-                  <div className="text-[10px] text-gray-300 uppercase tracking-wider font-semibold">User Published</div>
+                <div className="px-4 py-2 rounded-xl bg-white border border-stone-200/90 shadow-xs">
+                  <div className="text-xl font-extrabold text-emerald-600 font-mono">{userPublishedCount}</div>
+                  <div className="text-[10px] text-slate-500 uppercase tracking-wider font-semibold">User Published</div>
                 </div>
-                <div className="px-4 py-2 rounded-xl bg-white/[0.05] border border-white/10 backdrop-blur-sm">
-                  <div className="text-xl font-extrabold text-white font-mono">{allCategories.length - 1}+</div>
-                  <div className="text-[10px] text-gray-300 uppercase tracking-wider font-semibold">Categories</div>
+                <div className="px-4 py-2 rounded-xl bg-white border border-stone-200/90 shadow-xs">
+                  <div className="text-xl font-extrabold text-slate-900 font-mono">{allCategories.length - 1}+</div>
+                  <div className="text-[10px] text-slate-500 uppercase tracking-wider font-semibold">Categories</div>
                 </div>
               </div>
             </div>
 
             {/* Right Action: Write Blog CTA Box */}
             <div className="w-full lg:w-auto flex-shrink-0">
-              <div className="p-6 sm:p-7 rounded-3xl bg-slate-900/90 border border-amber-500/30 backdrop-blur-xl shadow-2xl space-y-4 max-w-sm w-full">
+              <div className="p-6 sm:p-7 rounded-3xl bg-white border border-stone-200/90 shadow-xl space-y-4 max-w-sm w-full">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-2xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-400">
+                  <div className="w-12 h-12 rounded-2xl bg-amber-50 border border-amber-300 flex items-center justify-center text-amber-600">
                     <PenTool className="w-6 h-6" />
                   </div>
                   <div>
-                    <h3 className="text-base font-bold text-white">Write &amp; Publish Article</h3>
-                    <p className="text-xs text-amber-400">Instant client-side publishing (Bina backend)</p>
+                    <h3 className="text-base font-bold text-slate-900">Write &amp; Publish Article</h3>
+                    <p className="text-xs text-amber-600 font-medium">Instant client-side publishing</p>
                   </div>
                 </div>
 
-                <p className="text-xs text-gray-300 leading-relaxed">
+                <p className="text-xs text-slate-600 leading-relaxed">
                   Share maintenance checklists, factory audit insights, or machinery guides. Your article will be published instantly and saved in your browser!
                 </p>
 
                 <button
                   onClick={handleOpenNew}
-                  className="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold rounded-xl text-xs sm:text-sm uppercase tracking-wider transition-all shadow-lg shadow-amber-500/25 cursor-pointer"
+                  className="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold rounded-xl text-xs sm:text-sm uppercase tracking-wider transition-all shadow-md cursor-pointer"
                 >
                   <PlusCircle className="w-4 h-4" />
                   <span>+ Write New Blog Post</span>
@@ -413,7 +413,7 @@ export default function BlogClient() {
                 {userPublishedCount > 0 && (
                   <button
                     onClick={handleResetDefaults}
-                    className="w-full text-center text-[11px] text-gray-400 hover:text-rose-400 transition-colors flex items-center justify-center gap-1 cursor-pointer pt-1"
+                    className="w-full text-center text-[11px] text-slate-500 hover:text-rose-600 transition-colors flex items-center justify-center gap-1 cursor-pointer pt-1"
                   >
                     <RotateCcw className="w-3 h-3" />
                     <span>Reset back to official articles</span>
@@ -430,7 +430,7 @@ export default function BlogClient() {
       <section className="py-6 bg-white border-b border-gray-200 sticky top-16 z-30 shadow-sm">
         <Container>
           <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4">
-            
+
             {/* Category Pills */}
             <div className="flex items-center gap-2 overflow-x-auto pb-2 lg:pb-0 scrollbar-none">
               {allCategories.map((cat) => {
@@ -440,11 +440,10 @@ export default function BlogClient() {
                   <button
                     key={cat}
                     onClick={() => setSelectedCategory(cat)}
-                    className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
-                      isActive
+                    className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${isActive
                         ? 'bg-navy text-white shadow-md scale-105'
                         : 'bg-gray-100 hover:bg-gray-200 text-slate-700'
-                    }`}
+                      }`}
                   >
                     <span>{cat}</span>
                     <span className={`text-[10px] px-1.5 py-0.2 rounded-full ${isActive ? 'bg-amber-400 text-slate-950' : 'bg-gray-200 text-gray-600'}`}>
@@ -477,11 +476,10 @@ export default function BlogClient() {
               {userPublishedCount > 0 && (
                 <button
                   onClick={() => setOnlyUserCreated(!onlyUserCreated)}
-                  className={`px-3 py-2 rounded-xl text-xs font-bold border transition-colors whitespace-nowrap cursor-pointer ${
-                    onlyUserCreated
+                  className={`px-3 py-2 rounded-xl text-xs font-bold border transition-colors whitespace-nowrap cursor-pointer ${onlyUserCreated
                       ? 'bg-emerald-600 text-white border-emerald-600'
                       : 'bg-gray-50 text-slate-700 border-gray-200 hover:bg-gray-100'
-                  }`}
+                    }`}
                 >
                   My Articles ({userPublishedCount})
                 </button>
@@ -639,7 +637,7 @@ export default function BlogClient() {
       {readingPost && (
         <div className="fixed top-20 inset-x-0 bottom-0 z-40 flex items-start justify-center p-3 sm:p-6 pt-4 sm:pt-6 pb-8 bg-black/85 backdrop-blur-md overflow-y-auto animate-in fade-in duration-200">
           <div className="relative w-full max-w-3xl bg-white rounded-3xl overflow-hidden shadow-2xl border border-gray-100 max-h-[calc(100vh-6.5rem)] flex flex-col my-auto sm:my-0">
-            
+
             {/* Modal Header Bar with Close Button */}
             <div className="p-4 sm:p-5 bg-slate-900 text-white flex items-center justify-between border-b border-white/10 flex-shrink-0">
               <div className="flex items-center gap-2">
@@ -751,7 +749,7 @@ export default function BlogClient() {
       {isWriteModalOpen && (
         <div className="fixed top-20 inset-x-0 bottom-0 z-40 flex items-start justify-center p-3 sm:p-6 pt-4 sm:pt-6 pb-8 bg-black/85 backdrop-blur-md overflow-y-auto animate-in fade-in duration-200">
           <div className="relative w-full max-w-3xl bg-white rounded-3xl overflow-hidden shadow-2xl border border-gray-100 max-h-[calc(100vh-6.5rem)] flex flex-col my-auto sm:my-0">
-            
+
             {/* Modal Header */}
             <div className="p-4 sm:p-5 bg-slate-950 text-white flex items-center justify-between border-b border-white/10 flex-shrink-0">
               <div className="flex items-center gap-2.5">
@@ -772,18 +770,16 @@ export default function BlogClient() {
                   <button
                     type="button"
                     onClick={() => setActiveTab('write')}
-                    className={`px-3 py-1 rounded-lg font-bold transition-all cursor-pointer ${
-                      activeTab === 'write' ? 'bg-amber-500 text-slate-950' : 'text-gray-300 hover:text-white'
-                    }`}
+                    className={`px-3 py-1 rounded-lg font-bold transition-all cursor-pointer ${activeTab === 'write' ? 'bg-amber-500 text-slate-950' : 'text-gray-300 hover:text-white'
+                      }`}
                   >
                     Editor
                   </button>
                   <button
                     type="button"
                     onClick={() => setActiveTab('preview')}
-                    className={`px-3 py-1 rounded-lg font-bold transition-all cursor-pointer ${
-                      activeTab === 'preview' ? 'bg-amber-500 text-slate-950' : 'text-gray-300 hover:text-white'
-                    }`}
+                    className={`px-3 py-1 rounded-lg font-bold transition-all cursor-pointer ${activeTab === 'preview' ? 'bg-amber-500 text-slate-950' : 'text-gray-300 hover:text-white'
+                      }`}
                   >
                     Preview
                   </button>
@@ -800,7 +796,7 @@ export default function BlogClient() {
 
             {/* Modal Body */}
             <form onSubmit={handlePublish} className="flex-1 overflow-y-auto p-5 sm:p-8 space-y-5">
-              
+
               {activeTab === 'write' ? (
                 <>
                   {/* Title */}
@@ -870,11 +866,10 @@ export default function BlogClient() {
                           key={idx}
                           type="button"
                           onClick={() => setFormData({ ...formData, image: img.src, customImageUrl: '' })}
-                          className={`relative h-16 rounded-xl overflow-hidden border-2 transition-all cursor-pointer ${
-                            formData.image === img.src && !formData.customImageUrl
+                          className={`relative h-16 rounded-xl overflow-hidden border-2 transition-all cursor-pointer ${formData.image === img.src && !formData.customImageUrl
                               ? 'border-amber-500 ring-2 ring-amber-500/30 scale-105'
                               : 'border-gray-200 hover:border-gray-300 opacity-70 hover:opacity-100'
-                          }`}
+                            }`}
                         >
                           <Image src={img.src} alt={img.label} fill className="object-cover" />
                         </button>
@@ -909,7 +904,7 @@ export default function BlogClient() {
                       <label className="block text-xs font-bold uppercase tracking-wider text-slate-700">
                         Article Body (Markdown supported) <span className="text-rose-500">*</span>
                       </label>
-                      
+
                       {/* Formatting Helper Buttons */}
                       <div className="flex items-center gap-1 bg-gray-100 rounded-lg p-0.5 text-[11px] font-bold">
                         <button

@@ -7,14 +7,16 @@ import Breadcrumb from '@/components/common/Breadcrumb';
 import ContactClient from '@/components/contact/ContactClient';
 
 export const metadata: Metadata = {
-  title: 'Contact Us — 24/7 Service Hotline & RFQ | Airmen Engineers',
-  description: 'Connect with authorized Kaeser Kompressoren & EP Forklift specialists. Reach our Delhi Registered Office, Rohini HQ, or Dharuhera Industrial Corridor Hub for new plant equipment, emergency breakdowns, or standby rentals.',
+  title: 'Contact Us — 7 Strategic Facilities & 24/7 Hotline | Airmen Engineers',
+  description: 'Connect with authorized Kaeser Kompressoren & EP Forklift specialists across our 7 facilities in Delhi NCR, Gurugram, Dharuhera, Bhiwadi, Gajraula, and Haridwar for plant equipment, emergency breakdowns, and parts.',
   keywords: [
     'contact airmen engineers',
     'kaeser compressor service delhi',
-    'air compressor breakdown helpline',
+    'gurgaon compressor stock depot',
+    'bhiwadi industrial compressor plant',
+    'gajraula forging plant works',
+    'haridwar sidcul compressor service',
     'dharuhera compressor repair',
-    'manesar industrial compressor support',
     'emergency rental air compressor'
   ],
 };

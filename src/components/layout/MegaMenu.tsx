@@ -23,9 +23,9 @@ interface MegaMenuProps {
   onItemClick?: () => void;
 }
 
-export default function MegaMenu({ 
-  categories, 
-  viewAllHref = '/products', 
+export default function MegaMenu({
+  categories,
+  viewAllHref = '/products',
   viewAllLabel = 'View All Products',
   onItemClick
 }: MegaMenuProps) {

@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 
 export default function ServicePage() {
   return (
-    <div className="bg-[#060D17] min-h-screen">
+    <div className="bg-white min-h-screen">
       <Breadcrumb items={[{ label: 'Services & Support' }]} />
       <ServiceClient />
     </div>

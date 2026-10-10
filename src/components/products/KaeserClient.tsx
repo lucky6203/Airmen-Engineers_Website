@@ -7,16 +7,16 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { 
-  Zap, 
-  Wrench, 
-  Gauge, 
-  FileDown, 
-  ArrowRight, 
-  Layers, 
-  Flame, 
-  Wind, 
-  Cpu, 
+import {
+  Zap,
+  Wrench,
+  Gauge,
+  FileDown,
+  ArrowRight,
+  Layers,
+  Flame,
+  Wind,
+  Cpu,
   ExternalLink,
   ChevronRight,
   Droplets
@@ -242,34 +242,34 @@ export default function KaeserClient({ products, brand }: KaeserClientProps) {
   return (
     <div className="bg-gray-50 min-h-screen">
       {/* ── Hero Section ────────────────────────── */}
-      <section className="relative overflow-hidden bg-[#060D17] bg-gradient-to-b from-navy-dark via-navy to-[#060D17] text-white py-14 sm:py-20 border-b border-gold/20">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,163,35,0.08),transparent_60%)] pointer-events-none" />
+      <section className="relative overflow-hidden bg-[#FAF7F2] py-14 sm:py-20 border-b border-stone-200/80">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(245,158,11,0.06),transparent_60%)] pointer-events-none" />
 
         <Container className="relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Content */}
             <div className="lg:col-span-7">
-              <div className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-gold mb-6 animate-fade-in-up">
-                <span className="w-2 h-2 rounded-full bg-gold animate-pulse" />
+              <div className="inline-flex items-center gap-2 rounded-full border border-amber-300 bg-amber-50 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-amber-800 mb-6 animate-fade-in-up">
+                <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
                 MADE IN GERMANY • DSD SERIES BROCHURE
               </div>
 
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-white tracking-tight leading-tight mb-6">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-slate-900 tracking-tight leading-tight mb-6">
                 Kaeser DSD Series{' '}
-                <span className="bg-gradient-to-r from-gold via-amber-300 to-gold bg-clip-text text-transparent">
+                <span className="text-amber-500">
                   Rotary Screw Compressors
                 </span>
               </h1>
 
-              <p className="text-gray-300 text-base sm:text-lg leading-relaxed mb-8 max-w-2xl">
-                With the world-renowned <strong className="text-white">SIGMA PROFILE</strong> rotors, 
-                loss-free 1:1 direct transmission, IE4 Super Premium Efficiency drive motors, and up to 96% heat recovery, 
+              <p className="text-slate-600 text-base sm:text-lg leading-relaxed mb-8 max-w-2xl">
+                With the world-renowned <strong className="text-slate-900">SIGMA PROFILE</strong> rotors,
+                loss-free 1:1 direct transmission, IE4 Super Premium Efficiency drive motors, and up to 96% heat recovery,
                 KAESER delivers unmatched energy savings and continuous industrial reliability.
               </p>
 
               {/* Action Buttons */}
               <div className="flex flex-wrap items-center gap-4">
-                <Button href="/contact" size="lg" showArrow id="kaeser-enquire-hero">
+                <Button href="/contact" size="lg" showArrow id="kaeser-enquire-hero" className="bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold shadow-md">
                   Request Equipment Quote
                 </Button>
 
@@ -277,10 +277,10 @@ export default function KaeserClient({ products, brand }: KaeserClientProps) {
                   href="/brochures/kaeser-dsd-series.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 px-6 py-3.5 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-lg border border-white/20 transition-all duration-300 text-sm backdrop-blur-sm group"
+                  className="inline-flex items-center gap-2.5 px-6 py-3.5 bg-white hover:bg-stone-50 text-slate-800 font-semibold rounded-xl border border-stone-300 transition-all duration-300 text-sm shadow-xs group"
                   id="kaeser-download-catalogue"
                 >
-                  <FileDown className="w-4 h-4 text-gold group-hover:scale-110 transition-transform" />
+                  <FileDown className="w-4 h-4 text-amber-500 group-hover:scale-110 transition-transform" />
                   <span>Download DSD Brochure (PDF)</span>
                 </a>
 
@@ -289,7 +289,7 @@ export default function KaeserClient({ products, brand }: KaeserClientProps) {
                     href={brand.website}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs text-gray-400 hover:text-gold transition-colors py-2 px-3"
+                    className="inline-flex items-center gap-1.5 text-xs text-slate-500 hover:text-amber-600 transition-colors py-2 px-3"
                   >
                     <span>Visit Kaeser Global</span>
                     <ExternalLink className="w-3.5 h-3.5" />
@@ -300,11 +300,11 @@ export default function KaeserClient({ products, brand }: KaeserClientProps) {
 
             {/* Right Visual Card */}
             <div className="lg:col-span-5">
-              <div className="relative bg-gradient-to-br from-white/10 to-white/[0.02] border border-white/15 rounded-3xl p-6 sm:p-8 backdrop-blur-xl shadow-2xl overflow-hidden">
-                <div className="absolute top-0 right-0 w-40 h-40 bg-gold/10 rounded-bl-full blur-2xl pointer-events-none" />
+              <div className="relative bg-white border border-stone-200/90 rounded-3xl p-6 sm:p-8 shadow-xl overflow-hidden">
+                <div className="absolute top-0 right-0 w-40 h-40 bg-amber-500/10 rounded-bl-full blur-2xl pointer-events-none" />
 
                 {/* Kaeser Logo Header */}
-                <div className="bg-white rounded-2xl p-6 flex items-center justify-center shadow-inner mb-6 border border-white/80">
+                <div className="bg-stone-50 rounded-2xl p-6 flex items-center justify-center mb-6 border border-stone-200/80">
                   <img
                     src="/images/logos/logo-kaeser.svg"
                     alt="Kaeser Kompressoren Logo"
@@ -314,25 +314,25 @@ export default function KaeserClient({ products, brand }: KaeserClientProps) {
 
                 {/* Key Spec Badges */}
                 <div className="grid grid-cols-2 gap-3 mb-6">
-                  <div className="bg-white/5 border border-white/10 rounded-xl p-3.5">
-                    <span className="text-xs text-gray-400 block">Flow Rate (FAD)</span>
-                    <span className="text-lg font-bold text-white font-heading">3.5 – 26.6 m³/min</span>
+                  <div className="bg-stone-50 border border-stone-200 rounded-xl p-3.5">
+                    <span className="text-xs text-slate-500 block">Flow Rate (FAD)</span>
+                    <span className="text-lg font-bold text-slate-900 font-heading">3.5 – 26.6 m³/min</span>
                   </div>
-                  <div className="bg-white/5 border border-white/10 rounded-xl p-3.5">
-                    <span className="text-xs text-gray-400 block">Working Pressure</span>
-                    <span className="text-lg font-bold text-gold font-heading">5.5 – 15 bar</span>
+                  <div className="bg-stone-50 border border-stone-200 rounded-xl p-3.5">
+                    <span className="text-xs text-slate-500 block">Working Pressure</span>
+                    <span className="text-lg font-bold text-amber-600 font-heading">5.5 – 15 bar</span>
                   </div>
-                  <div className="bg-white/5 border border-white/10 rounded-xl p-3.5">
-                    <span className="text-xs text-gray-400 block">Drive Motor Power</span>
-                    <span className="text-lg font-bold text-white font-heading">75 – 132 kW</span>
+                  <div className="bg-stone-50 border border-stone-200 rounded-xl p-3.5">
+                    <span className="text-xs text-slate-500 block">Drive Motor Power</span>
+                    <span className="text-lg font-bold text-slate-900 font-heading">75 – 132 kW</span>
                   </div>
-                  <div className="bg-white/5 border border-white/10 rounded-xl p-3.5">
-                    <span className="text-xs text-gray-400 block">Heat Recovery</span>
-                    <span className="text-lg font-bold text-gold font-heading">Up to 96% Usable</span>
+                  <div className="bg-stone-50 border border-stone-200 rounded-xl p-3.5">
+                    <span className="text-xs text-slate-500 block">Heat Recovery</span>
+                    <span className="text-lg font-bold text-amber-600 font-heading">Up to 96% Usable</span>
                   </div>
                 </div>
 
-                <div className="text-xs text-gray-300 bg-white/5 p-3 rounded-xl border border-white/10">
+                <div className="text-xs text-slate-600 bg-stone-50 p-3 rounded-xl border border-stone-200">
                   <span>Authorized Sales, OEM Spares &amp; Preventive Maintenance Partner across India.</span>
                 </div>
               </div>
@@ -415,7 +415,7 @@ export default function KaeserClient({ products, brand }: KaeserClientProps) {
             </h2>
             <div className="w-20 h-1 bg-gold mx-auto rounded-full mb-4" />
             <p className="text-slate-custom text-base leading-relaxed">
-              From continuous base load operations to variable frequency modulation and integrated refrigeration drying, 
+              From continuous base load operations to variable frequency modulation and integrated refrigeration drying,
               discover the ideal German engineered compressed air solution.
             </p>
           </div>
@@ -426,11 +426,10 @@ export default function KaeserClient({ products, brand }: KaeserClientProps) {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider transition-all duration-300 ${
-                  activeTab === tab.id
+                className={`px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider transition-all duration-300 ${activeTab === tab.id
                     ? 'bg-navy text-white shadow-lg shadow-navy/20 scale-105 border border-gold/40'
                     : 'bg-white text-slate-600 hover:bg-gray-100 border border-gray-200 hover:text-navy'
-                }`}
+                  }`}
               >
                 {tab.label}
               </button>
@@ -474,9 +473,8 @@ export default function KaeserClient({ products, brand }: KaeserClientProps) {
                             <button
                               key={i}
                               onClick={() => handleThumbnailClick(product.id, imgUrl)}
-                              className={`w-8 h-8 rounded-lg overflow-hidden border-2 transition-all p-0.5 bg-white flex-shrink-0 ${
-                                activeImg === imgUrl ? 'border-gold ring-2 ring-gold/30 scale-105' : 'border-gray-200 opacity-60 hover:opacity-100 hover:border-gray-400'
-                              }`}
+                              className={`w-8 h-8 rounded-lg overflow-hidden border-2 transition-all p-0.5 bg-white flex-shrink-0 ${activeImg === imgUrl ? 'border-gold ring-2 ring-gold/30 scale-105' : 'border-gray-200 opacity-60 hover:opacity-100 hover:border-gray-400'
+                                }`}
                               title={`View view ${i + 1}`}
                             >
                               <img src={imgUrl} alt="" className="w-full h-full object-contain" />
@@ -525,9 +523,9 @@ export default function KaeserClient({ products, brand }: KaeserClientProps) {
 
                   {/* Card Action Footer */}
                   <div className="px-6 py-4 sm:px-8 sm:py-5 bg-gray-50 border-t border-gray-100 flex items-center justify-between gap-4">
-                    <Button 
-                      href={`/contact?product=${encodeURIComponent(product.name)}`} 
-                      size="sm" 
+                    <Button
+                      href={`/contact?product=${encodeURIComponent(product.name)}`}
+                      size="sm"
                       showArrow
                     >
                       Enquire for Model
@@ -585,9 +583,8 @@ export default function KaeserClient({ products, brand }: KaeserClientProps) {
                       {item.model}
                     </td>
                     <td className="py-3.5 px-5">
-                      <span className={`inline-block px-2.5 py-1 rounded-md text-xs font-medium ${
-                        item.type.includes('SFC') ? 'bg-amber-100 text-amber-900 font-semibold' : 'bg-gray-100 text-slate-700'
-                      }`}>
+                      <span className={`inline-block px-2.5 py-1 rounded-md text-xs font-medium ${item.type.includes('SFC') ? 'bg-amber-100 text-amber-900 font-semibold' : 'bg-gray-100 text-slate-700'
+                        }`}>
                         {item.type}
                       </span>
                     </td>
@@ -641,8 +638,8 @@ export default function KaeserClient({ products, brand }: KaeserClientProps) {
                 </h2>
 
                 <p className="text-gray-300 text-sm sm:text-base leading-relaxed mb-6 max-w-2xl">
-                  Get full technical access to Kaeser&apos;s 15-page German engineering manual: 
-                  air delivery curves, ISO 1217 Annex C/E test standards, cooling air ducting schematics, 
+                  Get full technical access to Kaeser&apos;s 15-page German engineering manual:
+                  air delivery curves, ISO 1217 Annex C/E test standards, cooling air ducting schematics,
                   and heat recovery installation blueprints.
                 </p>
 
@@ -709,7 +706,7 @@ export default function KaeserClient({ products, brand }: KaeserClientProps) {
             Need Expert Assistance Selecting Your Kaeser System?
           </h2>
           <p className="text-slate-custom text-base mb-8 leading-relaxed">
-            Our certified compressed air engineers conduct Air Demand Analysis (ADA) to measure your exact plant flow requirements, 
+            Our certified compressed air engineers conduct Air Demand Analysis (ADA) to measure your exact plant flow requirements,
             eliminating pressure drops and optimizing life-cycle power costs.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4 mb-6">

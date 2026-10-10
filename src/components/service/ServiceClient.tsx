@@ -26,8 +26,19 @@ import {
   HelpCircle,
   ChevronRight
 } from 'lucide-react';
+import { cn } from '@/lib/utils';
 import Container from '@/components/common/Container';
 import Button from '@/components/common/Button';
+
+const HERO_ARC_IMAGES = [
+  { id: '1', image: '/images/compressors/kaeser-dsd-maintenance.jpg', alt: 'Industrial Compressor Servicing' },
+  { id: '2', image: '/images/about-2.jpg', alt: 'Airmen Technical Engineering Team' },
+  { id: '3', image: '/images/forklifts/high-capacity-truck.webp', alt: 'Material Handling Equipment Maintenance' },
+  { id: '4', image: '/images/compressors/kaeser-p7-0-830x665.jpg', alt: 'Energy Audit & Air Diagnostics' },
+  { id: '5', image: '/images/greaves/page_1.png', alt: 'CPCB IV+ DG Set Power Care' },
+  { id: '6', image: '/images/divisions/division-02-machining.jpg', alt: 'Turnkey Infrastructure & Piping Works' },
+  { id: '7', image: '/images/compressors/kaeser-dsd-system-flow.jpg', alt: 'Precision System Testing & Overhaul' },
+];
 
 const CORE_SERVICES = [
   {
@@ -182,94 +193,79 @@ export default function ServiceClient() {
 
   return (
     <div className="bg-gray-50 min-h-screen">
-      {/* ── Hero Section ────────────────────────── */}
-      <section className="relative overflow-hidden bg-[#060D17] bg-gradient-to-b from-navy-dark via-navy to-[#060D17] text-white py-14 sm:py-20 border-b border-gold/20">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,163,35,0.08),transparent_60%)] pointer-events-none" />
-
+      {/* ── Brandlyft-Inspired Curved Image Arc Hero Section ────────────────────────── */}
+      <section className="relative overflow-hidden bg-[#FAF7F2] py-14 sm:py-20 border-b border-stone-200/80">
         <Container className="relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            
-            {/* Left Content Column */}
-            <div className="lg:col-span-7 flex flex-col items-start text-left max-sm:items-center max-sm:text-center space-y-6">
-              <h1 className="text-3xl sm:text-5xl lg:text-[3.25rem] font-black tracking-tight text-white leading-[1.12]">
-                Service &amp; Technical <br />
-                <span className="text-gold">
-                  After-Sales Engineering
-                </span>
-              </h1>
+          {/* Centered Top Text Area */}
+          <div className="max-w-4xl mx-auto text-center space-y-4 sm:space-y-5">
+            {/* Pill Banner */}
 
-              <p className="text-sm sm:text-base lg:text-lg text-slate-300 leading-relaxed max-w-xl">
-                29+ years of technical excellence protecting industrial manufacturing plants. Authorized after-sales support for Kaeser Compressors, EP Lithium Forklifts, Greaves Power DG Sets, and AIRpipe piping networks.
-              </p>
+            {/* Main Title */}
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 leading-[1.12]">
+              Zero Downtime Engineering.<br />
+              <span className="text-amber-500">24/7 Service Excellence.</span>
+            </h1>
 
-              {/* Service Badges */}
-              <div className="grid grid-cols-2 gap-2.5 w-full max-w-lg pt-1">
-                {[
-                  { title: '< 2–4 Hr Response', sub: 'Emergency breakdown dispatch' },
-                  { title: '100% Genuine Spares', sub: 'Direct from OEM factory' },
-                  { title: 'Certified Engineers', sub: 'Trained by German & OEM teams' },
-                  { title: '5,000+ Plants Supported', sub: 'Across North India since 1996' },
-                ].map((b, idx) => (
-                  <div key={idx} className="p-2.5 rounded-xl bg-white/5 border border-white/10 text-left max-sm:text-center">
-                    <div className="text-xs font-bold text-white">{b.title}</div>
-                    <div className="text-[10px] text-gray-400 mt-0.5">{b.sub}</div>
+            {/* Subtitle */}
+            <p className="text-sm sm:text-base lg:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto font-normal">
+              Protecting 5,000+ manufacturing plants across North India with certified German compressor overhauls, lithium-ion forklift care, and CPCB IV+ compliant DG set emergency support.
+            </p>
+          </div>
+
+          {/* Curved Panoramic Image Arc (7 portrait cards with zero text on images) */}
+          <div className="mt-10 sm:mt-14 mb-8 sm:mb-10 w-full overflow-x-auto scrollbar-none py-6 px-2">
+            <div className="flex items-center justify-start sm:justify-center gap-2.5 sm:gap-3.5 md:gap-4 min-w-max mx-auto px-4">
+              {HERO_ARC_IMAGES.map((item, idx) => {
+                // Arc calculations matching the user reference screenshot
+                const arcClasses = [
+                  '-rotate-[7deg] translate-y-6 sm:translate-y-8',   // Card 0 (Far left)
+                  '-rotate-[4deg] translate-y-3 sm:translate-y-4',   // Card 1
+                  '-rotate-[2deg] translate-y-1',                    // Card 2
+                  'rotate-0 translate-y-0 scale-105 z-20 shadow-xl', // Card 3 (Center)
+                  'rotate-[2deg] translate-y-1',                     // Card 4
+                  'rotate-[4deg] translate-y-3 sm:translate-y-4',    // Card 5
+                  'rotate-[7deg] translate-y-6 sm:translate-y-8',    // Card 6 (Far right)
+                ];
+
+                return (
+                  <div
+                    key={item.id}
+                    className={cn(
+                      'w-28 sm:w-36 md:w-44 lg:w-48 h-40 sm:h-52 md:h-64 lg:h-72',
+                      'rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg border border-stone-200/80 bg-white',
+                      'hover:scale-110 hover:z-30 hover:shadow-2xl transition-all duration-300 relative group flex-shrink-0',
+                      arcClasses[idx]
+                    )}
+                  >
+                    <Image
+                      src={item.image}
+                      alt={item.alt}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      priority={idx === 3}
+                    />
                   </div>
-                ))}
-              </div>
-
-              {/* Dual Action CTAs */}
-              <div className="flex flex-wrap items-center gap-3 pt-2 max-sm:justify-center">
-                <Button href="/contact" size="lg" showArrow className="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-7 shadow-xl text-xs sm:text-sm">
-                  Book a Service Engineer
-                </Button>
-                <a
-                  href="tel:+919212303791"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 bg-red-600/90 hover:bg-red-600 text-white font-semibold rounded-xl border border-red-500/40 transition-all text-xs sm:text-sm shadow-lg shadow-red-900/30"
-                >
-                  <PhoneCall className="w-4 h-4 animate-pulse" />
-                  24/7 Breakdown: +91-9212303791
-                </a>
-              </div>
+                );
+              })}
             </div>
+          </div>
 
-            {/* Right Card / Visual */}
-            <div className="lg:col-span-5 w-full">
-              <div className="relative rounded-3xl overflow-hidden bg-slate-900/90 border border-white/15 p-6 sm:p-8 shadow-2xl shadow-black/60">
-                <span className="text-amber-400 font-extrabold text-[11px] uppercase tracking-wider block mb-1">
-                  PLANT UPTIME GUARANTEE
-                </span>
-                <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">
-                  Emergency Breakdown Hotline
-                </h3>
-                <p className="text-gray-300 text-xs sm:text-sm leading-relaxed mb-6">
-                  Got an unexpected machine stoppage? Our mobile service fleet is equipped with diagnostic tools and essential spare parts ready to deploy immediately across Delhi-NCR, Haryana, UP, and Rajasthan.
-                </p>
-
-                <div className="space-y-3 mb-6">
-                  <div className="flex items-center justify-between p-3 rounded-xl bg-white/5 border border-white/10 text-xs">
-                    <span className="text-gray-400">Response Window (NCR)</span>
-                    <span className="font-bold text-amber-400">Within 2 to 4 Hours</span>
-                  </div>
-                  <div className="flex items-center justify-between p-3 rounded-xl bg-white/5 border border-white/10 text-xs">
-                    <span className="text-gray-400">First-Time Fix Rate</span>
-                    <span className="font-bold text-emerald-400">98.7% Operational</span>
-                  </div>
-                  <div className="flex items-center justify-between p-3 rounded-xl bg-white/5 border border-white/10 text-xs">
-                    <span className="text-gray-400">Parts Availability</span>
-                    <span className="font-bold text-white">Same-Day Local Stock</span>
-                  </div>
-                </div>
-
-                <a
-                  href="tel:+919810134027"
-                  className="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold rounded-xl text-xs uppercase tracking-wider transition-all shadow-md"
-                >
-                  <PhoneCall className="w-4 h-4" />
-                  Call Engineering Lead: +91-9810134027
-                </a>
-              </div>
-            </div>
-
+          {/* Centered Bottom CTA */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-center mt-2">
+            <Button
+              href="/contact"
+              size="lg"
+              className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold px-8 py-4 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 transition-all text-sm cursor-pointer"
+            >
+              Book a Service Engineer
+            </Button>
+            <a
+              href="tel:+919810134027"
+              className="inline-flex items-center gap-2 px-6 py-3.5 bg-white hover:bg-stone-50 text-slate-800 font-bold rounded-full border border-stone-300 shadow-sm hover:shadow transition-all text-sm"
+            >
+              <PhoneCall className="w-4 h-4 text-emerald-600" />
+              <span>24/7 Breakdown: +91-9810134027</span>
+            </a>
           </div>
         </Container>
       </section>

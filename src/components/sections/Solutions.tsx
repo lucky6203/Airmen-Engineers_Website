@@ -40,7 +40,7 @@ export default function Solutions() {
           className="mb-6 sm:mb-8"
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-4 xl:gap-5">
           {PRODUCT_CATEGORIES.map((category, index) => (
             <SolutionCard
               key={category.id}
@@ -133,6 +133,8 @@ function SolutionCard({
         min-[480px]:h-[360px]
         sm:h-[380px]
         md:h-[400px]
+        lg:h-[320px]
+        xl:h-[340px]
       "
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
@@ -201,7 +203,7 @@ function SolutionCard({
               src={imageUrl}
               alt={category.name}
               fill
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
               className="
                 object-contain
                 object-top
@@ -239,6 +241,8 @@ function SolutionCard({
               justify-end
               p-5
               sm:p-6
+              lg:p-4
+              xl:p-5
             "
           >
 
@@ -257,9 +261,11 @@ function SolutionCard({
 
               <h3
                 className="
-                  mb-2
+                  mb-1.5
                   text-xl
                   sm:text-2xl
+                  lg:text-lg
+                  xl:text-xl
                   font-heading
                   font-bold
                   text-white
@@ -272,9 +278,10 @@ function SolutionCard({
 
               <p
                 className="
-                  mb-3
+                  mb-2
                   text-xs
                   sm:text-sm
+                  lg:text-xs
                   text-gray-300
                   line-clamp-2
                 "
@@ -286,24 +293,27 @@ function SolutionCard({
 
               <p
                 className="
-                  mb-4
+                  mb-3
                   text-xs
                   font-medium
                   text-gold
+                  truncate
                 "
               >
                 {brandNames}
               </p>
 
               {/* EXPLORE CTA BADGE */}
-              <div className="pt-2 max-sm:flex max-sm:justify-center">
+              <div className="pt-1 max-sm:flex max-sm:justify-center">
                 <span
                   className="
                     inline-flex
                     items-center
-                    gap-2
-                    px-4
-                    py-2
+                    gap-1.5
+                    px-3.5
+                    py-1.5
+                    lg:px-3
+                    lg:py-1.5
                     rounded-lg
                     bg-white/15
                     backdrop-blur-md

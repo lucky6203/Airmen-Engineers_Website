@@ -163,6 +163,14 @@ export interface TimelineEvent {
   year: string;
   title: string;
   description: string;
+  subtitle?: string;
+  category?: string;
+  image?: string;
+  imageCaption?: string;
+  logo?: string;
+  logoAlt?: string;
+  badges?: string[];
+  dotColor?: string;
 }
 
 export interface Stat {

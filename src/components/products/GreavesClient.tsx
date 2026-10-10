@@ -8,16 +8,16 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { 
-  Zap, 
-  Wrench, 
-  Gauge, 
-  FileDown, 
-  ArrowRight, 
-  Layers, 
-  Flame, 
-  Fuel, 
-  Cpu, 
+import {
+  Zap,
+  Wrench,
+  Gauge,
+  FileDown,
+  ArrowRight,
+  Layers,
+  Flame,
+  Fuel,
+  Cpu,
   ExternalLink,
   ChevronRight,
   Settings,
@@ -440,8 +440,8 @@ export default function GreavesClient({ products, brand }: GreavesClientProps) {
   const [specSearchQuery, setSpecSearchQuery] = useState('');
 
   // Filter products by selected category tab
-  const filteredProducts = activeCategory === 'all' 
-    ? products 
+  const filteredProducts = activeCategory === 'all'
+    ? products
     : products.filter(p => p.slug === activeCategory);
 
   // Filter specs matrix
@@ -466,22 +466,22 @@ export default function GreavesClient({ products, brand }: GreavesClientProps) {
   return (
     <>
       {/* ── Brand Dark Luxury Hero Section ── */}
-      <section className="relative overflow-hidden bg-[#060D17] bg-gradient-to-b from-navy-dark via-navy to-[#060D17] text-white py-14 sm:py-20 border-b border-gold/20">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,163,35,0.08),transparent_60%)] pointer-events-none" />
+      <section className="relative overflow-hidden bg-[#FAF7F2] py-14 sm:py-20 border-b border-stone-200/80">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(245,158,11,0.06),transparent_60%)] pointer-events-none" />
 
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
-                Greaves <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500">Cotton</span>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-tight">
+                Greaves <span className="text-amber-500">Cotton</span>
               </h1>
 
-              <p className="text-xl font-medium text-amber-400/90 leading-snug">
+              <p className="text-xl font-medium text-amber-600 leading-snug">
                 Reliable Power, Lighting Up Every Life — 5 kVA to 2500* kVA
               </p>
 
-              <p className="text-gray-300 text-base sm:text-lg leading-relaxed max-w-2xl">
+              <p className="text-slate-600 text-base sm:text-lg leading-relaxed max-w-2xl">
                 {brand.description || 'Greaves generator sets deliver robust, fuel-efficient, and uninterrupted power solutions across residential, commercial, and mission-critical industrial installations. Engineered with simple engine architecture, low vibration heavy-duty frames, and Genius IoT remote telematics.'}
               </p>
 
@@ -495,9 +495,9 @@ export default function GreavesClient({ products, brand }: GreavesClientProps) {
                   '750-Hour Service Interval',
                   '1 Lakh+ Gensets in Use'
                 ].map((badge, idx) => (
-                  <span 
+                  <span
                     key={idx}
-                    className="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-white/5 border border-white/10 text-gray-200"
+                    className="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-stone-100 border border-stone-200 text-slate-700"
                   >
                     {badge}
                   </span>
@@ -506,11 +506,11 @@ export default function GreavesClient({ products, brand }: GreavesClientProps) {
 
               {/* Action Buttons */}
               <div className="flex flex-wrap items-center gap-4 pt-4">
-                <Button 
-                  href="/contact" 
-                  size="lg" 
+                <Button
+                  href="/contact"
+                  size="lg"
                   showArrow
-                  className="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-7 shadow-lg shadow-amber-500/20"
+                  className="bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold px-7 shadow-md"
                 >
                   Request Sizing & Quotation
                 </Button>
@@ -519,15 +519,15 @@ export default function GreavesClient({ products, brand }: GreavesClientProps) {
                   href="/brochures/greaves-brochure.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 bg-white/10 hover:bg-white/15 text-white font-semibold rounded-lg border border-white/20 transition-all text-sm backdrop-blur-sm shadow-md"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 bg-white hover:bg-stone-50 text-slate-800 font-semibold rounded-xl border border-stone-300 transition-all text-sm shadow-xs"
                 >
-                  <FileDown className="w-4 h-4 text-amber-400" />
+                  <FileDown className="w-4 h-4 text-amber-500" />
                   Download Official Brochure (PDF)
                 </a>
 
                 <a
                   href="#specifications-matrix"
-                  className="inline-flex items-center gap-2 text-sm text-gray-300 hover:text-amber-400 transition-colors py-2 px-1"
+                  className="inline-flex items-center gap-2 text-sm text-slate-600 hover:text-amber-600 transition-colors py-2 px-1"
                 >
                   View Technical Specs Matrix
                   <ChevronRight className="w-4 h-4" />
@@ -537,14 +537,14 @@ export default function GreavesClient({ products, brand }: GreavesClientProps) {
 
             {/* Right Hero Visual Card */}
             <div className="lg:col-span-5">
-              <div className="relative rounded-2xl bg-gradient-to-br from-white/10 to-white/5 p-4 sm:p-6 border border-white/15 backdrop-blur-md shadow-2xl shadow-black/40">
-                <div className="relative rounded-xl overflow-hidden bg-slate-900/80 border border-white/10 aspect-[4/3] flex items-center justify-center group">
+              <div className="relative rounded-2xl bg-white p-4 sm:p-6 border border-stone-200/90 shadow-xl">
+                <div className="relative rounded-xl overflow-hidden bg-stone-50 border border-stone-200 aspect-[4/3] flex items-center justify-center group">
                   <img
                     src="/images/greaves/products/greaves-canopy-industrial.jpg"
                     alt="Greaves CPCB IV+ Silent Generator Set"
                     className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute bottom-3 right-3 bg-white/95 px-3 py-1.5 rounded-lg shadow-md border border-gray-200">
+                  <div className="absolute bottom-3 right-3 bg-white px-3 py-1.5 rounded-lg shadow-sm border border-stone-200">
                     <img
                       src="/images/logos/logo-greaves.svg"
                       alt="Greaves Cotton Logo"
@@ -555,17 +555,17 @@ export default function GreavesClient({ products, brand }: GreavesClientProps) {
 
                 {/* Quick Stats Grid Under Hero Card */}
                 <div className="grid grid-cols-3 gap-3 mt-4 text-center">
-                  <div className="bg-white/5 border border-white/10 rounded-lg p-2.5">
-                    <div className="text-xl font-bold text-amber-400">165+</div>
-                    <div className="text-[11px] text-gray-300">Years Heritage</div>
+                  <div className="bg-stone-50 border border-stone-200 rounded-lg p-2.5">
+                    <div className="text-xl font-bold text-amber-600">165+</div>
+                    <div className="text-[11px] text-slate-500">Years Heritage</div>
                   </div>
-                  <div className="bg-white/5 border border-white/10 rounded-lg p-2.5">
-                    <div className="text-xl font-bold text-amber-400">750 Hrs</div>
-                    <div className="text-[11px] text-gray-300">Service Interval</div>
+                  <div className="bg-stone-50 border border-stone-200 rounded-lg p-2.5">
+                    <div className="text-xl font-bold text-amber-600">750 Hrs</div>
+                    <div className="text-[11px] text-slate-500">Service Interval</div>
                   </div>
-                  <div className="bg-white/5 border border-white/10 rounded-lg p-2.5">
-                    <div className="text-xl font-bold text-amber-400">5 Years*</div>
-                    <div className="text-[11px] text-gray-300">Warranty Protection</div>
+                  <div className="bg-stone-50 border border-stone-200 rounded-lg p-2.5">
+                    <div className="text-xl font-bold text-amber-600">5 Years*</div>
+                    <div className="text-[11px] text-slate-500">Warranty Protection</div>
                   </div>
                 </div>
               </div>
@@ -578,7 +578,7 @@ export default function GreavesClient({ products, brand }: GreavesClientProps) {
       <section className="py-16 bg-slate-50 border-b border-gray-200">
         <Container>
           <div className="text-center max-w-3xl mx-auto mb-12">
-            
+
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-3">
               Engineered for Uncompromising Reliability & Performance
             </h2>
@@ -640,7 +640,7 @@ export default function GreavesClient({ products, brand }: GreavesClientProps) {
         <Container>
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
             <div>
-              
+
               <h2 className="text-3xl font-extrabold text-slate-900 mt-2">
                 Explore Greaves Power Systems
               </h2>
@@ -655,11 +655,10 @@ export default function GreavesClient({ products, brand }: GreavesClientProps) {
                 <button
                   key={tab.id}
                   onClick={() => setActiveCategory(tab.id)}
-                  className={`px-4 py-2 rounded-lg text-xs font-semibold whitespace-nowrap transition-all ${
-                    activeCategory === tab.id
+                  className={`px-4 py-2 rounded-lg text-xs font-semibold whitespace-nowrap transition-all ${activeCategory === tab.id
                       ? 'bg-[#0a192f] text-white shadow-md'
                       : 'bg-gray-100 hover:bg-gray-200 text-slate-700'
-                  }`}
+                    }`}
                 >
                   {tab.label}
                 </button>
@@ -671,12 +670,12 @@ export default function GreavesClient({ products, brand }: GreavesClientProps) {
           <div className="space-y-16">
             {filteredProducts.map((product) => {
               const activeIndex = activeImageIndexes[product.id] || 0;
-              const productImages = product.images.length > 0 
-                ? product.images 
+              const productImages = product.images.length > 0
+                ? product.images
                 : ['/images/greaves/products/greaves-canopy-industrial.jpg'];
 
               return (
-                <div 
+                <div
                   key={product.id}
                   id={product.slug}
                   className="bg-slate-50 border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow p-6 lg:p-8"
@@ -703,11 +702,10 @@ export default function GreavesClient({ products, brand }: GreavesClientProps) {
                             <button
                               key={idx}
                               onClick={() => handleImageSwitch(product.id, idx)}
-                              className={`relative w-20 h-16 rounded-lg overflow-hidden border-2 flex-shrink-0 bg-white p-1 transition-all ${
-                                activeIndex === idx
+                              className={`relative w-20 h-16 rounded-lg overflow-hidden border-2 flex-shrink-0 bg-white p-1 transition-all ${activeIndex === idx
                                   ? 'border-amber-500 ring-2 ring-amber-500/20'
                                   : 'border-gray-200 opacity-70 hover:opacity-100'
-                              }`}
+                                }`}
                             >
                               <img
                                 src={img}
@@ -857,7 +855,7 @@ export default function GreavesClient({ products, brand }: GreavesClientProps) {
                 </thead>
                 <tbody className="divide-y divide-slate-800/80">
                   {filteredMatrix.map((item, idx) => (
-                    <tr 
+                    <tr
                       key={idx}
                       className="hover:bg-slate-700/40 transition-colors"
                     >

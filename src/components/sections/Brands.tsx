@@ -18,7 +18,9 @@ const LOGO_MAP: Record<string, string> = {
 };
 
 export default function Brands() {
-  const brands = [...BRAND_LIST, ...BRAND_LIST]; // Duplicate for seamless loop
+  // Multiply BRAND_LIST so each half is wide enough for any screen resolution, ensuring a 100% seamless infinite loop without gaps
+  const brandGroup = [...BRAND_LIST, ...BRAND_LIST, ...BRAND_LIST, ...BRAND_LIST];
+  const brands = [...brandGroup, ...brandGroup];
 
   return (
     <section className="py-2.5 sm:py-3.5 bg-gray-50 border-y border-gray-200 overflow-hidden" id="trusted-brands">
@@ -28,15 +30,18 @@ export default function Brands() {
         </p>
       </Container>
 
-      {/* Marquee */}
-      <div className="relative group overflow-hidden w-full max-w-full">
-        <div className="flex items-center animate-marquee group-hover:[animation-play-state:paused]">
+      {/* Marquee with continuous seamless loop */}
+      <div className="relative overflow-hidden w-full max-w-full">
+        <div 
+          className="flex w-max items-center animate-marquee"
+          style={{ willChange: 'transform', animationDuration: '35s' }}
+        >
           {brands.map((brand, index) => (
             <div
               key={`${brand.id}-${index}`}
               className="flex-shrink-0 mx-4 sm:mx-6 lg:mx-8 flex items-center justify-center min-w-[100px] sm:min-w-[120px] h-7 sm:h-8"
             >
-              <div className="flex items-center gap-2 opacity-70 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0">
+              <div className="flex items-center gap-2 opacity-80 hover:opacity-100 transition-opacity duration-300">
                 {LOGO_MAP[brand.id] ? (
                   <div className="relative w-20 sm:w-24 h-6 sm:h-7 flex items-center justify-center">
                     <Image
@@ -71,8 +76,8 @@ export default function Brands() {
         </div>
 
         {/* Fade edges */}
-        <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-gray-50 to-transparent z-10" />
-        <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-gray-50 to-transparent z-10" />
+        <div className="absolute inset-y-0 left-0 w-16 sm:w-24 bg-gradient-to-r from-gray-50 to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-y-0 right-0 w-16 sm:w-24 bg-gradient-to-l from-gray-50 to-transparent z-10 pointer-events-none" />
       </div>
     </section>
   );

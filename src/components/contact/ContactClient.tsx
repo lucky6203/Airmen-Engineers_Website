@@ -31,62 +31,8 @@ import {
 } from 'lucide-react';
 import Container from '@/components/common/Container';
 import { CONTACT_INFO, WHATSAPP_NUMBER, BRAND_CONTACTS } from '@/data/company';
+import IndiaInfographicMap from '@/components/contact/IndiaInfographicMap';
 import { enquirySchema, EnquiryFormValues, REQUIREMENT_OPTIONS } from '@/lib/validations';
-
-// Specialized industrial hubs
-const LOCATIONS = [
-  {
-    id: 'registered',
-    badge: 'Dealership & Commercial HQ',
-    title: 'Registered Office',
-    subtitle: 'Vardhman Seven Eleven Plaza, Pitampura / Naharpur',
-    address: CONTACT_INFO.registeredOffice.address,
-    phones: CONTACT_INFO.registeredOffice.phone,
-    emails: CONTACT_INFO.registeredOffice.email,
-    hours: 'Mon – Sat: 9:00 AM – 7:00 PM',
-    mapQuery: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3499.789123456789!2d77.1130!3d28.7065!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d03dd5349e543%3A0x44618a8b13926647!2sVardhman%20Seven%20Eleven%20Plaza!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin',
-    directionUrl: 'https://www.google.com/maps/search/?api=1&query=Vardhman+Seven+Eleven+Plaza+Naharpur+Rohini+Delhi',
-    highlights: [
-      'Authorized Kaeser Kompressoren Franchise HQ',
-      'Commercial Billing & Equipment Sales',
-      'Customer Consultation & Project Suite'
-    ],
-  },
-  {
-    id: 'headoffice',
-    badge: 'Central Overhaul & Spares Depot',
-    title: 'Head Office & Engineering Hub',
-    subtitle: 'Prahalad Vihar, Near Sector-25 Rohini',
-    address: CONTACT_INFO.headOffice.address,
-    phones: CONTACT_INFO.headOffice.phone,
-    emails: CONTACT_INFO.headOffice.email,
-    hours: '24/7 Dispatch & Operations Support',
-    mapQuery: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3498.423719888957!2d77.1084!3d28.7368!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d06d4e5f7e5d5%3A0x8f2d5930269f81d!2sPrahaladpur%20Banger%2C%20Rohini%2C%20Delhi%2C%20110042!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin',
-    directionUrl: 'https://www.google.com/maps/search/?api=1&query=Plot+C-53+Road+1+Prahalad+Vihar+Rohini+Sector+25+Delhi',
-    highlights: [
-      'Centralized Kaeser Genuine Spare Parts Depot',
-      'Compressor Overhaul & Testing Bays',
-      'Emergency Standby Rental Fleet Depot'
-    ],
-  },
-  {
-    id: 'corridor',
-    // badge: 'NH-48 Industrial Corridor Cell',
-    title: 'Dharuhera Corridor Hub',
-    subtitle: 'Vipul Garden, NH-48 Haryana',
-    address: CONTACT_INFO.branch?.address || '',
-    phones: CONTACT_INFO.branch?.phone || ['+91-9212303793'],
-    emails: CONTACT_INFO.branch?.email || ['sales@airmen.in'],
-    hours: 'Rapid Field Engineering Unit (24/7 On-Call)',
-    mapQuery: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3516.482912345678!2d76.7937!3d28.2054!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d36c2e391307b%3A0x2a198539e6a0d244!2sVipul%20Gardens%2C%20Dharuhera!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin',
-    directionUrl: 'https://www.google.com/maps/search/?api=1&query=Vipul+Gardens+Dharuhera+Haryana',
-    highlights: [
-      'Directly Servicing Dharuhera, Manesar, Bawal, Neemrana & Bhiwadi',
-      'Sub-2 Hour Emergency Field Van Mobilization',
-      'Local Stock of Fast-Moving Air Filters & Kaeser Sigma Lubricants'
-    ],
-  },
-];
 
 // Department routing cards
 const DEPARTMENTS = [
@@ -146,14 +92,11 @@ const FAQS = [
 ];
 
 export default function ContactClient() {
-  const [activeLocationId, setActiveLocationId] = useState('registered');
   const [isUrgent, setIsUrgent] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [ticketId, setTicketId] = useState('');
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
-
-  const selectedLoc = LOCATIONS.find((l) => l.id === activeLocationId) || LOCATIONS[0];
 
   const {
     register,
@@ -213,40 +156,40 @@ export default function ContactClient() {
   return (
     <div className="bg-white text-navy min-h-screen">
       
-      {/* ── 1. Hero Section: Corporate Deep Navy & Gold ───────────── */}
-      <section className="relative overflow-hidden bg-[#060D17] bg-gradient-to-b from-navy-dark via-navy to-[#060D17] text-white py-14 sm:py-20 border-b border-gold/20">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,163,35,0.08),transparent_60%)] pointer-events-none" />
+      {/* ── 1. Hero Section: Service Page Template Styling ───────────── */}
+      <section className="relative overflow-hidden bg-[#FAF7F2] py-14 sm:py-20 border-b border-stone-200/80">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(245,158,11,0.06),transparent_60%)] pointer-events-none" />
 
         <Container className="relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-6">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 leading-tight">
               Connect With Our <br className="hidden sm:inline" />
-              <span className="text-gold">
+              <span className="text-amber-500">
                 Compressed Air Specialists
               </span>
             </h1>
 
-            <p className="text-sm sm:text-base lg:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed font-body">
+            <p className="text-sm sm:text-base lg:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-body">
               Authorized Kaeser Kompressoren &amp; EP Equipment partners for 29+ years. Connect directly with our certified application engineers for new installations, emergency breakdowns, standby rentals, or factory audits.
             </p>
 
             {/* Quick Metrics Bar */}
             <div className="pt-4 grid grid-cols-2 sm:grid-cols-4 gap-3.5 max-w-3xl mx-auto text-left">
-              <div className="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
-                <div className="text-2xl font-black text-amber-400 font-mono">&lt; 2 Hrs</div>
-                <div className="text-[11px] text-gray-300 uppercase tracking-wider font-semibold">Response Time</div>
+              <div className="p-4 rounded-2xl bg-white border border-stone-200/90 shadow-xs">
+                <div className="text-2xl font-black text-amber-600 font-mono">&lt; 2 Hrs</div>
+                <div className="text-[11px] text-slate-500 uppercase tracking-wider font-semibold">Response Time</div>
               </div>
-              <div className="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
-                <div className="text-2xl font-black text-white font-mono">3 Hubs</div>
-                <div className="text-[11px] text-gray-300 uppercase tracking-wider font-semibold">Delhi &amp; Haryana</div>
+              <div className="p-4 rounded-2xl bg-white border border-stone-200/90 shadow-xs">
+                <div className="text-2xl font-black text-slate-900 font-mono">7 Hubs</div>
+                <div className="text-[11px] text-slate-500 uppercase tracking-wider font-semibold">5 Industrial States</div>
               </div>
-              <div className="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
-                <div className="text-2xl font-black text-amber-300 font-mono">24/7 Support</div>
-                <div className="text-[11px] text-gray-300 uppercase tracking-wider font-semibold">Line-Down Hotline</div>
+              <div className="p-4 rounded-2xl bg-white border border-stone-200/90 shadow-xs">
+                <div className="text-2xl font-black text-amber-600 font-mono">24/7 Support</div>
+                <div className="text-[11px] text-slate-500 uppercase tracking-wider font-semibold">Line-Down Hotline</div>
               </div>
-              <div className="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
-                <div className="text-2xl font-black text-white font-mono">5,000+</div>
-                <div className="text-[11px] text-gray-300 uppercase tracking-wider font-semibold">Plants Served</div>
+              <div className="p-4 rounded-2xl bg-white border border-stone-200/90 shadow-xs">
+                <div className="text-2xl font-black text-slate-900 font-mono">5,000+</div>
+                <div className="text-[11px] text-slate-500 uppercase tracking-wider font-semibold">Plants Served</div>
               </div>
             </div>
 
@@ -254,9 +197,9 @@ export default function ContactClient() {
             <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
               <a
                 href={`tel:${CONTACT_INFO.registeredOffice.phone[0].replace(/[^+\d]/g, '')}`}
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-gold hover:bg-gold-dark text-navy font-heading font-bold text-sm uppercase tracking-wider shadow-lg shadow-gold/25 transition-all cursor-pointer"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-amber-400 hover:bg-amber-500 text-slate-950 font-heading font-bold text-sm uppercase tracking-wider shadow-md transition-all cursor-pointer"
               >
-                <Phone className="w-4 h-4" />
+                <Phone className="w-4 h-4 text-slate-950" />
                 <span>Call Hotline ({CONTACT_INFO.registeredOffice.phone[0]})</span>
               </a>
 
@@ -264,9 +207,9 @@ export default function ContactClient() {
                 href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hello Airmen Engineers, I need urgent assistance regarding industrial compressed air / material handling.')}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-heading font-bold text-sm uppercase tracking-wider shadow-lg shadow-emerald-600/20 transition-all cursor-pointer"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-heading font-bold text-sm uppercase tracking-wider shadow-md transition-all cursor-pointer"
               >
-                <MessageSquare className="w-4 h-4" />
+                <MessageSquare className="w-4 h-4 text-white" />
                 <span>Chat on WhatsApp</span>
               </a>
             </div>
@@ -587,13 +530,13 @@ export default function ContactClient() {
         </Container>
       </section>
 
+      {/* ── 2.8 Interactive India Infographic Map & 7 Facilities Network ── */}
+      <IndiaInfographicMap />
+
       {/* ── 3. Main Work Area: RFQ Form + Facility Switcher ──────── */}
       <section className="py-16 sm:py-24 bg-slate-50 border-b border-gray-200">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
-            
-            {/* Left 7 Columns: RFQ Form Card */}
-            <div className="lg:col-span-7">
+          <div className="max-w-4xl mx-auto space-y-8">
               <div className="bg-white border border-gray-200 rounded-3xl p-6 sm:p-10 shadow-xl shadow-navy/5 relative">
                 
                 {/* Form Header */}
@@ -842,245 +785,31 @@ export default function ContactClient() {
                     </div>
                   </form>
                 )}
-              </div>
             </div>
 
-            {/* Right 5 Columns: Facility Hub Switcher */}
-            <div className="lg:col-span-5 space-y-6">
-              
-              {/* Location Selector Tabs */}
-              <div className="bg-white border border-gray-200 rounded-3xl p-6 sm:p-7 shadow-xl shadow-navy/5 space-y-5">
-                <div>
-                  <h3 className="text-xl font-bold text-navy mt-2">
-                    Airmen Facilities &amp; Hubs
-                  </h3>
-                  <p className="text-xs text-slate-600">
-                    Select a facility to view its direct coordinates, specialized capabilities, and Google Maps directions.
-                  </p>
+            {/* Direct WhatsApp Technical Support Card */}
+            <div className="p-6 sm:p-7 rounded-3xl bg-gradient-to-br from-emerald-50 via-teal-50 to-white border border-emerald-200 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-5">
+              <div className="space-y-1.5">
+                <div className="flex items-center gap-2 text-xs font-bold text-emerald-700 uppercase tracking-wider">
+                  <MessageSquare className="w-4 h-4" />
+                  <span>Instant Technical Desk</span>
                 </div>
-
-                {/* Hub Pill Buttons */}
-                <div className="flex flex-col gap-2.5">
-                  {LOCATIONS.map((loc) => {
-                    const isCurrent = loc.id === activeLocationId;
-                    return (
-                      <button
-                        key={loc.id}
-                        type="button"
-                        onClick={() => setActiveLocationId(loc.id)}
-                        className={`text-left p-3.5 rounded-2xl border transition-all cursor-pointer flex items-center justify-between gap-3 ${
-                          isCurrent
-                            ? 'bg-navy text-white border-navy shadow-md'
-                            : 'bg-gray-50 border-gray-200 text-slate-700 hover:bg-white hover:border-gray-300'
-                        }`}
-                      >
-                        <div className="flex items-center gap-3">
-                          <div
-                            className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 ${
-                              isCurrent ? 'bg-amber-400 text-navy font-bold' : 'bg-white border border-gray-200 text-navy'
-                            }`}
-                          >
-                            <Building2 className="w-5 h-5" />
-                          </div>
-                          <div>
-                            <div className={`text-[10px] font-bold uppercase tracking-wider ${isCurrent ? 'text-amber-400' : 'text-amber-700'}`}>
-                              {loc.badge}
-                            </div>
-                            <div className={`text-sm font-bold ${isCurrent ? 'text-white' : 'text-navy'}`}>
-                              {loc.title}
-                            </div>
-                          </div>
-                        </div>
-
-                        <div className="shrink-0">
-                          <span
-                            className={`w-2.5 h-2.5 rounded-full block ${
-                              isCurrent ? 'bg-amber-400 animate-ping' : 'bg-gray-300'
-                            }`}
-                          />
-                        </div>
-                      </button>
-                    );
-                  })}
-                </div>
-
-                {/* Active Hub Details Card */}
-                <div className="pt-4 border-t border-gray-200 space-y-4">
-                  <div>
-                    <h4 className="text-base font-bold text-navy flex items-center gap-2">
-                      <MapPin className="w-4 h-4 text-amber-600 shrink-0" />
-                      {selectedLoc.title}
-                    </h4>
-                    <p className="text-xs text-slate-600 leading-relaxed mt-1">
-                      {selectedLoc.address}
-                    </p>
-                  </div>
-
-                  <div className="space-y-2 text-xs">
-                    <div className="flex items-center gap-2 text-slate-600">
-                      <Clock className="w-3.5 h-3.5 text-amber-600 shrink-0" />
-                      <span>{selectedLoc.hours}</span>
-                    </div>
-
-                    <div className="flex flex-wrap items-center gap-3 pt-1">
-                      {selectedLoc.phones.map((phone) => (
-                        <a
-                          key={phone}
-                          href={`tel:${phone.replace(/[^+\d]/g, '')}`}
-                          className="inline-flex items-center gap-1.5 text-navy hover:text-gold-dark font-mono font-bold"
-                        >
-                          <Phone className="w-3 h-3 text-gold-dark" /> {phone}
-                        </a>
-                      ))}
-                    </div>
-
-                    <div className="flex flex-wrap items-center gap-3 pt-1">
-                      {selectedLoc.emails.map((email) => (
-                        <a
-                          key={email}
-                          href={`mailto:${email}`}
-                          className="inline-flex items-center gap-1.5 text-slate-600 hover:text-navy"
-                        >
-                          <Mail className="w-3 h-3 text-slate-400" /> {email}
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Highlights */}
-                  <div className="p-3.5 rounded-xl bg-slate-50 border border-gray-200 space-y-2">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 block">
-                      Facility Capabilities:
-                    </span>
-                    <ul className="space-y-1 text-xs text-slate-700">
-                      {selectedLoc.highlights.map((h, i) => (
-                        <li key={i} className="flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 shrink-0 mt-1.5" />
-                          <span>{h}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* Directions CTA */}
-                  <a
-                    href={selectedLoc.directionUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-navy hover:bg-navy-light text-white font-heading font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer shadow-sm"
-                  >
-                    <Navigation className="w-4 h-4 text-amber-400" />
-                    <span>Get Directions on Google Maps</span>
-                    <ExternalLink className="w-3 h-3 opacity-60" />
-                  </a>
-                </div>
+                <h4 className="text-lg font-bold text-navy">Prefer Direct WhatsApp Support?</h4>
+                <p className="text-xs sm:text-sm text-slate-600 max-w-xl">
+                  Connect straight with our Lead Application Engineer on WhatsApp for immediate technical queries, catalog PDFs, or emergency breakdown triage.
+                </p>
               </div>
 
-              {/* Direct WhatsApp Callout Card */}
-              <div className="p-6 rounded-3xl bg-gradient-to-br from-emerald-50 to-teal-50 border border-emerald-200 shadow-sm flex items-center justify-between gap-4">
-                <div className="space-y-1">
-                  <div className="flex items-center gap-2 text-xs font-bold text-emerald-700 uppercase tracking-wider">
-                    <MessageSquare className="w-3.5 h-3.5" />
-                    <span>Instant WhatsApp Chat</span>
-                  </div>
-                  <h4 className="text-base font-bold text-navy">Need an Instant Response?</h4>
-                  <p className="text-xs text-slate-600">
-                    Chat directly with our Technical Lead on WhatsApp without filling forms.
-                  </p>
-                </div>
-
-                <a
-                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hello Airmen Engineers, I need immediate technical consultation for our facility.')}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-4 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-heading font-bold text-xs uppercase tracking-wider shrink-0 transition-all shadow-md shadow-emerald-600/20"
-                >
-                  Chat Now
-                </a>
-              </div>
-
+              <a
+                href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hello Airmen Engineers, I need immediate technical consultation for our facility.')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-heading font-bold text-xs uppercase tracking-wider shrink-0 transition-all shadow-md shadow-emerald-600/20 text-center"
+              >
+                Chat on WhatsApp
+              </a>
             </div>
 
-          </div>
-        </Container>
-      </section>
-
-      {/* ── 4. Interactive Live Map Section ─────────────────────── */}
-      <section className="py-14 sm:py-16 bg-white border-b border-gray-200">
-        <Container>
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
-            <div>
-              <h3 className="text-xl sm:text-2xl font-bold text-navy mt-1.5">
-                Location View: {selectedLoc.title}
-              </h3>
-            </div>
-            <a
-              href={selectedLoc.directionUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-xs font-bold text-navy hover:text-gold-dark transition-colors"
-            >
-              Open in Google Maps App <ExternalLink className="w-3.5 h-3.5 text-gold-dark" />
-            </a>
-          </div>
-
-          <div className="w-full h-[400px] sm:h-[480px] rounded-3xl overflow-hidden border border-gray-200 shadow-lg relative bg-gray-100 group">
-            {/* Live Interactive Embed */}
-            <iframe
-              key={selectedLoc.id}
-              src={selectedLoc.mapQuery}
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title={`Airmen Engineers ${selectedLoc.title}`}
-              className="w-full h-full"
-            />
-
-            {/* Floating Location Card Overlay */}
-            <div className="absolute bottom-4 left-4 right-4 sm:right-auto sm:max-w-md bg-white/95 backdrop-blur-md border border-gray-200 rounded-2xl p-4 sm:p-5 shadow-2xl shadow-navy/15 flex flex-col gap-3 pointer-events-auto">
-              <div className="flex items-start justify-between gap-3">
-                <div className="flex items-start gap-2.5">
-                  <div className="w-9 h-9 rounded-xl bg-navy text-amber-400 flex items-center justify-center shrink-0 mt-0.5">
-                    <MapPin className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-amber-700 bg-amber-100 px-2 py-0.5 rounded">
-                      {selectedLoc.badge}
-                    </span>
-                    <h4 className="text-sm sm:text-base font-bold text-navy mt-1">
-                      {selectedLoc.title}
-                    </h4>
-                  </div>
-                </div>
-              </div>
-
-              <p className="text-xs text-slate-600 leading-relaxed">
-                {selectedLoc.address}
-              </p>
-
-              <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-gray-100">
-                <a
-                  href={`tel:${selectedLoc.phones[0].replace(/[^+\d]/g, '')}`}
-                  className="text-xs font-mono font-bold text-navy hover:text-gold-dark flex items-center gap-1.5"
-                >
-                  <Phone className="w-3.5 h-3.5 text-gold-dark" />
-                  {selectedLoc.phones[0]}
-                </a>
-
-                <a
-                  href={selectedLoc.directionUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-navy hover:bg-navy-light text-white font-heading font-bold text-[11px] uppercase tracking-wider transition-colors shadow-sm"
-                >
-                  <span>Directions</span>
-                  <ExternalLink className="w-3 h-3 text-amber-400" />
-                </a>
-              </div>
-            </div>
           </div>
         </Container>
       </section>

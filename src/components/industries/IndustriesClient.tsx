@@ -8,16 +8,16 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { 
-  ArrowRight, 
-  Wind, 
-  Truck, 
-  Flame, 
-  Layers, 
-  Cpu, 
-  Activity, 
-  PhoneCall, 
-  Search, 
+import {
+  ArrowRight,
+  Wind,
+  Truck,
+  Flame,
+  Layers,
+  Cpu,
+  Activity,
+  PhoneCall,
+  Search,
   ExternalLink,
   Factory,
   Globe,
@@ -199,7 +199,7 @@ export default function IndustriesClient() {
   const filteredIndustries = INDUSTRY_SHOWCASE.filter((ind) => {
     const matchesCategory = selectedFilter === 'all' || ind.category === selectedFilter;
     const q = searchQuery.toLowerCase();
-    const matchesSearch = 
+    const matchesSearch =
       ind.name.toLowerCase().includes(q) ||
       ind.description.toLowerCase().includes(q) ||
       ind.criticalNeeds.some(n => n.toLowerCase().includes(q)) ||
@@ -210,22 +210,22 @@ export default function IndustriesClient() {
   return (
     <div className="bg-gray-50 min-h-screen">
       {/* ── Hero Section with Left Text & Right 3-Card Bento Gallery ── */}
-      <section className="relative overflow-hidden bg-[#060D17] bg-gradient-to-b from-navy-dark via-navy to-[#060D17] text-white py-14 sm:py-20 border-b border-gold/20">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,163,35,0.08),transparent_60%)] pointer-events-none" />
+      <section className="relative overflow-hidden bg-[#FAF7F2] py-14 sm:py-20 border-b border-stone-200/80">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(245,158,11,0.06),transparent_60%)] pointer-events-none" />
 
         <Container className="relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            
+
             {/* Left Content Column */}
             <div className="lg:col-span-6 xl:col-span-7 flex flex-col items-start text-left max-sm:items-center max-sm:text-center space-y-6">
-              <h1 className="text-3xl sm:text-5xl lg:text-[3.25rem] font-black tracking-tight text-white leading-[1.12]">
+              <h1 className="text-3xl sm:text-5xl lg:text-[3.25rem] font-black tracking-tight text-slate-900 leading-[1.12]">
                 Powering Diverse <br />
-                <span className="text-gold">
+                <span className="text-amber-500">
                   Manufacturing Industries
                 </span>
               </h1>
 
-              <p className="text-sm sm:text-base lg:text-lg text-slate-300 leading-relaxed max-w-xl">
+              <p className="text-sm sm:text-base lg:text-lg text-slate-600 leading-relaxed max-w-xl">
                 From tier-1 automotive manufacturing plants to Japanese industrial corridors, cleanroom pharmaceuticals, and heavy engineering — our turnkey machinery delivers 99.8% plant uptime with certified lowest energy lifecycle costs.
               </p>
 
@@ -237,29 +237,29 @@ export default function IndustriesClient() {
                   { title: 'Pharma & Cleanrooms', sub: '100% Oil-Free ISO 8573-1 Class 0' },
                   { title: 'Heavy Plant Engineering', sub: 'High-kVA 24/7 continuous backup' },
                 ].map((b, idx) => (
-                  <div key={idx} className="p-2.5 rounded-xl bg-white/5 border border-white/10 text-left max-sm:text-center">
-                    <div className="text-xs font-bold text-white">{b.title}</div>
-                    <div className="text-[10px] text-gray-400 mt-0.5">{b.sub}</div>
+                  <div key={idx} className="p-2.5 rounded-xl bg-white border border-stone-200/90 shadow-xs text-left max-sm:text-center">
+                    <div className="text-xs font-bold text-slate-900">{b.title}</div>
+                    <div className="text-[10px] text-slate-500 mt-0.5">{b.sub}</div>
                   </div>
                 ))}
               </div>
 
               {/* CTAs */}
               <div className="flex flex-wrap items-center gap-3 pt-2 max-sm:justify-center">
-                <Button href="/contact" size="lg" showArrow className="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-7 shadow-xl text-xs sm:text-sm">
+                <Button href="/contact" size="lg" showArrow className="bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold px-7 shadow-md text-xs sm:text-sm">
                   Request Application Audit
                 </Button>
                 <Link
                   href="/manufacturing-infrastructure"
-                  className="inline-flex items-center gap-2 px-5 py-3.5 bg-amber-500/15 hover:bg-amber-500/25 text-amber-300 font-bold rounded-xl border border-amber-500/40 transition-all text-xs sm:text-sm"
+                  className="inline-flex items-center gap-2 px-5 py-3.5 bg-white hover:bg-stone-50 text-slate-800 font-bold rounded-xl border border-stone-300 transition-all text-xs sm:text-sm shadow-xs"
                 >
-                  <i className="fa-solid fa-industry text-amber-400" />
+                  <i className="fa-solid fa-industry text-amber-500" />
                   <span>Plant Infrastructure Tour</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
                 <Link
                   href="/products"
-                  className="inline-flex items-center gap-2 px-5 py-3.5 bg-white/10 hover:bg-white/15 text-white font-semibold rounded-xl border border-white/20 transition-all text-xs sm:text-sm"
+                  className="inline-flex items-center gap-2 px-5 py-3.5 bg-stone-100 hover:bg-stone-200 text-slate-800 font-semibold rounded-xl border border-stone-200 transition-all text-xs sm:text-sm"
                 >
                   <span>Machinery Portfolio</span>
                   <ArrowRight className="w-4 h-4" />
@@ -267,17 +267,17 @@ export default function IndustriesClient() {
               </div>
 
               {/* Trust Metrics Bar */}
-              <div className="flex items-center gap-5 pt-2 border-t border-white/10 max-sm:justify-center text-xs text-gray-300 w-full max-w-lg">
+              <div className="flex items-center gap-5 pt-2 border-t border-stone-200 max-sm:justify-center text-xs text-slate-600 w-full max-w-lg">
                 <div>
-                  <span className="font-extrabold text-amber-400 text-sm">29+</span> Years Trust
+                  <span className="font-extrabold text-amber-600 text-sm">29+</span> Years Trust
                 </div>
-                <div className="w-px h-3 bg-white/20" />
+                <div className="w-px h-3 bg-stone-300" />
                 <div>
-                  <span className="font-extrabold text-amber-400 text-sm">5,000+</span> Plants
+                  <span className="font-extrabold text-amber-600 text-sm">5,000+</span> Plants
                 </div>
-                <div className="w-px h-3 bg-white/20" />
+                <div className="w-px h-3 bg-stone-300" />
                 <div>
-                  <span className="font-extrabold text-amber-400 text-sm">99.8%</span> Uptime SLA
+                  <span className="font-extrabold text-amber-600 text-sm">99.8%</span> Uptime SLA
                 </div>
               </div>
             </div>
@@ -285,16 +285,12 @@ export default function IndustriesClient() {
             {/* Right Column: 3-Card Bento Visual Gallery */}
             <div className="lg:col-span-6 xl:col-span-5 w-full">
               <div className="grid grid-cols-2 gap-3.5 sm:gap-4">
-                
+
                 {/* 1. Top Wide Card: Automotive & Japanese Corridors */}
-                <Link 
+                <Link
                   href="/kaeser"
-                  className="col-span-2 relative aspect-[16/10] sm:aspect-[16/9.5] rounded-3xl overflow-hidden border border-white/15 bg-[#050B14] shadow-2xl shadow-black/60 group block hover:border-amber-400/50 transition-all duration-300"
+                  className="col-span-2 relative aspect-[16/10] sm:aspect-[16/9.5] rounded-3xl overflow-hidden border border-stone-200/90 bg-white shadow-lg group block hover:border-amber-400/50 transition-all duration-300"
                 >
-                  <div 
-                    className="absolute inset-0 bg-cover bg-center opacity-40 blur-xl scale-110"
-                    style={{ backgroundImage: "url('/images/about-2.jpg')" }}
-                  />
                   <Image
                     src="/images/about-2.jpg"
                     alt="Automotive & Japanese Industrial Manufacturing"
@@ -302,13 +298,13 @@ export default function IndustriesClient() {
                     className="object-cover object-center group-hover:scale-105 transition-transform duration-700 relative z-10"
                     priority
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#060D17]/95 via-[#060D17]/35 to-transparent z-10" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent z-10" />
                 </Link>
 
                 {/* 2. Bottom Left Card: Warehouse & Logistics Handling */}
                 <Link
                   href="/ep-forklifts"
-                  className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-[#070e1b] border border-white/15 shadow-xl group hover:border-red-400/50 transition-all duration-300"
+                  className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-white border border-stone-200/90 shadow-md group hover:border-amber-400/50 transition-all duration-300"
                 >
                   <Image
                     src="/images/gujraula_plant_img/2333.jpg.jpeg"
@@ -316,14 +312,13 @@ export default function IndustriesClient() {
                     fill
                     className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
-
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />
                 </Link>
 
                 {/* 3. Bottom Right Card: Heavy Continuous Plant Power */}
                 <Link
                   href="/greaves"
-                  className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-slate-900 border border-white/15 shadow-xl group hover:border-emerald-400/50 transition-all duration-300"
+                  className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-white border border-stone-200/90 shadow-md group hover:border-amber-400/50 transition-all duration-300"
                 >
                   <Image
                     src="/images/compressors/kaeser-dsd-main.jpg"
@@ -331,8 +326,7 @@ export default function IndustriesClient() {
                     fill
                     className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
-                
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />
                 </Link>
 
               </div>
@@ -352,8 +346,8 @@ export default function IndustriesClient() {
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 items-center">
             {CLIENT_LOGOS.map((c, i) => (
-              <div 
-                key={i} 
+              <div
+                key={i}
                 className="flex flex-col items-center justify-center p-4 rounded-xl bg-gray-50 border border-gray-200/80 hover:border-amber-400/50 hover:shadow-md transition-all group"
               >
                 <div className="h-10 w-full relative flex items-center justify-center">
@@ -395,11 +389,10 @@ export default function IndustriesClient() {
                   <button
                     key={tab.id}
                     onClick={() => setSelectedFilter(tab.id as any)}
-                    className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
-                      isActive
+                    className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${isActive
                         ? 'bg-navy text-white shadow-md scale-105'
                         : 'bg-gray-100 hover:bg-gray-200 text-slate-700'
-                    }`}
+                      }`}
                   >
                     {tab.label}
                   </button>
@@ -440,11 +433,11 @@ export default function IndustriesClient() {
                 className="bg-white rounded-3xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 scroll-mt-28"
               >
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
-                  
+
                   {/* Left Visual Column - Fixed with Ambient Blurred Backdrop and Zero Cropping */}
                   <div className="lg:col-span-5 relative bg-[#050B14] overflow-hidden min-h-[300px] sm:min-h-[360px] lg:min-h-[460px] flex items-center justify-center group/img">
                     {/* Ambient blurred backdrop so there is zero empty space */}
-                    <div 
+                    <div
                       className="absolute inset-0 bg-cover bg-center opacity-35 blur-2xl scale-125"
                       style={{ backgroundImage: `url(${industry.image})` }}
                     />
@@ -460,7 +453,7 @@ export default function IndustriesClient() {
                         priority={industry.id === 'automobile'}
                       />
                     </div>
-                    
+
                     {/* Top Badge */}
                     <div className="absolute top-4 left-4 z-20">
                       <span className="px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-black/75 text-amber-400 border border-white/15 backdrop-blur-md shadow-md">

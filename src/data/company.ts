@@ -9,10 +9,10 @@ export const COMPANY_TAGLINE = 'Industrial Air Compressor & Material Handling So
 export const COMPANY_ESTABLISHED = 1996;
 
 export const COMPANY_DESCRIPTION = 
-  'Airmen Engineers is a premier industrial engineering partner and precision manufacturer. Alongside Tier-1 OEM alliances for Kaeser compressors, EP forklifts, Greaves power systems, and AIRpipe networks, we operate a dedicated in-house closed-die forging and CNC machining plant in Gajraula (U.P.) producing high-precision automotive components.';
+  'Airmen Engineers is a premier industrial engineering partner and precision manufacturer. Alongside OEM alliances for Kaeser compressors, EP forklifts, Greaves power systems, and AIRpipe networks, we operate a dedicated in-house closed-die forging and CNC machining plant in Gajraula (U.P.) producing high-precision automotive components.';
 
 export const COMPANY_SHORT_DESCRIPTION = 
-  'Authorized Tier-1 OEM distributor and precision automotive forging & CNC machining manufacturer since 1996.';
+  'Authorized OEM distributor and precision automotive forging & CNC machining manufacturer since 1996.';
 
 export interface BrandContactPerson {
   brand: string;
@@ -147,38 +147,78 @@ export const COMPANY_STATS: Stat[] = [
 export const COMPANY_TIMELINE: TimelineEvent[] = [
   {
     year: '1996',
-    title: 'Company Founded',
-    description: 'Airmen Engineers established in Delhi as a pneumatic equipment supplier and distributor.',
+    title: 'Founded Airmen Engineers',
+    subtitle: 'Pneumatics & Industrial Distribution',
+    category: 'Foundational Milestone',
+    description: 'Airmen Engineers established in Delhi with a core commitment to supplying high-quality industrial air compressors, pneumatic equipment, and engineering services to emerging manufacturing clusters.',
+    logo: '/images/factory_ppt/image1.png',
+    logoAlt: 'Airmen Engineers AE Logo',
+    badges: ['Delhi Origin', 'Pneumatics & Air Systems', 'Engineering Core'],
+    dotColor: '#2563EB',
   },
   {
-    year: '2000',
-    title: 'Kaeser Partnership',
-    description: 'Became authorized dealer and service franchise for Kaeser Kompressoren, Germany.',
+    year: '2002',
+    title: 'Started Association with Kaeser Compressors',
+    subtitle: 'German Engineering Excellence',
+    category: 'Authorized Dealership',
+    description: 'Forged authorized dealership and service alliance with KAESER KOMPRESSOREN (Germany), bringing world-renowned rotary screw compressors, SIGMA PROFILE air ends, and 1:1 direct drive efficiency to India.',
+    logo: '/images/factory_ppt/image12.png',
+    logoAlt: 'KAESER COMPRESSORS',
+    badges: ['German Engineering', 'SIGMA PROFILE', 'IE4 Efficiency'],
+    dotColor: '#EAB308',
   },
   {
-    year: '2008',
-    title: 'Material Handling Division',
-    description: 'Expanded into material handling solutions with EP Forklifts partnership.',
-  },
-  {
-    year: '2015',
-    title: 'Smart Solutions',
-    description: 'Introduced AIRpipe compressed air piping solutions for efficient distribution systems.',
-  },
-  {
-    year: '2018',
-    title: 'Gajraula Manufacturing Plant',
-    description: 'Commissioned dedicated in-house forging & multi-axis CNC machining facility in Gajraula (U.P.) producing high-precision automotive components.',
+    year: '2014 & 2018',
+    title: 'Association with Legris Pipings & HYUNDAI Forklifts',
+    subtitle: 'Piping Networks & Material Handling (South Korea)',
+    category: 'Logistics & Distribution Expansion',
+    description: 'Expanded industrial infrastructure scope by introducing Legris quick-fit compressed air aluminium piping systems (2014) and Hyundai Material Handling heavy forklift solutions (2018, South Korea).',
+    badges: ['Legris Modular Piping', 'Hyundai Forklifts (South Korea)', 'Turnkey Utility Integration'],
+    dotColor: '#1D4ED8',
   },
   {
     year: '2020',
-    title: 'Power Solutions',
-    description: 'Added Greaves Cotton power generation solutions to the product portfolio.',
+    title: 'Association with Greaves Power for Gensets',
+    subtitle: 'Industrial Power Generation Solutions',
+    category: 'Power Systems',
+    description: 'Partnered with Greaves Power (New Generation Power Solutions) to deliver heavy-duty diesel generator sets, acoustic canopy installations, and emergency continuous power systems with telematics.',
+    logo: '/images/factory_ppt/image14.png',
+    logoAlt: 'GREAVES POWER',
+    badges: ['Industrial Diesel Gensets', 'Continuous Power Backup', 'Smart Telematics'],
+    dotColor: '#10B981',
   },
   {
-    year: 'Today',
-    title: 'Industry Leader',
-    description: 'Serving 5000+ customers across multiple industries with comprehensive engineering & manufacturing solutions.',
+    year: '2023-24',
+    title: 'Airmen Engineers Head Office (Delhi)',
+    subtitle: 'State-of-the-Art Corporate Headquarters',
+    category: 'Corporate Infrastructure',
+    description: 'Commissioned a multi-story corporate headquarters in Delhi, housing centralized customer service operations, an engineering training academy, project design desks, and regional spare parts logistics hub.',
+    image: '/images/factory_ppt/image26.jpg',
+    imageCaption: 'Airmen Engineers Corporate Head Office — Delhi',
+    badges: ['Delhi Headquarters', 'Centralized Spares Hub', 'Technical Training Center'],
+    dotColor: '#F59E0B',
+  },
+  {
+    year: '2025',
+    title: 'Association with EP Material Handling Equipment',
+    subtitle: 'Next-Gen Lithium-Ion Material Handling',
+    category: 'Authorized Dealership',
+    description: 'Commenced strategic partnership with EP Equipment ("Let\'s grow together"), spearheading the green revolution in industrial warehouses with advanced lithium-ion electric forklifts, reach trucks, and pallet movers.',
+    logo: '/images/logos/logo-ep.png',
+    logoAlt: 'EP Material Handling Equipment',
+    badges: ['Li-Ion Technology', 'Zero Emission Logistics', 'Electric Forklifts'],
+    dotColor: '#EF4444',
+  },
+  {
+    year: '2025: Commissioned',
+    title: 'Commissioned Airmen Engineers Factory',
+    subtitle: 'Precision Forging & CNC Machining Plant (Gajraula Works)',
+    category: 'Precision Manufacturing Works',
+    description: 'Officially commissioned a dedicated 20,000+ sq. ft. precision manufacturing plant in Gajraula (U.P.), equipped with closed-die forging hammers, high-precision CNC turning centers, and metrology testing for automotive & OEM applications.',
+    image: '/images/factory_ppt/image15.png',
+    imageCaption: 'Commissioned Airmen Engineers Factory — Gajraula Works (U.P.)',
+    badges: ['Closed-Die Forging Plant', 'Multi-Axis CNC Lathes', 'Metrology Testing'],
+    dotColor: '#DC2626',
   },
 ];
 

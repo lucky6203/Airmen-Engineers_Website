@@ -40,7 +40,7 @@ export const metadata: Metadata = {
 
 export default function ManufacturingInfrastructurePage() {
   return (
-    <div className="bg-slate-900 min-h-screen">
+    <div className="bg-white min-h-screen">
       <Breadcrumb
         items={[
           { label: 'Industries', href: '/industries' },

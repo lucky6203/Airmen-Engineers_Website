@@ -10,10 +10,12 @@ import Container from '@/components/common/Container';
 import Breadcrumb from '@/components/common/Breadcrumb';
 import Button from '@/components/common/Button';
 import { ArrowRight } from 'lucide-react';
+import AboutTimeline from '@/components/sections/AboutTimeline';
+import ProductAlbumGallery from '@/components/sections/ProductAlbumGallery';
+import ManufacturingProcess from '@/components/sections/ManufacturingProcess';
 import { 
   COMPANY_DESCRIPTION, 
   COMPANY_STATS, 
-  COMPANY_TIMELINE, 
   WHY_AIRMEN, 
   MISSION, 
   VISION,
@@ -127,37 +129,33 @@ export default function AboutPage() {
     <>
       <Breadcrumb items={[{ label: 'About Us' }]} />
 
-      {/* ── Hero Section ────────────────────────── */}
-      <section className="relative overflow-hidden bg-[#060D17] bg-gradient-to-b from-navy-dark via-navy to-[#060D17] text-white py-14 sm:py-20 border-b border-gold/20">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,163,35,0.08),transparent_60%)] pointer-events-none" />
-
+      {/* ── Hero Section (Using Service Page Warm Background #FAF7F2) ────────────────────────── */}
+      <section className="relative overflow-hidden bg-[#FAF7F2] py-14 sm:py-20 border-b border-stone-200/80">
         <Container className="relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6 text-center lg:text-left flex flex-col items-center lg:items-start">
-
-
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 leading-tight">
                 Engineering Trust.<br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500">
+                <span className="text-amber-500">
                   Powering India&apos;s Industry.
                 </span>
               </h1>
 
-              <p className="text-gray-300 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
+              <p className="text-slate-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal">
                 {COMPANY_DESCRIPTION}
               </p>
 
               <div className="flex flex-wrap justify-center lg:justify-start gap-3 pt-2">
                 {[
-                  'Authorized Tier-1 OEM Franchise',
+                  'Authorized OEM Franchise',
                   '5,000+ Active Industrial Customers',
                   'Comprehensive 24/7 Service Network',
                   'Complete Turnkey Engineering'
                 ].map((item, idx) => (
                   <span 
                     key={idx}
-                    className="inline-flex items-center px-3 py-1.5 rounded-md text-xs font-semibold bg-white/5 border border-white/10 text-gray-200"
+                    className="inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-semibold bg-white border border-stone-200/90 text-slate-700 shadow-2xs"
                   >
                     {item}
                   </span>
@@ -165,62 +163,32 @@ export default function AboutPage() {
               </div>
 
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4 w-full">
-                <Button href="/contact" size="lg" showArrow className="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-7">
+                <Button href="/contact" size="lg" showArrow className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold px-7 rounded-full shadow-md">
                   Connect With Our Engineers
                 </Button>
                 <a
                   href="#partners"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 bg-white/10 hover:bg-white/15 text-white font-semibold rounded-lg border border-white/20 transition-all text-sm"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 bg-white hover:bg-stone-50 text-slate-800 font-semibold rounded-full border border-stone-300 shadow-xs transition-all text-sm"
                 >
                   Explore OEM Partnerships
-                  <ArrowRight className="w-4 h-4 text-amber-400" />
+                  <ArrowRight className="w-4 h-4 text-amber-500" />
                 </a>
               </div>
             </div>
 
-            {/* Right Visual Collage with Floating Badge */}
-            <div className="lg:col-span-5 relative">
-              <div className="relative grid grid-cols-2 gap-4">
-                <div className="col-span-2 aspect-[16/9] relative rounded-2xl overflow-hidden shadow-2xl border border-white/15">
-                  <Image
-                    src="/images/about-1.jpg"
-                    alt="Airmen Engineers Facility"
-                    fill
-                    className="object-cover"
-                    priority
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-transparent to-transparent" />
-                 
-                </div>
+            {/* Right Visual — 3D Product Album Gallery */}
+            <div className="lg:col-span-5 xl:col-span-5 relative w-full">
+              <ProductAlbumGallery variant="light" />
 
-                <div className="aspect-[4/3] relative rounded-2xl overflow-hidden shadow-2xl border border-white/15">
-                  <Image
-                    src="/images/about-2.jpg"
-                    alt="Airmen Engineers Technical Team"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-
-                <div className="aspect-[4/3] relative rounded-2xl overflow-hidden shadow-2xl border border-white/15">
-                  <Image
-                    src="/images/about-3.jpg"
-                    alt="Airmen Engineers Workshop"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              </div>
-
-              {/* Credential Box Placed Cleanly Below Images */}
-              <div className="mt-5 bg-gradient-to-r from-slate-900/95 via-navy/90 to-slate-900/95 border border-amber-500/35 text-white p-4 sm:p-5 rounded-2xl shadow-xl backdrop-blur-md text-center sm:text-left">
+              {/* Credential Box Placed Cleanly Below Gallery */}
+              <div className="mt-4 bg-white border border-stone-200/90 text-slate-900 p-4 sm:p-5 rounded-2xl shadow-lg text-center sm:text-left">
                 <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-4">
-                  <div className="w-14 h-14 rounded-xl bg-amber-500/20 border border-amber-500/40 text-amber-400 flex items-center justify-center font-bold text-2xl font-heading flex-shrink-0 shadow-inner">
+                  <div className="w-14 h-14 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-600 flex items-center justify-center font-bold text-2xl font-heading flex-shrink-0 shadow-xs">
                     29+
                   </div>
                   <div>
-                    <h5 className="font-bold text-base text-white font-heading">Years of Proven Trust</h5>
-                    <p className="text-xs text-gray-300 mt-0.5 leading-relaxed">
+                    <h5 className="font-bold text-base text-slate-900 font-heading">Years of Proven Trust</h5>
+                    <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">
                       Over 5,000+ manufacturing plants powered with reliable air &amp; power since 1996.
                     </p>
                   </div>
@@ -261,7 +229,6 @@ export default function AboutPage() {
           <div className="text-center max-w-3xl mx-auto mb-14">
 
             <h2 className="text-3xl sm:text-4xl font-extrabold text-navy mt-3">
-              Authorized Tier-1 OEM Alliances
             </h2>
             <p className="text-slate-600 mt-2 text-sm sm:text-base">
               We exclusively represent the world&apos;s leading manufacturers of industrial equipment, ensuring every client receives authentic machinery, factory warranties, and certified spare parts.
@@ -315,117 +282,8 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* ── In-House Manufacturing Division (Gajraula Plant) ─────────── */}
-      <section className="py-20 lg:py-24 bg-[#060D17] bg-gradient-to-b from-navy-dark via-navy to-[#060D17] text-white relative overflow-hidden border-b border-gold/20" id="manufacturing-plant">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(217,163,35,0.08),transparent_60%)] pointer-events-none" />
-        
-        <Container className="relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16">
-            <div className="lg:col-span-7 space-y-5 text-center lg:text-left">
-
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight">
-                Precision Forged &amp; CNC-Machined <br />
-                <span className="text-gold">Automotive Components</span>
-              </h2>
-
-              <p className="text-slate-300 text-sm sm:text-base lg:text-lg leading-relaxed max-w-2xl">
-                Beyond turnkey authorized OEM dealership solutions, Airmen Engineers operates a dedicated precision manufacturing plant in <strong>Gajraula, Uttar Pradesh</strong>. We specialize in closed-die forgings, multi-axis CNC lathe turning, micro-tolerance internal boring, and surface profile Honing for tier-1 automotive and industrial clients.
-              </p>
-
-              <div className="flex flex-wrap justify-center lg:justify-start gap-4 pt-2">
-                <Link
-                  href="/manufacturing-products"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 bg-gold hover:bg-gold-dark text-navy font-bold rounded-xl shadow-lg transition-all text-sm"
-                >
-                  Explore Gajraula Components Range
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-                <Link
-                  href="/contact?subject=Gajraula%20Plant%20Manufacturing%20Inquiry"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 bg-white/10 hover:bg-white/15 text-white font-semibold rounded-xl border border-white/20 transition-all text-sm backdrop-blur-sm"
-                >
-                  Request Manufacturing Quote
-                </Link>
-              </div>
-            </div>
-
-            {/* Capabilities Pill Matrix */}
-            <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {[
-                { title: 'Closed-Die Forging', desc: 'Grain-flow controlled forging with superior structural integrity.', icon: '01' },
-                { title: 'Multi-Axis CNC Machining', desc: 'Precision CNC turning, facing, and high-tolerance internal boring.', icon: '02' },
-                { title: 'Micro-Tolerance Features', desc: 'Specified down to ± 0.05 mm precision depth & contour features.', icon: '03' },
-                { title: '100% CMM Inspection', desc: 'Concentricity, runout, and surface profile drawing verification.', icon: '04' },
-              ].map((cap) => (
-                <div key={cap.title} className="p-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm hover:border-gold/30 transition-all">
-                  <div className="text-gold font-mono font-bold text-xs mb-2">CAPABILITY {cap.icon}</div>
-                  <h4 className="text-base font-bold text-white mb-1.5">{cap.title}</h4>
-                  <p className="text-xs text-slate-300 leading-relaxed">{cap.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* 4 Representative Featured Parts Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              {
-                title: 'Forged Wheel Hub & Flange',
-                category: 'Flanges & Hubs',
-                process: 'Closed Die Forging & CNC Boring',
-                image: '/images/gujraula_plant_img/9456-jpeg.png',
-                id: 'forged-wheel-hub'
-              },
-              {
-                title: 'Micro-Tolerance Spacer',
-                category: 'Bushings & Spacers',
-                process: '2.7 ± 0.05 mm Precision Turning',
-                image: '/images/gujraula_plant_img/2603.jpg.jpeg',
-                id: 'micro-tolerance-spacer'
-              },
-              {
-                title: 'Heavy-Duty Machined Flange',
-                category: 'Flanges & Hubs',
-                process: 'Facing & True Position Boring',
-                image: '/images/gujraula_plant_img/9206.%20jpeg.png',
-                id: 'heavy-duty-machined-flange'
-              },
-              {
-                title: 'Forged Heavy-Duty Part',
-                category: 'Critical Profiles',
-                process: 'High-Impact Forging & Profiling',
-                image: '/images/gujraula_plant_img/4867.jpg.jpeg',
-                id: 'heavy-duty-forged-part'
-              },
-            ].map((part) => (
-              <div key={part.id} className="bg-slate-900/80 rounded-2xl overflow-hidden border border-white/10 hover:border-gold/40 transition-all group flex flex-col justify-between">
-                <div className="h-44 bg-slate-950/70 p-4 flex items-center justify-center relative overflow-hidden">
-                  <img
-                    src={part.image}
-                    alt={part.title}
-                    className="max-h-36 max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
-                  />
-                  {/* <span className="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-wider text-gold bg-gold/15 border border-gold/30 px-2 py-0.5 rounded-full">
-                    {part.category}
-                  </span> */}
-                </div>
-                <div className="p-5 flex-1 flex flex-col justify-between">
-                  <div>
-                    <h4 className="text-sm font-bold text-white group-hover:text-gold transition-colors">{part.title}</h4>
-                    <p className="text-xs text-slate-400 mt-1">{part.process}</p>
-                  </div>
-                  <Link
-                    href={`/manufacturing-products#${part.id}`}
-                    className="mt-4 pt-3 border-t border-white/10 inline-flex items-center gap-1.5 text-xs font-semibold text-gold hover:text-gold-light"
-                  >
-                    View Drawing Specs <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
+      {/* ── Manufacturing Process Workflow ─────────── */}
+      <ManufacturingProcess />
 
       {/* ── Mission, Vision & Core Values ───────── */}
       <section className="py-20 lg:py-24 bg-white border-b border-gray-200">
@@ -477,48 +335,8 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* ── Chronological Journey Timeline ─────── */}
-      <section className="py-20 lg:py-24 bg-slate-50 border-b border-gray-200">
-        <Container>
-          <div className="text-center max-w-2xl mx-auto mb-16">
-
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-navy mt-3">
-              Growing Together Since 1996
-            </h2>
-            <p className="text-slate-600 mt-2 text-sm sm:text-base">
-              A journey of relentless engineering discipline, expanding technical competencies, and enduring partnerships.
-            </p>
-          </div>
-
-          <div className="relative max-w-4xl mx-auto">
-            {/* Center Timeline Line */}
-            <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-amber-200 md:-translate-x-1/2" />
-
-            {COMPANY_TIMELINE.map((event, index) => (
-              <div
-                key={event.year}
-                className={`relative flex flex-col md:flex-row items-start gap-6 md:gap-12 mb-12 last:mb-0 ${
-                  index % 2 === 0 ? 'md:flex-row-reverse' : ''
-                }`}
-              >
-                {/* Center Node Dot */}
-                <div className="absolute left-4 md:left-1/2 w-4 h-4 bg-amber-500 rounded-full border-4 border-white shadow-md -translate-x-1.5 md:-translate-x-2 mt-2 z-10" />
-
-                {/* Event Card */}
-                <div className={`ml-10 md:ml-0 md:w-[calc(50%-2rem)] ${index % 2 === 0 ? 'md:text-right md:pr-4' : 'md:pl-4'}`}>
-                  <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
-                    <span className="inline-block px-3 py-1 rounded-full text-xs font-bold bg-navy text-amber-400 mb-2">
-                      {event.year}
-                    </span>
-                    <h4 className="text-lg font-bold text-navy">{event.title}</h4>
-                    <p className="text-xs sm:text-sm text-slate-600 mt-1.5 leading-relaxed">{event.description}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
+      {/* ── Chronological Journey Timeline Roadmap ─────── */}
+      <AboutTimeline />
 
       {/* ── Regional Facilities & Offices ───────── */}
       <section className="py-20 bg-white border-b border-gray-200">

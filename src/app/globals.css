@@ -401,6 +401,22 @@ h3 {
   }
 }
 
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+.client-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+  will-change: transform;
+}
+
+.client-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+
 .animate-float {
   animation: float 3s ease-in-out infinite;
 }

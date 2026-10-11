@@ -36,7 +36,7 @@ export default function NotFound() {
               404
             </span>
             <div className="absolute inset-0 flex flex-col items-center justify-center">
-              <span className="px-4 py-1.5 rounded-full bg-gold/20 text-gold-dark border border-gold/40 text-xs font-bold uppercase tracking-widest font-heading">
+              <span className="text-sm font-bold text-amber-700 font-heading">
                 Status 404 • Page Not Found
               </span>
             </div>

@@ -256,15 +256,17 @@ export const WHY_AIRMEN: FeatureCard[] = [
 ];
 
 export const MISSION = [
-  'Provide reliable, energy-efficient industrial solutions',
-  'Deliver exceptional technical expertise',
-  'Ensure comprehensive after-sales support',
-  'Help customers optimize operations and achieve business goals',
+  'To deliver quality industrial equipment — compressors, generators, forklifts, and piping systems — backed by fast, knowledgeable service, and to continually raise the bar on customer satisfaction through better products and support.',
 ];
 
 export const VISION = [
-  'Be the most trusted industrial partner in India',
-  'Lead in air compressors and material handling solutions',
-  'Innovate with smart monitoring systems',
-  'Set the benchmark for engineering excellence and customer service',
+  'To be the most trusted name in industrial equipment supply and service across North India — recognized for reliability, technical expertise, and long-term customer relationships.',
 ];
+
+export const DIRECTOR_MESSAGE = {
+  quote: '“Since 1996, our focus has never wavered: give customers equipment they can rely on and service they can count on. As we grow, we remain committed to the same values that built this company — honesty, technical excellence, and putting the customer first.”',
+  name: 'Mr. Anil Chopra',
+  designation: 'Director, Airmen Engineers & Services Pvt. Ltd.',
+  image: '/images/anil-chopra-director.jpg',
+};
+

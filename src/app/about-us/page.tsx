@@ -9,58 +9,87 @@ import Link from 'next/link';
 import Container from '@/components/common/Container';
 import Breadcrumb from '@/components/common/Breadcrumb';
 import Button from '@/components/common/Button';
-import { ArrowRight } from 'lucide-react';
+import { 
+  ArrowRight, 
+  Quote, 
+  ShieldCheck, 
+  Wrench, 
+  Clock, 
+  CheckCircle2, 
+  Cog, 
+  Award, 
+  HeartHandshake, 
+  Cpu
+} from 'lucide-react';
 import AboutTimeline from '@/components/sections/AboutTimeline';
 import ProductAlbumGallery from '@/components/sections/ProductAlbumGallery';
 import ManufacturingProcess from '@/components/sections/ManufacturingProcess';
 import { 
-  COMPANY_DESCRIPTION, 
-  COMPANY_STATS, 
-  WHY_AIRMEN, 
-  MISSION, 
-  VISION,
-  CONTACT_INFO 
+  CONTACT_INFO,
+  DIRECTOR_MESSAGE,
+  MISSION,
+  VISION
 } from '@/data/company';
 
 export const metadata: Metadata = {
   title: 'About Us — Airmen Engineers | 29+ Years of Industrial Excellence',
-  description: 'Airmen Engineers is India\'s trusted partner for Kaeser rotary screw compressors, EP lithium-ion forklifts, Greaves Cotton CPCB IV+ DG sets, and AIRpipe systems. Established in 1996, serving 5,000+ manufacturing plants.',
+  description: 'Since 1996, Airmen Engineers & Services Pvt. Ltd. has been India\'s trusted partner for Kaeser compressors, Greaves Power generators, EP electric forklifts, and AIRpipe systems. Authorized dealer & service franchise with in-house manufacturing.',
 };
 
 const OEM_PARTNERS = [
   {
     name: 'Kaeser Kompressoren',
+    displayName: (
+      <>
+        Kaeser<br />Kompressoren
+      </>
+    ),
     country: 'Coburg, Germany',
     since: 'Partner Since 2000',
     logo: '/images/logos/logo-kaeser.svg',
-    highlight: 'Rotary screw compressors, blowers, refrigeration dryers & SIGMA PROFILE technology.',
+    highlight: 'Globally recognized for engineering precision and energy-efficient compressed air systems, KAESER compressors deliver dependable performance for continuous industrial operations.',
     badge: 'German Precision Engineering',
     link: '/kaeser',
   },
   {
     name: 'EP Equipment',
+    displayName: (
+      <>
+        EP<br />Equipment
+      </>
+    ),
     country: 'Global Manufacturer',
     since: 'Partner Since 2008',
     logo: '/images/logos/logo-ep.png',
-    highlight: 'Lithium-ion electric forklifts, diesel yard trucks, reach trucks, and warehouse BOPT.',
+    highlight: 'Modern electric forklifts engineered for efficient material handling, built to support warehousing, logistics, and manufacturing operations.',
     badge: 'Li-Ion Material Handling Pioneer',
     link: '/ep-forklifts',
   },
   {
-    name: 'Greaves Cotton',
+    name: 'Greaves Power',
+    displayName: (
+      <>
+        Greaves<br />Cotton
+      </>
+    ),
     country: 'India (165+ Yrs)',
     since: 'Partner Since 2020',
     logo: '/images/logos/logo-greaves.svg',
-    highlight: 'CPCB IV+ compliant diesel generator sets (5 kVA – 2500* kVA) with Genius IoT telematics.',
+    highlight: 'A trusted Indian name in power generation, offering reliable diesel gensets built for consistent backup power across manufacturing and commercial facilities.',
     badge: 'CPCB IV+ Power Solutions',
     link: '/greaves',
   },
   {
     name: 'AIRpipe',
-    country: 'India',
+    displayName: (
+      <>
+        AIR<br />pipe
+      </>
+    ),
+    country: 'Global Technology',
     since: 'Partner Since 2015',
     logo: '/images/logos/logo-airpipe.png',
-    highlight: '100% all-aluminium quick-connect zero-leak piping networks for efficient compressed air distribution.',
+    highlight: 'Lightweight, corrosion-resistant aluminium piping for compressed air distribution — engineered for easy installation and long-term efficiency.',
     badge: 'Zero Corrosion Piping',
     link: '/airpipe',
   },
@@ -68,20 +97,74 @@ const OEM_PARTNERS = [
 
 const CORE_VALUES = [
   {
-    title: 'Engineering Rigor',
-    description: 'Certified OEM technicians trained directly at manufacturer headquarters. We conduct comprehensive pressure profiling, load harmonic audits, and room acoustic mapping before every installation.',
+    title: 'Integrity',
+    description: 'Honest dealings and transparent service, built on nearly three decades of customer trust.',
+    icon: ShieldCheck,
+    color: 'text-blue-600 bg-blue-50 border-blue-100',
   },
   {
-    title: 'Customer Obsession & Rapid SLA',
-    description: 'Guaranteed technical response within 4 business hours. Dedicated fleet of mobile service vans carrying fast-moving OEM spares to minimize plant downtime.',
+    title: 'Technical Excellence',
+    description: 'Trained engineers and technicians who understand the equipment inside and out.',
+    icon: Cpu,
+    color: 'text-amber-600 bg-amber-50 border-amber-100',
   },
   {
-    title: 'Clean Energy & Sustainability',
-    description: 'Actively accelerating industrial green transitions with zero-emission Lithium-ion forklifts, up to 96% heat recovery compressors, and low-emission CPCB IV+ power solutions.',
+    title: 'Customer First',
+    description: 'Responsive support and solutions built around each customer\'s operational needs.',
+    icon: HeartHandshake,
+    color: 'text-emerald-600 bg-emerald-50 border-emerald-100',
   },
   {
-    title: 'Uncompromised Integrity & Genuine Spares',
-    description: '100% genuine OEM spare parts, transparent lifecycle cost assessments, and ISO-standard installation practices without cutting corners.',
+    title: 'Reliability',
+    description: 'Genuine parts, dependable service timelines, and equipment that keeps running.',
+    icon: Award,
+    color: 'text-indigo-600 bg-indigo-50 border-indigo-100',
+  },
+];
+
+const WHY_CHOOSE_US = [
+  {
+    title: '29+ Years of Hands-on Experience',
+    description: 'Deep hands-on industrial equipment experience across Delhi NCR and Northern India since 1996.',
+    icon: Award,
+  },
+  {
+    title: 'Authorized Dealer & Service Franchise',
+    description: 'Official sales, service, and warranty partner for globally trusted brands (KAESER, GREAVES, EP, AIRpipe).',
+    icon: ShieldCheck,
+  },
+  {
+    title: '100% Genuine Spare Parts',
+    description: 'Direct OEM parts sourcing with zero compromises on quality, durability, and operational safety.',
+    icon: CheckCircle2,
+  },
+  {
+    title: 'Engineer-Led Installation & AMC',
+    description: 'Certified factory-trained engineers handling on-site commissioning, preventive maintenance & repairs.',
+    icon: Wrench,
+  },
+  {
+    title: 'In-House Precision Manufacturing',
+    description: 'Self-reliant gear and spare parts production facility ensuring rapid turnaround and tighter quality control.',
+    icon: Cog,
+  },
+];
+
+const OUR_SERVICES = [
+  {
+    title: 'AMC (Annual Maintenance Contract)',
+    description: 'Scheduled preventive maintenance plans for compressors, generators, and forklifts — designed to minimize downtime and extend equipment life. Includes periodic inspections, routine servicing, and priority breakdown support.',
+    icon: ShieldCheck,
+  },
+  {
+    title: 'Installation & Commissioning',
+    description: 'Professional on-site installation and commissioning of air compressors, diesel generators, forklifts, and piping systems — carried out by trained engineers to ensure correct setup and optimal performance from day one.',
+    icon: Wrench,
+  },
+  {
+    title: 'Repair & Overhaul',
+    description: 'Fast, reliable repair services for all major brands we deal in, using 100% genuine spare parts. Our field service team handles everything from routine fixes to major breakdowns, keeping production loss to a minimum.',
+    icon: Clock,
   },
 ];
 
@@ -90,37 +173,31 @@ const CLIENT_LOGOS = [
     name: 'Hero MotoCorp', 
     logo: '/images/clients/hero-motocorp-logo.svg',
     category: 'Automotive OEM',
-    desc: 'World\'s largest 2-wheeler manufacturer'
   },
   { 
     name: 'Havells India', 
     logo: '/images/clients/havells-logo.svg',
     category: 'Electrical & FMEG',
-    desc: 'FMEG & consumer electrical leader'
   },
   { 
     name: 'Asahi India Glass (AIS)', 
     logo: '/images/clients/asahi-ais.png',
     category: 'Glass Manufacturing',
-    desc: 'India\'s largest integrated glass producer'
   },
   { 
     name: 'Mikuni India', 
     logo: '/images/clients/mikuni-logo.svg',
     category: 'Japanese OEM',
-    desc: 'Precision automotive components'
   },
   { 
     name: 'Nidec Corporation', 
     logo: '/images/clients/nidec-logo.svg',
     category: 'Industrial Motors',
-    desc: 'Electric motors & drive systems'
   },
   { 
     name: 'Yokohama Tire', 
     logo: '/images/clients/yokohama-logo.svg',
     category: 'Tires & Rubber',
-    desc: 'Global tire manufacturing plants'
   },
 ];
 
@@ -129,48 +206,54 @@ export default function AboutPage() {
     <>
       <Breadcrumb items={[{ label: 'About Us' }]} />
 
-      {/* ── Hero Section (Using Service Page Warm Background #FAF7F2) ────────────────────────── */}
-      <section className="relative overflow-hidden bg-[#FAF7F2] py-14 sm:py-20 border-b border-stone-200/80">
+      {/* ── Hero & Company History Section ────────────────────────── */}
+      <section className="relative overflow-hidden bg-[#FAF7F2] py-10 sm:py-14 border-b border-stone-200/80">
         <Container className="relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             {/* Left Content */}
-            <div className="lg:col-span-7 space-y-6 text-center lg:text-left flex flex-col items-center lg:items-start">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 leading-tight">
-                Engineering Trust.<br />
+            <div className="lg:col-span-7 space-y-5 text-center lg:text-left flex flex-col items-center lg:items-start">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-slate-900 leading-tight">
+                Company History <br />
                 <span className="text-amber-500">
-                  Powering India&apos;s Industry.
+                Industrial Heritage Since 1996
                 </span>
               </h1>
 
-              <p className="text-slate-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal">
-                {COMPANY_DESCRIPTION}
-              </p>
+              <div className="space-y-3.5 text-slate-700 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal">
+                <p>
+                  Since 1996, Airmen Engineers &amp; Services Pvt. Ltd. has been a trusted name in India&apos;s industrial equipment sector. What began as a Delhi NCR-based supplier of air compressors has grown into a full-service authorized dealer and service franchise, representing globally recognized brands: <strong>KAESER</strong> (screw air compressors), <strong>GREAVES Power</strong> (diesel generators), <strong>EP Equipment</strong> (electric forklifts), and <strong>AIRpipe</strong> (aluminium compressed air piping systems).
+                </p>
+                <p>
+                  Alongside our dealership business, Airmen Engineers also operates its own manufacturing division, producing precision gears and spare parts. Over three decades of hands-on industry experience have earned us a reputation for genuine equipment, reliable parts, and responsive after-sales support across Delhi NCR and beyond.
+                </p>
+              </div>
 
-              <div className="flex flex-wrap justify-center lg:justify-start gap-3 pt-2">
+              <div className="flex flex-wrap justify-center lg:justify-start gap-2 pt-1">
                 {[
                   'Authorized OEM Franchise',
-                  '5,000+ Active Industrial Customers',
-                  'Comprehensive 24/7 Service Network',
-                  'Complete Turnkey Engineering'
+                  'In-House Precision Gear Facility',
+                  '100% Genuine Spare Parts',
+                  'Delhi NCR & North India Coverage'
                 ].map((item, idx) => (
                   <span 
                     key={idx}
-                    className="inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-semibold bg-white border border-stone-200/90 text-slate-700 shadow-2xs"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-white border border-stone-200/90 text-slate-800 shadow-2xs"
                   >
+                    <CheckCircle2 className="w-3.5 h-3.5 text-amber-500" />
                     {item}
                   </span>
                 ))}
               </div>
 
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4 w-full">
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2 w-full">
                 <Button href="/contact" size="lg" showArrow className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold px-7 rounded-full shadow-md">
                   Connect With Our Engineers
                 </Button>
                 <a
-                  href="#partners"
+                  href="#director-message"
                   className="inline-flex items-center gap-2 px-6 py-3.5 bg-white hover:bg-stone-50 text-slate-800 font-semibold rounded-full border border-stone-300 shadow-xs transition-all text-sm"
                 >
-                  Explore OEM Partnerships
+                  Director&apos;s Message
                   <ArrowRight className="w-4 h-4 text-amber-500" />
                 </a>
               </div>
@@ -180,16 +263,16 @@ export default function AboutPage() {
             <div className="lg:col-span-5 xl:col-span-5 relative w-full">
               <ProductAlbumGallery variant="light" />
 
-              {/* Credential Box Placed Cleanly Below Gallery */}
-              <div className="mt-4 bg-white border border-stone-200/90 text-slate-900 p-4 sm:p-5 rounded-2xl shadow-lg text-center sm:text-left">
-                <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-4">
-                  <div className="w-14 h-14 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-600 flex items-center justify-center font-bold text-2xl font-heading flex-shrink-0 shadow-xs">
+              {/* Credential Box */}
+              <div className="mt-3 bg-white border border-stone-200/90 text-slate-900 p-4 rounded-2xl shadow-md text-center sm:text-left">
+                <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-3.5">
+                  <div className="w-12 h-12 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-600 flex items-center justify-center font-bold text-xl font-heading flex-shrink-0 shadow-xs">
                     29+
                   </div>
                   <div>
-                    <h5 className="font-bold text-base text-slate-900 font-heading">Years of Proven Trust</h5>
+                    <h5 className="font-bold text-sm sm:text-base text-slate-900 font-heading">Years of Proven Trust</h5>
                     <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">
-                      Over 5,000+ manufacturing plants powered with reliable air &amp; power since 1996.
+                      Powering India&apos;s manufacturing giants with reliable equipment and responsive engineering service since 1996.
                     </p>
                   </div>
                 </div>
@@ -200,21 +283,21 @@ export default function AboutPage() {
       </section>
 
       {/* ── Key Numbers Metric Strip ────────────── */}
-      <section className="py-12 bg-white border-b border-gray-200">
+      <section className="py-6 sm:py-8 bg-white border-b border-gray-200">
         <Container>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-5">
             {[
               { value: '1996', label: 'Established' },
               { value: '29', label: 'Years Experience', suffix: '+' },
               { value: '5,000', label: 'Industrial Clients', suffix: '+' },
-              { value: '50,000', label: 'Machined Parts / Yr', suffix: '+' },
+              { value: '100%', label: 'Genuine Parts' },
               { value: '24/7', label: 'Service Support' },
             ].map((stat) => (
-              <div key={stat.label} className="text-center p-4 rounded-xl bg-slate-50 border border-gray-100 hover:border-gold/30 transition-colors">
-                <span className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-navy font-heading">
+              <div key={stat.label} className="text-center p-3.5 rounded-xl bg-slate-50 border border-gray-100 hover:border-amber-400/50 transition-colors">
+                <span className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-navy font-heading">
                   {stat.value}<span className="text-amber-500">{stat.suffix}</span>
                 </span>
-                <span className="block text-[11px] sm:text-xs text-slate-500 mt-2 font-medium uppercase tracking-wider">
+                <span className="block text-[10px] sm:text-xs text-slate-500 mt-1.5 font-medium uppercase tracking-wider">
                   {stat.label}
                 </span>
               </div>
@@ -223,42 +306,204 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* ── Authorized OEM Partnerships ─────────── */}
-      <section className="py-20 lg:py-24 bg-slate-50 border-b border-gray-200" id="partners">
+      {/* ── Director's Message Section ───────── */}
+      <section className="py-10 sm:py-14 bg-gradient-to-b from-[#FAF7F2] to-white border-b border-gray-200" id="director-message">
         <Container>
-          <div className="text-center max-w-3xl mx-auto mb-14">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-6">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-navy tracking-tight">
+                Director&apos;s Message
+              </h2>
+            </div>
 
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-navy mt-3">
-            </h2>
-            <p className="text-slate-600 mt-2 text-sm sm:text-base">
-              We exclusively represent the world&apos;s leading manufacturers of industrial equipment, ensuring every client receives authentic machinery, factory warranties, and certified spare parts.
+            {/* Director Card with Image and Message */}
+            <div className="bg-white rounded-3xl border border-stone-200 shadow-lg overflow-hidden p-6 sm:p-8 lg:p-10 relative">
+              <div className="absolute top-0 right-0 w-72 h-72 bg-amber-500/5 rounded-full blur-3xl pointer-events-none" />
+              
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
+                {/* Director Photo Visual */}
+                <div className="lg:col-span-5 flex flex-col items-center">
+                  <div className="relative group">
+                    <div className="absolute -inset-2 bg-gradient-to-tr from-amber-500 via-amber-300 to-navy rounded-3xl opacity-30 group-hover:opacity-50 blur-sm transition duration-500" />
+                    
+                    <div className="relative w-56 h-64 sm:w-64 sm:h-72 rounded-2xl overflow-hidden bg-slate-100 border-2 border-white shadow-lg">
+                      <Image
+                        src="/images/anil-chopra-director.jpg"
+                        alt="Mr. Anil Chopra - Director, Airmen Engineers & Services Pvt. Ltd."
+                        fill
+                        sizes="(max-width: 768px) 240px, 280px"
+                        className="object-cover object-top transition duration-500 group-hover:scale-105"
+                        priority
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-transparent to-transparent opacity-60" />
+
+                      <div className="absolute bottom-3 inset-x-3 text-center">
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/95 backdrop-blur-sm text-[11px] font-bold text-navy shadow-sm">
+                          <ShieldCheck className="w-3.5 h-3.5 text-amber-600" />
+                          Founder &amp; Director
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="text-center mt-3">
+                    <h4 className="text-base sm:text-lg font-extrabold text-navy">{DIRECTOR_MESSAGE.name}</h4>
+                    <p className="text-xs text-slate-500 font-medium">Director, Airmen Engineers &amp; Services Pvt. Ltd.</p>
+                  </div>
+                </div>
+
+                {/* Director Message Quote */}
+                <div className="lg:col-span-7 flex flex-col justify-center space-y-4 text-center lg:text-left">
+                  <div className="inline-flex items-center justify-center lg:justify-start">
+                    <div className="w-10 h-10 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-600 flex items-center justify-center">
+                      <Quote className="w-5 h-5 rotate-180" />
+                    </div>
+                  </div>
+
+                  <blockquote className="text-base sm:text-lg lg:text-xl text-slate-800 font-medium italic leading-relaxed">
+                    {DIRECTOR_MESSAGE.quote}
+                  </blockquote>
+
+                  {/* Sign-off Attribution */}
+                  <div className="pt-3 border-t border-gray-100 flex flex-col items-center lg:items-start space-y-1">
+                    <div className="text-sm sm:text-base font-bold text-navy font-heading">
+                      — {DIRECTOR_MESSAGE.name}
+                    </div>
+                    <div className="text-xs sm:text-sm font-semibold text-amber-600">
+                      {DIRECTOR_MESSAGE.designation}
+                    </div>
+                    <p className="text-xs text-slate-500 pt-0.5">
+                      Steering three decades of engineering dedication, customer trust, and industrial supply excellence.
+                    </p>
+                  </div>
+
+                  <div className="flex flex-wrap gap-2 pt-1 justify-center lg:justify-start">
+                    {['Honesty', 'Technical Excellence', 'Customer First', 'Reliability'].map((val, idx) => (
+                      <span key={idx} className="text-[11px] font-semibold text-slate-600 bg-slate-100 px-2.5 py-0.5 rounded-md">
+                        ✓ {val}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* ── Vision & Mission ────────────────────────── */}
+      <section className="py-10 sm:py-14 bg-white border-b border-gray-200">
+        <Container>
+          <div className="text-center max-w-2xl mx-auto mb-8">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-navy tracking-tight">Vision &amp; Mission</h2>
+            <p className="text-slate-600 text-xs sm:text-sm mt-1.5">
+              Driven by long-term customer relationships and fast, knowledgeable service support.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            {/* Vision Card */}
+            <div className="bg-gradient-to-br from-navy via-[#0F223D] to-navy text-white rounded-3xl p-6 sm:p-8 shadow-lg relative overflow-hidden flex flex-col justify-between">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-amber-400/10 rounded-full blur-2xl pointer-events-none" />
+              <div>
+                <h3 className="text-xl sm:text-2xl font-bold text-amber-400 mb-3">
+                  Our Vision
+                </h3>
+                <p className="text-gray-200 text-sm sm:text-base leading-relaxed font-normal">
+                  {VISION[0]}
+                </p>
+              </div>
+              <div className="pt-4 mt-4 border-t border-white/10 flex items-center gap-2 text-xs text-amber-300 font-semibold">
+                <CheckCircle2 className="w-4 h-4" />
+                Reliability • Technical Expertise • Long-term Relationships
+              </div>
+            </div>
+
+            {/* Mission Card */}
+            <div className="bg-gradient-to-br from-[#0F223D] via-navy to-[#0F223D] text-white rounded-3xl p-6 sm:p-8 shadow-lg relative overflow-hidden flex flex-col justify-between">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-400/10 rounded-full blur-2xl pointer-events-none" />
+              <div>
+                <h3 className="text-xl sm:text-2xl font-bold text-amber-400 mb-3">
+                  Our Mission
+                </h3>
+                <p className="text-gray-200 text-sm sm:text-base leading-relaxed font-normal">
+                  {MISSION[0]}
+                </p>
+              </div>
+              <div className="pt-4 mt-4 border-t border-white/10 flex items-center gap-2 text-xs text-amber-300 font-semibold">
+                <CheckCircle2 className="w-4 h-4" />
+                Compressors • Generators • Forklifts • Piping Systems
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* ── Our Core Values ────────────────────────── */}
+      <section className="py-10 sm:py-14 bg-slate-50 border-b border-gray-200">
+        <Container>
+          <div className="text-center max-w-2xl mx-auto mb-8">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-navy tracking-tight">
+              Our Core Values
+            </h2>
+            <p className="text-slate-600 text-xs sm:text-sm mt-1.5">
+              The fundamental principles that have guided Airmen Engineers across nearly three decades of service.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
+            {CORE_VALUES.map((val) => {
+              const IconComp = val.icon;
+              return (
+                <div 
+                  key={val.title} 
+                  className="p-5 sm:p-6 rounded-2xl bg-white border border-gray-200 hover:border-amber-400/60 shadow-xs hover:shadow-md transition-all text-center sm:text-left flex flex-col items-center sm:items-start group"
+                >
+                  <div className={`w-11 h-11 rounded-xl flex items-center justify-center mb-4 border ${val.color} transition-transform group-hover:scale-110`}>
+                    <IconComp className="w-5 h-5" />
+                  </div>
+                  <h4 className="text-base font-bold text-navy mb-2">{val.title}</h4>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{val.description}</p>
+                </div>
+              );
+            })}
+          </div>
+        </Container>
+      </section>
+
+      {/* ── Our Brand Partners ─────────── */}
+      <section className="py-10 sm:py-14 bg-white border-b border-gray-200" id="partners">
+        <Container>
+          <div className="text-center max-w-3xl mx-auto mb-8">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-navy tracking-tight">
+              Our Brand <span className="text-amber-500">Partners</span>
+            </h2>
+            <p className="text-slate-600 mt-2 text-xs sm:text-sm">
+              Authorized dealer and service franchise representing globally recognized brands for reliable continuous industrial operations.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
             {OEM_PARTNERS.map((partner) => (
               <div
                 key={partner.name}
-                className="bg-white rounded-2xl p-6 border border-gray-200 hover:border-amber-500/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group text-center sm:text-left items-center sm:items-start"
+                className="bg-slate-50 rounded-2xl p-5 sm:p-6 border border-gray-200 hover:border-amber-500/50 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group text-center sm:text-left items-center sm:items-start"
               >
                 <div className="w-full flex flex-col items-center sm:items-start">
-                  <div className="h-16 w-full flex items-center justify-center p-2 mb-6 bg-slate-50 rounded-xl border border-gray-100">
+                  <div className="h-14 w-full flex items-center justify-center p-2 mb-4 bg-white rounded-xl border border-gray-200">
                     <img
                       src={partner.logo}
                       alt={partner.name}
-                      className="max-h-10 w-auto object-contain transition-transform group-hover:scale-105 duration-300"
+                      className="max-h-9 w-auto object-contain transition-transform group-hover:scale-105 duration-300"
                     />
                   </div>
 
-                  {/* <span className="text-[11px] font-bold uppercase tracking-wider text-amber-700 bg-amber-50 border border-amber-200/60 px-2 py-0.5 rounded block w-fit mb-2">
-                    {partner.badge}
-                  </span> */}
-
-                  <h3 className="text-lg font-bold text-navy mt-1">
-                    {partner.name}
+                  <h3 className="text-base sm:text-lg font-bold text-navy mt-1 leading-snug min-h-[3rem] flex flex-col justify-end">
+                    {partner.displayName || partner.name}
                   </h3>
 
-                  <div className="text-xs text-slate-500 font-mono mb-3">
+                  <div className="text-xs text-slate-500 font-mono mb-2.5">
                     {partner.country} • {partner.since}
                   </div>
 
@@ -267,7 +512,7 @@ export default function AboutPage() {
                   </p>
                 </div>
 
-                <div className="pt-6 mt-6 border-t border-gray-100 w-full flex justify-center sm:justify-start">
+                <div className="pt-4 mt-4 border-t border-gray-200 w-full flex justify-center sm:justify-start">
                   <Link
                     href={partner.link}
                     className="inline-flex items-center gap-1.5 text-xs font-bold text-navy group-hover:text-amber-600 transition-colors"
@@ -282,76 +527,177 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* ── Manufacturing Process Workflow ─────────── */}
-      <ManufacturingProcess />
-
-      {/* ── Mission, Vision & Core Values ───────── */}
-      <section className="py-20 lg:py-24 bg-white border-b border-gray-200">
+      {/* ── Our Manufacturing Division ── */}
+      <section className="py-10 sm:py-14 bg-slate-50 border-b border-gray-200">
         <Container>
-          {/* Mission & Vision Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-            <div className="bg-gradient-to-br from-navy to-[#0F223D] text-white rounded-3xl p-8 sm:p-10 shadow-xl relative overflow-hidden">
-              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-6 text-center sm:text-left">Our Mission</h3>
-              <ul className="space-y-4">
-                {MISSION.map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-3">
-                    <span className="w-2 h-2 rounded-full bg-amber-400 flex-shrink-0 mt-2" />
-                    <p className="text-gray-200 text-sm sm:text-base leading-relaxed">{item}</p>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div className="max-w-6xl mx-auto">
+            <div className="bg-white rounded-3xl border border-gray-200 shadow-sm overflow-hidden p-6 sm:p-8">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+                
+                <div className="lg:col-span-7 space-y-4 text-center sm:text-left">
+                  <h3 className="text-2xl sm:text-3xl font-extrabold text-navy tracking-tight">
+                    Our Manufacturing Division
+                  </h3>
 
-            <div className="bg-gradient-to-br from-[#0F223D] to-navy text-white rounded-3xl p-8 sm:p-10 shadow-xl relative overflow-hidden">
-              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-6 text-center sm:text-left">Our Vision</h3>
-              <ul className="space-y-4">
-                {VISION.map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-3">
-                    <span className="w-2 h-2 rounded-full bg-amber-400 flex-shrink-0 mt-2" />
-                    <p className="text-gray-200 text-sm sm:text-base leading-relaxed">{item}</p>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+                  <p className="text-slate-700 text-xs sm:text-sm leading-relaxed">
+                    Beyond our dealership operations, Airmen Engineers runs its own manufacturing facility producing precision gears and spare parts. This in-house capability allows us to maintain tighter quality control, faster turnaround on critical components, and greater self-reliance in supporting the equipment we sell and service.
+                  </p>
 
-          {/* Core Values 4-Pillars */}
-          <div>
-            <div className="text-center max-w-2xl mx-auto mb-10">
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-navy">Our Core Operating Values</h3>
-            </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-1">
+                    <div className="p-3.5 rounded-xl bg-slate-50 border border-gray-100 flex items-start gap-3">
+                      <Cog className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
+                      <div>
+                        <h5 className="font-bold text-xs text-navy uppercase tracking-wider">Precision Gears</h5>
+                        <p className="text-xs text-slate-500 mt-0.5">High-accuracy machined gear sets for demanding industrial loads.</p>
+                      </div>
+                    </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {CORE_VALUES.map((val) => {
-                return (
-                  <div key={val.title} className="p-6 rounded-2xl bg-slate-50 border border-gray-200 hover:shadow-md transition-shadow text-center sm:text-left flex flex-col items-center sm:items-start">
-                    <h4 className="text-base font-bold text-navy mb-2">{val.title}</h4>
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{val.description}</p>
+                    <div className="p-3.5 rounded-xl bg-slate-50 border border-gray-100 flex items-start gap-3">
+                      <Wrench className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
+                      <div>
+                        <h5 className="font-bold text-xs text-navy uppercase tracking-wider">Critical Spare Parts</h5>
+                        <p className="text-xs text-slate-500 mt-0.5">Immediate availability with tighter tolerances and rigorous QC.</p>
+                      </div>
+                    </div>
                   </div>
-                );
-              })}
+                </div>
+
+                <div className="lg:col-span-5 relative">
+                  <div className="relative h-56 sm:h-64 w-full rounded-2xl overflow-hidden shadow-sm border border-gray-200">
+                    <Image
+                      src="/images/factory_ppt/image15.png"
+                      alt="Airmen Engineers Manufacturing Division - Precision Gears and Parts"
+                      fill
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-navy/70 via-transparent to-transparent" />
+                    <div className="absolute bottom-3 left-3 right-3 text-white text-xs font-semibold">
+                      Gajraula Manufacturing Plant (U.P.)
+                    </div>
+                  </div>
+                </div>
+
+              </div>
             </div>
           </div>
         </Container>
       </section>
 
+      {/* ── Why Choose Airmen Engineers ── */}
+      <section className="py-10 sm:py-14 bg-white border-b border-gray-200">
+        <Container>
+          <div className="text-center max-w-3xl mx-auto mb-8">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-navy tracking-tight">
+              Why Choose <span className="text-amber-500">Airmen Engineers</span>
+            </h2>
+            <p className="text-slate-600 mt-1.5 text-xs sm:text-sm">
+              Built on nearly three decades of customer trust, genuine engineering, and responsive support.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
+            {WHY_CHOOSE_US.map((item, idx) => {
+              const IconComp = item.icon;
+              return (
+                <div 
+                  key={idx}
+                  className="bg-slate-50 rounded-2xl p-5 border border-gray-200 hover:border-amber-400/60 shadow-xs hover:shadow-md transition-all flex flex-col justify-start"
+                >
+                  <div className="w-9 h-9 rounded-xl bg-amber-500/10 text-amber-600 border border-amber-500/20 flex items-center justify-center mb-3">
+                    <IconComp className="w-4 h-4" />
+                  </div>
+                  <h4 className="text-sm sm:text-base font-bold text-navy mb-1.5">{item.title}</h4>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{item.description}</p>
+                </div>
+              );
+            })}
+
+            {/* Extra summary card */}
+            <div className="bg-gradient-to-br from-navy to-[#0F223D] text-white rounded-2xl p-5 shadow-sm flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-bold text-amber-400 uppercase tracking-wider block mb-1.5">
+                  Total Peace of Mind
+                </span>
+                <h4 className="text-base sm:text-lg font-bold text-white mb-1.5">Zero Production Loss</h4>
+                <p className="text-xs text-gray-300 leading-relaxed">
+                  With trained field service engineers and genuine stock ready across Delhi NCR, we keep your machinery running continuously.
+                </p>
+              </div>
+              <div className="pt-3 mt-3 border-t border-white/10">
+                <Link href="/contact" className="text-xs font-bold text-amber-400 inline-flex items-center gap-1.5 hover:text-amber-300">
+                  Speak With An Engineer <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* ── Our Services ────────────────────────── */}
+      <section className="py-10 sm:py-14 bg-slate-50 border-b border-gray-200">
+        <Container>
+          <div className="text-center max-w-2xl mx-auto mb-8">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-navy tracking-tight">
+              Our Services
+            </h2>
+            <p className="text-slate-600 text-xs sm:text-sm mt-1.5">
+              End-to-end lifecycle support — from engineering installation to scheduled maintenance and emergency repair.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-6xl mx-auto">
+            {OUR_SERVICES.map((srv, idx) => {
+              const IconComp = srv.icon;
+              return (
+                <div 
+                  key={idx}
+                  className="bg-white rounded-2xl p-6 border border-gray-200 hover:border-amber-400/60 shadow-xs hover:shadow-md transition-all flex flex-col justify-between"
+                >
+                  <div>
+                    <div className="flex items-center mb-4">
+                      <div className="w-11 h-11 rounded-xl bg-amber-500/10 text-amber-600 border border-amber-500/20 flex items-center justify-center">
+                        <IconComp className="w-5 h-5" />
+                      </div>
+                    </div>
+
+                    <h3 className="text-base sm:text-lg font-bold text-navy mb-2">{srv.title}</h3>
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
+                      {srv.description}
+                    </p>
+                  </div>
+
+                  <div className="pt-3 border-t border-gray-100">
+                    <Link href="/service" className="text-xs font-bold text-navy group-hover:text-amber-600 inline-flex items-center gap-1.5 hover:text-amber-600">
+                      Explore Service Scope <ArrowRight className="w-3.5 h-3.5 text-amber-500" />
+                    </Link>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </Container>
+      </section>
+
+      {/* ── Manufacturing Process Workflow ─────────── */}
+      <ManufacturingProcess />
+
       {/* ── Chronological Journey Timeline Roadmap ─────── */}
       <AboutTimeline />
 
       {/* ── Regional Facilities & Offices ───────── */}
-      <section className="py-20 bg-white border-b border-gray-200">
+      <section className="py-10 sm:py-14 bg-white border-b border-gray-200">
         <Container>
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <h2 className="text-3xl font-extrabold text-navy">Regional Offices &amp; Facilities</h2>
-            <p className="text-slate-600 mt-2 text-sm">
+          <div className="text-center max-w-2xl mx-auto mb-8">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-navy">Regional Offices &amp; Facilities</h2>
+            <p className="text-slate-600 mt-1.5 text-xs sm:text-sm">
               Strategically located offices and workshop facilities ensuring rapid on-site service across North India.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-slate-50 border border-gray-200 rounded-2xl p-6 text-center sm:text-left flex flex-col items-center sm:items-start">
-              <h4 className="text-lg font-bold text-navy mb-1">{CONTACT_INFO.registeredOffice.label}</h4>
-              <p className="text-xs text-slate-600 leading-relaxed mb-4">{CONTACT_INFO.registeredOffice.address}</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div className="bg-slate-50 border border-gray-200 rounded-2xl p-5 text-center sm:text-left flex flex-col items-center sm:items-start">
+              <h4 className="text-base font-bold text-navy mb-1">{CONTACT_INFO.registeredOffice.label}</h4>
+              <p className="text-xs text-slate-600 leading-relaxed mb-3">{CONTACT_INFO.registeredOffice.address}</p>
               <div className="text-xs font-mono text-slate-700 font-semibold flex flex-wrap gap-1.5">
                 <a href="tel:+919212303791" className="hover:text-gold transition-colors">+91-9212303791</a>
                 <span>/</span>
@@ -359,9 +705,9 @@ export default function AboutPage() {
               </div>
             </div>
 
-            <div className="bg-slate-50 border border-gray-200 rounded-2xl p-6 text-center sm:text-left flex flex-col items-center sm:items-start">
-              <h4 className="text-lg font-bold text-navy mb-1">{CONTACT_INFO.headOffice.label}</h4>
-              <p className="text-xs text-slate-600 leading-relaxed mb-4">{CONTACT_INFO.headOffice.address}</p>
+            <div className="bg-slate-50 border border-gray-200 rounded-2xl p-5 text-center sm:text-left flex flex-col items-center sm:items-start">
+              <h4 className="text-base font-bold text-navy mb-1">{CONTACT_INFO.headOffice.label}</h4>
+              <p className="text-xs text-slate-600 leading-relaxed mb-3">{CONTACT_INFO.headOffice.address}</p>
               <div className="text-xs font-mono text-slate-700 font-semibold flex flex-wrap gap-1.5">
                 <a href="tel:+919212303791" className="hover:text-gold transition-colors">+91-9212303791</a>
                 <span>/</span>
@@ -369,9 +715,9 @@ export default function AboutPage() {
               </div>
             </div>
 
-            <div className="bg-slate-50 border border-gray-200 rounded-2xl p-6 text-center sm:text-left flex flex-col items-center sm:items-start">
-              <h4 className="text-lg font-bold text-navy mb-1">{CONTACT_INFO.branch?.label || 'Branch Office'}</h4>
-              <p className="text-xs text-slate-600 leading-relaxed mb-4">Servicing Dharuhera, Manesar, Bawal, Neemrana &amp; Bhiwadi industrial belts.</p>
+            <div className="bg-slate-50 border border-gray-200 rounded-2xl p-5 text-center sm:text-left flex flex-col items-center sm:items-start">
+              <h4 className="text-base font-bold text-navy mb-1">{CONTACT_INFO.branch?.label || 'Branch Office'}</h4>
+              <p className="text-xs text-slate-600 leading-relaxed mb-3">Servicing Dharuhera, Manesar, Bawal, Neemrana &amp; Bhiwadi industrial belts.</p>
               <div className="text-xs font-mono text-slate-700 font-semibold flex flex-wrap gap-1.5">
                 <a href="tel:+919212303793" className="hover:text-gold transition-colors">+91-9212303793</a>
                 <span>/</span>
@@ -379,9 +725,9 @@ export default function AboutPage() {
               </div>
             </div>
 
-            <div className="bg-slate-50 border border-gray-200 rounded-2xl p-6 text-center sm:text-left flex flex-col items-center sm:items-start">
-              <h4 className="text-lg font-bold text-navy mb-1">Gajraula Plant (U.P.)</h4>
-              <p className="text-xs text-slate-600 leading-relaxed mb-4">Dedicated closed-die forging, multi-axis CNC lathe turning, and precision machining plant.</p>
+            <div className="bg-slate-50 border border-gray-200 rounded-2xl p-5 text-center sm:text-left flex flex-col items-center sm:items-start">
+              <h4 className="text-base font-bold text-navy mb-1">Gajraula Plant (U.P.)</h4>
+              <p className="text-xs text-slate-600 leading-relaxed mb-3">In-house manufacturing facility producing precision gears and critical spare parts.</p>
               <div className="text-xs font-mono text-slate-700 font-semibold flex flex-wrap gap-1.5">
                 <a href="tel:+919212303791" className="hover:text-gold transition-colors">+91-9212303791</a>
                 <span>/</span>
@@ -393,11 +739,10 @@ export default function AboutPage() {
       </section>
 
       {/* ── Client Trust Logo Section ─────────────── */}
-      <section className="py-16 lg:py-20 bg-slate-50 border-b border-gray-200">
+      <section className="py-10 sm:py-12 bg-slate-50 border-b border-gray-200">
         <Container>
-          <div className="text-center max-w-2xl mx-auto mb-12">
-
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-navy mt-3">
+          <div className="text-center max-w-2xl mx-auto mb-8">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-navy">
               Trusted by India&apos;s Foremost Industrial Leaders
             </h2>
             <p className="text-slate-600 text-xs sm:text-sm mt-1">
@@ -405,18 +750,18 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-5 items-stretch">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 items-stretch">
             {CLIENT_LOGOS.map((client) => (
               <div
                 key={client.name}
-                className="group bg-white rounded-2xl p-5 border border-gray-200 hover:border-amber-500/50 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between text-center"
+                className="group bg-white rounded-2xl p-4 border border-gray-200 hover:border-amber-500/50 shadow-xs hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between text-center"
               >
                 {/* Logo Container */}
-                <div className="h-16 flex items-center justify-center p-2 mb-3">
+                <div className="h-14 flex items-center justify-center p-2 mb-2">
                   <img
                     src={client.logo}
                     alt={client.name}
-                    className="max-h-12 max-w-[90%] w-auto object-contain transition-transform duration-300 group-hover:scale-110"
+                    className="max-h-10 max-w-[90%] w-auto object-contain transition-transform duration-300 group-hover:scale-110"
                   />
                 </div>
 
@@ -434,26 +779,25 @@ export default function AboutPage() {
           </div>
 
           {/* Customer Trust Quote strip */}
-          <div className="mt-10 p-4 sm:p-5 rounded-xl bg-white border border-gray-200 text-center max-w-3xl mx-auto shadow-sm">
+          <div className="mt-8 p-4 rounded-xl bg-white border border-gray-200 text-center max-w-3xl mx-auto shadow-xs">
             <p className="text-xs text-slate-600 leading-relaxed">
-              <strong className="text-navy font-semibold">Continuous Zero-Downtime Guarantee:</strong> From Hero MotoCorp&apos;s robotic assembly to Biological E&apos;s multi-megawatt pharmaceutical grid, Airmen Engineers delivers certified OEM machinery with 24/7 dedicated support.
+              <strong className="text-navy font-semibold">Continuous Zero-Downtime Commitment:</strong> Over nearly three decades, Airmen Engineers has supported 5,000+ manufacturing plants with authorized OEM equipment, genuine spares, and expert engineer-led servicing.
             </p>
           </div>
         </Container>
       </section>
 
       {/* ── Final Engineering Consultation CTA ──── */}
-      <section className="py-20 bg-navy text-white text-center relative overflow-hidden">
+      <section className="py-12 sm:py-16 bg-navy text-white text-center relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#f59e0b_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
-        <Container className="relative z-10 max-w-3xl mx-auto space-y-6">
-
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white">
+        <Container className="relative z-10 max-w-3xl mx-auto space-y-5">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white">
             Partner With <span className="text-gold">Airmen Engineers</span>
           </h2>
-          <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
-            Let our senior application engineers evaluate your plant air demand, material handling flow, or prime standby power needs. Free initial sizing consultation.
+          <p className="text-gray-300 text-xs sm:text-sm leading-relaxed max-w-2xl mx-auto">
+            Let our senior application engineers evaluate your plant air demand, material handling flow, or prime standby power needs. Fast response, genuine equipment, and reliable after-sales support.
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
+          <div className="flex flex-wrap items-center justify-center gap-4 pt-1">
             <Button href="/contact" size="lg" showArrow className="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-8 shadow-xl">
               Schedule Site Audit
             </Button>

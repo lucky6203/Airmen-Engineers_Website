@@ -227,8 +227,8 @@ export default function AirpipeClient({ products, brand }: AirpipeClientProps) {
                 </div>
 
                 <div className="pt-2">
-                  <span className="inline-block text-[11px] text-amber-700 font-medium bg-amber-50 px-3 py-1 rounded-full border border-amber-200">
-                    Authorized Dealership &amp; Turnkey Installation
+                  <span className="inline-block text-xs text-amber-700 font-semibold">
+                    ✓ Authorized Dealership &amp; Turnkey Installation
                   </span>
                 </div>
               </div>

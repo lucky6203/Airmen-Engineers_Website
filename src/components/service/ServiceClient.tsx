@@ -8,20 +8,20 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { 
-  Wrench, 
-  Activity, 
-  PhoneCall, 
-  Clock, 
-  Package, 
-  Cpu, 
-  FileText, 
-  Headphones, 
-  ArrowRight, 
-  Wind, 
-  Truck, 
-  Flame, 
-  Zap, 
+import {
+  Wrench,
+  Activity,
+  PhoneCall,
+  Clock,
+  Package,
+  Cpu,
+  FileText,
+  Headphones,
+  ArrowRight,
+  Wind,
+  Truck,
+  Flame,
+  Zap,
   AlertCircle,
   HelpCircle,
   ChevronRight
@@ -29,16 +29,21 @@ import {
 import { cn } from '@/lib/utils';
 import Container from '@/components/common/Container';
 import Button from '@/components/common/Button';
+import CurvedHeroScroller from '@/components/service/CurvedHeroScroller';
 
-const HERO_ARC_IMAGES = [
-  { id: '1', image: '/images/compressors/kaeser-dsd-maintenance.jpg', alt: 'Industrial Compressor Servicing' },
-  { id: '2', image: '/images/about-2.jpg', alt: 'Airmen Technical Engineering Team' },
-  { id: '3', image: '/images/forklifts/high-capacity-truck.webp', alt: 'Material Handling Equipment Maintenance' },
-  { id: '4', image: '/images/compressors/kaeser-p7-0-830x665.jpg', alt: 'Energy Audit & Air Diagnostics' },
-  { id: '5', image: '/images/greaves/page_1.png', alt: 'CPCB IV+ DG Set Power Care' },
-  { id: '6', image: '/images/divisions/division-02-machining.jpg', alt: 'Turnkey Infrastructure & Piping Works' },
-  { id: '7', image: '/images/compressors/kaeser-dsd-system-flow.jpg', alt: 'Precision System Testing & Overhaul' },
+const SERVICE_HERO_CARDS = [
+  { id: '1', image: '/images/servicepage img/Modern Industrial Compressor Room.png', alt: 'Modern Industrial Compressor Room' },
+  { id: '2', image: '/images/servicepage img/KAESER DSD 240 Industrial Compressor (1).png', alt: 'KAESER DSD 240 Compressor' },
+  { id: '3', image: '/images/servicepage img/Red-and-Black EP Electric Forklift.png', alt: 'EP Electric Forklift' },
+  { id: '4', image: '/images/servicepage img/Blue Industrial Piping on Rooftop.png', alt: 'AIRpipe Industrial Piping Network' },
+  { id: '5', image: '/images/servicepage img/Yellow KAESER Industrial Compressor Unit.png', alt: 'KAESER Industrial Compressor Unit' },
+  { id: '6', image: '/images/servicepage img/Sparks Over the Turning Gear.png', alt: 'In-House Precision Gear Machining' },
+  { id: '7', image: '/images/servicepage img/ANEST IWATA Industrial Air Compressor.png', alt: 'ANEST IWATA Industrial Air Compressor' },
+  { id: '8', image: '/images/servicepage img/KAESER SXC 4 Industrial Compressor.png', alt: 'KAESER SXC 4 Compressor' },
+  { id: '9', image: '/images/servicepage img/Angled Steel Flange Coupling on White.png', alt: 'Coupling & Genuine Spares' },
+  { id: '10', image: '/images/servicepage img/Red and Black EP Electric Forklift.png', alt: 'Red & Black EP Electric Forklift' },
 ];
+
 
 const CORE_SERVICES = [
   {
@@ -193,65 +198,30 @@ export default function ServiceClient() {
 
   return (
     <div className="bg-gray-50 min-h-screen">
-      {/* ── Brandlyft-Inspired Curved Image Arc Hero Section ────────────────────────── */}
-      <section className="relative overflow-hidden bg-[#FAF7F2] py-14 sm:py-20 border-b border-stone-200/80">
+      {/* ── Service Page Hero Section with Edge-to-Edge Auto-Scrolling Cards ── */}
+      <section className="relative overflow-hidden bg-[#FAF7F2] py-10 sm:py-14 border-b border-stone-200/80">
         <Container className="relative z-10">
           {/* Centered Top Text Area */}
-          <div className="max-w-4xl mx-auto text-center space-y-4 sm:space-y-5">
-            {/* Pill Banner */}
-
-            {/* Main Title */}
+          <div className="max-w-4xl mx-auto text-center space-y-3.5 sm:space-y-4">
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 leading-[1.12]">
               Zero Downtime Engineering.<br />
               <span className="text-amber-500">24/7 Service Excellence.</span>
             </h1>
 
-            {/* Subtitle */}
             <p className="text-sm sm:text-base lg:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto font-normal">
               Protecting 5,000+ manufacturing plants across North India with certified German compressor overhauls, lithium-ion forklift care, and CPCB IV+ compliant DG set emergency support.
             </p>
           </div>
+        </Container>
 
-          {/* Curved Panoramic Image Arc (7 portrait cards with zero text on images) */}
-          <div className="mt-10 sm:mt-14 mb-8 sm:mb-10 w-full overflow-x-auto scrollbar-none py-6 px-2">
-            <div className="flex items-center justify-start sm:justify-center gap-2.5 sm:gap-3.5 md:gap-4 min-w-max mx-auto px-4">
-              {HERO_ARC_IMAGES.map((item, idx) => {
-                // Arc calculations matching the user reference screenshot
-                const arcClasses = [
-                  '-rotate-[7deg] translate-y-6 sm:translate-y-8',   // Card 0 (Far left)
-                  '-rotate-[4deg] translate-y-3 sm:translate-y-4',   // Card 1
-                  '-rotate-[2deg] translate-y-1',                    // Card 2
-                  'rotate-0 translate-y-0 scale-105 z-20 shadow-xl', // Card 3 (Center)
-                  'rotate-[2deg] translate-y-1',                     // Card 4
-                  'rotate-[4deg] translate-y-3 sm:translate-y-4',    // Card 5
-                  'rotate-[7deg] translate-y-6 sm:translate-y-8',    // Card 6 (Far right)
-                ];
+        {/* ── Full Edge-to-Edge Stationary Curved Arch Auto-Scrolling Carousel ── */}
+        <div className="mt-4 sm:mt-6 mb-4 sm:mb-6 w-full overflow-hidden">
+          <CurvedHeroScroller cards={SERVICE_HERO_CARDS} speed={0.8} />
+        </div>
 
-                return (
-                  <div
-                    key={item.id}
-                    className={cn(
-                      'w-28 sm:w-36 md:w-44 lg:w-48 h-40 sm:h-52 md:h-64 lg:h-72',
-                      'rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg border border-stone-200/80 bg-white',
-                      'hover:scale-110 hover:z-30 hover:shadow-2xl transition-all duration-300 relative group flex-shrink-0',
-                      arcClasses[idx]
-                    )}
-                  >
-                    <Image
-                      src={item.image}
-                      alt={item.alt}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                      priority={idx === 3}
-                    />
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
+        <Container className="relative z-10">
           {/* Centered Bottom CTA */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-center mt-2">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-center">
             <Button
               href="/contact"
               size="lg"
@@ -271,18 +241,18 @@ export default function ServiceClient() {
       </section>
 
       {/* ── 6 Core After-Sales Services Grid ─────── */}
-      <section className="py-16 sm:py-24 bg-white" id="services-grid">
+      <section className="py-10 sm:py-14 bg-white" id="services-grid">
         <Container>
-          <div className="text-center max-w-3xl mx-auto mb-14">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-navy mt-3">
+          <div className="text-center max-w-3xl mx-auto mb-8">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-navy mt-1">
               Comprehensive After-Sales Services
             </h2>
-            <p className="text-slate-600 text-sm sm:text-base mt-2">
+            <p className="text-slate-600 text-xs sm:text-sm mt-1.5">
               From precision German compressor overhauls to lithium-ion forklift battery maintenance and CPCB IV+ compliant DG set servicing.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {CORE_SERVICES.map((srv) => {
               const Icon = srv.icon;
               return (
@@ -300,7 +270,7 @@ export default function ServiceClient() {
                         className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                      
+
                       {/* <span className={`absolute top-3 left-3 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full border backdrop-blur-md ${srv.tagColor}`}>
                         {srv.badge}
                       </span> */}
@@ -348,27 +318,26 @@ export default function ServiceClient() {
       </section>
 
       {/* ── Annual Maintenance Contracts (AMC/CAMC) ── */}
-      <section className="py-16 sm:py-24 bg-[#070E18] text-white border-t border-b border-white/10" id="amc-packages">
+      <section className="py-10 sm:py-14 bg-[#070E18] text-white border-t border-b border-white/10" id="amc-packages">
         <Container>
-          <div className="text-center max-w-3xl mx-auto mb-14">
-           
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white mt-3">
+          <div className="text-center max-w-3xl mx-auto mb-8">
+
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white mt-1">
               Annual Maintenance Contracts (AMC)
             </h2>
-            <p className="text-gray-400 text-sm sm:text-base mt-2">
+            <p className="text-gray-400 text-xs sm:text-sm mt-1.5">
               Prevent costly production stoppages with tailored service contracts. We ensure continuous uptime with guaranteed SLA response times.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {CONTRACT_TIERS.map((tier, idx) => (
               <div
                 key={idx}
-                className={`rounded-3xl p-6 sm:p-8 flex flex-col justify-between relative transition-all duration-300 ${
-                  tier.highlight
+                className={`rounded-3xl p-6 sm:p-8 flex flex-col justify-between relative transition-all duration-300 ${tier.highlight
                     ? 'bg-gradient-to-b from-navy to-[#0b172a] border-2 border-amber-400 shadow-2xl shadow-amber-500/10 md:-translate-y-2'
                     : 'bg-white/5 border border-white/10 hover:border-white/20'
-                }`}
+                  }`}
               >
                 {tier.highlight && (
                   <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-amber-400 text-slate-950 font-bold text-[10px] uppercase tracking-wider shadow-md">
@@ -403,11 +372,10 @@ export default function ServiceClient() {
 
                 <Link
                   href="/contact"
-                  className={`w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-bold text-xs uppercase tracking-wider transition-all shadow-md ${
-                    tier.highlight
+                  className={`w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-bold text-xs uppercase tracking-wider transition-all shadow-md ${tier.highlight
                       ? 'bg-amber-500 hover:bg-amber-400 text-slate-950'
                       : 'bg-white/10 hover:bg-white/20 text-white border border-white/20'
-                  }`}
+                    }`}
                 >
                   {tier.ctaText}
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -419,14 +387,14 @@ export default function ServiceClient() {
       </section>
 
       {/* ── 4-Step Maintenance Workflow ─────────── */}
-      <section className="py-16 sm:py-24 bg-white">
+      <section className="py-10 sm:py-14 bg-white">
         <Container>
-          <div className="text-center max-w-3xl mx-auto mb-14">
-            
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-navy mt-3">
+          <div className="text-center max-w-3xl mx-auto mb-8">
+
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-navy mt-1">
               How Our Service Team Works
             </h2>
-            <p className="text-slate-600 text-sm sm:text-base mt-2">
+            <p className="text-slate-600 text-xs sm:text-sm mt-1.5">
               A transparent, audited process ensuring zero delays and complete accountability for your engineering machinery.
             </p>
           </div>
@@ -471,7 +439,7 @@ export default function ServiceClient() {
       </section>
 
       {/* ── Direct Consultation & Call CTA ──────── */}
-      <section className="py-20 bg-navy text-white text-center relative overflow-hidden">
+      <section className="py-12 sm:py-16 bg-navy text-white text-center relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#f59e0b_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
         <Container className="relative z-10 max-w-3xl mx-auto space-y-6">
           <div className="w-16 h-16 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center mx-auto">

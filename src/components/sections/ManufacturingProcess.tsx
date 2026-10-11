@@ -115,7 +115,7 @@ export default function ManufacturingProcess() {
   const [activeStep, setActiveStep] = useState<number | null>(null);
 
   return (
-    <section className="py-16 sm:py-20 lg:py-24 bg-white relative overflow-hidden border-b border-gray-200" id="manufacturing-process">
+    <section className="py-10 sm:py-14 bg-white relative overflow-hidden border-b border-gray-200" id="manufacturing-process">
       {/* Subtle Background Industrial Grid */}
       <div 
         className="absolute inset-0 opacity-[0.025] pointer-events-none"
@@ -124,17 +124,12 @@ export default function ManufacturingProcess() {
 
       <Container className="relative z-10">
         {/* ── Section Header ── */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-50 border border-orange-200 text-orange-700 text-xs font-bold uppercase tracking-widest mb-3">
-            <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse" />
-            In-House Gajraula Plant Capabilities
-          </div>
-
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-navy tracking-tight uppercase leading-tight">
+        <div className="text-center max-w-3xl mx-auto mb-8">
+          <h2 className="text-3xl sm:text-4xl font-black text-navy tracking-tight uppercase leading-tight">
             MANUFACTURING <span className="text-orange-500">PROCESS</span>
           </h2>
 
-          <p className="text-base sm:text-lg lg:text-xl text-slate-600 mt-3 font-medium">
+          <p className="text-sm sm:text-base text-slate-600 mt-2 font-medium">
             From Raw Material to Precision-Engineered Components
           </p>
 
@@ -336,39 +331,6 @@ export default function ManufacturingProcess() {
             );
           })}
         </div>
-
-        {/* ── Gajraula Manufacturing Capability Banner ── */}
-        <div className="mt-12 p-6 sm:p-8 rounded-3xl bg-slate-900 text-white flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl border border-slate-800">
-          <div className="space-y-1.5 text-center sm:text-left">
-            <div className="flex items-center justify-center sm:justify-start gap-2 text-xs font-bold text-orange-400 uppercase tracking-wider">
-              <CheckCircle2 className="w-4 h-4 text-orange-400" />
-              <span>Gajraula Facility • Certified Precision Standards</span>
-            </div>
-            <h3 className="text-xl sm:text-2xl font-black text-white">
-              Need Custom Closed-Die Forgings or Multi-Axis CNC Components?
-            </h3>
-            <p className="text-xs sm:text-sm text-slate-400 max-w-2xl">
-              Micro-tolerance machining, automated induction forging, and 100% CMM quality verification for tier-1 industrial clients.
-            </p>
-          </div>
-
-          <div className="flex flex-wrap items-center gap-3 flex-shrink-0">
-            <Link
-              href="/manufacturing-products"
-              className="px-5 py-3 rounded-xl bg-orange-500 hover:bg-orange-600 text-white font-bold text-xs uppercase tracking-wider transition-colors inline-flex items-center gap-2 shadow-md cursor-pointer"
-            >
-              <span>Explore Products</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
-            <Link
-              href="/contact?subject=Manufacturing%20Process%20Inquiry"
-              className="px-5 py-3 rounded-xl bg-white/10 hover:bg-white/15 text-white font-bold text-xs uppercase tracking-wider transition-colors border border-white/20 inline-flex items-center gap-1.5 cursor-pointer"
-            >
-              <span>Plant Inquiry</span>
-            </Link>
-          </div>
-        </div>
-
       </Container>
     </section>
   );

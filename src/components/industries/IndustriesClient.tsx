@@ -68,7 +68,7 @@ const INDUSTRY_SHOWCASE: IndustryItem[] = [
       { name: 'AIRpipe DN80–DN150 Aluminium Ring Mains', brand: 'AIRpipe', link: '/products' },
       { name: 'Greaves Silent CPCB IV+ Power Stations', brand: 'Greaves Cotton', link: '/greaves' }
     ],
-    keyClients: ['Hero MotoCorp', 'Mikuni India', 'Automotive Tier-1 Press Shops'],
+    keyClients: ['Hero MotoCorp', 'BKD Bearings', 'Automotive Tier-1 Press Shops'],
     stats: { label: 'Air Uptime', value: '99.9%' }
   },
   {
@@ -90,7 +90,7 @@ const INDUSTRY_SHOWCASE: IndustryItem[] = [
       { name: 'EP CPD & EFL Series Lithium-Ion Forklifts', brand: 'EP Equipment', link: '/ep-forklifts' },
       { name: 'AIRpipe Compressed Air Distribution Systems', brand: 'AIRpipe', link: '/airpipe' }
     ],
-    keyClients: ['Mikuni India', 'Nidec India', 'Yokohama India', 'Asahi India Glass (AIS)'],
+    keyClients: ['Panasonic India', 'BKD Bearings', 'JDKPE Industrial', 'Asahi India Glass (AIS)'],
     stats: { label: 'Japanese Clients', value: '50+ Plants' }
   },
   {
@@ -187,9 +187,9 @@ const CLIENT_LOGOS = [
   { name: 'Hero MotoCorp', logo: '/images/clients/hero-motocorp-logo.svg', industry: 'Automobile' },
   { name: 'Havells', logo: '/images/clients/havells-logo.svg', industry: 'Electronics & Appliances' },
   { name: 'Asahi India Glass', logo: '/images/clients/asahi-ais.png', industry: 'Glass & Automotive' },
-  { name: 'Mikuni India', logo: '/images/clients/mikuni-logo.svg', industry: 'Japanese Precision' },
-  { name: 'Nidec India', logo: '/images/clients/nidec-logo.svg', industry: 'Japanese Motors' },
-  { name: 'Yokohama', logo: '/images/clients/yokohama-logo.svg', industry: 'Japanese Tyres' }
+  { name: 'BKD', logo: '/images/BKD Bearing Motion Logo.png', industry: 'Bearing & Motion' },
+  { name: 'Panasonic', logo: '/images/Panasonic Logo on White Background.png', industry: 'Electronics & Appliances' },
+  { name: 'JDKPE', logo: '/images/JDKPE Blue and Red Emblem Logo.png', industry: 'Precision Engineering' }
 ];
 
 export default function IndustriesClient() {

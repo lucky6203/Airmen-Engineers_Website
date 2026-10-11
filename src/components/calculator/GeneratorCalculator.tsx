@@ -7,6 +7,7 @@
 
 import React, { useState, useMemo, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   type LucideIcon,
   Building2,
@@ -200,67 +201,78 @@ export default function GeneratorCalculator() {
 
   return (
     <div className="bg-slate-50 min-h-screen pb-20">
-      {/* ── HERO SECTION ─────────────────────────────────── */}
-      <section className="bg-gradient-to-b from-navy via-navy to-slate-900 text-white pt-10 sm:pt-14 pb-14 sm:pb-20 relative overflow-hidden">
-        {/* Subtle decorative grid */}
-        <div className="absolute inset-0 bg-[radial-gradient(#d97706_1px,transparent_1px)] [background-size:24px_24px] opacity-10 pointer-events-none" />
-        <div className="absolute top-0 right-0 w-96 h-96 bg-gold/10 rounded-full blur-3xl pointer-events-none" />
-
+      {/* ── HERO SECTION (#FAF7F2 Theme with Generator Facility Image) ── */}
+      <section className="bg-[#FAF7F2] text-slate-900 pt-8 sm:pt-12 pb-10 sm:pb-14 border-b border-stone-200/80 relative overflow-hidden">
         <Container className="relative z-10">
           {/* Breadcrumb */}
-          <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-2 text-xs text-slate-300">
-            <Link href="/" className="hover:text-gold transition-colors">
+          <nav aria-label="Breadcrumb" className="mb-4 flex items-center gap-2 text-xs text-slate-500">
+            <Link href="/" className="hover:text-slate-900 transition-colors">
               Home
             </Link>
-            <span className="text-slate-500">/</span>
-            <span className="text-gold font-medium">Free Services</span>
-            <span className="text-slate-500">/</span>
-            <span className="text-slate-200">Generator Sizing Calculator</span>
+            <span className="text-stone-400">/</span>
+            <span className="text-amber-600 font-medium">Free Tools</span>
+            <span className="text-stone-400">/</span>
+            <span className="text-slate-800 font-semibold">Generator Sizing Calculator</span>
           </nav>
 
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold/15 border border-gold/30 text-gold text-xs font-bold tracking-wider uppercase mb-4">
-              <Zap className="w-3.5 h-3.5 text-gold" />
-              <span>Free Engineering Tool</span>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
+            {/* Left Content Column */}
+            <div className="lg:col-span-7 flex flex-col justify-center space-y-4">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-[1.12]">
+                Find the Right Generator Size.<br />
+                <span className="text-amber-500">One Step at a Time.</span>
+              </h1>
+
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-xl font-normal">
+                Choose a site profile, add your equipment and get a preliminary generator capacity estimate
+                shaped around your installation — considering starting inrush currents and derating.
+              </p>
+
+              {/* Proof Metric Badges */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 pt-1">
+                <div className="bg-white border border-stone-200/90 rounded-2xl p-3 text-center shadow-xs">
+                  <div className="text-2xl font-black text-amber-500">10</div>
+                  <div className="text-[11px] text-slate-500 font-bold uppercase tracking-wider mt-0.5">Site Profiles</div>
+                </div>
+                <div className="bg-white border border-stone-200/90 rounded-2xl p-3 text-center shadow-xs">
+                  <div className="text-2xl font-black text-slate-900">20+</div>
+                  <div className="text-[11px] text-slate-500 font-bold uppercase tracking-wider mt-0.5">Load Types</div>
+                </div>
+                <div className="bg-white border border-stone-200/90 rounded-2xl p-3 text-center shadow-xs">
+                  <div className="text-2xl font-black text-amber-500">Live</div>
+                  <div className="text-[11px] text-slate-500 font-bold uppercase tracking-wider mt-0.5">DG Sizing Math</div>
+                </div>
+                <div className="bg-white border border-stone-200/90 rounded-2xl p-3 text-center shadow-xs">
+                  <div className="text-2xl font-black text-slate-900">Free</div>
+                  <div className="text-[11px] text-slate-500 font-bold uppercase tracking-wider mt-0.5">No Login Required</div>
+                </div>
+              </div>
+
+              <div className="pt-2">
+                <button
+                  type="button"
+                  onClick={() => goToStep(1)}
+                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-sm transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+                >
+                  <span>Start Sizing</span>
+                  <ChevronRight className="w-4 h-4 stroke-[3]" />
+                </button>
+              </div>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-white tracking-tight leading-tight mb-4">
-              Find the right generator size.{' '}
-              <span className="text-gold block sm:inline">One step at a time.</span>
-            </h1>
-
-            <p className="text-slate-300 text-base sm:text-lg leading-relaxed mb-8 max-w-2xl">
-              Choose a site profile, add your equipment and get a preliminary generator capacity estimate
-              shaped around your installation — considering starting inrush currents and derating.
-            </p>
-
-            {/* Proof Metric Badges */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-8">
-              <div className="bg-white/5 border border-white/10 rounded-xl p-3.5 text-center backdrop-blur-xs">
-                <div className="text-2xl font-black text-gold">10</div>
-                <div className="text-xs text-slate-300 font-medium mt-0.5">Site Profiles</div>
-              </div>
-              <div className="bg-white/5 border border-white/10 rounded-xl p-3.5 text-center backdrop-blur-xs">
-                <div className="text-2xl font-black text-gold">20+</div>
-                <div className="text-xs text-slate-300 font-medium mt-0.5">Load Types</div>
-              </div>
-              <div className="bg-white/5 border border-white/10 rounded-xl p-3.5 text-center backdrop-blur-xs">
-                <div className="text-2xl font-black text-gold">Live</div>
-                <div className="text-xs text-slate-300 font-medium mt-0.5">DG Sizing Math</div>
-              </div>
-              <div className="bg-white/5 border border-white/10 rounded-xl p-3.5 text-center backdrop-blur-xs">
-                <div className="text-2xl font-black text-gold">Free</div>
-                <div className="text-xs text-slate-300 font-medium mt-0.5">No Login Required</div>
+            {/* Right Column: Full-Height Clean Image (Zero Text) */}
+            <div className="lg:col-span-5 h-full flex items-stretch">
+              <div className="relative w-full h-80 sm:h-96 lg:h-full min-h-[380px] lg:min-h-[440px] rounded-3xl overflow-hidden border border-stone-200/90 shadow-xl bg-white group">
+                <Image
+                  src="/images/electrical-load-multimeter-panel.jpg"
+                  alt="Electrical Load Measurement"
+                  fill
+                  priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 500px"
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
               </div>
             </div>
-
-            <button
-              onClick={() => goToStep(1)}
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-gold hover:bg-gold-dark text-navy font-extrabold text-base transition-all duration-200 shadow-lg shadow-gold/20 hover:scale-[1.02] cursor-pointer"
-            >
-              <span>Start Sizing</span>
-              <ChevronRight className="w-4 h-4 stroke-[3]" />
-            </button>
           </div>
         </Container>
       </section>

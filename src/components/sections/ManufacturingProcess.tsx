@@ -27,13 +27,10 @@ interface ProcessStep {
   title: string;
   description: string;
   icon: React.ComponentType<{ className?: string }>;
-  // Percentages relative to the 1672x941 image container
-  marker: { x: number; y: number };
-  desktopCard: {
-    top: string;
-    left: string;
-    align?: 'left' | 'right';
-  };
+  // Center coordinates of the orange numbered circle in the 1672x941 image
+  circle: { x: number; y: number };
+  // Text label position directly next to the pointer circle
+  labelPos: { top: string; left: string };
 }
 
 const PROCESS_STEPS: ProcessStep[] = [
@@ -43,71 +40,71 @@ const PROCESS_STEPS: ProcessStep[] = [
     title: 'RAW MATERIAL',
     description: 'High quality steel bars and billets',
     icon: Package,
-    marker: { x: 6.4, y: 16.6 },
-    desktopCard: { top: '2%', left: '1.5%' },
+    circle: { x: 6.38, y: 16.88 },
+    labelPos: { top: '10.5%', left: '8.8%' },
   },
   {
     step: 2,
     number: '02',
     title: 'CUTTING',
-    description: 'Bars cut to required length and size',
+    description: 'Bars cut to required length & size',
     icon: Scissors,
-    marker: { x: 29.8, y: 18.5 },
-    desktopCard: { top: '3.5%', left: '23%' },
+    circle: { x: 29.90, y: 18.12 },
+    labelPos: { top: '12%', left: '32.4%' },
   },
   {
     step: 3,
     number: '03',
     title: 'FORGING',
-    description: 'Shaping through high-pressure forging',
+    description: 'High-pressure closed-die forging',
     icon: Flame,
-    marker: { x: 52.5, y: 16.8 },
-    desktopCard: { top: '2%', left: '45.5%' },
+    circle: { x: 52.48, y: 16.95 },
+    labelPos: { top: '10.5%', left: '55.0%' },
   },
   {
     step: 4,
     number: '04',
     title: 'HEAT NORMALIZATION',
-    description: 'Controlled heating and cooling process',
+    description: 'Controlled heating and cooling',
     icon: Sun,
-    marker: { x: 77.7, y: 20.1 },
-    desktopCard: { top: '3.5%', left: '69.5%' },
+    circle: { x: 77.68, y: 19.89 },
+    labelPos: { top: '14%', left: '80.2%' },
   },
   {
     step: 5,
     number: '05',
     title: 'SHOT BLASTING',
-    description: 'Surface cleaning and descaling',
+    description: 'Surface cleaning & descaling',
     icon: Sparkles,
-    marker: { x: 16.5, y: 51.5 },
-    desktopCard: { top: '38%', left: '7.5%' },
+    circle: { x: 16.61, y: 50.77 },
+    labelPos: { top: '45%', left: '19.2%' },
   },
   {
     step: 6,
     number: '06',
     title: 'CNC MACHINING',
-    description: 'Precision machining on CNC machines',
+    description: 'Precision multi-axis turning',
     icon: Settings,
-    marker: { x: 34.3, y: 56.5 },
-    desktopCard: { top: '42.5%', left: '26%' },
+    circle: { x: 34.30, y: 55.76 },
+    labelPos: { top: '50%', left: '36.8%' },
   },
   {
     step: 7,
     number: '07',
     title: 'VMC MACHINING',
-    description: 'High-accuracy finishing on VMC machines',
+    description: 'High-accuracy VMC milling',
     icon: Crosshair,
-    marker: { x: 53.4, y: 58.5 },
-    desktopCard: { top: '44.5%', left: '46.5%' },
+    circle: { x: 53.58, y: 57.78 },
+    labelPos: { top: '52%', left: '56.2%' },
   },
   {
     step: 8,
     number: '08',
     title: 'DISPATCH',
-    description: 'Final inspection, packaging and dispatch',
+    description: 'Inspection, packaging & dispatch',
     icon: Truck,
-    marker: { x: 82.8, y: 61.5 },
-    desktopCard: { top: '48%', left: '75%' },
+    circle: { x: 82.93, y: 60.42 },
+    labelPos: { top: '54.5%', left: '85.5%' },
   },
 ];
 
@@ -138,73 +135,64 @@ export default function ManufacturingProcess() {
 
         {/* ── Desktop & Large Tablet Interactive 3D Infographic Showcase (≥ 1024px) ── */}
         <div className="hidden lg:block mb-14">
-          <div className="relative w-full aspect-[1672/941] bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden p-2 sm:p-4">
+          <div className="relative w-full aspect-[1672/941] bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden">
             {/* The 3D Manufacturing Workflow Image */}
             <img
               src="/images/23267c38-c4c4-4c54-895f-849966bdbd1e.png"
               alt="Airmen Engineers Manufacturing Process Workflow"
-              className="w-full h-full object-contain select-none pointer-events-none"
+              className="w-full h-full object-cover select-none pointer-events-none"
               loading="lazy"
             />
 
-            {/* Overlay Elements for each of the 8 steps */}
+            {/* Direct text labels on the image markers (zero duplicate buttons, zero bulky box cards) */}
             {PROCESS_STEPS.map((item) => {
               const isSelected = activeStep === item.step;
-              const Icon = item.icon;
 
               return (
                 <React.Fragment key={`desktop-step-${item.step}`}>
-                  {/* Numbered Marker Button over the image circle */}
-                  <button
-                    type="button"
+                  {/* Subtle interactive hover/click hit-area directly over the numbered circle */}
+                  <div
                     onClick={() => setActiveStep(isSelected ? null : item.step)}
                     onMouseEnter={() => setActiveStep(item.step)}
                     onMouseLeave={() => setActiveStep(null)}
                     style={{
-                      left: `${item.marker.x}%`,
-                      top: `${item.marker.y}%`,
+                      left: `${item.circle.x}%`,
+                      top: `${item.circle.y}%`,
                       transform: 'translate(-50%, -50%)',
                     }}
-                    className={`absolute z-20 w-8 h-8 rounded-full flex items-center justify-center font-mono font-black text-xs text-white shadow-lg transition-all duration-300 cursor-pointer ${
-                      isSelected
-                        ? 'bg-navy ring-4 ring-orange-400 scale-125 shadow-orange-500/40'
-                        : 'bg-orange-500 hover:bg-orange-600 hover:scale-115 ring-2 ring-white shadow-md'
-                    }`}
+                    className="absolute z-20 w-11 h-11 rounded-full cursor-pointer flex items-center justify-center transition-transform hover:scale-110"
                     title={`Step ${item.step}: ${item.title}`}
                     aria-label={`Step ${item.step}: ${item.title}`}
                   >
-                    <span>{item.step}</span>
-                  </button>
+                    {/* Subtle pulsing ring only when active */}
+                    {isSelected && (
+                      <span className="absolute inset-0 rounded-full ring-4 ring-orange-500/50 animate-ping pointer-events-none" />
+                    )}
+                  </div>
 
-                  {/* Clean Process Label Card positioned around the machine */}
+                  {/* Direct Text Label placed cleanly right next to the circle pointer */}
                   <div
                     style={{
-                      top: item.desktopCard.top,
-                      left: item.desktopCard.left,
+                      top: item.labelPos.top,
+                      left: item.labelPos.left,
                     }}
                     onMouseEnter={() => setActiveStep(item.step)}
                     onMouseLeave={() => setActiveStep(null)}
-                    className={`absolute z-20 max-w-[210px] p-2.5 rounded-xl border transition-all duration-300 pointer-events-auto cursor-pointer ${
-                      isSelected
-                        ? 'bg-navy text-white border-orange-400 shadow-xl scale-105'
-                        : 'bg-white/95 backdrop-blur-sm text-slate-800 border-slate-200/90 hover:border-orange-400 hover:shadow-md'
-                    }`}
+                    onClick={() => setActiveStep(isSelected ? null : item.step)}
+                    className="absolute z-20 pointer-events-auto cursor-pointer select-none transition-all duration-200"
                   >
-                    <div className="flex items-center gap-1.5 mb-1">
-                      <span className={`text-[10px] font-mono font-black px-1.5 py-0.5 rounded ${
-                        isSelected ? 'bg-orange-500 text-white' : 'bg-orange-100 text-orange-700'
-                      }`}>
-                        {item.number}
-                      </span>
-                      <h4 className={`text-xs font-black tracking-tight leading-none uppercase ${
-                        isSelected ? 'text-white' : 'text-navy'
-                      }`}>
-                        {item.title}
-                      </h4>
-                    </div>
-                    <p className={`text-[11px] leading-snug ${
-                      isSelected ? 'text-slate-200' : 'text-slate-600'
-                    }`}>
+                    <h4
+                      className={`text-xs sm:text-[13px] font-black uppercase tracking-tight leading-none transition-colors ${
+                        isSelected ? 'text-orange-500 scale-102' : 'text-slate-900 hover:text-orange-500'
+                      }`}
+                    >
+                      {item.title}
+                    </h4>
+                    <p
+                      className={`text-[10px] sm:text-[11px] font-semibold leading-tight mt-1 max-w-[170px] transition-colors ${
+                        isSelected ? 'text-slate-900 font-bold' : 'text-slate-600'
+                      }`}
+                    >
                       {item.description}
                     </p>
                   </div>

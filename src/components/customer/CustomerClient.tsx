@@ -2,7 +2,7 @@
 
 // ============================================
 // Airmen Engineers — Customers & Client Portfolio Interactive Client
-// Featuring Hero MotoCorp, Havells, Asahi Glass, Mikuni, Nidec, Yokohama
+// Featuring Hero MotoCorp, Havells, Asahi Glass, BKD, Panasonic, JDKPE
 // ============================================
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
@@ -111,63 +111,63 @@ const CLIENT_SPOTLIGHTS: ClientSpotlight[] = [
     keyMetric: { label: 'Continuous Duty Base', value: '24x7x365' }
   },
   {
-    id: 'mikuni',
-    name: 'Mikuni India',
-    fullName: 'Mikuni Corporation',
-    category: 'japanese',
-    // sectorLabel: 'Precision Japanese Automotive Components',
-    logo: '/images/clients/mikuni-logo.svg',
+    id: 'bkd',
+    name: 'BKD Bearings',
+    fullName: 'BKD Bearing & Motion',
+    category: 'heavy',
+    // sectorLabel: 'Precision Bearing & Motion Engineering',
+    logo: '/images/BKD Bearing Motion Logo.png',
     plantImage: '/images/about-3.jpg',
-    plantTagline: 'Japanese 5S Precision Auto Components Bay',
-    plantLocation: 'Neemrana Japanese Industrial Zone',
+    plantTagline: 'Precision Bearing & Motion Engineering Bays',
+    plantLocation: 'Industrial Corridors, North India',
     partnershipYears: '8+ Years Partnership',
-    badge: 'Japanese Precision',
+    badge: 'Bearing & Motion',
     equipmentSupplied: [
       'German-Engineered Kaeser SIGMA PROFILE Compressors',
       'EP Clean Lithium-Ion Electric Warehouse Fleet',
-      '5S & Kaizen Standardized Maintenance Protocols'
+      'Standardized Maintenance & Vibration Protocols'
     ],
-    operationalImpact: 'Premier Japanese automotive component producer demanding strictest German engineering precision, zero moisture carryover, and bilingual technical service reporting.',
-    keyMetric: { label: '5S Audit Score', value: '100%' }
+    operationalImpact: 'Premier bearing & motion manufacturer demanding strictest German engineering precision, zero moisture carryover, and high operational reliability.',
+    keyMetric: { label: 'Uptime Reliability', value: '99.9%' }
   },
   {
-    id: 'nidec',
-    name: 'Nidec Corporation',
-    fullName: 'Nidec India Pvt. Ltd.',
+    id: 'panasonic',
+    name: 'Panasonic',
+    fullName: 'Panasonic Life Solutions India',
     category: 'japanese',
-    // sectorLabel: 'Electric Motors & Industrial Automation',
-    logo: '/images/clients/nidec-logo.svg',
+    // sectorLabel: 'Electronics, Automation & Appliances',
+    logo: '/images/Panasonic Logo on White Background.png',
     plantImage: '/images/banner-1.jpg',
-    plantTagline: 'Automated Electric Motor Winding & Assembly Bays',
-    plantLocation: 'Neemrana Industrial Area, Rajasthan',
+    plantTagline: 'Automated Electronics, Appliances & Industrial Bays',
+    plantLocation: 'Jhajjar Industrial Area, Haryana',
     partnershipYears: '7+ Years Partnership',
-    badge: 'Japanese Motors',
+    badge: 'Electronics & Automation',
     equipmentSupplied: [
       'Kaeser SFC Variable Speed Drive Screw Compressors',
       'Modular Quick-Lock Aluminium Air Ring Mains',
-      'Vibration Diagnostic Analysis & Telemetry Logging'
+      'Energy Audit & Smart Pressure Automation'
     ],
-    operationalImpact: 'Global leader in comprehensive electric motor technologies operating precision automated winding and assembly bays powered by steady compressed air.',
-    keyMetric: { label: 'Pressure Fluctuation', value: '< 0.1 Bar' }
+    operationalImpact: 'Global electronics and automation powerhouse operating automated assembly lines powered by energy-efficient Kaeser compressed air networks.',
+    keyMetric: { label: 'Energy Savings', value: '28%' }
   },
   {
-    id: 'yokohama',
-    name: 'Yokohama Tire',
-    fullName: 'Yokohama India Pvt. Ltd.',
-    category: 'automotive',
-    // sectorLabel: 'Tire & Rubber Manufacturing',
-    logo: '/images/clients/yokohama-logo.svg',
+    id: 'jdkpe',
+    name: 'JDKPE',
+    fullName: 'JDKPE Industrial Solutions',
+    category: 'heavy',
+    // sectorLabel: 'Heavy Industrial Fabrication & Precision Machining',
+    logo: '/images/JDKPE Blue and Red Emblem Logo.png',
     plantImage: '/images/banner-3.jpg',
-    plantTagline: 'Continuous Curing Press Pneumatics & Power Backup',
-    plantLocation: 'Bahadurgarh & Dahej Production Plants',
+    plantTagline: 'Heavy Industrial Fabrication & Precision Machining Facilities',
+    plantLocation: 'Key Industrial Corridors',
     partnershipYears: '9+ Years Partnership',
-    badge: 'Tire Manufacturing',
+    badge: 'Precision Engineering',
     equipmentSupplied: [
       'Heavy Industrial High-Volume Pneumatic Compression',
       'Greaves CPCB IV+ High-kVA Prime Power Generation',
       'Scheduled Preventive Maintenance & Consumable Support'
     ],
-    operationalImpact: 'World-renowned tire brand requiring massive pneumatic energy for curing presses, rubber compound mixers, and 24/7 continuous high ambient operation.',
+    operationalImpact: 'Pioneering heavy engineering and precision enterprise relying on continuous high-volume compressed air and dependable prime power backup.',
     keyMetric: { label: 'Plant Availability', value: '99.8%' }
   }
 ];

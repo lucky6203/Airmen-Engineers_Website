@@ -185,19 +185,19 @@ const CLIENT_LOGOS = [
     category: 'Glass Manufacturing',
   },
   { 
-    name: 'Mikuni India', 
-    logo: '/images/clients/mikuni-logo.svg',
-    category: 'Japanese OEM',
+    name: 'BKD Bearings', 
+    logo: '/images/BKD Bearing Motion Logo.png',
+    category: 'Bearings & Motion',
   },
   { 
-    name: 'Nidec Corporation', 
-    logo: '/images/clients/nidec-logo.svg',
-    category: 'Industrial Motors',
+    name: 'Panasonic', 
+    logo: '/images/Panasonic Logo on White Background.png',
+    category: 'Electronics & Industrial',
   },
   { 
-    name: 'Yokohama Tire', 
-    logo: '/images/clients/yokohama-logo.svg',
-    category: 'Tires & Rubber',
+    name: 'JDKPE', 
+    logo: '/images/JDKPE Blue and Red Emblem Logo.png',
+    category: 'Precision Engineering',
   },
 ];
 

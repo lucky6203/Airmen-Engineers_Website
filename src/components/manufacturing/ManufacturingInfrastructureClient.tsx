@@ -4,13 +4,35 @@
 // Airmen Engineers — Gajraula Manufacturing Plant Infrastructure
 // Updated per official company presentation: AESPL-PPT_HR.pptx & Part description.docx
 // Plant (Works): I-44/45, Gajraula (Amroha), Uttar Pradesh
-// Website Theme: Dark Navy & Premium Amber/Gold Industrial Design System
+// Unified Master Box Architecture: Single interactive showcase box with on-click content switching
 // ============================================
 
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import {
+  Building2,
+  CalendarCheck,
+  Award,
+  CheckCircle2,
+  ChevronRight,
+  ChevronLeft,
+  ShieldCheck,
+  Wrench,
+  Gauge,
+  Maximize2,
+  X,
+  PhoneCall,
+  Send,
+  FileCheck,
+  Layers,
+  ArrowRight,
+  Flame,
+  Sparkles,
+  Search
+} from 'lucide-react';
 import Container from '@/components/common/Container';
+import Button from '@/components/common/Button';
 import { WHATSAPP_NUMBER } from '@/data/company';
 
 // --- DATA STRUCTURES ---
@@ -148,60 +170,12 @@ const INFRASTRUCTURE_STAGES: InfrastructureStage[] = [
       { name: 'Rust Preventive Dip Tanks', spec: 'Hydrocarbon de-watering oil bath with air blow', count: '2 Stations' },
     ],
     tolerances: 'Surface roughness Ra 1.6 to Ra 3.2 µm post-blast • 100% scale-free',
-    standards: ['ISO 8501-1 (SA 2.5)', 'ASTM B117 Salt Spray', 'IS 3618'],
-  },
-  {
-    id: 'quality',
-    stageNumber: '06',
-    title: 'Quality Assurance & Metallurgical Metrology Lab',
-    tagline: 'Temperature-Controlled Standards Room, 3D CMM & Non-Destructive Testing',
-    icon: 'fa-solid fa-microscope',
-    image: '/images/gujraula_plant_img/2613.jpg.jpeg',
-    secondaryImage: '/images/gujraula_plant_img/2603.jpg.jpeg',
-    capacity: '100% Drawing Inspection • 20°C ± 1°C Metrology Environment',
-    highlights: [
-      'World-class Standards Room maintained at 20°C ± 1°C for zero thermal expansion drift during micro-measurement.',
-      '3D CNC Coordinate Measuring Machine (CMM) with Renishaw scanning head for CAD model overlay, true position, runout, and form profiling.',
-      '2D Optical Profile Projector with digital readouts (up to 50x magnification) for checking complex external contour radii and chamfers.',
-      'Magnetic Particle Inspection (MPI) bench for 100% surface and sub-surface flaw / micro-crack detection on safety-critical automotive parts.',
-      'Mitutoyo digital surface roughness tester (Ra, Rz, Rmax) and digital Rockwell / Brinell hardness testing stations.',
-    ],
-    equipment: [
-      { name: '3D Coordinate Measuring Machine (CMM)', spec: 'Zeiss / Mitutoyo, 700 x 1000 x 600 mm envelope', count: '1 Machine' },
-      { name: 'Optical Profile Projector', spec: 'Mitutoyo 300 mm screen, 10x/20x/50x lenses', count: '2 Units' },
-      { name: 'Magnetic Particle Inspection (MPI)', spec: 'Bench-type wet fluorescent AC/DC crack detector', count: '1 Station' },
-      { name: 'Surface Roughness Tester', spec: 'Mitutoyo Surftest SJ-210, Ra resolution 0.001 µm', count: '2 Units' },
-    ],
-    tolerances: 'CMM Volumetric Accuracy: 1.8 + L/300 µm • Surface Roughness: Ra < 0.4 µm',
-    standards: ['ISO 10360', 'ISO/IEC 17025 Compliant Calibration', 'PPAP Level 3'],
-  },
-  {
-    id: 'dispatch',
-    stageNumber: '07',
-    title: 'Laser Marking, VCI Packaging & Global Dispatch',
-    tagline: 'Permanent 2D DataMatrix Traceability, Anti-Corrosion Protection & Palletized Shipments',
-    icon: 'fa-solid fa-boxes-packing',
-    image: '/images/gujraula_plant_img/9206.%20jpeg.png',
-    secondaryImage: '/images/gujraula_plant_img/4875.jpg.jpeg',
-    capacity: 'Full Traceability • Zero Transit Rust Guarantee',
-    highlights: [
-      'High-speed fiber laser marking machines applying permanent alphanumeric part numbers, customer logos, heat codes, and 2D DataMatrix QR codes.',
-      'Automated degreasing and application of high-performance VCI (Volatile Corrosion Inhibitor) rust preventive coatings.',
-      'Custom thermoformed plastic trays and corrugated separator boxes preventing metal-to-metal contact during sea freight and domestic transport.',
-      'Fumigated wooden pallets strapped with heavy-gauge PET bands and stretch-wrapped for moisture-proof all-weather logistics.',
-    ],
-    equipment: [
-      { name: 'Fiber Laser Marking Machines', spec: '20W & 30W high-speed marking lasers', count: '2 Units' },
-      { name: 'Automated Stretch Wrapping Machine', spec: 'Turntable pallet wrapping with film pre-stretch', count: '1 Unit' },
-      { name: 'VCI Bag Sealing Stations', spec: 'Impulse heat sealers for hermetic packaging', count: '2 Stations' },
-    ],
-    tolerances: 'Zero transit corrosion • 100% scannable 2D DataMatrix barcodes',
-    standards: ['MIL-PRF-22019', 'ISPM 15 (Pallet Fumigation)', 'RoHS Compliant'],
+    standards: ['ISO 8501-1 (SA 2.5)', 'ASTM D609', 'IS 101'],
   },
 ];
 
-// --- MACHINERY FLEET DATA ---
-interface FleetMachine {
+// --- MACHINERY FLEET MATRIX ---
+interface MachineSpec {
   name: string;
   category: 'cutting' | 'forging' | 'heat-treatment' | 'machining' | 'quality';
   make: string;
@@ -211,32 +185,32 @@ interface FleetMachine {
   application: string;
 }
 
-const MACHINERY_FLEET: FleetMachine[] = [
+const MACHINERY_FLEET: MachineSpec[] = [
   {
     name: 'Automatic Circular Cold Saws',
     category: 'cutting',
-    make: 'Tsune / Mega',
-    quantity: '4 Units',
-    capacity: 'Ø20 mm to Ø200 mm bar stock',
-    precision: '±0.20 mm length cut',
-    application: 'High-speed orthogonal billet cutting with zero burr',
+    make: 'Tsune / Mega Precision',
+    quantity: '4 Lines',
+    capacity: 'Ø20 mm to Ø150 mm solid bar',
+    precision: 'Length ±0.20 mm',
+    application: 'Burr-free perpendicular billet cutting for closed-die forgings',
   },
   {
-    name: 'Heavy-Duty CNC Band Sawing Machines',
+    name: 'Heavy-Duty CNC Band Saw Machines',
     category: 'cutting',
-    make: 'DoAll / Indian',
+    make: 'DoALL / ITL Heavy Duty',
     quantity: '3 Units',
-    capacity: 'Up to Ø300 mm round billet bundles',
-    precision: '±0.30 mm length',
-    application: 'Bundle bar slicing for high-tonnage production',
+    capacity: 'Up to Ø300 mm bundle capacity',
+    precision: 'Squareness ±0.25 mm',
+    application: 'Bulk bundle slicing of alloy steel rounds & blocks',
   },
   {
     name: 'Closed-Die Forging Drop Hammers',
     category: 'forging',
-    make: 'Belt Drop / Friction',
+    make: 'Bêché & Grohs Type',
     quantity: '3 Lines',
-    capacity: '1.0 Ton, 2.0 Ton, 3.0 Ton',
-    precision: 'DIN 7526 Grade F',
+    capacity: '1.0 Ton, 2.0 Ton & 3.0 Ton',
+    precision: 'Grain flow optimization',
     application: 'Automotive wheel hubs, flanges, heavy connecting forgings',
   },
   {
@@ -398,16 +372,31 @@ const MANUFACTURED_PARTS = [
 
 // --- 10-STEP PROCESS FLOW ---
 const PROCESS_STEPS = [
-  { step: '01', title: 'Raw Material Inward & Spectro Audit', desc: '100% Mill TC verification & Spark OES chemical analysis before unloading.' },
-  { step: '02', title: 'Precision Cold Saw Billet Cutting', desc: 'High-speed carbide cold sawing to tight orthogonal tolerance ±0.2 mm.' },
-  { step: '03', title: 'Induction Heating with Pyrometer Sort', desc: 'Controlled core-to-surface heating (1150°C-1250°C) with auto-reject gate.' },
-  { step: '04', title: 'Closed-Die Drop Forging', desc: 'Pre-forming and impression forging ensuring uninterrupted grain flow.' },
-  { step: '05', title: 'Hot Trimming & Coining', desc: 'Hydraulic flash removal and coining for dimensional consistency.' },
-  { step: '06', title: 'SCADA Heat Treatment', desc: 'Normalizing / Iso-thermal annealing to achieve homogeneous BHN hardness.' },
-  { step: '07', title: 'SA 2.5 Shot Blasting', desc: 'Steel shot bombardment for descaling and pristine surface preparation.' },
+  { step: '01', title: 'Prime Steel Inward & Spectro Audit', desc: 'Spark OES chemical verification & ultrasonic test of billets against 3.1 Mill Certificate.' },
+  { step: '02', title: 'High-Speed Billet Cold Sawing', desc: 'Perpendicular burr-free cuts with weight-controlled sorting for zero volume deviation.' },
+  { step: '03', title: 'Induction Heating (Pyrometer Monitored)', desc: 'Medium-frequency heating to 1250°C with automated reject gate for temperature tolerance.' },
+  { step: '04', title: 'Closed-Die Forging Hammer / Press', desc: 'Continuous grain flow alignment under 1T-3T drop hammers and friction screw presses.' },
+  { step: '05', title: 'Trimming & Coining', desc: 'Hot flash trimming and coining for clean parting lines and structural uniformity.' },
+  { step: '06', title: 'In-House SCADA Heat Treatment', desc: 'Controlled is-thermal annealing and normalizing with digital timestamped thermal logs.' },
+  { step: '07', title: 'Hanger Shot Blasting (SA 2.5)', desc: 'S-280 steel shot descaling producing Swedish standard SA 2.5 cleanliness for machining.' },
   { step: '08', title: 'Multi-Axis CNC & VMC Machining', desc: 'Finish turning, boring, threading and milling to ±0.01 mm tolerance.' },
   { step: '09', title: 'CMM & 100% Metrology Inspection', desc: '3D coordinate scan, profile projector, MPI flaw test & surface roughness.' },
   { step: '10', title: 'Laser Marking & VCI Dispatch', desc: 'Fiber laser 2D DataMatrix coding, VCI anti-rust packing & shrink pallets.' },
+];
+
+// Master Tabs definition
+const SHOWCASE_TABS = [
+  { id: 'overview', label: 'Plant Overview', icon: Building2 },
+  { id: 'metso-story', label: 'Metso Outotec Story', icon: Award },
+  { id: 'certifications', label: 'ISO & Quality', icon: ShieldCheck },
+  { id: 'manufactured-parts', label: 'Manufactured Parts', icon: Layers },
+  { id: 'raw-material', label: '01. Raw Material & Cutting', icon: Wrench },
+  { id: 'forging', label: '02. Closed-Die Forging', icon: Flame },
+  { id: 'heat-treatment', label: '03. Heat Treatment', icon: Gauge },
+  { id: 'machining', label: '04. CNC Machining', icon: Wrench },
+  { id: 'surface', label: '05. Surface Finishing', icon: Sparkles },
+  { id: 'machinery-fleet', label: 'Fleet Specs', icon: FileCheck },
+  { id: 'process-flow', label: 'Process Flow', icon: CheckCircle2 },
 ];
 
 export default function ManufacturingInfrastructureClient() {
@@ -430,14 +419,27 @@ export default function ManufacturingInfrastructureClient() {
     ? MACHINERY_FLEET 
     : MACHINERY_FLEET.filter((m) => m.category === fleetFilter);
 
-  const scrollToSection = (id: string) => {
-    setActiveTab(id);
-    const element = document.getElementById(id);
-    if (element) {
-      const yOffset = -120;
-      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+  const handleTabChange = (tabId: string) => {
+    setActiveTab(tabId);
+    // Smooth scroll to top of showcase box
+    const boxEl = document.getElementById('master-showcase-box');
+    if (boxEl) {
+      const yOffset = -90;
+      const y = boxEl.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: 'smooth' });
     }
+  };
+
+  const handleNextTab = () => {
+    const currentIndex = SHOWCASE_TABS.findIndex((t) => t.id === activeTab);
+    const nextIndex = (currentIndex + 1) % SHOWCASE_TABS.length;
+    handleTabChange(SHOWCASE_TABS[nextIndex].id);
+  };
+
+  const handlePrevTab = () => {
+    const currentIndex = SHOWCASE_TABS.findIndex((t) => t.id === activeTab);
+    const prevIndex = (currentIndex - 1 + SHOWCASE_TABS.length) % SHOWCASE_TABS.length;
+    handleTabChange(SHOWCASE_TABS[prevIndex].id);
   };
 
   const handleFormSubmit = (e: React.FormEvent) => {
@@ -450,80 +452,73 @@ export default function ManufacturingInfrastructureClient() {
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, '_blank');
   };
 
-  return (
-    <div className="bg-[#060D17] text-slate-100 min-h-screen">
-      {/* ============================================================== */}
-      {/* 1. HERO BANNER (Service Page Template Colors) */}
-      {/* ============================================================== */}
-      <section className="relative pt-14 pb-20 overflow-hidden bg-[#FAF7F2] border-b border-stone-200/80">
-        <Container>
-          <div className="max-w-4xl mx-auto text-center space-y-6">
-            {/* Plant Identification Badge */}
-            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-amber-50 border border-amber-300 text-amber-800 text-xs font-bold uppercase tracking-wider">
-              <i className="fa-solid fa-industry text-amber-600" />
-              <span>Plant (Works): I-44/45, Gajraula (Amroha), Uttar Pradesh</span>
-            </div>
+  // Find stage details if activeTab is a stage
+  const currentStage = INFRASTRUCTURE_STAGES.find((s) => s.id === activeTab);
 
+  return (
+    <div className="bg-gray-50 text-slate-900 min-h-screen">
+      {/* ============================================================== */}
+      {/* 1. HERO SECTION (#FAF7F2 Warm Theme) */}
+      {/* ============================================================== */}
+      <section className="relative pt-10 sm:pt-14 pb-10 sm:pb-14 overflow-hidden bg-[#FAF7F2] border-b border-stone-200/80">
+        <Container>
+          <div className="max-w-4xl mx-auto text-center space-y-4 sm:space-y-5">
             {/* Main Headline */}
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-tight">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-[1.12]">
               Manufacturing Plant <span className="text-amber-500">Infrastructure</span>
             </h1>
 
-            {/* Official Tagline from PPT */}
-            <p className="text-base sm:text-xl font-semibold text-amber-600 tracking-wide">
-              &ldquo;With experience of more than 30 years and support from Kaeser Compressor Business, we have commissioned this state-of-the-art manufacturing facility in Gajraula (U.P.), India.&rdquo;
+            {/* Official Subtitle from PPT */}
+            <p className="text-sm sm:text-base lg:text-lg text-slate-700 font-medium leading-relaxed max-w-3xl mx-auto">
+              With experience of more than 30 years and technical excellence, Airmen Engineers operates this state-of-the-art manufacturing facility in <strong className="text-slate-900">Gajraula (Amroha, U.P.), India</strong>.
             </p>
 
-            <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-3xl mx-auto">
-              Integrated automotive &amp; heavy industrial manufacturing facility: from prime billet cold sawing and closed-die forging to in-house SCADA heat treatment, 45+ CNC lathes &amp; VMCs, 3D CMM metrology, and custom special-purpose compressor engineering.
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-2xl mx-auto">
+              Integrated automotive and heavy industrial facility: from prime billet cold sawing and closed-die forging to in-house SCADA heat treatment, 45+ CNC lathes &amp; VMCs, 3D CMM metrology, and custom special-purpose compressor engineering.
             </p>
 
             {/* Quick KPI Strip */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-3">
-              <div className="bg-white border border-stone-200/90 rounded-2xl p-4 text-center shadow-xs">
-                <div className="text-2xl sm:text-3xl font-black text-amber-600">30+ Years</div>
-                <div className="text-xs text-slate-500 uppercase font-bold tracking-wider mt-1">Engineering Heritage</div>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+              <div className="bg-white border border-stone-200/90 rounded-2xl p-3.5 sm:p-4 text-center shadow-xs">
+                <div className="text-2xl sm:text-3xl font-black text-amber-500">30+ Years</div>
+                <div className="text-[11px] text-slate-500 uppercase font-bold tracking-wider mt-0.5">Engineering Heritage</div>
               </div>
-              <div className="bg-white border border-stone-200/90 rounded-2xl p-4 text-center shadow-xs">
+              <div className="bg-white border border-stone-200/90 rounded-2xl p-3.5 sm:p-4 text-center shadow-xs">
                 <div className="text-2xl sm:text-3xl font-black text-slate-900">I-44/45</div>
-                <div className="text-xs text-slate-500 uppercase font-bold tracking-wider mt-1">Gajraula Works Plant</div>
+                <div className="text-[11px] text-slate-500 uppercase font-bold tracking-wider mt-0.5">Gajraula Works Plant</div>
               </div>
-              <div className="bg-white border border-stone-200/90 rounded-2xl p-4 text-center shadow-xs">
-                <div className="text-2xl sm:text-3xl font-black text-amber-600">ISO 9001</div>
-                <div className="text-xs text-slate-500 uppercase font-bold tracking-wider mt-1">Certified &amp; IATF Aligned</div>
+              <div className="bg-white border border-stone-200/90 rounded-2xl p-3.5 sm:p-4 text-center shadow-xs">
+                <div className="text-2xl sm:text-3xl font-black text-amber-500">ISO 9001</div>
+                <div className="text-[11px] text-slate-500 uppercase font-bold tracking-wider mt-0.5">Certified &amp; Aligned</div>
               </div>
-              <div className="bg-white border border-stone-200/90 rounded-2xl p-4 text-center shadow-xs">
+              <div className="bg-white border border-stone-200/90 rounded-2xl p-3.5 sm:p-4 text-center shadow-xs">
                 <div className="text-2xl sm:text-3xl font-black text-slate-900">±0.01 mm</div>
-                <div className="text-xs text-slate-500 uppercase font-bold tracking-wider mt-1">Precision Tolerance</div>
+                <div className="text-[11px] text-slate-500 uppercase font-bold tracking-wider mt-0.5">Precision Tolerance</div>
               </div>
             </div>
 
             {/* Action Buttons */}
-            <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
-              <button
-                type="button"
+            <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+              <Button
                 onClick={() => setIsModalOpen(true)}
-                className="px-6 py-3.5 rounded-xl bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold text-sm tracking-wide transition-all shadow-md flex items-center gap-2 cursor-pointer"
+                className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold px-7 py-3.5 rounded-full shadow-md text-sm cursor-pointer"
               >
-                <i className="fa-solid fa-calendar-check text-slate-950" />
-                <span>Schedule Gajraula Plant Visit</span>
+                Schedule Gajraula Plant Visit
+              </Button>
+
+              <button
+                type="button"
+                onClick={() => handleTabChange('metso-story')}
+                className="px-6 py-3.5 rounded-full bg-white hover:bg-stone-50 text-slate-800 font-bold text-sm tracking-wide border border-stone-300 shadow-xs transition-all cursor-pointer"
+              >
+                <span>Metso Outotec Case Study</span>
               </button>
 
               <button
                 type="button"
-                onClick={() => scrollToSection('metso-story')}
-                className="px-6 py-3.5 rounded-xl bg-white hover:bg-stone-50 text-slate-800 font-bold text-sm tracking-wide border border-stone-300 transition-all shadow-xs flex items-center gap-2 cursor-pointer"
+                onClick={() => handleTabChange('certifications')}
+                className="px-6 py-3.5 rounded-full bg-stone-100 hover:bg-stone-200 text-slate-800 font-bold text-sm tracking-wide border border-stone-200 transition-all cursor-pointer"
               >
-                <i className="fa-solid fa-trophy text-amber-500" />
-                <span>Metso Outotec Global Case Study</span>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => scrollToSection('certifications')}
-                className="px-6 py-3.5 rounded-xl bg-stone-100 hover:bg-stone-200 text-slate-800 font-bold text-sm tracking-wide border border-stone-200 transition-all flex items-center gap-2 cursor-pointer"
-              >
-                <i className="fa-solid fa-certificate text-amber-600" />
                 <span>ISO Certifications</span>
               </button>
             </div>
@@ -532,795 +527,684 @@ export default function ManufacturingInfrastructureClient() {
       </section>
 
       {/* ============================================================== */}
-      {/* 2. STICKY SUB-NAVIGATION BAR */}
+      {/* 2. MASTER SHOWCASE BOX (Single unified box with on-click tabs) */}
       {/* ============================================================== */}
-      <nav className="sticky top-[64px] z-30 bg-[#060D17]/95 backdrop-blur-md border-y border-slate-800 shadow-xl overflow-x-auto scrollbar-none">
+      <section className="py-8 sm:py-12 bg-gray-50" id="master-showcase-box">
         <Container>
-          <div className="flex items-center space-x-1 sm:space-x-2 py-2.5 min-w-max">
-            <button
-              type="button"
-              onClick={() => scrollToSection('overview')}
-              className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
-                activeTab === 'overview'
-                  ? 'bg-amber-500 text-slate-950 shadow'
-                  : 'text-slate-300 hover:text-white hover:bg-slate-800'
-              }`}
-            >
-              <i className="fa-solid fa-building-circle-check text-[11px]" />
-              <span>Plant Overview</span>
-            </button>
-
-            <button
-              type="button"
-              onClick={() => scrollToSection('metso-story')}
-              className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
-                activeTab === 'metso-story'
-                  ? 'bg-amber-500 text-slate-950 shadow'
-                  : 'text-slate-300 hover:text-white hover:bg-slate-800'
-              }`}
-            >
-              <i className="fa-solid fa-lightbulb text-[11px]" />
-              <span>Metso Outotec Story</span>
-            </button>
-
-            <button
-              type="button"
-              onClick={() => scrollToSection('certifications')}
-              className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
-                activeTab === 'certifications'
-                  ? 'bg-amber-500 text-slate-950 shadow'
-                  : 'text-slate-300 hover:text-white hover:bg-slate-800'
-              }`}
-            >
-              <i className="fa-solid fa-shield-halved text-[11px]" />
-              <span>ISO & Quality</span>
-            </button>
-
-            <button
-              type="button"
-              onClick={() => scrollToSection('manufactured-parts')}
-              className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
-                activeTab === 'manufactured-parts'
-                  ? 'bg-amber-500 text-slate-950 shadow'
-                  : 'text-slate-300 hover:text-white hover:bg-slate-800'
-              }`}
-            >
-              <i className="fa-solid fa-gears text-[11px]" />
-              <span>Manufactured Parts</span>
-            </button>
-
-            {INFRASTRUCTURE_STAGES.map((stage) => (
-              <button
-                key={stage.id}
-                type="button"
-                onClick={() => scrollToSection(stage.id)}
-                className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
-                  activeTab === stage.id
-                    ? 'bg-amber-500 text-slate-950 shadow'
-                    : 'text-slate-300 hover:text-white hover:bg-slate-800'
-                }`}
-              >
-                <i className={`${stage.icon} text-[11px]`} />
-                <span>{stage.title.split(' ')[0]}</span>
-              </button>
-            ))}
-
-            <button
-              type="button"
-              onClick={() => scrollToSection('machinery-fleet')}
-              className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
-                activeTab === 'machinery-fleet'
-                  ? 'bg-amber-500 text-slate-950 shadow'
-                  : 'text-slate-300 hover:text-white hover:bg-slate-800'
-              }`}
-            >
-              <i className="fa-solid fa-table-list text-[11px]" />
-              <span>Fleet Specs</span>
-            </button>
-
-            <button
-              type="button"
-              onClick={() => scrollToSection('process-flow')}
-              className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
-                activeTab === 'process-flow'
-                  ? 'bg-amber-500 text-slate-950 shadow'
-                  : 'text-slate-300 hover:text-white hover:bg-slate-800'
-              }`}
-            >
-              <i className="fa-solid fa-diagram-project text-[11px]" />
-              <span>Process Flow</span>
-            </button>
-          </div>
-        </Container>
-      </nav>
-
-      {/* ============================================================== */}
-      {/* 3. SECTION: PLANT OVERVIEW & OFFICIAL WORKS FACILITY */}
-      {/* ============================================================== */}
-      <section id="overview" className="py-20 border-b border-slate-800">
-        <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Left Content */}
-            <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-bold uppercase tracking-wider">
-                <i className="fa-solid fa-location-dot" />
-                <span>Plant (Works): I-44/45, Gajraula (Amroha), Uttar Pradesh</span>
-              </div>
-
-              <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
-                State-of-the-Art Integrated Manufacturing Facility
-              </h2>
-
-              <p className="text-slate-300 leading-relaxed text-sm sm:text-base">
-                Backed by <strong>more than 30 years of industrial experience</strong> and technical cooperation from the Kaeser Compressor business, Airmen Engineers commissioned this cutting-edge manufacturing plant in the industrial hub of <strong>Gajraula (Amroha, U.P.)</strong>, India.
-              </p>
-
-              <p className="text-slate-400 text-sm leading-relaxed">
-                The plant is equipped to manufacture precision forged &amp; CNC-machined components, custom high-pressure piping, and specialized compressed air systems for global leaders like Metso Outotec.
-              </p>
-
-              {/* Official Office & Works Matrix from PPTX */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
-                <div className="bg-slate-900/90 border border-slate-800 rounded-xl p-4">
-                  <div className="flex items-start gap-3">
-                    <div className="w-9 h-9 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0">
-                      <i className="fa-solid fa-industry text-sm" />
-                    </div>
-                    <div>
-                      <h4 className="text-white font-bold text-xs uppercase tracking-wider">Plant (Works)</h4>
-                      <p className="text-xs text-slate-300 mt-0.5">I-44/45, Gajraula (Amroha), Uttar Pradesh, India</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-slate-900/90 border border-slate-800 rounded-xl p-4">
-                  <div className="flex items-start gap-3">
-                    <div className="w-9 h-9 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0">
-                      <i className="fa-solid fa-building text-sm" />
-                    </div>
-                    <div>
-                      <h4 className="text-white font-bold text-xs uppercase tracking-wider">Head Office / Mailing</h4>
-                      <p className="text-xs text-slate-300 mt-0.5">C-53, Road No 1, Prahalad Vihar, Near Rohini Sec 25, Delhi - 110042</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-slate-900/90 border border-slate-800 rounded-xl p-4">
-                  <div className="flex items-start gap-3">
-                    <div className="w-9 h-9 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0">
-                      <i className="fa-solid fa-briefcase text-sm" />
-                    </div>
-                    <div>
-                      <h4 className="text-white font-bold text-xs uppercase tracking-wider">Registered Office</h4>
-                      <p className="text-xs text-slate-300 mt-0.5">310-311 Vardhman Seven Eleven Plaza, M2K Naharpur Rd, Rohini Sec 7, Delhi</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-slate-900/90 border border-slate-800 rounded-xl p-4">
-                  <div className="flex items-start gap-3">
-                    <div className="w-9 h-9 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0">
-                      <i className="fa-solid fa-map-location-dot text-sm" />
-                    </div>
-                    <div>
-                      <h4 className="text-white font-bold text-xs uppercase tracking-wider">Branch Offices</h4>
-                      <p className="text-xs text-slate-300 mt-0.5">Haridwar (Uttarakhand) &amp; Bhiwadi (Rajasthan)</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Plant Audit Callout */}
-              <div className="p-4 rounded-xl bg-gradient-to-r from-amber-500/10 via-slate-900 to-slate-900 border border-amber-500/20 flex flex-wrap items-center justify-between gap-4">
-                <div>
-                  <span className="text-xs uppercase text-amber-400 font-extrabold tracking-wider block">Audits & Inspections</span>
-                  <span className="text-sm text-slate-200 font-medium">Customer Quality & Vendor Audits Welcomed at Gajraula Works</span>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => setIsModalOpen(true)}
-                  className="px-4 py-2 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-1.5 cursor-pointer"
-                >
-                  <i className="fa-solid fa-file-signature" />
-                  <span>Book Audit Slot</span>
-                </button>
-              </div>
-            </div>
-
-            {/* Right Column: Actual Plant Photos from PPTX */}
-            <div className="lg:col-span-5 space-y-4">
-              <div 
-                className="relative h-72 sm:h-80 w-full rounded-2xl overflow-hidden border border-slate-700 shadow-2xl group cursor-pointer"
-                onClick={() => setLightboxImg('/images/factory_ppt/image11.png')}
-              >
-                <Image
-                  src="/images/factory_ppt/image11.png"
-                  alt="Airmen Engineers Gajraula Plant (Works) - I-44/45 Gajraula Amroha"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4">
-                  <span className="text-xs font-bold uppercase tracking-wider text-amber-400 bg-slate-950/80 px-2.5 py-1 rounded-md">
-                    Plant (Works) Entrance
-                  </span>
-                  <h3 className="text-base font-bold text-white mt-1.5 drop-shadow">
-                    Airmen Engineers Factory — I-44/45 Gajraula
-                  </h3>
-                  <p className="text-xs text-slate-300">Amroha District, Uttar Pradesh, India</p>
-                </div>
-                <div className="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-900/80 text-amber-400 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                  <i className="fa-solid fa-magnifying-glass-plus text-sm" />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                <div 
-                  className="relative h-44 rounded-xl overflow-hidden border border-slate-700 shadow group cursor-pointer"
-                  onClick={() => setLightboxImg('/images/factory_ppt/image33.jpeg')}
-                >
-                  <Image
-                    src="/images/factory_ppt/image33.jpeg"
-                    alt="Gajraula Factory Production Bay 01"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
-                  <div className="absolute bottom-2.5 left-2.5 right-2.5">
-                    <span className="text-[10px] font-bold uppercase text-amber-400">Bay 01</span>
-                    <h4 className="text-xs font-bold text-white truncate">Forging & Heavy Machinery</h4>
-                  </div>
-                </div>
-
-                <div 
-                  className="relative h-44 rounded-xl overflow-hidden border border-slate-700 shadow group cursor-pointer"
-                  onClick={() => setLightboxImg('/images/factory_ppt/image34.png')}
-                >
-                  <Image
-                    src="/images/factory_ppt/image34.png"
-                    alt="CNC Turning Center Line Gajraula Factory"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
-                  <div className="absolute bottom-2.5 left-2.5 right-2.5">
-                    <span className="text-[10px] font-bold uppercase text-amber-400">Bay 02</span>
-                    <h4 className="text-xs font-bold text-white truncate">Precision CNC Turning Line</h4>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* ============================================================== */}
-      {/* 4. SUCCESS STORY SECTION: METSO OUTOTEC SPECIAL PURPOSE COMPRESSOR */}
-      {/* (Directly from Slide 14 of AESPL-PPT_HR.pptx) */}
-      {/* ============================================================== */}
-      <section id="metso-story" className="py-20 bg-gradient-to-b from-[#081220] via-slate-900 to-[#060D17] border-b border-slate-800 scroll-mt-36">
-        <Container>
-          <div className="max-w-4xl mx-auto text-center space-y-4 mb-12">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-bold uppercase tracking-wider">
-              <i className="fa-solid fa-trophy" />
-              <span>Flagship In-House R&amp;D Success Story (PPT Slide 14)</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
-              Special Purpose Compressor for M/s Metso Outotec
-            </h2>
-            <p className="text-base sm:text-lg text-amber-300 font-semibold italic">
-              &ldquo;AE-AIM PDC100 was fully built in-house with the expertise of our technical as well as R&amp;D team.&rdquo;
-            </p>
-            <p className="text-slate-300 text-sm max-w-2xl mx-auto leading-relaxed">
-              Airmen Engineers engineered and manufactured the Special Purpose Compressor for global heavy-equipment giant <strong>Metso Outotec</strong>, which they deploy worldwide for harsh stone-crushing and mineral processing mechanisms.
-            </p>
-          </div>
-
-          {/* Metso Project Photo Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {METSO_PROJECT_PHOTOS.map((item, idx) => (
-              <div
-                key={idx}
-                className="group relative h-48 sm:h-56 rounded-2xl overflow-hidden border border-slate-700 bg-slate-950 shadow-lg cursor-pointer"
-                onClick={() => setLightboxImg(item.src)}
-              >
-                <Image
-                  src={item.src}
-                  alt={item.caption}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
-                <div className="absolute bottom-3 left-3 right-3">
-                  <span className="text-[10px] font-black uppercase tracking-wider text-amber-400 bg-slate-950/90 px-2 py-0.5 rounded">
-                    R&amp;D Milestone
-                  </span>
-                  <p className="text-xs font-bold text-white mt-1 leading-snug drop-shadow line-clamp-2">
-                    {item.caption}
-                  </p>
-                </div>
-                <div className="absolute top-3 right-3 w-7 h-7 rounded-full bg-slate-900/80 text-amber-400 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity text-xs">
-                  <i className="fa-solid fa-expand" />
-                </div>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* ============================================================== */}
-      {/* 5. QUALITY & CERTIFICATIONS (Directly from Slide 12 of AESPL-PPT_HR.pptx) */}
-      {/* ============================================================== */}
-      <section id="certifications" className="py-20 border-b border-slate-800 scroll-mt-36">
-        <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            {/* Left: Certificate Image */}
-            <div className="lg:col-span-5 flex justify-center">
-              <div 
-                className="relative w-full max-w-sm h-96 rounded-2xl overflow-hidden border-2 border-amber-500/40 shadow-2xl shadow-amber-500/10 group cursor-pointer bg-slate-950"
-                onClick={() => setLightboxImg('/images/factory_ppt/image32.png')}
-              >
-                <Image
-                  src="/images/factory_ppt/image32.png"
-                  alt="Airmen Engineers ISO 9001:2015 Certificate"
-                  fill
-                  className="object-contain p-2 group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute bottom-3 left-3 right-3 bg-slate-950/90 backdrop-blur py-1.5 px-3 rounded-lg border border-slate-700 flex items-center justify-between">
-                  <span className="text-xs font-bold text-amber-400">ISO 9001:2015 Certificate</span>
-                  <span className="text-[10px] font-bold text-slate-300">Click to Enlarge</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Right: Quality Framework */}
-            <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-bold uppercase tracking-wider">
-                <i className="fa-solid fa-certificate" />
-                <span>Quality Management Systems (PPT Slide 12)</span>
-              </div>
-
-              <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
-                Airmen Certifications &amp; Quality Commitments
-              </h2>
-
-              <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-                As of now, <strong>M/s Airmen Engineers</strong> is certified under <strong>ISO 9001:2015</strong> (Quality Management System). We adhere to stringent operational excellence across our manufacturing facility.
-              </p>
-
-              <div className="space-y-3 pt-2">
-                <div className="p-4 rounded-xl bg-slate-900 border border-amber-500/30 flex items-start gap-3">
-                  <div className="w-9 h-9 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0">
-                    <i className="fa-solid fa-check-double text-sm" />
-                  </div>
-                  <div>
-                    <h4 className="text-white font-bold text-sm">ISO 9001:2015 Certified (Quality Management System)</h4>
-                    <p className="text-xs text-slate-300 mt-1">Full compliance across precision CNC machining, forged parts manufacturing, and assembly verification.</p>
-                  </div>
-                </div>
-
-                <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 flex items-start gap-3">
-                  <div className="w-9 h-9 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0">
-                    <i className="fa-solid fa-award text-sm" />
-                  </div>
-                  <div>
-                    <h4 className="text-white font-bold text-sm">IATF 16949:2016 Commitment</h4>
-                    <p className="text-xs text-slate-300 mt-1">Targeted automotive standard ensuring zero defect manufacturing, PPAP Level 3 documentation, and full APQP integration.</p>
-                  </div>
-                </div>
-
-                <div className="p-4 rounded-xl bg-slate-900/80 border border-slate-800 flex items-start gap-3">
-                  <div className="w-9 h-9 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
-                    <i className="fa-solid fa-leaf text-sm" />
-                  </div>
-                  <div>
-                    <h4 className="text-white font-bold text-sm">ISO 14001:2015 (Environmental Management System)</h4>
-                    <p className="text-xs text-slate-300 mt-1">Commitment to green manufacturing, zero effluent discharge, and responsible scrap recycling.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* ============================================================== */}
-      {/* 6. MANUFACTURED AUTOMOTIVE PARTS (Part description.docx) */}
-      {/* ============================================================== */}
-      <section id="manufactured-parts" className="py-20 bg-slate-950/70 border-b border-slate-800 scroll-mt-36">
-        <Container>
-          <div className="max-w-3xl mx-auto text-center space-y-3 mb-14">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-bold uppercase tracking-wider">
-              <i className="fa-solid fa-list-check" />
-              <span>Gajraula Plant Product Fleet (Part description.docx)</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
-              Precision CNC-Machined Forged Components
-            </h2>
-            <p className="text-slate-300 text-sm sm:text-base">
-              Manufactured directly at our Gajraula works facility from certified forged alloy steels with 100% drawing inspection.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {MANUFACTURED_PARTS.map((part) => (
-              <div
-                key={part.partNo}
-                className="rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-amber-500/40 overflow-hidden shadow-xl transition-all duration-300 group hover:-translate-y-1 flex flex-col justify-between"
-              >
-                <div>
-                  <div 
-                    className="relative h-48 w-full overflow-hidden bg-slate-950 cursor-pointer"
-                    onClick={() => setLightboxImg(part.img)}
-                  >
-                    <Image
-                      src={part.img}
-                      alt={part.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
-                    <span className="absolute top-3 left-3 bg-amber-500 text-slate-950 font-black text-[10px] uppercase tracking-wider px-2.5 py-0.5 rounded-md">
-                      {part.badge}
-                    </span>
-                  </div>
-
-                  <div className="p-5">
-                    <span className="text-xs font-mono font-bold text-amber-400">
-                      {part.partNo}
-                    </span>
-                    <h3 className="text-base font-bold text-white mt-1 group-hover:text-amber-300 transition-colors">
-                      {part.title}
-                    </h3>
-                    <p className="text-xs text-slate-300 mt-2 leading-relaxed">
-                      {part.desc}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="p-5 pt-0">
-                  <div className="pt-3 border-t border-slate-800 flex items-center justify-between text-xs">
-                    <span className="text-slate-400">Material: Forged Steel</span>
+          {/* Outer Box Card */}
+          <div className="bg-white rounded-3xl border border-stone-200/90 shadow-lg overflow-hidden transition-all">
+            {/* ── Box Header: Interactive Tab Bar ── */}
+            <div className="bg-stone-900 p-2 sm:p-3 border-b border-stone-800">
+              <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto scrollbar-none py-1 px-1">
+                {SHOWCASE_TABS.map((tab) => {
+                  const Icon = tab.icon;
+                  const isActive = activeTab === tab.id;
+                  return (
                     <button
+                      key={tab.id}
                       type="button"
-                      onClick={() => setIsModalOpen(true)}
-                      className="text-amber-400 hover:text-amber-300 font-bold transition-colors cursor-pointer"
+                      onClick={() => handleTabChange(tab.id)}
+                      className={`px-3 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 whitespace-nowrap cursor-pointer shrink-0 ${
+                        isActive
+                          ? 'bg-amber-400 text-slate-950 shadow-md scale-102 font-extrabold'
+                          : 'text-stone-300 hover:text-white hover:bg-stone-800/90'
+                      }`}
                     >
-                      Request Drawing Specs →
+                      <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-slate-950' : 'text-amber-400'}`} />
+                      <span>{tab.label}</span>
                     </button>
-                  </div>
-                </div>
+                  );
+                })}
               </div>
-            ))}
-          </div>
-
-          <div className="mt-8 text-center">
-            <Link
-              href="/manufacturing-products"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs uppercase tracking-wider border border-slate-700 transition-all"
-            >
-              <span>Explore All 20+ Gajraula Plant Components</span>
-              <i className="fa-solid fa-arrow-right text-amber-400" />
-            </Link>
-          </div>
-        </Container>
-      </section>
-
-      {/* ============================================================== */}
-      {/* 7. DETAILED INFRASTRUCTURE STAGES (Ramco Steels Structure) */}
-      {/* ============================================================== */}
-      <section className="py-20 space-y-24">
-        <Container>
-          <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-extrabold uppercase tracking-wider">
-              <i className="fa-solid fa-sitemap" />
-              <span>Plant Infrastructure Overview</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
-              Comprehensive Stage-By-Stage Capabilities
-            </h2>
-            <p className="text-slate-300 text-sm sm:text-base">
-              Each stage of our Gajraula manufacturing plant is engineered with dedicated quality gateways, certified machines, and documented operational protocols.
-            </p>
-          </div>
 
-          <div className="space-y-24">
-            {INFRASTRUCTURE_STAGES.map((stage) => (
-              <div
-                key={stage.id}
-                id={stage.id}
-                className="scroll-mt-36 p-6 sm:p-10 rounded-3xl bg-slate-900/70 border border-slate-800 shadow-2xl relative overflow-hidden"
-              >
-                {/* Background Watermark Number */}
-                <div className="absolute -top-10 -right-6 text-9xl font-black text-slate-800/30 pointer-events-none select-none">
-                  {stage.stageNumber}
-                </div>
-
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start relative z-10">
-                  {/* Left Column: Stage Details */}
-                  <div className="lg:col-span-7 space-y-6">
-                    <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/40 flex items-center justify-center text-amber-400 text-xl font-bold shrink-0">
-                        <i className={stage.icon} />
-                      </div>
-                      <div>
-                        <span className="text-xs font-extrabold uppercase text-amber-400 tracking-wider">
-                          Stage {stage.stageNumber}
-                        </span>
-                        <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-                          {stage.title}
-                        </h3>
-                      </div>
-                    </div>
-
-                    <p className="text-sm font-semibold text-amber-300 italic">
-                      &ldquo;{stage.tagline}&rdquo;
+            {/* ── Box Body: Dynamic Content on Click ── */}
+            <div className="p-6 sm:p-8 md:p-10 min-h-[500px]">
+              {/* TAB 1: PLANT OVERVIEW */}
+              {activeTab === 'overview' && (
+                <div className="space-y-8 animate-in fade-in duration-200">
+                  <div className="max-w-3xl">
+                    <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight leading-snug">
+                      State-of-the-Art Integrated Manufacturing Facility
+                    </h2>
+                    <p className="text-slate-600 leading-relaxed text-sm sm:text-base mt-2">
+                      Backed by <strong>more than 30 years of industrial experience</strong>, Airmen Engineers commissioned this cutting-edge manufacturing plant in the industrial hub of <strong>Gajraula (Amroha, U.P.)</strong>, India.
                     </p>
-
-                    {/* Capacity Badge */}
-                    <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-slate-950 border border-slate-800 text-slate-200 text-xs font-bold">
-                      <i className="fa-solid fa-gauge-high text-amber-400" />
-                      <span>{stage.capacity}</span>
-                    </div>
-
-                    {/* Key Technical Highlights */}
-                    <div className="space-y-2.5">
-                      <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400">
-                        Process &amp; Engineering Highlights:
-                      </h4>
-                      <ul className="space-y-2">
-                        {stage.highlights.map((h, i) => (
-                          <li key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-300 leading-relaxed">
-                            <i className="fa-solid fa-circle-check text-amber-400 mt-1 shrink-0 text-xs" />
-                            <span>{h}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {/* Machinery Grid */}
-                    <div className="pt-2">
-                      <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2.5">
-                        Key Deployed Equipment:
-                      </h4>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                        {stage.equipment.map((eq, i) => (
-                          <div key={i} className="p-3 rounded-lg bg-slate-950/80 border border-slate-800 flex items-center justify-between gap-2">
-                            <div>
-                              <div className="text-xs font-bold text-white">{eq.name}</div>
-                              <div className="text-[11px] text-slate-400">{eq.spec}</div>
-                            </div>
-                            <span className="text-[11px] font-extrabold text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20 shrink-0">
-                              {eq.count}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Tolerances & Standards */}
-                    <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800 flex flex-wrap items-center justify-between gap-3 text-xs">
-                      <div>
-                        <span className="text-slate-400 block font-semibold">Tolerances:</span>
-                        <span className="text-white font-mono font-bold">{stage.tolerances}</span>
-                      </div>
-                      <div className="flex items-center gap-1.5 flex-wrap">
-                        {stage.standards.map((st, i) => (
-                          <span key={i} className="bg-slate-900 text-amber-400 px-2 py-0.5 rounded text-[10px] font-bold border border-slate-800">
-                            {st}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
+                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mt-2">
+                      Equipped to manufacture precision forged &amp; CNC-machined components, high-pressure piping networks, and custom special-purpose compressors for global industry leaders like Metso Outotec.
+                    </p>
                   </div>
 
-                  {/* Right Column: Stage Photos */}
-                  <div className="lg:col-span-5 space-y-4">
-                    <div 
-                      className="relative h-64 sm:h-80 rounded-2xl overflow-hidden border border-slate-800 shadow-xl group cursor-pointer"
-                      onClick={() => setLightboxImg(stage.image)}
-                    >
-                      <Image
-                        src={stage.image}
-                        alt={`${stage.title} Shopfloor`}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
-                      <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
-                        <span className="text-xs font-bold text-white drop-shadow">
-                          {stage.title} — Plant View
-                        </span>
-                        <span className="w-8 h-8 rounded-full bg-slate-900/90 text-amber-400 flex items-center justify-center text-xs">
-                          <i className="fa-solid fa-expand" />
-                        </span>
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                    {/* Office Matrix */}
+                    <div className="lg:col-span-7 space-y-3">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div className="bg-stone-50 border border-stone-200/90 rounded-2xl p-4 shadow-2xs hover:shadow-sm transition-shadow">
+                          <div className="flex items-start gap-3">
+                            <div className="w-9 h-9 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-600 shrink-0">
+                              <Building2 className="w-4 h-4" />
+                            </div>
+                            <div>
+                              <h4 className="text-slate-900 font-bold text-xs uppercase tracking-wider">Plant (Works)</h4>
+                              <p className="text-xs text-slate-600 mt-0.5">I-44/45, Gajraula (Amroha), Uttar Pradesh, India</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="bg-stone-50 border border-stone-200/90 rounded-2xl p-4 shadow-2xs hover:shadow-sm transition-shadow">
+                          <div className="flex items-start gap-3">
+                            <div className="w-9 h-9 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-600 shrink-0">
+                              <Building2 className="w-4 h-4" />
+                            </div>
+                            <div>
+                              <h4 className="text-slate-900 font-bold text-xs uppercase tracking-wider">Head Office / Mailing</h4>
+                              <p className="text-xs text-slate-600 mt-0.5">C-53, Road No 1, Prahalad Vihar, Near Rohini Sec 25, Delhi - 110042</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="bg-stone-50 border border-stone-200/90 rounded-2xl p-4 shadow-2xs hover:shadow-sm transition-shadow">
+                          <div className="flex items-start gap-3">
+                            <div className="w-9 h-9 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-600 shrink-0">
+                              <Building2 className="w-4 h-4" />
+                            </div>
+                            <div>
+                              <h4 className="text-slate-900 font-bold text-xs uppercase tracking-wider">Registered Office</h4>
+                              <p className="text-xs text-slate-600 mt-0.5">310-311 Vardhman Seven Eleven Plaza, M2K Naharpur Rd, Rohini Sec 7, Delhi</p>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="bg-stone-50 border border-stone-200/90 rounded-2xl p-4 shadow-2xs hover:shadow-sm transition-shadow">
+                          <div className="flex items-start gap-3">
+                            <div className="w-9 h-9 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-600 shrink-0">
+                              <Building2 className="w-4 h-4" />
+                            </div>
+                            <div>
+                              <h4 className="text-slate-900 font-bold text-xs uppercase tracking-wider">Branch Offices</h4>
+                              <p className="text-xs text-slate-600 mt-0.5">Haridwar (Uttarakhand) &amp; Bhiwadi (Rajasthan)</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Plant Audit Callout */}
+                      <div className="p-4 sm:p-5 rounded-2xl bg-amber-500/10 border border-amber-300/80 flex flex-wrap items-center justify-between gap-4 mt-4">
+                        <div>
+                          <span className="text-xs uppercase text-amber-800 font-extrabold tracking-wider block">Audits &amp; Inspections</span>
+                          <span className="text-xs sm:text-sm text-slate-800 font-semibold">Customer Quality &amp; Vendor Audits Welcomed at Gajraula Works</span>
+                        </div>
+                        <button
+                          type="button"
+                          onClick={() => setIsModalOpen(true)}
+                          className="px-4 py-2 rounded-full bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-1.5 cursor-pointer shadow-xs"
+                        >
+                          <CalendarCheck className="w-3.5 h-3.5" />
+                          <span>Book Audit Slot</span>
+                        </button>
                       </div>
                     </div>
 
-                    {stage.secondaryImage && (
+                    {/* Right: Plant Photos */}
+                    <div className="lg:col-span-5 space-y-3.5">
                       <div 
-                        className="relative h-44 rounded-xl overflow-hidden border border-slate-800 shadow group cursor-pointer"
-                        onClick={() => setLightboxImg(stage.secondaryImage!)}
+                        className="relative h-60 sm:h-68 w-full rounded-2xl overflow-hidden border border-stone-200/90 shadow-sm group cursor-pointer bg-stone-100"
+                        onClick={() => setLightboxImg('/images/factory_ppt/image11.png')}
                       >
                         <Image
-                          src={stage.secondaryImage}
-                          alt={`${stage.title} Secondary View`}
+                          src="/images/factory_ppt/image11.png"
+                          alt="Airmen Engineers Gajraula Plant Entrance"
                           fill
                           className="object-cover group-hover:scale-105 transition-transform duration-500"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
-                        <div className="absolute bottom-2.5 left-2.5 right-2.5 flex items-center justify-between">
-                          <span className="text-[11px] font-bold text-slate-200">
-                            Process Detail &amp; Inspection
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
+                        <div className="absolute bottom-3 left-3 right-3 text-white">
+                          <h3 className="text-sm font-bold drop-shadow">
+                            Airmen Engineers Factory — I-44/45 Gajraula
+                          </h3>
+                          <p className="text-[11px] text-stone-200">Amroha District, Uttar Pradesh, India</p>
+                        </div>
+                        <div className="absolute top-3 right-3 w-7 h-7 rounded-full bg-white/90 text-slate-900 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-sm">
+                          <Maximize2 className="w-3 h-3" />
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-2 gap-3">
+                        <div 
+                          className="relative h-32 sm:h-36 rounded-xl overflow-hidden border border-stone-200/90 shadow-2xs group cursor-pointer bg-stone-100"
+                          onClick={() => setLightboxImg('/images/factory_ppt/image33.jpeg')}
+                        >
+                          <Image
+                            src="/images/factory_ppt/image33.jpeg"
+                            alt="Bay 01: Forging & Presses"
+                            fill
+                            className="object-cover group-hover:scale-105 transition-transform duration-500"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
+                          <div className="absolute bottom-2 left-2 right-2 text-white">
+                            <h4 className="text-xs font-bold truncate">Bay 01: Forging Lines</h4>
+                          </div>
+                        </div>
+
+                        <div 
+                          className="relative h-32 sm:h-36 rounded-xl overflow-hidden border border-stone-200/90 shadow-2xs group cursor-pointer bg-stone-100"
+                          onClick={() => setLightboxImg('/images/factory_ppt/image34.png')}
+                        >
+                          <Image
+                            src="/images/factory_ppt/image34.png"
+                            alt="Bay 02: CNC Turning"
+                            fill
+                            className="object-cover group-hover:scale-105 transition-transform duration-500"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
+                          <div className="absolute bottom-2 left-2 right-2 text-white">
+                            <h4 className="text-xs font-bold truncate">Bay 02: CNC Turning</h4>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* TAB 2: METSO OUTOTEC STORY */}
+              {activeTab === 'metso-story' && (
+                <div className="space-y-6 animate-in fade-in duration-200">
+                  <div className="max-w-3xl">
+                    <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+                      Special Purpose Compressor for Metso Outotec
+                    </h2>
+                    <p className="text-sm sm:text-base text-amber-700 font-semibold italic mt-1.5">
+                      &ldquo;AE-AIM PDC100 was fully built in-house with the expertise of our technical and R&amp;D engineering team.&rdquo;
+                    </p>
+                    <p className="text-slate-600 text-xs sm:text-sm mt-2 leading-relaxed">
+                      Airmen Engineers engineered and manufactured this Special Purpose Compressor for global heavy-equipment giant <strong>Metso Outotec</strong>, deployed worldwide for heavy-duty stone-crushing and mineral processing rigs.
+                    </p>
+                  </div>
+
+                  {/* 6 Photos Grid */}
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-3.5 sm:gap-4 pt-2">
+                    {METSO_PROJECT_PHOTOS.map((item, idx) => (
+                      <div
+                        key={idx}
+                        className="group relative h-48 sm:h-56 rounded-2xl overflow-hidden border border-stone-200/90 bg-white shadow-xs hover:shadow-xl transition-all cursor-pointer"
+                        onClick={() => setLightboxImg(item.src)}
+                      >
+                        <Image
+                          src={item.src}
+                          alt={item.caption}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent" />
+                        <div className="absolute bottom-3 left-3 right-3 text-white">
+                          <p className="text-xs font-bold leading-snug drop-shadow line-clamp-2">
+                            {item.caption}
+                          </p>
+                        </div>
+                        <div className="absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-white/90 text-slate-900 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-sm">
+                          <Maximize2 className="w-3 h-3" />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* TAB 3: ISO & QUALITY */}
+              {activeTab === 'certifications' && (
+                <div className="space-y-6 animate-in fade-in duration-200">
+                  <div className="max-w-3xl">
+                    <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+                      Quality Certifications &amp; Engineering Commitments
+                    </h2>
+                    <p className="text-slate-600 text-xs sm:text-sm mt-1.5 leading-relaxed">
+                      Airmen Engineers is certified under <strong>ISO 9001:2015</strong> (Quality Management System). We adhere to stringent operational excellence across our manufacturing facility.
+                    </p>
+                  </div>
+
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pt-2">
+                    {/* Certificate Photo */}
+                    <div className="lg:col-span-5 flex justify-center">
+                      <div 
+                        className="relative w-full max-w-xs h-84 sm:h-92 rounded-2xl overflow-hidden border-2 border-amber-400/80 shadow-md group cursor-pointer bg-stone-50 p-2"
+                        onClick={() => setLightboxImg('/images/factory_ppt/image32.png')}
+                      >
+                        <Image
+                          src="/images/factory_ppt/image32.png"
+                          alt="Airmen Engineers ISO 9001:2015 Certificate"
+                          fill
+                          className="object-contain p-2 group-hover:scale-105 transition-transform duration-300"
+                        />
+                        <div className="absolute bottom-3 left-3 right-3 bg-white/95 backdrop-blur py-1.5 px-3 rounded-xl border border-stone-200 flex items-center justify-between shadow-xs">
+                          <span className="text-xs font-bold text-slate-900">ISO 9001:2015 Certificate</span>
+                          <span className="text-[10px] font-bold text-amber-600">Click to Enlarge</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Commitments */}
+                    <div className="lg:col-span-7 space-y-3">
+                      <div className="p-4 rounded-2xl bg-stone-50 border border-stone-200/90 flex items-start gap-3 shadow-2xs">
+                        <div className="w-9 h-9 rounded-xl bg-amber-500/10 text-amber-600 flex items-center justify-center shrink-0">
+                          <CheckCircle2 className="w-4 h-4" />
+                        </div>
+                        <div>
+                          <h4 className="text-slate-900 font-bold text-sm">ISO 9001:2015 Certified (Quality Management System)</h4>
+                          <p className="text-xs text-slate-600 mt-0.5">Full compliance across precision CNC machining, forged parts manufacturing, and assembly verification.</p>
+                        </div>
+                      </div>
+
+                      <div className="p-4 rounded-2xl bg-stone-50 border border-stone-200/90 flex items-start gap-3 shadow-2xs">
+                        <div className="w-9 h-9 rounded-xl bg-blue-500/10 text-blue-600 flex items-center justify-center shrink-0">
+                          <Award className="w-4 h-4" />
+                        </div>
+                        <div>
+                          <h4 className="text-slate-900 font-bold text-sm">IATF 16949:2016 Commitment</h4>
+                          <p className="text-xs text-slate-600 mt-0.5">Targeted automotive standard ensuring zero defect manufacturing, PPAP Level 3 documentation, and full APQP integration.</p>
+                        </div>
+                      </div>
+
+                      <div className="p-4 rounded-2xl bg-stone-50 border border-stone-200/90 flex items-start gap-3 shadow-2xs">
+                        <div className="w-9 h-9 rounded-xl bg-emerald-500/10 text-emerald-600 flex items-center justify-center shrink-0">
+                          <ShieldCheck className="w-4 h-4" />
+                        </div>
+                        <div>
+                          <h4 className="text-slate-900 font-bold text-sm">ISO 14001:2015 (Environmental Management System)</h4>
+                          <p className="text-xs text-slate-600 mt-0.5">Commitment to green manufacturing, zero effluent discharge, and responsible scrap recycling.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* TAB 4: MANUFACTURED AUTOMOTIVE PARTS */}
+              {activeTab === 'manufactured-parts' && (
+                <div className="space-y-6 animate-in fade-in duration-200">
+                  <div className="max-w-3xl">
+                    <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+                      Precision CNC-Machined Forged Components
+                    </h2>
+                    <p className="text-slate-600 text-xs sm:text-sm mt-1.5">
+                      Manufactured directly at our Gajraula works facility from certified forged alloy steels with 100% drawing inspection.
+                    </p>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 pt-2">
+                    {MANUFACTURED_PARTS.map((part) => (
+                      <div
+                        key={part.partNo}
+                        className="rounded-2xl bg-stone-50/60 border border-stone-200/90 hover:border-amber-400 overflow-hidden shadow-2xs hover:shadow-lg transition-all duration-300 group flex flex-col justify-between"
+                      >
+                        <div>
+                          <div 
+                            className="relative h-44 w-full overflow-hidden bg-stone-100 cursor-pointer"
+                            onClick={() => setLightboxImg(part.img)}
+                          >
+                            <Image
+                              src={part.img}
+                              alt={part.title}
+                              fill
+                              className="object-cover group-hover:scale-105 transition-transform duration-500"
+                            />
+                            <span className="absolute top-3 left-3 bg-white/95 text-slate-900 border border-stone-200 font-bold text-[10px] uppercase tracking-wider px-2.5 py-0.5 rounded-full shadow-2xs">
+                              {part.badge}
+                            </span>
+                          </div>
+
+                          <div className="p-4 sm:p-5">
+                            <span className="text-xs font-mono font-bold text-amber-600">
+                              {part.partNo}
+                            </span>
+                            <h3 className="text-base font-bold text-slate-900 mt-1 group-hover:text-amber-600 transition-colors">
+                              {part.title}
+                            </h3>
+                            <p className="text-xs text-slate-600 mt-1.5 leading-relaxed">
+                              {part.desc}
+                            </p>
+                          </div>
+                        </div>
+
+                        <div className="p-4 sm:p-5 pt-0">
+                          <div className="pt-3 border-t border-stone-200 flex items-center justify-between text-xs">
+                            <span className="text-slate-500">Material: Forged Steel</span>
+                            <button
+                              type="button"
+                              onClick={() => setIsModalOpen(true)}
+                              className="text-amber-600 hover:text-amber-700 font-bold transition-colors cursor-pointer"
+                            >
+                              Request Drawing Specs →
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="pt-2 text-center">
+                    <Link
+                      href="/manufacturing-products"
+                      className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-stone-100 hover:bg-stone-200 text-slate-900 font-bold text-xs uppercase tracking-wider border border-stone-300 shadow-2xs transition-all"
+                    >
+                      <span>Explore All Gajraula Plant Components</span>
+                      <ArrowRight className="w-3.5 h-3.5 text-amber-500" />
+                    </Link>
+                  </div>
+                </div>
+              )}
+
+              {/* TABS 5-9: DETAILED INFRASTRUCTURE STAGE (Raw Material, Forging, Heat Treatment, Machining, Surface) */}
+              {currentStage && (
+                <div className="space-y-6 animate-in fade-in duration-200">
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-600 text-xl font-bold shrink-0">
+                      <i className={currentStage.icon} />
+                    </div>
+                    <div>
+                      <span className="text-xs font-extrabold uppercase text-amber-600 tracking-wider">
+                        Stage {currentStage.stageNumber} Capability
+                      </span>
+                      <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+                        {currentStage.title}
+                      </h2>
+                    </div>
+                  </div>
+
+                  <p className="text-sm font-semibold text-amber-700 italic">
+                    &ldquo;{currentStage.tagline}&rdquo;
+                  </p>
+
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start pt-1">
+                    {/* Left: Stage Specs */}
+                    <div className="lg:col-span-7 space-y-4">
+                      {/* Capacity Badge */}
+                      <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-stone-50 border border-stone-200 text-slate-800 text-xs font-bold shadow-2xs">
+                        <Gauge className="w-3.5 h-3.5 text-amber-500" />
+                        <span>{currentStage.capacity}</span>
+                      </div>
+
+                      {/* Technical Highlights */}
+                      <div className="space-y-2">
+                        <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500">
+                          Process &amp; Engineering Highlights:
+                        </h4>
+                        <ul className="space-y-1.5">
+                          {currentStage.highlights.map((h, i) => (
+                            <li key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 leading-relaxed">
+                              <CheckCircle2 className="w-4 h-4 text-amber-500 mt-0.5 shrink-0" />
+                              <span>{h}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      {/* Machinery Grid */}
+                      <div className="pt-1">
+                        <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
+                          Key Deployed Equipment:
+                        </h4>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                          {currentStage.equipment.map((eq, i) => (
+                            <div key={i} className="p-3 rounded-xl bg-stone-50 border border-stone-200/90 flex items-center justify-between gap-2 shadow-2xs">
+                              <div>
+                                <div className="text-xs font-bold text-slate-900">{eq.name}</div>
+                                <div className="text-[11px] text-slate-500">{eq.spec}</div>
+                              </div>
+                              <span className="text-[11px] font-bold text-amber-700 bg-amber-500/10 px-2 py-0.5 rounded-md border border-amber-500/20 shrink-0">
+                                {eq.count}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Tolerances & Standards */}
+                      <div className="p-3.5 rounded-xl bg-stone-50 border border-stone-200/90 flex flex-wrap items-center justify-between gap-3 text-xs shadow-2xs">
+                        <div>
+                          <span className="text-slate-500 block font-semibold text-[11px]">Tolerances:</span>
+                          <span className="text-slate-900 font-mono font-bold text-xs">{currentStage.tolerances}</span>
+                        </div>
+                        <div className="flex items-center gap-1.5 flex-wrap">
+                          {currentStage.standards.map((st, i) => (
+                            <span key={i} className="bg-white text-slate-800 px-2 py-0.5 rounded text-[10px] font-bold border border-stone-200 shadow-2xs">
+                              {st}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Right: Stage Photos */}
+                    <div className="lg:col-span-5 space-y-3.5">
+                      <div 
+                        className="relative h-64 sm:h-76 rounded-2xl overflow-hidden border border-stone-200/90 shadow-sm group cursor-pointer bg-stone-100"
+                        onClick={() => setLightboxImg(currentStage.image)}
+                      >
+                        <Image
+                          src={currentStage.image}
+                          alt={`${currentStage.title} Shopfloor`}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
+                        <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white">
+                          <span className="text-xs font-bold drop-shadow">
+                            {currentStage.title} — Plant View
                           </span>
-                          <span className="text-[10px] font-bold text-amber-400 bg-slate-900/80 px-2 py-0.5 rounded">
-                            Click to Enlarge
+                          <span className="w-7 h-7 rounded-full bg-white/90 text-slate-900 flex items-center justify-center text-xs shadow-sm">
+                            <Maximize2 className="w-3 h-3" />
                           </span>
                         </div>
                       </div>
-                    )}
+
+                      {currentStage.secondaryImage && (
+                        <div 
+                          className="relative h-36 sm:h-40 rounded-xl overflow-hidden border border-stone-200/90 shadow-2xs group cursor-pointer bg-stone-100"
+                          onClick={() => setLightboxImg(currentStage.secondaryImage!)}
+                        >
+                          <Image
+                            src={currentStage.secondaryImage}
+                            alt={`${currentStage.title} Secondary View`}
+                            fill
+                            className="object-cover group-hover:scale-105 transition-transform duration-500"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
+                          <div className="absolute bottom-2 left-2 right-2 flex items-center justify-between text-white">
+                            <span className="text-[11px] font-bold">
+                              Process Detail &amp; Inspection
+                            </span>
+                            <span className="text-[10px] font-bold text-amber-300">
+                              Click to Enlarge
+                            </span>
+                          </div>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
+              )}
 
-      {/* ============================================================== */}
-      {/* 8. SECTION: TECHNICAL MACHINERY FLEET MATRIX */}
-      {/* ============================================================== */}
-      <section id="machinery-fleet" className="py-20 bg-slate-950/80 border-y border-slate-800 scroll-mt-36">
-        <Container>
-          <div className="max-w-4xl mx-auto text-center space-y-3 mb-10">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-bold uppercase tracking-wider">
-              <i className="fa-solid fa-list-check" />
-              <span>Plant Fleet Specifications</span>
+              {/* TAB 10: FLEET SPECS */}
+              {activeTab === 'machinery-fleet' && (
+                <div className="space-y-6 animate-in fade-in duration-200">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div>
+                      <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+                        Machinery &amp; Equipment Capacity Fleet
+                      </h2>
+                      <p className="text-slate-600 text-xs sm:text-sm mt-1">
+                        Detailed machine inventory across billet preparation, forging, heat treatment, CNC turning, and metrology.
+                      </p>
+                    </div>
+
+                    {/* Filter Pills */}
+                    <div className="flex flex-wrap items-center gap-1.5">
+                      {[
+                        { id: 'all', label: 'All Fleet (' + MACHINERY_FLEET.length + ')' },
+                        { id: 'cutting', label: 'Cutting' },
+                        { id: 'forging', label: 'Forging' },
+                        { id: 'heat-treatment', label: 'Heat Treat' },
+                        { id: 'machining', label: 'CNC' },
+                        { id: 'quality', label: 'Quality' },
+                      ].map((pill) => (
+                        <button
+                          key={pill.id}
+                          type="button"
+                          onClick={() => setFleetFilter(pill.id as any)}
+                          className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
+                            fleetFilter === pill.id
+                              ? 'bg-amber-400 text-slate-950 shadow-xs'
+                              : 'bg-stone-100 text-slate-700 hover:text-slate-900 hover:bg-stone-200 border border-stone-200'
+                          }`}
+                        >
+                          {pill.label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Fleet Table */}
+                  <div className="overflow-x-auto rounded-2xl border border-stone-200/90 shadow-2xs bg-white">
+                    <table className="w-full text-left text-xs sm:text-sm text-slate-700">
+                      <thead className="bg-stone-100 text-slate-900 uppercase text-[11px] font-black tracking-wider border-b border-stone-200">
+                        <tr>
+                          <th className="py-3 px-4">Equipment Name</th>
+                          <th className="py-3 px-4">Make / Origin</th>
+                          <th className="py-3 px-4 text-center">Quantity</th>
+                          <th className="py-3 px-4">Working Envelope / Capacity</th>
+                          <th className="py-3 px-4">Precision / Tolerance</th>
+                          <th className="py-3 px-4 hidden md:table-cell">Key Application</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-stone-100">
+                        {filteredFleet.map((machine, i) => (
+                          <tr key={i} className="hover:bg-stone-50/70 transition-colors">
+                            <td className="py-3 px-4 font-bold text-slate-900 flex items-center gap-2">
+                              <Wrench className="w-3.5 h-3.5 text-amber-500 shrink-0" />
+                              <span>{machine.name}</span>
+                            </td>
+                            <td className="py-3 px-4 text-slate-600 font-medium">{machine.make}</td>
+                            <td className="py-3 px-4 text-center">
+                              <span className="px-2 py-0.5 rounded-md bg-amber-500/10 text-amber-700 font-bold text-xs border border-amber-500/20">
+                                {machine.quantity}
+                              </span>
+                            </td>
+                            <td className="py-3 px-4 text-slate-800">{machine.capacity}</td>
+                            <td className="py-3 px-4 font-mono font-bold text-amber-600">{machine.precision}</td>
+                            <td className="py-3 px-4 text-slate-500 hidden md:table-cell text-xs leading-relaxed">
+                              {machine.application}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              )}
+
+              {/* TAB 11: 10-STEP PROCESS FLOW */}
+              {activeTab === 'process-flow' && (
+                <div className="space-y-6 animate-in fade-in duration-200">
+                  <div className="max-w-3xl">
+                    <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+                      10-Step Manufacturing Process Flow
+                    </h2>
+                    <p className="text-slate-600 text-xs sm:text-sm mt-1">
+                      From ingot/billet receipt to final VCI rust-proof pallet dispatch, our strictly controlled ten-step process ensures flawless consistency.
+                    </p>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-3.5 sm:gap-4 pt-1">
+                    {PROCESS_STEPS.map((step) => (
+                      <div
+                        key={step.step}
+                        className="p-4 rounded-2xl bg-stone-50 border border-stone-200/90 hover:border-amber-400 transition-all flex flex-col justify-between group hover:-translate-y-1 duration-300 shadow-2xs hover:shadow-sm"
+                      >
+                        <div>
+                          <div className="flex items-center justify-between mb-2">
+                            <span className="text-2xl font-black text-amber-500 font-mono">
+                              {step.step}
+                            </span>
+                            <span className="w-6 h-6 rounded-full bg-white border border-stone-200 flex items-center justify-center text-slate-400 text-xs group-hover:text-amber-500 group-hover:border-amber-400 transition-colors shadow-2xs">
+                              <ChevronRight className="w-3.5 h-3.5" />
+                            </span>
+                          </div>
+                          <h3 className="text-sm font-bold text-slate-900 group-hover:text-amber-600 transition-colors leading-snug">
+                            {step.title}
+                          </h3>
+                          <p className="text-xs text-slate-600 mt-1.5 leading-relaxed">
+                            {step.desc}
+                          </p>
+                        </div>
+                        <div className="mt-4 pt-2.5 border-t border-stone-200 flex items-center gap-1.5 text-[10px] text-amber-700 font-bold uppercase tracking-wider">
+                          <ShieldCheck className="w-3 h-3 text-amber-500" />
+                          <span>Quality Gateway</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-              Machinery &amp; Equipment Capacity Fleet
-            </h2>
-            <p className="text-slate-300 text-sm sm:text-base">
-              Detailed machine inventory across billet preparation, closed-die forging, heat treatment, multi-axis CNC turning, and precision metrology inspection.
-            </p>
 
-            {/* Category Filter Pills */}
-            <div className="flex flex-wrap items-center justify-center gap-2 pt-4">
-              {[
-                { id: 'all', label: 'All Fleet (' + MACHINERY_FLEET.length + ')' },
-                { id: 'cutting', label: 'Cutting & Prep' },
-                { id: 'forging', label: 'Forging Lines' },
-                { id: 'heat-treatment', label: 'Heat Treatment' },
-                { id: 'machining', label: 'CNC & Machining' },
-                { id: 'quality', label: 'Quality & CMM' },
-              ].map((pill) => (
-                <button
-                  key={pill.id}
-                  type="button"
-                  onClick={() => setFleetFilter(pill.id as any)}
-                  className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                    fleetFilter === pill.id
-                      ? 'bg-amber-500 text-slate-950 shadow-md'
-                      : 'bg-slate-900 text-slate-300 hover:text-white hover:bg-slate-800 border border-slate-800'
-                  }`}
-                >
-                  {pill.label}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Machinery Fleet Table */}
-          <div className="overflow-x-auto rounded-2xl border border-slate-800 shadow-2xl bg-slate-900/60">
-            <table className="w-full text-left text-xs sm:text-sm text-slate-300">
-              <thead className="bg-slate-900 text-amber-400 uppercase text-[11px] font-black tracking-wider border-b border-slate-800">
-                <tr>
-                  <th className="py-3.5 px-4">Equipment Name</th>
-                  <th className="py-3.5 px-4">Make / Origin</th>
-                  <th className="py-3.5 px-4 text-center">Quantity</th>
-                  <th className="py-3.5 px-4">Working Envelope / Capacity</th>
-                  <th className="py-3.5 px-4">Precision / Tolerance</th>
-                  <th className="py-3.5 px-4 hidden md:table-cell">Key Application</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-800">
-                {filteredFleet.map((machine, i) => (
-                  <tr key={i} className="hover:bg-slate-800/40 transition-colors">
-                    <td className="py-3.5 px-4 font-bold text-white flex items-center gap-2">
-                      <i className="fa-solid fa-microchip text-amber-400 text-xs shrink-0" />
-                      <span>{machine.name}</span>
-                    </td>
-                    <td className="py-3.5 px-4 text-slate-300 font-medium">{machine.make}</td>
-                    <td className="py-3.5 px-4 text-center">
-                      <span className="px-2 py-0.5 rounded-md bg-amber-500/10 text-amber-400 font-bold text-xs border border-amber-500/20">
-                        {machine.quantity}
-                      </span>
-                    </td>
-                    <td className="py-3.5 px-4 text-slate-200">{machine.capacity}</td>
-                    <td className="py-3.5 px-4 font-mono font-bold text-amber-300">{machine.precision}</td>
-                    <td className="py-3.5 px-4 text-slate-400 hidden md:table-cell text-xs leading-relaxed">
-                      {machine.application}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </Container>
-      </section>
-
-      {/* ============================================================== */}
-      {/* 9. SECTION: 10-STEP MANUFACTURING PROCESS FLOW */}
-      {/* ============================================================== */}
-      <section id="process-flow" className="py-20 border-b border-slate-800 scroll-mt-36">
-        <Container>
-          <div className="max-w-3xl mx-auto text-center space-y-3 mb-16">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-bold uppercase tracking-wider">
-              <i className="fa-solid fa-arrows-split-up-and-left" />
-              <span>Zero-Defect Quality Chain</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
-              10-Step Manufacturing Process Flow
-            </h2>
-            <p className="text-slate-300 text-sm sm:text-base">
-              From ingot/billet receipt to final VCI rust-proof pallet dispatch, our strictly controlled ten-step process ensures flawless consistency.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
-            {PROCESS_STEPS.map((step) => (
-              <div
-                key={step.step}
-                className="p-5 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-amber-500/50 transition-all flex flex-col justify-between group hover:-translate-y-1 duration-300"
+            {/* ── Box Footer: Next / Previous Section Navigation ── */}
+            <div className="bg-stone-50 p-4 sm:p-5 border-t border-stone-200 flex flex-wrap items-center justify-between gap-4">
+              <button
+                type="button"
+                onClick={handlePrevTab}
+                className="px-4 py-2.5 rounded-full bg-white hover:bg-stone-100 text-slate-800 font-bold text-xs border border-stone-300 flex items-center gap-2 cursor-pointer shadow-2xs transition-all"
               >
-                <div>
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="text-2xl font-black text-amber-400 font-mono">
-                      {step.step}
-                    </span>
-                    <span className="w-7 h-7 rounded-full bg-slate-950 border border-slate-800 flex items-center justify-center text-slate-400 text-xs group-hover:text-amber-400 group-hover:border-amber-400 transition-colors">
-                      <i className="fa-solid fa-arrow-right text-[10px]" />
-                    </span>
-                  </div>
-                  <h3 className="text-sm font-bold text-white group-hover:text-amber-300 transition-colors leading-snug">
-                    {step.title}
-                  </h3>
-                  <p className="text-xs text-slate-400 mt-2 leading-relaxed">
-                    {step.desc}
-                  </p>
-                </div>
-                <div className="mt-4 pt-3 border-t border-slate-800 flex items-center gap-1.5 text-[10px] text-amber-400/80 font-bold uppercase tracking-wider">
-                  <i className="fa-solid fa-shield-halved text-[9px]" />
-                  <span>Quality Gateway</span>
-                </div>
+                <ChevronLeft className="w-4 h-4 text-amber-500" />
+                <span>Previous Section</span>
+              </button>
+
+              <div className="text-xs text-slate-500 font-semibold hidden sm:block">
+                Currently Viewing: <span className="text-slate-900 font-bold">{SHOWCASE_TABS.find((t) => t.id === activeTab)?.label}</span>
               </div>
-            ))}
+
+              <div className="flex items-center gap-3">
+                <button
+                  type="button"
+                  onClick={() => setIsModalOpen(true)}
+                  className="px-4 py-2.5 rounded-full bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-xs uppercase tracking-wider cursor-pointer shadow-xs transition-all"
+                >
+                  Schedule Plant Visit
+                </button>
+
+                <button
+                  type="button"
+                  onClick={handleNextTab}
+                  className="px-4 py-2.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs flex items-center gap-2 cursor-pointer shadow-2xs transition-all"
+                >
+                  <span>Next Section</span>
+                  <ChevronRight className="w-4 h-4 text-amber-400" />
+                </button>
+              </div>
+            </div>
           </div>
         </Container>
       </section>
 
       {/* ============================================================== */}
-      {/* 10. SECTION: CALL TO ACTION & SITE VISIT AUDIT BANNER */}
+      {/* 3. CALL TO ACTION BANNER */}
       {/* ============================================================== */}
-      <section className="py-20 bg-gradient-to-r from-amber-600 via-amber-500 to-yellow-500 text-slate-950">
+      <section className="py-12 sm:py-16 bg-gradient-to-r from-amber-400 via-amber-500 to-amber-400 text-slate-950">
         <Container>
-          <div className="max-w-4xl mx-auto text-center space-y-6">
-            <span className="text-xs font-black uppercase tracking-widest bg-slate-950/15 px-3 py-1 rounded-full">
-              Plant (Works) Inspection &amp; Technical Audit
-            </span>
-            <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-slate-950">
+          <div className="max-w-3xl mx-auto text-center space-y-4">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight text-slate-950">
               Schedule Your Technical Audit at Gajraula Works
             </h2>
-            <p className="text-base sm:text-lg font-medium text-slate-900 max-w-2xl mx-auto">
-              We welcome Tier-1 automotive purchase heads, OEM engineering teams, and chief quality officers for on-site facility evaluation at <strong>I-44/45, Gajraula (Amroha), Uttar Pradesh</strong>.
+            <p className="text-sm sm:text-base font-medium text-slate-900 max-w-2xl mx-auto leading-relaxed">
+              We welcome OEM purchase heads, engineering teams, and quality officers for on-site facility evaluation at <strong>I-44/45, Gajraula (Amroha), Uttar Pradesh</strong>.
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
+            <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
               <button
                 type="button"
                 onClick={() => setIsModalOpen(true)}
-                className="px-8 py-4 rounded-xl bg-slate-950 hover:bg-slate-900 text-white font-black text-sm tracking-wide shadow-2xl transition-all flex items-center gap-2 cursor-pointer"
+                className="px-8 py-3.5 rounded-full bg-slate-950 hover:bg-slate-900 text-white font-bold text-sm tracking-wide shadow-xl transition-all flex items-center gap-2 cursor-pointer"
               >
-                <i className="fa-solid fa-calendar-check text-amber-400" />
+                <CalendarCheck className="w-4 h-4 text-amber-400" />
                 <span>Schedule On-Site Plant Visit</span>
               </button>
 
@@ -1328,17 +1212,17 @@ export default function ManufacturingInfrastructureClient() {
                 href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hello Airmen Engineers, I would like to schedule a visit to the Gajraula Manufacturing Plant (Works: I-44/45, Gajraula).')}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-4 rounded-xl bg-white hover:bg-slate-100 text-slate-950 font-black text-sm tracking-wide shadow-xl transition-all flex items-center gap-2"
+                className="px-8 py-3.5 rounded-full bg-white hover:bg-stone-50 text-slate-950 font-bold text-sm tracking-wide shadow-md transition-all flex items-center gap-2"
               >
-                <i className="fa-brands fa-whatsapp text-green-600 text-lg" />
+                <i className="fa-brands fa-whatsapp text-green-600 text-base" />
                 <span>Chat with Plant Head</span>
               </a>
 
               <a
                 href={`tel:${directPhone}`}
-                className="px-8 py-4 rounded-xl bg-transparent hover:bg-slate-950/10 text-slate-950 font-black text-sm tracking-wide border-2 border-slate-950 transition-all flex items-center gap-2"
+                className="px-8 py-3.5 rounded-full bg-transparent hover:bg-slate-950/10 text-slate-950 font-bold text-sm tracking-wide border-2 border-slate-950 transition-all flex items-center gap-2"
               >
-                <i className="fa-solid fa-phone" />
+                <PhoneCall className="w-4 h-4" />
                 <span>{directPhone}</span>
               </a>
             </div>
@@ -1347,52 +1231,52 @@ export default function ManufacturingInfrastructureClient() {
       </section>
 
       {/* ============================================================== */}
-      {/* 11. MODAL: PLANT AUDIT / VISIT BOOKING FORM */}
+      {/* 4. MODAL: PLANT AUDIT / VISIT BOOKING FORM */}
       {/* ============================================================== */}
       {isModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm animate-in fade-in duration-200">
-          <div className="relative w-full max-w-lg rounded-2xl bg-slate-900 border border-slate-700 shadow-2xl p-6 sm:p-8">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-sm animate-in fade-in duration-200">
+          <div className="relative w-full max-w-lg rounded-3xl bg-white border border-stone-200 shadow-2xl p-6 sm:p-8">
             <button
               type="button"
               onClick={() => { setIsModalOpen(false); setFormSubmitted(false); }}
-              className="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-800 text-slate-400 hover:text-white flex items-center justify-center transition-colors cursor-pointer"
+              className="absolute top-4 right-4 w-9 h-9 rounded-full bg-stone-100 text-slate-500 hover:text-slate-900 hover:bg-stone-200 flex items-center justify-center transition-colors cursor-pointer"
             >
-              <i className="fa-solid fa-xmark text-sm" />
+              <X className="w-4 h-4" />
             </button>
 
-            <div className="mb-6">
-              <span className="text-xs font-extrabold uppercase text-amber-400 tracking-wider">
+            <div className="mb-5">
+              <span className="text-xs font-extrabold uppercase text-amber-600 tracking-wider">
                 Plant (Works) Visit &amp; Technical RFQ
               </span>
-              <h3 className="text-xl sm:text-2xl font-black text-white mt-1">
+              <h3 className="text-xl sm:text-2xl font-black text-slate-900 mt-1">
                 Schedule Gajraula Plant Visit
               </h3>
-              <p className="text-xs text-slate-400 mt-1">
+              <p className="text-xs text-slate-500 mt-1">
                 Works: I-44/45, Gajraula (Amroha), Uttar Pradesh. Share your details and requirements.
               </p>
             </div>
 
             {formSubmitted ? (
-              <div className="text-center py-8 space-y-4">
-                <div className="w-16 h-16 rounded-full bg-green-500/20 text-green-400 flex items-center justify-center text-3xl mx-auto border border-green-500/40">
-                  <i className="fa-solid fa-check" />
+              <div className="text-center py-6 space-y-3">
+                <div className="w-14 h-14 rounded-full bg-green-500/10 text-green-600 flex items-center justify-center text-2xl mx-auto border border-green-500/30">
+                  <CheckCircle2 className="w-7 h-7" />
                 </div>
-                <h4 className="text-lg font-bold text-white">Inquiry Forwarded Successfully!</h4>
-                <p className="text-xs text-slate-300">
+                <h4 className="text-lg font-bold text-slate-900">Inquiry Forwarded Successfully!</h4>
+                <p className="text-xs text-slate-600">
                   We have opened WhatsApp so you can instantly send your engineering drawing or component specs to our Plant Head.
                 </p>
                 <button
                   type="button"
                   onClick={() => setIsModalOpen(false)}
-                  className="px-6 py-2.5 rounded-xl bg-amber-500 text-slate-950 font-bold text-xs uppercase tracking-wider cursor-pointer"
+                  className="px-6 py-2.5 rounded-full bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-xs uppercase tracking-wider cursor-pointer"
                 >
                   Close Window
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleFormSubmit} className="space-y-4">
+              <form onSubmit={handleFormSubmit} className="space-y-3.5">
                 <div>
-                  <label className="block text-xs font-bold text-slate-300 mb-1">
+                  <label className="block text-xs font-bold text-slate-700 mb-1">
                     Your Name *
                   </label>
                   <input
@@ -1401,13 +1285,13 @@ export default function ManufacturingInfrastructureClient() {
                     value={formName}
                     onChange={(e) => setFormName(e.target.value)}
                     placeholder="e.g. Rajesh Sharma"
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-white text-xs placeholder:text-slate-500 focus:outline-none focus:border-amber-400"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-stone-50 border border-stone-200 text-slate-900 text-xs placeholder:text-slate-400 focus:outline-none focus:border-amber-500 focus:bg-white"
                   />
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
-                    <label className="block text-xs font-bold text-slate-300 mb-1">
+                    <label className="block text-xs font-bold text-slate-700 mb-1">
                       Company / Organization *
                     </label>
                     <input
@@ -1416,12 +1300,12 @@ export default function ManufacturingInfrastructureClient() {
                       value={formCompany}
                       onChange={(e) => setFormCompany(e.target.value)}
                       placeholder="e.g. Metso Outotec / OEM"
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-white text-xs placeholder:text-slate-500 focus:outline-none focus:border-amber-400"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-stone-50 border border-stone-200 text-slate-900 text-xs placeholder:text-slate-400 focus:outline-none focus:border-amber-500 focus:bg-white"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-slate-300 mb-1">
+                    <label className="block text-xs font-bold text-slate-700 mb-1">
                       Phone / Mobile *
                     </label>
                     <input
@@ -1430,13 +1314,13 @@ export default function ManufacturingInfrastructureClient() {
                       value={formPhone}
                       onChange={(e) => setFormPhone(e.target.value)}
                       placeholder="+91 98765 43210"
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-white text-xs placeholder:text-slate-500 focus:outline-none focus:border-amber-400"
+                      className="w-full px-3.5 py-2.5 rounded-xl bg-stone-50 border border-stone-200 text-slate-900 text-xs placeholder:text-slate-400 focus:outline-none focus:border-amber-500 focus:bg-white"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-slate-300 mb-1">
+                  <label className="block text-xs font-bold text-slate-700 mb-1">
                     Email Address
                   </label>
                   <input
@@ -1444,12 +1328,12 @@ export default function ManufacturingInfrastructureClient() {
                     value={formEmail}
                     onChange={(e) => setFormEmail(e.target.value)}
                     placeholder="purchase@company.com"
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-white text-xs placeholder:text-slate-500 focus:outline-none focus:border-amber-400"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-stone-50 border border-stone-200 text-slate-900 text-xs placeholder:text-slate-400 focus:outline-none focus:border-amber-500 focus:bg-white"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-slate-300 mb-1">
+                  <label className="block text-xs font-bold text-slate-700 mb-1">
                     Component Details or Proposed Audit Date
                   </label>
                   <textarea
@@ -1457,16 +1341,16 @@ export default function ManufacturingInfrastructureClient() {
                     value={formRequirement}
                     onChange={(e) => setFormRequirement(e.target.value)}
                     placeholder="Describe component weight, material grade (e.g. 20MnCr5), special compressor specifications, or preferred visit date..."
-                    className="w-full px-3.5 py-2.5 rounded-xl bg-slate-800 border border-slate-700 text-white text-xs placeholder:text-slate-500 focus:outline-none focus:border-amber-400"
+                    className="w-full px-3.5 py-2.5 rounded-xl bg-stone-50 border border-stone-200 text-slate-900 text-xs placeholder:text-slate-400 focus:outline-none focus:border-amber-500 focus:bg-white"
                   />
                 </div>
 
                 <div className="pt-2">
                   <button
                     type="submit"
-                    className="w-full py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer"
+                    className="w-full py-3.5 rounded-full bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
                   >
-                    <i className="fa-solid fa-paper-plane" />
+                    <Send className="w-3.5 h-3.5" />
                     <span>Submit Request &amp; Connect on WhatsApp</span>
                   </button>
                 </div>
@@ -1477,14 +1361,14 @@ export default function ManufacturingInfrastructureClient() {
       )}
 
       {/* ============================================================== */}
-      {/* 12. LIGHTBOX VIEWER FOR PHOTOS */}
+      {/* 5. LIGHTBOX VIEWER FOR PHOTOS */}
       {/* ============================================================== */}
       {lightboxImg && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/90 backdrop-blur-md animate-in fade-in duration-150 cursor-pointer"
           onClick={() => setLightboxImg(null)}
         >
-          <div className="relative max-w-4xl max-h-[85vh] w-full h-[70vh] rounded-2xl overflow-hidden border border-slate-700 shadow-2xl">
+          <div className="relative max-w-4xl max-h-[85vh] w-full h-[70vh] rounded-2xl overflow-hidden border border-stone-700 shadow-2xl">
             <Image
               src={lightboxImg}
               alt="Enlarged Manufacturing Plant View"
@@ -1494,9 +1378,9 @@ export default function ManufacturingInfrastructureClient() {
             <button
               type="button"
               onClick={() => setLightboxImg(null)}
-              className="absolute top-4 right-4 w-10 h-10 rounded-full bg-slate-900/90 text-white hover:text-amber-400 flex items-center justify-center transition-colors cursor-pointer border border-slate-700"
+              className="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-900/90 text-white hover:text-amber-400 flex items-center justify-center transition-colors cursor-pointer border border-stone-700"
             >
-              <i className="fa-solid fa-xmark text-base" />
+              <X className="w-4 h-4" />
             </button>
           </div>
         </div>

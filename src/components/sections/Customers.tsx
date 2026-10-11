@@ -63,6 +63,15 @@ const CLIENTS_WITH_IMAGES: ClientItem[] = [
     highlight: 'Global electronics and automation pioneer relying on continuous zero-downtime industrial utilities.',
     tag: 'Global Tech Leader',
   },
+  {
+    id: 'jdkpe',
+    name: 'JDKPE',
+    fullName: 'JDKPE Industrial Solutions',
+    category: 'Precision Engineering',
+    logo: '/images/JDKPE Blue and Red Emblem Logo.png',
+    highlight: 'Pioneering heavy engineering & precision fabrication enterprise relying on continuous air power.',
+    tag: 'Precision Engineering',
+  },
 ];
 
 export default function Customers() {

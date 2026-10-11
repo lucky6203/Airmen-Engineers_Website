@@ -37,7 +37,7 @@ const INDUSTRIES: IndustrySector[] = [
     tagline: 'High Precision 24/7 Assembly',
     description: 'Supplying continuous pulse-free compressed air for robotic paint shops and pneumatic tooling, backed by Li-ion forklifts for high-speed stamping shop pallet flow.',
     keyEquipment: 'Kaeser DSD Series • EP 3.0T – 5.0T Li-Ion Forklifts',
-    clientsHighlight: 'Trusted by Hero MotoCorp, Mikuni, Nidec',
+    clientsHighlight: 'Trusted by Hero MotoCorp, BKD, Panasonic',
     accent: 'border-amber-500/40 text-amber-500 bg-amber-500/10',
   },
   {
@@ -57,7 +57,7 @@ const INDUSTRIES: IndustrySector[] = [
     tagline: 'Extreme Thermal & Dust Endurance',
     description: 'Heavy continuous duty air compressors and 50°C ambient rated CPCB IV+ generator sets engineered to withstand extreme furnace radiant heat and heavy particulate load.',
     keyEquipment: 'Kaeser 132 kW DSD SFC • Greaves Heavy HkVA Gensets',
-    clientsHighlight: 'Operating at Asahi India Glass (AIS) & Yokohama Tyres',
+    clientsHighlight: 'Operating at Asahi India Glass (AIS) & JDKPE',
     accent: 'border-blue-500/40 text-blue-500 bg-blue-500/10',
   },
   {

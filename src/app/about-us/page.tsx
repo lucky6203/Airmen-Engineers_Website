@@ -9,22 +9,22 @@ import Link from 'next/link';
 import Container from '@/components/common/Container';
 import Breadcrumb from '@/components/common/Breadcrumb';
 import Button from '@/components/common/Button';
-import { 
-  ArrowRight, 
-  Quote, 
-  ShieldCheck, 
-  Wrench, 
-  Clock, 
-  CheckCircle2, 
-  Cog, 
-  Award, 
-  HeartHandshake, 
+import {
+  ArrowRight,
+  Quote,
+  ShieldCheck,
+  Wrench,
+  Clock,
+  CheckCircle2,
+  Cog,
+  Award,
+  HeartHandshake,
   Cpu
 } from 'lucide-react';
 import AboutTimeline from '@/components/sections/AboutTimeline';
 import ProductAlbumGallery from '@/components/sections/ProductAlbumGallery';
 import ManufacturingProcess from '@/components/sections/ManufacturingProcess';
-import { 
+import {
   CONTACT_INFO,
   DIRECTOR_MESSAGE,
   MISSION,
@@ -32,21 +32,21 @@ import {
 } from '@/data/company';
 
 export const metadata: Metadata = {
-  title: 'About Us — Airmen Engineers | 29+ Years of Industrial Excellence',
+  title: 'About Us — Airmen Engineers | 30+ Years of Industrial Excellence',
   description: 'Since 1996, Airmen Engineers & Services Pvt. Ltd. has been India\'s trusted partner for Kaeser compressors, Greaves Power generators, EP electric forklifts, and AIRpipe systems. Authorized dealer & service franchise with in-house manufacturing.',
 };
 
 const OEM_PARTNERS = [
   {
-    name: 'Kaeser Kompressoren',
+    name: 'KAESER COMPRESSORS',
     displayName: (
       <>
-        Kaeser<br />Kompressoren
+        KAESER<br />COMPRESSORS
       </>
     ),
     country: 'Coburg, Germany',
     since: 'Partner Since 2000',
-    logo: '/images/logos/logo-kaeser.svg',
+    logo: '/images/logos/kaeser-compressores-seeklogo.png',
     highlight: 'Globally recognized for engineering precision and energy-efficient compressed air systems, KAESER compressors deliver dependable performance for continuous industrial operations.',
     badge: 'German Precision Engineering',
     link: '/kaeser',
@@ -124,7 +124,7 @@ const CORE_VALUES = [
 
 const WHY_CHOOSE_US = [
   {
-    title: '29+ Years of Hands-on Experience',
+    title: '30+ Years of Hands-on Experience',
     description: 'Deep hands-on industrial equipment experience across Delhi NCR and Northern India since 1996.',
     icon: Award,
   },
@@ -169,33 +169,33 @@ const OUR_SERVICES = [
 ];
 
 const CLIENT_LOGOS = [
-  { 
-    name: 'Hero MotoCorp', 
+  {
+    name: 'Hero MotoCorp',
     logo: '/images/clients/hero-motocorp-logo.svg',
     category: 'Automotive OEM',
   },
-  { 
-    name: 'Havells India', 
+  {
+    name: 'Havells India',
     logo: '/images/clients/havells-logo.svg',
     category: 'Electrical & FMEG',
   },
-  { 
-    name: 'Asahi India Glass (AIS)', 
+  {
+    name: 'Asahi India Glass (AIS)',
     logo: '/images/clients/asahi-ais.png',
     category: 'Glass Manufacturing',
   },
-  { 
-    name: 'BKD Bearings', 
+  {
+    name: 'BKD Bearings',
     logo: '/images/BKD Bearing Motion Logo.png',
     category: 'Bearings & Motion',
   },
-  { 
-    name: 'Panasonic', 
+  {
+    name: 'Panasonic',
     logo: '/images/Panasonic Logo on White Background.png',
     category: 'Electronics & Industrial',
   },
-  { 
-    name: 'JDKPE', 
+  {
+    name: 'JDKPE',
     logo: '/images/JDKPE Blue and Red Emblem Logo.png',
     category: 'Precision Engineering',
   },
@@ -215,7 +215,7 @@ export default function AboutPage() {
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-slate-900 leading-tight">
                 Company History <br />
                 <span className="text-amber-500">
-                Industrial Heritage Since 1996
+                  Industrial Heritage Since 1996
                 </span>
               </h1>
 
@@ -235,7 +235,7 @@ export default function AboutPage() {
                   '100% Genuine Spare Parts',
                   'Delhi NCR & North India Coverage'
                 ].map((item, idx) => (
-                  <span 
+                  <span
                     key={idx}
                     className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-white border border-stone-200/90 text-slate-800 shadow-2xs"
                   >
@@ -267,7 +267,7 @@ export default function AboutPage() {
               <div className="mt-3 bg-white border border-stone-200/90 text-slate-900 p-4 rounded-2xl shadow-md text-center sm:text-left">
                 <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-3.5">
                   <div className="w-12 h-12 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-600 flex items-center justify-center font-bold text-xl font-heading flex-shrink-0 shadow-xs">
-                    29+
+                    30+
                   </div>
                   <div>
                     <h5 className="font-bold text-sm sm:text-base text-slate-900 font-heading">Years of Proven Trust</h5>
@@ -283,21 +283,70 @@ export default function AboutPage() {
       </section>
 
       {/* ── Key Numbers Metric Strip ────────────── */}
+
+      {/* ── Key Numbers Metric Strip ── */}
       <section className="py-6 sm:py-8 bg-white border-b border-gray-200">
         <Container>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-5">
             {[
               { value: '1996', label: 'Established' },
-              { value: '29', label: 'Years Experience', suffix: '+' },
-              { value: '5,000', label: 'Industrial Clients', suffix: '+' },
+              { value: '30', label: 'Years Experience', suffix: '+' },
+              { value: '5,000', label: 'Installations', suffix: '+' },
               { value: '100%', label: 'Genuine Parts' },
               { value: '24/7', label: 'Service Support' },
             ].map((stat) => (
-              <div key={stat.label} className="text-center p-3.5 rounded-xl bg-slate-50 border border-gray-100 hover:border-amber-400/50 transition-colors">
-                <span className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-navy font-heading">
-                  {stat.value}<span className="text-amber-500">{stat.suffix}</span>
+              <div
+                key={stat.label}
+                className="
+            group relative isolate overflow-hidden
+            text-center p-3.5 rounded-xl
+            bg-slate-50 border border-gray-100
+            transition-all duration-300 ease-out
+            hover:-translate-y-2
+            hover:border-amber-400
+            hover:bg-white
+            hover:shadow-xl hover:shadow-amber-400/15
+            active:scale-[0.98]
+          "
+              >
+                {/* Golden hover glow */}
+                <div
+                  aria-hidden="true"
+                  className="
+              pointer-events-none absolute inset-0 -z-10
+              bg-amber-400/5 opacity-0
+              transition-opacity duration-300
+              group-hover:opacity-100
+            "
+                />
+
+                {/* Stat Number */}
+                <span
+                  className="
+              relative block text-xl sm:text-2xl lg:text-3xl
+              font-extrabold text-navy font-heading
+              transition-transform duration-300 ease-out
+              group-hover:scale-110
+            "
+                >
+                  {stat.value}
+                  {stat.suffix && (
+                    <span className="text-amber-500">
+                      {stat.suffix}
+                    </span>
+                  )}
                 </span>
-                <span className="block text-[10px] sm:text-xs text-slate-500 mt-1.5 font-medium uppercase tracking-wider">
+
+                {/* Stat Label */}
+                <span
+                  className="
+              relative block text-[10px] sm:text-xs
+              text-slate-500 mt-1.5 font-medium
+              uppercase tracking-wider
+              transition-colors duration-300
+              group-hover:text-slate-900
+            "
+                >
                   {stat.label}
                 </span>
               </div>
@@ -305,6 +354,7 @@ export default function AboutPage() {
           </div>
         </Container>
       </section>
+
 
       {/* ── Director's Message Section ───────── */}
       <section className="py-10 sm:py-14 bg-gradient-to-b from-[#FAF7F2] to-white border-b border-gray-200" id="director-message">
@@ -319,16 +369,16 @@ export default function AboutPage() {
             {/* Director Card with Image and Message */}
             <div className="bg-white rounded-3xl border border-stone-200 shadow-lg overflow-hidden p-6 sm:p-8 lg:p-10 relative">
               <div className="absolute top-0 right-0 w-72 h-72 bg-amber-500/5 rounded-full blur-3xl pointer-events-none" />
-              
+
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
                 {/* Director Photo Visual */}
                 <div className="lg:col-span-5 flex flex-col items-center">
                   <div className="relative group">
                     <div className="absolute -inset-2 bg-gradient-to-tr from-amber-500 via-amber-300 to-navy rounded-3xl opacity-30 group-hover:opacity-50 blur-sm transition duration-500" />
-                    
+
                     <div className="relative w-56 h-64 sm:w-64 sm:h-72 rounded-2xl overflow-hidden bg-slate-100 border-2 border-white shadow-lg">
                       <Image
-                        src="/images/anil-chopra-director.jpg"
+                        src="/images/director_img.jpeg"
                         alt="Mr. Anil Chopra - Director, Airmen Engineers & Services Pvt. Ltd."
                         fill
                         sizes="(max-width: 768px) 240px, 280px"
@@ -393,85 +443,158 @@ export default function AboutPage() {
       </section>
 
       {/* ── Vision & Mission ────────────────────────── */}
+
       <section className="py-10 sm:py-14 bg-white border-b border-gray-200">
         <Container>
           <div className="text-center max-w-2xl mx-auto mb-8">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-navy tracking-tight">Vision &amp; Mission</h2>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-navy tracking-tight">
+              Vision &amp; Mission
+            </h2>
             <p className="text-slate-600 text-xs sm:text-sm mt-1.5">
               Driven by long-term customer relationships and fast, knowledgeable service support.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+
             {/* Vision Card */}
-            <div className="bg-gradient-to-br from-navy via-[#0F223D] to-navy text-white rounded-3xl p-6 sm:p-8 shadow-lg relative overflow-hidden flex flex-col justify-between">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-amber-400/10 rounded-full blur-2xl pointer-events-none" />
-              <div>
-                <h3 className="text-xl sm:text-2xl font-bold text-amber-400 mb-3">
+            <div className="
+        group bg-gradient-to-br from-sky-300 via-blue-150 to-sky-300
+        text-slate-800 rounded-3xl p-6 sm:p-8
+        border border-sky-200 shadow-md
+        relative overflow-hidden flex flex-col justify-between
+        transition-all duration-300 ease-out
+        hover:-translate-y-2 hover:shadow-xl hover:shadow-sky-200/60
+        hover:border-sky-300
+      ">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-sky-300/30 rounded-full blur-2xl pointer-events-none transition-transform duration-500 group-hover:scale-125" />
+
+              <div className="relative">
+                <h3 className="text-xl sm:text-2xl font-bold text-sky-800 mb-3">
                   Our Vision
                 </h3>
-                <p className="text-gray-200 text-sm sm:text-base leading-relaxed font-normal">
+                <p className="text-slate-700 text-sm sm:text-base leading-relaxed font-normal">
                   {VISION[0]}
                 </p>
               </div>
-              <div className="pt-4 mt-4 border-t border-white/10 flex items-center gap-2 text-xs text-amber-300 font-semibold">
-                <CheckCircle2 className="w-4 h-4" />
-                Reliability • Technical Expertise • Long-term Relationships
+
+              <div className="relative pt-4 mt-4 border-t border-sky-200 flex items-center gap-2 text-xs text-sky-800 font-semibold">
+                <CheckCircle2 className="w-4 h-4 shrink-0" />
+                <span>
+                  Reliability • Technical Expertise • Long-term Relationships
+                </span>
               </div>
             </div>
 
             {/* Mission Card */}
-            <div className="bg-gradient-to-br from-[#0F223D] via-navy to-[#0F223D] text-white rounded-3xl p-6 sm:p-8 shadow-lg relative overflow-hidden flex flex-col justify-between">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-400/10 rounded-full blur-2xl pointer-events-none" />
-              <div>
-                <h3 className="text-xl sm:text-2xl font-bold text-amber-400 mb-3">
+            <div className="
+        group bg-gradient-to-br from-sky-300 via-blue-150 to-sky-300
+        text-slate-800 rounded-3xl p-6 sm:p-8
+        border border-sky-200 shadow-md
+        relative overflow-hidden flex flex-col justify-between
+        transition-all duration-300 ease-out
+        hover:-translate-y-2 hover:shadow-xl hover:shadow-sky-200/60
+        hover:border-sky-300
+      ">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-300/30 rounded-full blur-2xl pointer-events-none transition-transform duration-500 group-hover:scale-125" />
+
+              <div className="relative">
+                <h3 className="text-xl sm:text-2xl font-bold text-sky-800 mb-3">
                   Our Mission
                 </h3>
-                <p className="text-gray-200 text-sm sm:text-base leading-relaxed font-normal">
+                <p className="text-slate-700 text-sm sm:text-base leading-relaxed font-normal">
                   {MISSION[0]}
                 </p>
               </div>
-              <div className="pt-4 mt-4 border-t border-white/10 flex items-center gap-2 text-xs text-amber-300 font-semibold">
-                <CheckCircle2 className="w-4 h-4" />
-                Compressors • Generators • Forklifts • Piping Systems
+
+              <div className="relative pt-4 mt-4 border-t border-sky-200 flex items-center gap-2 text-xs text-sky-800 font-semibold">
+                <CheckCircle2 className="w-4 h-4 shrink-0" />
+                <span>
+                  Compressors • Generators • Forklifts • Piping Systems
+                </span>
               </div>
             </div>
+
           </div>
         </Container>
       </section>
 
+
       {/* ── Our Core Values ────────────────────────── */}
+      ```tsx
       <section className="py-10 sm:py-14 bg-slate-50 border-b border-gray-200">
         <Container>
+          {/* Section Heading */}
           <div className="text-center max-w-2xl mx-auto mb-8">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-navy tracking-tight">
               Our Core Values
             </h2>
+
             <p className="text-slate-600 text-xs sm:text-sm mt-1.5">
               The fundamental principles that have guided Airmen Engineers across nearly three decades of service.
             </p>
           </div>
 
+          {/* Core Values Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
             {CORE_VALUES.map((val) => {
               const IconComp = val.icon;
+
               return (
-                <div 
-                  key={val.title} 
-                  className="p-5 sm:p-6 rounded-2xl bg-white border border-gray-200 hover:border-amber-400/60 shadow-xs hover:shadow-md transition-all text-center sm:text-left flex flex-col items-center sm:items-start group"
+                <div
+                  key={val.title}
+                  className="group relative p-5 sm:p-6 rounded-2xl
+              bg-white border border-gray-200
+              shadow-sm
+              hover:border-amber-400
+              hover:shadow-xl hover:shadow-amber-200/50
+              hover:-translate-y-2
+              transition-all duration-300 ease-out
+              text-center sm:text-left
+              flex flex-col items-center sm:items-start
+              cursor-default"
                 >
-                  <div className={`w-11 h-11 rounded-xl flex items-center justify-center mb-4 border ${val.color} transition-transform group-hover:scale-110`}>
-                    <IconComp className="w-5 h-5" />
+                  {/* Decorative Golden Glow */}
+                  <div
+                    className="absolute top-0 right-0 w-24 h-24
+                bg-amber-300/0 group-hover:bg-amber-300/15
+                rounded-full blur-2xl pointer-events-none
+                transition-all duration-300"
+                  />
+
+                  {/* Icon */}
+                  <div
+                    className={`relative w-11 h-11 rounded-xl
+                flex items-center justify-center mb-4 border
+                ${val.color}
+                transition-all duration-300
+                group-hover:scale-110 group-hover:rotate-3`}
+                  >
+                    <IconComp className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" />
                   </div>
-                  <h4 className="text-base font-bold text-navy mb-2">{val.title}</h4>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{val.description}</p>
+
+                  {/* Title */}
+                  <h4 className="relative text-base font-bold text-navy mb-2
+              transition-colors duration-300
+              group-hover:text-amber-600"
+                  >
+                    {val.title}
+                  </h4>
+
+                  {/* Description */}
+                  <p className="relative text-xs sm:text-sm text-slate-600
+              leading-relaxed transition-colors duration-300
+              group-hover:text-slate-800"
+                  >
+                    {val.description}
+                  </p>
                 </div>
               );
             })}
           </div>
         </Container>
       </section>
-
+      ```
       {/* ── Our Brand Partners ─────────── */}
       <section className="py-10 sm:py-14 bg-white border-b border-gray-200" id="partners">
         <Container>
@@ -533,7 +656,7 @@ export default function AboutPage() {
           <div className="max-w-6xl mx-auto">
             <div className="bg-white rounded-3xl border border-gray-200 shadow-sm overflow-hidden p-6 sm:p-8">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
-                
+
                 <div className="lg:col-span-7 space-y-4 text-center sm:text-left">
                   <h3 className="text-2xl sm:text-3xl font-extrabold text-navy tracking-tight">
                     Our Manufacturing Division
@@ -599,7 +722,7 @@ export default function AboutPage() {
             {WHY_CHOOSE_US.map((item, idx) => {
               const IconComp = item.icon;
               return (
-                <div 
+                <div
                   key={idx}
                   className="bg-slate-50 rounded-2xl p-5 border border-gray-200 hover:border-amber-400/60 shadow-xs hover:shadow-md transition-all flex flex-col justify-start"
                 >
@@ -649,7 +772,7 @@ export default function AboutPage() {
             {OUR_SERVICES.map((srv, idx) => {
               const IconComp = srv.icon;
               return (
-                <div 
+                <div
                   key={idx}
                   className="bg-white rounded-2xl p-6 border border-gray-200 hover:border-amber-400/60 shadow-xs hover:shadow-md transition-all flex flex-col justify-between"
                 >

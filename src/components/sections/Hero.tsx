@@ -11,7 +11,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const HERO_IMAGES = [
   {
-    url: '/images/Kaeser Industrial Air Compressor Banner.png',
+    url: '/images/Kaeser HSD 600 Compressor Banner.png',
     alt: 'Kaeser Compressors — German Engineered Screw Air Compressors',
   },
   {

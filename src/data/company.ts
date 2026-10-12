@@ -8,10 +8,10 @@ export const COMPANY_NAME = 'Airmen Engineers';
 export const COMPANY_TAGLINE = 'Industrial Air Compressor & Material Handling Solutions Since 1996';
 export const COMPANY_ESTABLISHED = 1996;
 
-export const COMPANY_DESCRIPTION = 
+export const COMPANY_DESCRIPTION =
   'Airmen Engineers is a premier industrial engineering partner and precision manufacturer. Alongside OEM alliances for Kaeser compressors, EP forklifts, Greaves power systems, and AIRpipe networks, we operate a dedicated in-house closed-die forging and CNC machining plant in Gajraula (U.P.) producing high-precision automotive components.';
 
-export const COMPANY_SHORT_DESCRIPTION = 
+export const COMPANY_SHORT_DESCRIPTION =
   'Authorized OEM distributor and precision automotive forging & CNC machining manufacturer since 1996.';
 
 export interface BrandContactPerson {
@@ -139,10 +139,12 @@ export const WHATSAPP_NUMBER = '919212303791';
 
 export const COMPANY_STATS: Stat[] = [
   { value: '1996', label: 'Established' },
-  { value: '29', label: 'Years Experience', suffix: '+' },
-  { value: '5000', label: 'Customers Served', suffix: '+' },
+  { value: '30', label: 'Years Experience', suffix: '+' },
+  { value: '5000', label: 'Installations', suffix: '+' },
   { value: '24/7', label: 'Service Support' },
+  { value: '1000', label: 'Customers', suffix: '+' },
 ];
+
 
 export const COMPANY_TIMELINE: TimelineEvent[] = [
   {
@@ -226,7 +228,7 @@ export const WHY_AIRMEN: FeatureCard[] = [
   {
     icon: 'Award',
     title: 'Proven Experience',
-    description: 'Over 29 years of expertise in industrial air compressor and material handling solutions.',
+    description: 'Over 30 years of expertise in industrial air compressor and material handling solutions.',
   },
   {
     icon: 'Handshake',

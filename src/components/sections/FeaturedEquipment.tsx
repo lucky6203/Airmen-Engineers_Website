@@ -366,7 +366,7 @@ export default function FeaturedEquipment() {
               <div>
                 {/* Title */}
                 <h3 className="text-2xl sm:text-3xl lg:text-[34px] font-black text-navy leading-[1.18] tracking-tight mt-3 sm:mt-4">
-                  Industrial <br/>
+                  Industrial <br />
                   <span className="text-amber-400">Products  &amp; Services</span>
                 </h3>
 

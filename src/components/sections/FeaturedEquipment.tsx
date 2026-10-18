@@ -181,7 +181,7 @@ const MANUFACTURING_ITEMS: EquipmentItem[] = [
     pillLabel: 'Wheel Hubs & Flanges',
     category: 'Flanges & Hubs',
     brand: 'Airmen Manufacturing',
-    brandLogo: '/images/logos/Airmen Engineers AE Logo.png',
+    brandLogo: '/images/logos/Airmen Logo.svg',
     badge: 'Gajraula Plant (U.P.) • Closed-Die Forged',
     description: 'High-tensile forged automotive wheel hubs and structural flanges precision-machined on multi-axis CNC turning centers at our Gajraula Plant (U.P.). Manufactured to stringent OEM engineering drawings with closed-die grain flow integrity, critical concentricity, and precision finish boring.',
     images: [
@@ -212,7 +212,7 @@ const MANUFACTURING_ITEMS: EquipmentItem[] = [
     pillLabel: 'Structural Flanges',
     category: 'Structural Components',
     brand: 'Airmen Manufacturing',
-    brandLogo: '/images/logos/Airmen Engineers AE Logo.png',
+    brandLogo: '/images/logos/Airmen Logo.svg',
     badge: 'Controlled Forging • CNC Facing & Boring',
     description: 'Heavy-duty automotive grade alloy steel structural components and stepped mounting flanges. Machined with tight-tolerance stepped outer diameters, controlled chamfer angles, and surface flatness for heavy vehicle chassis and powertrain assemblies.',
     images: [
@@ -243,7 +243,7 @@ const MANUFACTURING_ITEMS: EquipmentItem[] = [
     pillLabel: 'Profiled Rings & Retainers',
     category: 'Rings & Retainers',
     brand: 'Airmen Manufacturing',
-    brandLogo: '/images/logos/Airmen Engineers AE Logo.png',
+    brandLogo: '/images/logos/Airmen Logo.svg',
     badge: 'Contoured CNC Profiling • ±0.01 mm Precision',
     description: 'High-precision contoured rings and retaining collars engineered for rotating shafts and bearing assemblies. Features controlled groove depths, tight radial concentricity, and micro-smooth surface profiles produced under strict statistical process control (SPC).',
     images: [
@@ -274,7 +274,7 @@ const MANUFACTURING_ITEMS: EquipmentItem[] = [
     pillLabel: 'Bushings & Spacers',
     category: 'Bushings & Spacers',
     brand: 'Airmen Manufacturing',
-    brandLogo: '/images/logos/Airmen Engineers AE Logo.png',
+    brandLogo: '/images/logos/Airmen Logo.svg',
     badge: 'Micro-Alloy Forged • High-Speed Boring',
     description: 'Concentric automotive spacers, precision sleeves, and bearing collars manufactured from forged blanks. Designed for high radial and thrust loads, featuring micro-machined bores and parallel faces for zero axial binding in automotive gearboxes and suspension systems.',
     images: [

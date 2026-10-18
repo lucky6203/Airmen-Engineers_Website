@@ -63,7 +63,7 @@ export default function Header() {
             >
               {/* Logo Image */}
               <img
-                src="./images/logos/Airmen Engineers AE Logo.png"
+                src="/images/logos/Airmen Logo.svg"
                 alt="Airmen Engineers"
                 className="h-14 sm:h-16 md:h-18 lg:h-20 max-h-[72px] sm:max-h-[82px] w-auto object-contain flex-shrink-0 transition-transform duration-200 group-hover:scale-[1.02]"
               />

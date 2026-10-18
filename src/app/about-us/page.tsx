@@ -181,9 +181,9 @@ const CLIENT_LOGOS = [
     category: 'Electronics & Industrial',
   },
   {
-    name: 'JDKPE',
-    logo: '/images/JDKPE Blue and Red Emblem Logo.png',
-    category: 'Precision Engineering',
+    name: 'JTEKT',
+    logo: '/images/jtekt-logo.png',
+    category: 'Automotive & Precision',
   },
 ];
 

@@ -2,7 +2,7 @@
 
 // ============================================
 // Airmen Engineers — Customers & Client Portfolio Interactive Client
-// Featuring Hero MotoCorp, Havells, Asahi Glass, BKT Tyres, Panasonic, JDKPE
+// Featuring Hero MotoCorp, Havells, Asahi Glass, BKT Tyres, Panasonic, JTEKT
 // ============================================
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
@@ -152,24 +152,24 @@ const CLIENT_SPOTLIGHTS: ClientSpotlight[] = [
     keyMetric: { label: 'Energy Savings', value: '28%' }
   },
   {
-    id: 'jdkpe',
-    name: 'JDKPE',
-    fullName: 'JDKPE Industrial Solutions',
-    category: 'heavy',
-    // sectorLabel: 'Heavy Industrial Fabrication & Precision Machining',
-    logo: '/images/JDKPE Blue and Red Emblem Logo.png',
+    id: 'jtekt',
+    name: 'JTEKT',
+    fullName: 'JTEKT India Limited',
+    category: 'japanese',
+    // sectorLabel: 'Automotive Steering Systems & Precision Bearings',
+    logo: '/images/jtekt-logo.png',
     plantImage: '/images/banner-3.jpg',
-    plantTagline: 'Heavy Industrial Fabrication & Precision Machining Facilities',
-    plantLocation: 'Key Industrial Corridors',
-    partnershipYears: '9+ Years Partnership',
-    badge: 'Precision Engineering',
+    plantTagline: 'Automotive Steering & Precision Machine Facilities',
+    plantLocation: 'Dharuhera & Gurugram Industrial Belts',
+    partnershipYears: '12+ Years Partnership',
+    badge: 'Automotive & Precision',
     equipmentSupplied: [
-      'Heavy Industrial High-Volume Pneumatic Compression',
-      'Greaves CPCB IV+ High-kVA Prime Power Generation',
+      'Kaeser SIGMA PROFILE Industrial Air Compressors',
+      'Greaves CPCB IV+ High-kVA Power Generation Support',
       'Scheduled Preventive Maintenance & Consumable Support'
     ],
-    operationalImpact: 'Pioneering heavy engineering and precision enterprise relying on continuous high-volume compressed air and dependable prime power backup.',
-    keyMetric: { label: 'Plant Availability', value: '99.8%' }
+    operationalImpact: 'Premier Japanese automotive steering and precision components giant relying on continuous high-volume compressed air and dependable prime power backup.',
+    keyMetric: { label: 'Plant Availability', value: '99.9%' }
   }
 ];
 

@@ -26,7 +26,7 @@ export const metadata: Metadata = {
       { url: '/favicon.ico' },
     ],
     apple: [
-      { url: '/images/logos/Airmen Engineers AE Logo.png' },
+      { url: '/images/logos/Airmen Logo.svg' },
     ],
   },
   openGraph: {

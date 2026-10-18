@@ -91,7 +91,7 @@ const INDUSTRY_SHOWCASE: IndustryItem[] = [
       { name: 'EP CPD & EFL Series Lithium-Ion Forklifts', brand: 'EP Equipment', link: '/ep-forklifts' },
       { name: 'AIRpipe Compressed Air Distribution Systems', brand: 'AIRpipe', link: '/airpipe' }
     ],
-    keyClients: ['Panasonic India', 'BKT Tyres', 'JDKPE Industrial', 'Asahi India Glass (AIS)'],
+    keyClients: ['Panasonic India', 'BKT Tyres', 'JTEKT India', 'Asahi India Glass (AIS)'],
     stats: { label: 'Japanese Clients', value: '50+ Plants' }
   },
   {
@@ -190,7 +190,7 @@ const CLIENT_LOGOS = [
   { name: 'Asahi India Glass', logo: '/images/clients/asahi-ais.png', industry: 'Glass & Automotive' },
   { name: 'BKT Tyres', logo: '/images/BKT_Tyres_Logo.svg', industry: 'Tyres & Heavy Industry' },
   { name: 'Panasonic', logo: '/images/Panasonic Logo on White Background.png', industry: 'Electronics & Appliances' },
-  { name: 'JDKPE', logo: '/images/JDKPE Blue and Red Emblem Logo.png', industry: 'Precision Engineering' }
+  { name: 'JTEKT', logo: '/images/jtekt-logo.png', industry: 'Automotive & Precision' }
 ];
 
 export default function IndustriesClient() {

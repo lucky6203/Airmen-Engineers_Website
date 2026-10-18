@@ -61,13 +61,13 @@ const CLIENTS_WITH_IMAGES: ClientItem[] = [
     tag: 'Global Tech Leader',
   },
   {
-    id: 'jdkpe',
-    name: 'JDKPE',
-    fullName: 'JDKPE Industrial Solutions',
-    category: 'Precision Engineering',
-    logo: '/images/JDKPE Blue and Red Emblem Logo.png',
-    highlight: 'Pioneering heavy engineering & precision fabrication enterprise relying on continuous air power.',
-    tag: 'Precision Engineering',
+    id: 'jtekt',
+    name: 'JTEKT',
+    fullName: 'JTEKT India Limited',
+    category: 'Automotive & Precision Bearings',
+    logo: '/images/jtekt-logo.png',
+    highlight: 'Global Japanese automotive steering and precision bearing manufacturer relying on continuous compressed air power.',
+    tag: 'Automotive & Precision',
   },
 ];
 

@@ -58,7 +58,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             aria-label="Airmen Engineers Homepage"
           >
             <img
-              src="/images/logos/Airmen Engineers AE Logo.png"
+              src="/images/logos/Airmen Logo.svg"
               alt="Airmen Engineers"
               className="h-12 sm:h-14 w-auto max-h-[54px] object-contain flex-shrink-0"
             />

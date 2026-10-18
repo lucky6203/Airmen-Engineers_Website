@@ -58,7 +58,7 @@ const INDUSTRIES: IndustrySector[] = [
     tagline: 'Extreme Thermal & Dust Endurance',
     description: 'Heavy continuous duty air compressors and 50°C ambient rated CPCB IV+ generator sets engineered to withstand extreme furnace radiant heat and heavy particulate load.',
     keyEquipment: 'Kaeser 132 kW DSD SFC • Greaves Heavy HkVA Gensets',
-    clientsHighlight: 'Operating at Asahi India Glass (AIS) & JDKPE',
+    clientsHighlight: 'Operating at Asahi India Glass (AIS) & JTEKT',
     accent: 'border-blue-500/40 text-blue-500 bg-blue-500/10',
   },
   {

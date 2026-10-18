@@ -29,10 +29,10 @@ export const metadata: Metadata = {
     url: 'https://airmen.in/manufacturing-infrastructure',
     images: [
       {
-        url: '/images/divisions/division-01-plant.jpg',
+        url: '/images/gujraula_plant_img/Gajraula%20plant/WhatsApp%20Image%202026-09-28%20at%2011.11.37.jpeg',
         width: 1200,
         height: 630,
-        alt: 'Airmen Engineers Gajraula Plant Infrastructure',
+        alt: 'Airmen Engineers Gajraula Plant Infrastructure Works I-44/45',
       },
     ],
   },

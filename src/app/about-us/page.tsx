@@ -24,6 +24,8 @@ import {
 import AboutTimeline from '@/components/sections/AboutTimeline';
 import ProductAlbumGallery from '@/components/sections/ProductAlbumGallery';
 import ManufacturingProcess from '@/components/sections/ManufacturingProcess';
+import { TextAnimate } from '@/registry/magicui/text-animate';
+import { NumberTicker } from '@/registry/magicui/number-ticker';
 import {
   CONTACT_INFO,
   DIRECTOR_MESSAGE,
@@ -39,25 +41,17 @@ export const metadata: Metadata = {
 const OEM_PARTNERS = [
   {
     name: 'KAESER COMPRESSORS',
-    displayName: (
-      <>
-        KAESER<br />COMPRESSORS
-      </>
-    ),
+    displayName: 'KAESER COMPRESSORS',
     country: 'Coburg, Germany',
     since: 'Partner Since 2000',
-    logo: '/images/logos/kaeser-compressores-seeklogo.png',
+    logo: '/images/logos/logo-kaeser.svg',
     highlight: 'Globally recognized for engineering precision and energy-efficient compressed air systems, KAESER compressors deliver dependable performance for continuous industrial operations.',
     badge: 'German Precision Engineering',
     link: '/kaeser',
   },
   {
     name: 'EP Equipment',
-    displayName: (
-      <>
-        EP<br />Equipment
-      </>
-    ),
+    displayName: 'EP Equipment',
     country: 'Global Manufacturer',
     since: 'Partner Since 2008',
     logo: '/images/logos/logo-ep.png',
@@ -66,12 +60,8 @@ const OEM_PARTNERS = [
     link: '/ep-forklifts',
   },
   {
-    name: 'Greaves Power',
-    displayName: (
-      <>
-        Greaves<br />Cotton
-      </>
-    ),
+    name: 'Greaves Cotton',
+    displayName: 'Greaves Cotton',
     country: 'India (165+ Yrs)',
     since: 'Partner Since 2020',
     logo: '/images/logos/logo-greaves.svg',
@@ -81,11 +71,7 @@ const OEM_PARTNERS = [
   },
   {
     name: 'AIRpipe',
-    displayName: (
-      <>
-        AIR<br />pipe
-      </>
-    ),
+    displayName: 'AIRpipe',
     country: 'Global Technology',
     since: 'Partner Since 2015',
     logo: '/images/logos/logo-airpipe.png',
@@ -185,9 +171,9 @@ const CLIENT_LOGOS = [
     category: 'Glass Manufacturing',
   },
   {
-    name: 'BKD Bearings',
-    logo: '/images/BKD Bearing Motion Logo.png',
-    category: 'Bearings & Motion',
+    name: 'BKT Tyres',
+    logo: '/images/BKT_Tyres_Logo.svg',
+    category: 'Tyres & Heavy Industry',
   },
   {
     name: 'Panasonic',
@@ -213,10 +199,13 @@ export default function AboutPage() {
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-5 text-center lg:text-left flex flex-col items-center lg:items-start">
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-slate-900 leading-tight">
-                Company History <br />
-                <span className="text-amber-500">
+                <TextAnimate animation="blurInUp" by="character" once>
+                  Company History
+                </TextAnimate>{' '}
+                <br />
+                <TextAnimate animation="blurInUp" by="character" once delay={0.25} className="text-amber-500">
                   Industrial Heritage Since 1996
-                </span>
+                </TextAnimate>
               </h1>
 
               <div className="space-y-3.5 text-slate-700 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal">
@@ -267,7 +256,7 @@ export default function AboutPage() {
               <div className="mt-3 bg-white border border-stone-200/90 text-slate-900 p-4 rounded-2xl shadow-md text-center sm:text-left">
                 <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-3.5">
                   <div className="w-12 h-12 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-600 flex items-center justify-center font-bold text-xl font-heading flex-shrink-0 shadow-xs">
-                    30+
+                    <NumberTicker value={30} />+
                   </div>
                   <div>
                     <h5 className="font-bold text-sm sm:text-base text-slate-900 font-heading">Years of Proven Trust</h5>
@@ -282,17 +271,15 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* ── Key Numbers Metric Strip ────────────── */}
-
       {/* ── Key Numbers Metric Strip ── */}
       <section className="py-6 sm:py-8 bg-white border-b border-gray-200">
         <Container>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-5">
             {[
-              { value: '1996', label: 'Established' },
-              { value: '30', label: 'Years Experience', suffix: '+' },
-              { value: '5,000', label: 'Installations', suffix: '+' },
-              { value: '100%', label: 'Genuine Parts' },
+              { value: '1996', label: 'Established', useGrouping: false },
+              { value: '30', label: 'Years Experience', suffix: '+', useGrouping: true },
+              { value: '5000', label: 'Installations', suffix: '+', useGrouping: true },
+              { value: '100', label: 'Genuine Parts', suffix: '%', useGrouping: true },
               { value: '24/7', label: 'Service Support' },
             ].map((stat) => (
               <div
@@ -329,7 +316,7 @@ export default function AboutPage() {
               group-hover:scale-110
             "
                 >
-                  {stat.value}
+                  <NumberTicker value={stat.value} useGrouping={stat.useGrouping ?? false} />
                   {stat.suffix && (
                     <span className="text-amber-500">
                       {stat.suffix}
@@ -521,7 +508,6 @@ export default function AboutPage() {
 
 
       {/* ── Our Core Values ────────────────────────── */}
-      ```tsx
       <section className="py-10 sm:py-14 bg-slate-50 border-b border-gray-200">
         <Container>
           {/* Section Heading */}
@@ -594,7 +580,7 @@ export default function AboutPage() {
           </div>
         </Container>
       </section>
-      ```
+
       {/* ── Our Brand Partners ─────────── */}
       <section className="py-10 sm:py-14 bg-white border-b border-gray-200" id="partners">
         <Container>
@@ -611,7 +597,7 @@ export default function AboutPage() {
             {OEM_PARTNERS.map((partner) => (
               <div
                 key={partner.name}
-                className="bg-slate-50 rounded-2xl p-5 sm:p-6 border border-gray-200 hover:border-amber-500/50 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group text-center sm:text-left items-center sm:items-start"
+                className="bg-slate-50 rounded-2xl p-4 sm:p-5 lg:p-3.5 xl:p-5 border border-gray-200 hover:border-amber-500/50 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between group text-center sm:text-left items-center sm:items-start"
               >
                 <div className="w-full flex flex-col items-center sm:items-start">
                   <div className="h-14 w-full flex items-center justify-center p-2 mb-4 bg-white rounded-xl border border-gray-200">
@@ -622,7 +608,10 @@ export default function AboutPage() {
                     />
                   </div>
 
-                  <h3 className="text-base sm:text-lg font-bold text-navy mt-1 leading-snug min-h-[3rem] flex flex-col justify-end">
+                  <h3
+                    style={{ fontSize: '11px' }}
+                    className="font-bold text-navy mt-1 leading-snug tracking-tight whitespace-nowrap"
+                  >
                     {partner.displayName || partner.name}
                   </h3>
 

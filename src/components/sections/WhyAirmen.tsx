@@ -1,13 +1,11 @@
 'use client';
 
-// ============================================
-// Airmen Engineers — Why Airmen Section
-// ============================================
-
 import React from 'react';
+import { motion } from 'framer-motion';
 import Container from '@/components/common/Container';
 import SectionHeading from '@/components/common/SectionHeading';
 import { WHY_AIRMEN } from '@/data/company';
+import { TextAnimate } from '@/registry/magicui/text-animate';
 
 const FA_ICON_MAP: Record<string, string> = {
   Award: 'fa-solid fa-award',
@@ -29,8 +27,11 @@ export default function WhyAirmen() {
 
       <Container className="relative z-10">
         <SectionHeading
-          // overline="Why Choose Us"
-          title="Built on Experience. Driven by Excellence."
+          title={
+            <TextAnimate animation="blurInUp" by="character" once>
+              Built on Experience. Driven by Excellence.
+            </TextAnimate>
+          }
           subtitle="With nearly three decades of expertise, we deliver industrial solutions you can depend on."
           align="center"
           className="mb-6 sm:mb-8"
@@ -40,10 +41,13 @@ export default function WhyAirmen() {
           {WHY_AIRMEN.map((feature, index) => {
             const faIcon = FA_ICON_MAP[feature.icon] || 'fa-solid fa-award';
             return (
-              <div
+              <motion.div
                 key={feature.title}
-                className="group relative bg-white rounded-2xl p-8 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl border border-gray-100 hover:border-gold/30 animate-fade-in-up flex flex-col items-center md:items-start text-center md:text-left"
-                style={{ animationDelay: `${index * 0.15}s`, animationFillMode: 'both' }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-40px' }}
+                transition={{ duration: 0.5, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                className="group relative bg-white rounded-2xl p-8 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl border border-gray-100 hover:border-gold/30 flex flex-col items-center md:items-start text-center md:text-left"
               >
                 {/* Accent line on hover */}
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-gold transition-all duration-500 group-hover:w-1/2 rounded-b-full" />
@@ -71,7 +75,7 @@ export default function WhyAirmen() {
                 <div className="absolute bottom-4 right-6 text-7xl font-heading font-black text-gray-50 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none select-none">
                   0{index + 1}
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>

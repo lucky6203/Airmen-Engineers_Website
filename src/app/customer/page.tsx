@@ -8,7 +8,7 @@ import CustomerClient from '@/components/customer/CustomerClient';
 
 export const metadata: Metadata = {
   title: 'Our Customers & Clients — Trusted by 5,000+ Industrial Plants | Airmen Engineers',
-  description: 'Airmen Engineers is the trusted sales & service partner for 5,000+ manufacturing plants across India, including Hero MotoCorp, Havells, Asahi Glass, BKD, Panasonic, and JDKPE.',
+  description: 'Airmen Engineers is the trusted sales & service partner for 5,000+ manufacturing plants across India, including Hero MotoCorp, Havells, Asahi Glass, BKT Tyres, Panasonic, and JDKPE.',
   keywords: [
     'airmen engineers customers',
     'hero motocorp air compressor vendor',

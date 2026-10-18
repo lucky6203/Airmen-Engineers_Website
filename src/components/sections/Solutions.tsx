@@ -3,6 +3,7 @@
 import React, { useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
 import Container from '@/components/common/Container';
@@ -17,7 +18,7 @@ const CATEGORY_IMAGES: Record<string, string> = {
   'air-compressors': '/images/compressors/kaeser-dsd-main.jpg',
   'material-handling': '/images/forklifts/models/efl253-battery.png',
   'compressed-air-piping': '/images/Banner-6.jpg',
-  'power-solutions': '/images/greaves/products/greaves-canopy-industrial.jpg',
+  'power-solutions': '/images/greaves images/04_125-kva-cpcb-iv-greaves-power-diesel-generator-1-1000x1000.png',
 };
 
 // ============================================
@@ -27,18 +28,24 @@ const CATEGORY_IMAGES: Record<string, string> = {
 export default function Solutions() {
   return (
     <section
-      className="py-10 sm:py-14 bg-gray-50 border-b border-gray-200"
+      className="py-10 sm:py-14 bg-gray-50 border-b border-gray-200 relative overflow-hidden"
       id="solutions"
     >
       <Container>
 
-        <SectionHeading
-          // overline="What We Offer"
-          title="Complete Industrial Solutions"
-          subtitle="From compressed air to material handling, smart monitoring to power generation — we provide end-to-end engineering solutions for your industry."
-          align="center"
-          className="mb-6 sm:mb-8"
-        />
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <SectionHeading
+            title="Complete Industrial Solutions"
+            subtitle="From compressed air to material handling, smart monitoring to power generation — we provide end-to-end engineering solutions for your industry."
+            align="center"
+            className="mb-6 sm:mb-8"
+          />
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-4 xl:gap-5">
           {PRODUCT_CATEGORIES.map((category, index) => (
@@ -124,8 +131,12 @@ function SolutionCard({
   // ==========================================
 
   return (
-    <div
+    <motion.div
       ref={cardRef}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-40px' }}
+      transition={{ duration: 0.5, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
       className="
         card-3d
         w-full
@@ -138,9 +149,6 @@ function SolutionCard({
       "
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      style={{
-        animationDelay: `${index * 0.1}s`,
-      }}
     >
 
       <Link
@@ -262,13 +270,16 @@ function SolutionCard({
               <h3
                 className="
                   mb-1.5
-                  text-xl
-                  sm:text-2xl
-                  lg:text-lg
-                  xl:text-xl
+                  text-xs
+                  sm:text-sm
+                  lg:text-[13px]
+                  xl:text-sm
+                  2xl:text-base
                   font-heading
                   font-bold
                   text-white
+                  tracking-tight
+                  whitespace-nowrap
                 "
               >
                 {category.name}
@@ -348,6 +359,6 @@ function SolutionCard({
 
         </div>
       </Link>
-    </div>
+    </motion.div>
   );
 }

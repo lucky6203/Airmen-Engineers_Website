@@ -540,7 +540,7 @@ export default function GreavesClient({ products, brand }: GreavesClientProps) {
               <div className="relative rounded-2xl bg-white p-4 sm:p-6 border border-stone-200/90 shadow-xl">
                 <div className="relative rounded-xl overflow-hidden bg-stone-50 border border-stone-200 aspect-[4/3] flex items-center justify-center group">
                   <img
-                    src="/images/greaves/products/greaves-canopy-industrial.jpg"
+                    src="/images/greaves images/04_125-kva-cpcb-iv-greaves-power-diesel-generator-1-1000x1000.png"
                     alt="Greaves CPCB IV+ Silent Generator Set"
                     className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500"
                   />
@@ -672,7 +672,7 @@ export default function GreavesClient({ products, brand }: GreavesClientProps) {
               const activeIndex = activeImageIndexes[product.id] || 0;
               const productImages = product.images.length > 0
                 ? product.images
-                : ['/images/greaves/products/greaves-canopy-industrial.jpg'];
+                : ['/images/greaves images/04_125-kva-cpcb-iv-greaves-power-diesel-generator-1-1000x1000.png'];
 
               return (
                 <div

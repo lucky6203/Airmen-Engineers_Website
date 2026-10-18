@@ -20,6 +20,7 @@ import {
   CheckCircle2
 } from 'lucide-react';
 import Container from '@/components/common/Container';
+import { TextAnimate } from '@/registry/magicui/text-animate';
 
 interface ProcessStep {
   step: number;
@@ -122,8 +123,13 @@ export default function ManufacturingProcess() {
       <Container className="relative z-10">
         {/* ── Section Header ── */}
         <div className="text-center max-w-3xl mx-auto mb-8">
-          <h2 className="text-3xl sm:text-4xl font-black text-navy tracking-tight uppercase leading-tight">
-            MANUFACTURING <span className="text-orange-500">PROCESS</span>
+          <h2 className="text-3xl sm:text-4xl font-black tracking-tight uppercase leading-tight">
+            <TextAnimate animation="blurInUp" by="character" once className="text-navy">
+              MANUFACTURING
+            </TextAnimate>{' '}
+            <TextAnimate animation="blurInUp" by="character" once delay={0.25} className="text-orange-500">
+              PROCESS
+            </TextAnimate>
           </h2>
 
           <p className="text-sm sm:text-base text-slate-600 mt-2 font-medium">

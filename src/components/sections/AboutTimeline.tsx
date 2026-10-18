@@ -9,10 +9,10 @@
 import React, { useRef, useState } from 'react';
 import Image from 'next/image';
 import Container from '@/components/common/Container';
-import { 
-  ChevronLeft, 
-  ChevronRight, 
-  Clock, 
+import {
+  ChevronLeft,
+  ChevronRight,
+  Clock,
   Layers
 } from 'lucide-react';
 
@@ -148,11 +148,10 @@ export default function AboutTimeline() {
               <button
                 type="button"
                 onClick={() => setViewMode('horizontal')}
-                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
-                  viewMode === 'horizontal'
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${viewMode === 'horizontal'
                     ? 'bg-navy text-[#EAB308] shadow-xs'
                     : 'text-slate-600 hover:text-navy hover:bg-slate-100'
-                }`}
+                  }`}
               >
                 <Layers className="w-3.5 h-3.5" />
                 <span>Roadmap</span>
@@ -160,11 +159,10 @@ export default function AboutTimeline() {
               <button
                 type="button"
                 onClick={() => setViewMode('vertical')}
-                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
-                  viewMode === 'vertical'
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${viewMode === 'vertical'
                     ? 'bg-navy text-[#EAB308] shadow-xs'
                     : 'text-slate-600 hover:text-navy hover:bg-slate-100'
-                }`}
+                  }`}
               >
                 <Clock className="w-3.5 h-3.5" />
                 <span>Vertical</span>
@@ -205,7 +203,7 @@ export default function AboutTimeline() {
             <div className="mb-6 px-4 py-3 rounded-2xl bg-white border border-gray-200 shadow-xs overflow-x-auto">
               <div className="relative min-w-[760px] flex items-center justify-between">
                 {/* Horizontal Gradient Connecting Line */}
-                <div 
+                <div
                   className="absolute left-6 right-6 top-1/2 -translate-y-1/2 h-1 rounded-full z-0"
                   style={{
                     background: 'linear-gradient(to right, #2563EB 0%, #EAB308 20%, #1D4ED8 35%, #10B981 55%, #F59E0B 70%, #EF4444 85%, #DC2626 100%)',
@@ -223,19 +221,17 @@ export default function AboutTimeline() {
                       className="relative z-10 flex flex-col items-center group cursor-pointer"
                     >
                       {/* Node Dot */}
-                      <div 
-                        className={`w-6 h-6 rounded-full border-3 border-white shadow-md flex items-center justify-center transition-all ${
-                          isActive ? 'scale-125 ring-2 ring-amber-400 ring-offset-2' : 'group-hover:scale-110'
-                        }`}
+                      <div
+                        className={`w-6 h-6 rounded-full border-3 border-white shadow-md flex items-center justify-center transition-all ${isActive ? 'scale-125 ring-2 ring-amber-400 ring-offset-2' : 'group-hover:scale-110'
+                          }`}
                         style={{ backgroundColor: item.dotColor }}
                       >
                         <div className="w-1.5 h-1.5 rounded-full bg-white" />
                       </div>
 
                       {/* Year Label */}
-                      <span className={`text-xs font-black mt-2 tracking-tight transition-colors ${
-                        isActive ? 'text-navy font-extrabold' : 'text-slate-600 group-hover:text-navy'
-                      }`}>
+                      <span className={`text-xs font-black mt-2 tracking-tight transition-colors ${isActive ? 'text-navy font-extrabold' : 'text-slate-600 group-hover:text-navy'
+                        }`}>
                         {item.year}
                       </span>
                     </button>
@@ -310,7 +306,7 @@ export default function AboutTimeline() {
         {viewMode === 'vertical' && (
           <div className="relative max-w-4xl mx-auto py-2">
             {/* Center Vertical Timeline Line */}
-            <div 
+            <div
               className="absolute left-4 sm:left-1/2 top-4 bottom-4 w-1 -translate-x-1/2 rounded-full hidden sm:block"
               style={{
                 background: 'linear-gradient(to bottom, #2563EB 0%, #EAB308 20%, #1D4ED8 35%, #10B981 55%, #F59E0B 70%, #EF4444 85%, #DC2626 100%)',
@@ -325,13 +321,12 @@ export default function AboutTimeline() {
                 return (
                   <div
                     key={item.id}
-                    className={`relative flex flex-col sm:flex-row items-start gap-4 sm:gap-8 ${
-                      isEven ? 'sm:flex-row-reverse' : ''
-                    }`}
+                    className={`relative flex flex-col sm:flex-row items-start gap-4 sm:gap-8 ${isEven ? 'sm:flex-row-reverse' : ''
+                      }`}
                   >
                     {/* Glowing Node Dot */}
                     <div className="absolute left-4 sm:left-1/2 -translate-x-1/2 mt-5 z-10 flex items-center justify-center">
-                      <div 
+                      <div
                         className="w-5 h-5 rounded-full border-3 border-white shadow-md flex items-center justify-center"
                         style={{ backgroundColor: item.dotColor }}
                       >
@@ -355,7 +350,7 @@ export default function AboutTimeline() {
                             className="object-cover group-hover:scale-105 transition-transform duration-500"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-transparent to-black/20" />
-                          
+
                           {/* Year Badge */}
                           <div className="absolute top-2.5 left-2.5">
                             <span className="px-2.5 py-0.5 rounded-full text-xs font-black bg-navy/90 backdrop-blur-md text-[#EAB308] border border-[#EAB308]/40 shadow-xs">

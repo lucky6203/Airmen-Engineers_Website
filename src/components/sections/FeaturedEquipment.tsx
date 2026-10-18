@@ -9,6 +9,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import {
   ArrowRight,
   ArrowUpRight,
@@ -28,6 +29,7 @@ import {
 } from 'lucide-react';
 import Container from '@/components/common/Container';
 import Button from '@/components/common/Button';
+import { TextAnimate } from '@/registry/magicui/text-animate';
 
 interface EquipmentItem {
   id: string;
@@ -119,9 +121,9 @@ const INDUSTRIAL_ITEMS: EquipmentItem[] = [
     badge: '165+ Yrs Heritage • 750h Service',
     description: 'Heavy-duty CPCB IV+ compliant diesel generator sets engineered for demanding industrial, healthcare, and infrastructure applications. Features advanced DOC/SCR aftertreatment, 750-hour oil service intervals, up to 5-year warranty, and Genius IoT telematics.',
     images: [
-      '/images/greaves/products/greaves-canopy-industrial.jpg',
-      '/images/greaves/products/greaves-engine-powertrain.jpg',
-      '/images/greaves/products/greaves-compact-genset.jpg',
+      '/images/greaves images/04_125-kva-cpcb-iv-greaves-power-diesel-generator-1-1000x1000.png',
+      '/images/greaves images/08_500-kva-silent-dg-set-greaves-power-500x500.png',
+      '/images/greaves images/02_5kva-500x500.png',
     ],
     specs: [
       { label: 'Rating Spectrum', value: '5 kVA to 2500* kVA' },
@@ -348,8 +350,12 @@ export default function FeaturedEquipment() {
           </div> */}
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[46px] font-black text-navy tracking-tight leading-tight font-heading">
-            Multiple Businesses.{' '}
-            <span className="text-amber-400">One Engineering Standard.</span>
+            <TextAnimate animation="blurInUp" by="character" once>
+              Multiple Businesses.
+            </TextAnimate>{' '}
+            <TextAnimate animation="blurInUp" by="character" once delay={0.25} className="text-amber-400">
+              One Engineering Standard.
+            </TextAnimate>
           </h2>
 
           <p className="text-slate-600 mt-2.5 sm:mt-3 text-xs sm:text-sm md:text-base max-w-2xl sm:max-w-3xl mx-auto leading-relaxed font-normal">
@@ -360,7 +366,13 @@ export default function FeaturedEquipment() {
         {/* ── Two Specialized Divisions Cards ── */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-0">
           {/* ── Card 1: Division 01 ── */}
-          <div className="text-left rounded-3xl sm:rounded-[36px] bg-white border border-slate-200/90 transition-all duration-300 overflow-hidden relative flex flex-col md:flex-row justify-between shadow-xl shadow-slate-200/60">
+          <motion.div
+            initial={{ opacity: 0, y: 35 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="group text-left rounded-3xl sm:rounded-[36px] bg-white border border-slate-200/90 hover:border-amber-300 transition-all duration-500 overflow-hidden relative flex flex-col md:flex-row justify-between shadow-xl shadow-slate-200/60 hover:shadow-2xl hover:-translate-y-1.5"
+          >
             {/* Left Content Area */}
             <div className="flex-1 p-6 sm:p-8 flex flex-col justify-between relative z-10">
               <div>
@@ -371,7 +383,7 @@ export default function FeaturedEquipment() {
                 </h3>
 
                 {/* Accent Underline Bar */}
-                <div className="w-12 h-1 bg-amber-400 rounded-full mt-2.5 mb-3.5" />
+                <div className="w-12 h-1 bg-amber-400 rounded-full mt-2.5 mb-3.5 transition-all duration-300 group-hover:w-20" />
 
                 {/* Subtitle */}
                 <p className="text-slate-600 text-xs sm:text-[13px] leading-relaxed font-normal">
@@ -383,7 +395,7 @@ export default function FeaturedEquipment() {
                   {/* Forklifts */}
                   <Link
                     href="/ep-forklifts"
-                    className="p-2.5 sm:p-3 rounded-2xl border text-left cursor-pointer transition-all flex flex-col justify-center bg-slate-50/70 hover:bg-white border-slate-200/80 hover:border-amber-300 hover:shadow-xs group/pill"
+                    className="p-2.5 sm:p-3 rounded-2xl border text-left cursor-pointer transition-all flex flex-col justify-center bg-slate-50/70 hover:bg-white border-slate-200/80 hover:border-amber-300 hover:shadow-xs group/pill hover:-translate-y-0.5"
                   >
                     <span className="text-xs sm:text-[13px] font-bold text-navy block leading-snug group-hover/pill:text-amber-600 transition-colors">
                       Forklifts
@@ -396,7 +408,7 @@ export default function FeaturedEquipment() {
                   {/* DG Sets */}
                   <Link
                     href="/greaves"
-                    className="p-2.5 sm:p-3 rounded-2xl border text-left cursor-pointer transition-all flex flex-col justify-center bg-slate-50/70 hover:bg-white border-slate-200/80 hover:border-amber-300 hover:shadow-xs group/pill"
+                    className="p-2.5 sm:p-3 rounded-2xl border text-left cursor-pointer transition-all flex flex-col justify-center bg-slate-50/70 hover:bg-white border-slate-200/80 hover:border-amber-300 hover:shadow-xs group/pill hover:-translate-y-0.5"
                   >
                     <span className="text-xs sm:text-[13px] font-bold text-navy block leading-snug group-hover/pill:text-amber-600 transition-colors">
                       DG Sets
@@ -409,7 +421,7 @@ export default function FeaturedEquipment() {
                   {/* Air Compressors */}
                   <Link
                     href="/kaeser"
-                    className="p-2.5 sm:p-3 rounded-2xl border text-left cursor-pointer transition-all flex flex-col justify-center bg-slate-50/70 hover:bg-white border-slate-200/80 hover:border-amber-300 hover:shadow-xs group/pill"
+                    className="p-2.5 sm:p-3 rounded-2xl border text-left cursor-pointer transition-all flex flex-col justify-center bg-slate-50/70 hover:bg-white border-slate-200/80 hover:border-amber-300 hover:shadow-xs group/pill hover:-translate-y-0.5"
                   >
                     <span className="text-xs sm:text-[13px] font-bold text-navy block leading-snug group-hover/pill:text-amber-600 transition-colors">
                       Air Compressors
@@ -422,7 +434,7 @@ export default function FeaturedEquipment() {
                   {/* Air Piping */}
                   <Link
                     href="/airpipe"
-                    className="p-2.5 sm:p-3 rounded-2xl border text-left cursor-pointer transition-all flex flex-col justify-center bg-slate-50/70 hover:bg-white border-slate-200/80 hover:border-amber-300 hover:shadow-xs group/pill"
+                    className="p-2.5 sm:p-3 rounded-2xl border text-left cursor-pointer transition-all flex flex-col justify-center bg-slate-50/70 hover:bg-white border-slate-200/80 hover:border-amber-300 hover:shadow-xs group/pill hover:-translate-y-0.5"
                   >
                     <span className="text-xs sm:text-[13px] font-bold text-navy block leading-snug group-hover/pill:text-amber-600 transition-colors">
                       Air Piping
@@ -438,10 +450,10 @@ export default function FeaturedEquipment() {
               <div className="pt-2">
                 <Link
                   href="/products"
-                  className="inline-flex items-center gap-3 px-5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-navy text-white hover:bg-slate-800 text-xs sm:text-[13px] font-bold tracking-wider uppercase transition-all shadow-md group/btn w-fit cursor-pointer"
+                  className="inline-flex items-center gap-3 px-5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-navy text-white hover:bg-slate-800 text-xs sm:text-[13px] font-bold tracking-wider uppercase transition-all shadow-md group/btn w-fit cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
                 >
                   <span>EXPLORE INDUSTRIAL PRODUCTS</span>
-                  <span className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center group-hover/btn:translate-x-0.5 transition-transform">
+                  <span className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center group-hover/btn:translate-x-1 transition-transform">
                     <ArrowRight className="w-3.5 h-3.5 text-white stroke-[2.5]" />
                   </span>
                 </Link>
@@ -459,10 +471,16 @@ export default function FeaturedEquipment() {
                 <div className="absolute inset-0 bg-gradient-to-t from-navy/30 via-transparent to-transparent pointer-events-none" />
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* ── Card 2: Division 02 ── */}
-          <div className="text-left rounded-3xl sm:rounded-[36px] bg-[#0A1422] border-2 border-amber-500/40 transition-all duration-300 overflow-hidden relative flex flex-col md:flex-row justify-between shadow-2xl shadow-navy/60">
+          <motion.div
+            initial={{ opacity: 0, y: 35 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            className="group text-left rounded-3xl sm:rounded-[36px] bg-[#0A1422] border-2 border-amber-500/40 hover:border-amber-400 transition-all duration-500 overflow-hidden relative flex flex-col md:flex-row justify-between shadow-2xl shadow-navy/60 hover:-translate-y-1.5"
+          >
             {/* Left Content Area */}
             <div className="flex-1 p-6 sm:p-8 flex flex-col justify-between relative z-10">
               <div>
@@ -550,7 +568,7 @@ export default function FeaturedEquipment() {
                 <div className="absolute inset-0 bg-gradient-to-t from-navy/40 via-transparent to-transparent pointer-events-none" />
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </Container>
     </section>

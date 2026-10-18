@@ -28,6 +28,7 @@ import {
 } from 'lucide-react';
 import Container from '@/components/common/Container';
 import Button from '@/components/common/Button';
+import { NumberTicker } from '@/registry/magicui/number-ticker';
 
 interface IndustryItem {
   id: string;
@@ -68,7 +69,7 @@ const INDUSTRY_SHOWCASE: IndustryItem[] = [
       { name: 'AIRpipe DN80–DN150 Aluminium Ring Mains', brand: 'AIRpipe', link: '/products' },
       { name: 'Greaves Silent CPCB IV+ Power Stations', brand: 'Greaves Cotton', link: '/greaves' }
     ],
-    keyClients: ['Hero MotoCorp', 'BKD Bearings', 'Automotive Tier-1 Press Shops'],
+    keyClients: ['Hero MotoCorp', 'BKT Tyres', 'Automotive Tier-1 Press Shops'],
     stats: { label: 'Air Uptime', value: '99.9%' }
   },
   {
@@ -90,7 +91,7 @@ const INDUSTRY_SHOWCASE: IndustryItem[] = [
       { name: 'EP CPD & EFL Series Lithium-Ion Forklifts', brand: 'EP Equipment', link: '/ep-forklifts' },
       { name: 'AIRpipe Compressed Air Distribution Systems', brand: 'AIRpipe', link: '/airpipe' }
     ],
-    keyClients: ['Panasonic India', 'BKD Bearings', 'JDKPE Industrial', 'Asahi India Glass (AIS)'],
+    keyClients: ['Panasonic India', 'BKT Tyres', 'JDKPE Industrial', 'Asahi India Glass (AIS)'],
     stats: { label: 'Japanese Clients', value: '50+ Plants' }
   },
   {
@@ -187,7 +188,7 @@ const CLIENT_LOGOS = [
   { name: 'Hero MotoCorp', logo: '/images/clients/hero-motocorp-logo.svg', industry: 'Automobile' },
   { name: 'Havells', logo: '/images/clients/havells-logo.svg', industry: 'Electronics & Appliances' },
   { name: 'Asahi India Glass', logo: '/images/clients/asahi-ais.png', industry: 'Glass & Automotive' },
-  { name: 'BKD', logo: '/images/BKD Bearing Motion Logo.png', industry: 'Bearing & Motion' },
+  { name: 'BKT Tyres', logo: '/images/BKT_Tyres_Logo.svg', industry: 'Tyres & Heavy Industry' },
   { name: 'Panasonic', logo: '/images/Panasonic Logo on White Background.png', industry: 'Electronics & Appliances' },
   { name: 'JDKPE', logo: '/images/JDKPE Blue and Red Emblem Logo.png', industry: 'Precision Engineering' }
 ];
@@ -269,15 +270,21 @@ export default function IndustriesClient() {
               {/* Trust Metrics Bar */}
               <div className="flex items-center gap-5 pt-2 border-t border-stone-200 max-sm:justify-center text-xs text-slate-600 w-full max-w-lg">
                 <div>
-                  <span className="font-extrabold text-amber-600 text-sm">29+</span> Years Trust
+                  <span className="font-extrabold text-amber-600 text-sm">
+                    <NumberTicker value={30} />+
+                  </span> Years Trust
                 </div>
                 <div className="w-px h-3 bg-stone-300" />
                 <div>
-                  <span className="font-extrabold text-amber-600 text-sm">5,000+</span> Plants
+                  <span className="font-extrabold text-amber-600 text-sm">
+                    <NumberTicker value={5000} useGrouping={true} />+
+                  </span> Plants
                 </div>
                 <div className="w-px h-3 bg-stone-300" />
                 <div>
-                  <span className="font-extrabold text-amber-600 text-sm">99.8%</span> Uptime SLA
+                  <span className="font-extrabold text-amber-600 text-sm">
+                    <NumberTicker value={99.8} decimalPlaces={1} />%
+                  </span> Uptime SLA
                 </div>
               </div>
             </div>

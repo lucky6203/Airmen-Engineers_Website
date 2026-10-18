@@ -23,7 +23,7 @@ const HERO_IMAGES = [
     alt: 'EP Equipment — Electric & Lithium-Ion Material Handling Forklifts',
   },
   {
-    url: '/images/ANEST IWATA Air Compressor Showcase.png',
+    url: '/images/Modern Greaves Power Generator Facility.png',
     alt: 'Greaves Cotton — Industrial Diesel Generators & Power Solutions',
   },
 ];

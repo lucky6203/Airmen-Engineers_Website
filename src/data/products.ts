@@ -75,7 +75,7 @@ export const PRODUCT_CATEGORIES: ProductCategoryInfo[] = [
   },
   {
     id: 'compressed-air-piping',
-    name: 'Compressed Air Piping',
+    name: 'Air Piping',
     slug: 'compressed-air-piping',
     description: 'Aluminium, stainless steel, and zinc nickel piping systems for compressed air distribution.',
     icon: 'GitBranch',
@@ -636,9 +636,9 @@ export const PRODUCTS: Product[] = [
     description: 'Greaves CPCB IV+ compliant compact and low-kVA generator sets engineered for residential, commercial retail, BFSI, telecom towers, and light industrial applications. Features mechanical fuel injection, air-cooled and water-cooled architectures, Bio-diesel (B0–B100) compatibility, and compact acoustic soundproof enclosures with residential grade silencers.',
     shortDescription: 'CPCB IV+ compliant compact gensets (5 kVA – 30 kVA) with low noise and bio-diesel compatibility.',
     images: [
-      '/images/greaves/products/greaves-compact-genset.jpg',
-      '/images/greaves/products/greaves-canopy-industrial.jpg',
-      '/images/greaves/products/greaves-engine-powertrain.jpg',
+      '/images/greaves images/02_5kva-500x500.png',
+      '/images/greaves images/01_2dy2dd2d2d-1-500x500.png',
+      '/images/greaves images/09_greaves-57-kva-cpcb4-silent-diesel-generator-set-1000x1000.png',
     ],
     specifications: [
       { label: 'Rating Range', value: '5 kVA to 30 kVA (4 kWe – 24 kWe)' },
@@ -670,9 +670,10 @@ export const PRODUCTS: Product[] = [
     description: 'Greaves medium-kVA industrial workhorse diesel generator sets designed for harsh operating environments, continuous manufacturing, ITES facilities, educational institutions, and healthcare centers. Equipped with Turbocharged Aftercooled (TCAC) 3G and 4G engines, high block loading capability, and dual governor options (Mechanical or Common Rail Electronic).',
     shortDescription: 'Industrial medium-range diesel gensets (40 kVA – 200 kVA) with TCAC engines and 750h service intervals.',
     images: [
-      '/images/greaves/products/greaves-medium-genset.jpg',
-      '/images/greaves/products/greaves-canopy-industrial.jpg',
-      '/images/greaves/products/greaves-canopy-airflow.jpg',
+      '/images/greaves images/04_125-kva-cpcb-iv-greaves-power-diesel-generator-1-1000x1000.png',
+      '/images/greaves images/03_82-5-kva-crompton-greaves-dg-set-1000x1000.png',
+      '/images/greaves images/07_250-kva-greaves-power-diesel-generator-500x500.png',
+      '/images/greaves images/10_greaves-125-kva-cpcb4-silent-diesel-generator-set-1000x1000.png',
     ],
     specifications: [
       { label: 'Rating Range', value: '40 kVA to 200 kVA (32 kWe – 160 kWe)' },
@@ -704,9 +705,9 @@ export const PRODUCTS: Product[] = [
     description: 'Greaves heavy-duty prime power generator sets engineered for heavy manufacturing, infrastructure mega-projects, defense, and railways. Meets stringent CPCB IV+ norms with advanced Selective Catalytic Reduction (SCR) aftertreatment and precision DEF dosing. Backed by an industry-first 5000-hour or 5-year warranty protection (applicable till 625 kVA).',
     shortDescription: 'Heavy-duty CPCB IV+ gensets (250 kVA – 750 kVA) with up to 5-year warranty and 750h service interval.',
     images: [
-      '/images/greaves/products/greaves-heavy-genset.jpg',
-      '/images/greaves/products/greaves-cpcb4-protection.jpg',
-      '/images/greaves/products/greaves-engine-powertrain.jpg',
+      '/images/greaves images/08_500-kva-silent-dg-set-greaves-power-500x500.png',
+      '/images/greaves images/06_125-kva-cpcb-iv-greaves-power-diesel-generator-1000x1000.png',
+      '/images/greaves images/11_greaves-power-250-kva-air-cooled-diesel-generator-sets-500x500.png',
     ],
     specifications: [
       { label: 'Rating Range', value: '250 kVA to 750 kVA (200 kWe – 600 kWe)' },
@@ -738,9 +739,9 @@ export const PRODUCTS: Product[] = [
     description: 'Greaves ultra-high-capacity power generation solutions built for mission-critical facilities, hyperscale data centers, large pharmaceutical plants, and continuous industrial grids. Configurable with Radiator Cooled or Heat Exchanger (HEX) cooling systems, 415V or medium-voltage alternators, and Data Center Continuous (DCC) ratings.',
     shortDescription: 'High-capacity mega gensets (1010 kVA – 2500 kVA) with Radiator / Heat Exchanger cooling for critical infrastructure.',
     images: [
-      '/images/greaves/products/greaves-diverse-applications.jpg',
-      '/images/greaves/products/greaves-canopy-industrial.jpg',
-      '/images/greaves/products/greaves-heavy-genset.jpg',
+      '/images/greaves images/12_prod-20221114-1544557029687491476628185-jpg-1000x1000.png',
+      '/images/greaves images/05_125-kva-cpcb-iv-greaves-power-diesel-generator-2-1000x1000.png',
+      '/images/greaves images/08_500-kva-silent-dg-set-greaves-power-500x500.png',
     ],
     specifications: [
       { label: 'Rating Range', value: '1010 kVA to 2500* kVA (808 kWe – 2000 kWe)' },

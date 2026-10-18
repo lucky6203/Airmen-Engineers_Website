@@ -1,10 +1,7 @@
 'use client';
 
-// ============================================
-// Airmen Engineers — Client Section (Redesigned)
-// ============================================
-
 import React from 'react';
+import { motion } from 'framer-motion';
 import Container from '@/components/common/Container';
 
 interface ClientItem {
@@ -46,13 +43,13 @@ const CLIENTS_WITH_IMAGES: ClientItem[] = [
     tag: 'Glass Industry',
   },
   {
-    id: 'bkd',
-    name: 'BKD Bearings',
-    fullName: 'BKD Bearing & Motion',
-    category: 'Bearings & Precision Motion',
-    logo: '/images/BKD Bearing Motion Logo.png',
-    highlight: 'Precision industrial bearings & rotational motion solutions engineered for heavy machinery uptime.',
-    tag: 'Bearings & Motion',
+    id: 'bkt',
+    name: 'BKT Tyres',
+    fullName: 'Balkrishna Industries Ltd. (BKT)',
+    category: 'Tyres & Heavy Off-Highway',
+    logo: '/images/BKT_Tyres_Logo.svg',
+    highlight: 'Global leader in off-highway tyre manufacturing relying on Airmen for high-capacity continuous compressed air systems.',
+    tag: 'Tyres & Heavy Industry',
   },
   {
     id: 'panasonic',
@@ -88,7 +85,13 @@ export default function Customers() {
 
       {/* Section Header */}
       <Container className="relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center max-w-3xl mx-auto mb-8 sm:mb-10"
+        >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-white tracking-tight leading-tight">
             Powering India&apos;s Foremost{' '}
             <span className="bg-gradient-to-r from-gold via-amber-300 to-gold bg-clip-text text-transparent">
@@ -96,13 +99,19 @@ export default function Customers() {
             </span>
           </h2>
 
-          <div className="w-20 h-1 bg-gradient-to-r from-transparent via-gold to-transparent mx-auto my-6 rounded-full" />
+          <motion.div
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="w-20 h-1 bg-gradient-to-r from-transparent via-gold to-transparent mx-auto my-6 rounded-full origin-center"
+          />
 
           <p className="text-gray-400 text-base sm:text-lg leading-relaxed">
             From premier automotive OEMs to leading electronics, bearings, and glass manufacturers,
             Airmen Engineers delivers uncompromising compressed air systems and round-the-clock maintenance reliability.
           </p>
-        </div>
+        </motion.div>
       </Container>
 
       {/* Single-Line Seamless Auto-Scrolling Clients Ribbon */}

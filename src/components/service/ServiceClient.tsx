@@ -335,8 +335,8 @@ export default function ServiceClient() {
               <div
                 key={idx}
                 className={`rounded-3xl p-6 sm:p-8 flex flex-col justify-between relative transition-all duration-300 ${tier.highlight
-                    ? 'bg-gradient-to-b from-navy to-[#0b172a] border-2 border-amber-400 shadow-2xl shadow-amber-500/10 md:-translate-y-2'
-                    : 'bg-white/5 border border-white/10 hover:border-white/20'
+                  ? 'bg-gradient-to-b from-navy to-[#0b172a] border-2 border-amber-400 shadow-2xl shadow-amber-500/10 md:-translate-y-2'
+                  : 'bg-white/5 border border-white/10 hover:border-white/20'
                   }`}
               >
                 {tier.highlight && (
@@ -373,8 +373,8 @@ export default function ServiceClient() {
                 <Link
                   href="/contact"
                   className={`w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-bold text-xs uppercase tracking-wider transition-all shadow-md ${tier.highlight
-                      ? 'bg-amber-500 hover:bg-amber-400 text-slate-950'
-                      : 'bg-white/10 hover:bg-white/20 text-white border border-white/20'
+                    ? 'bg-amber-500 hover:bg-amber-400 text-slate-950'
+                    : 'bg-white/10 hover:bg-white/20 text-white border border-white/20'
                     }`}
                 >
                   {tier.ctaText}

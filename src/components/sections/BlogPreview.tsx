@@ -8,28 +8,35 @@ import React from 'react';
 import Link from 'next/link';
 import { ArrowRight, Calendar } from 'lucide-react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 import Container from '@/components/common/Container';
 import SectionHeading from '@/components/common/SectionHeading';
 import Button from '@/components/common/Button';
 import { BLOG_POSTS } from '@/data/blog';
 
 export default function BlogPreview() {
-  const posts = BLOG_POSTS.slice(0, 3);
+  const posts = BLOG_POSTS.slice(0, 4);
 
   return (
     <section className="py-10 sm:py-14 bg-gray-50 border-b border-gray-200" id="blog-preview">
       <Container>
         <SectionHeading
-          // overline="Insights & Articles"
           title="Industrial Knowledge Hub"
           subtitle="Expert insights on air compressors, energy efficiency, maintenance, and industrial technology."
           align="center"
           className="mb-6 sm:mb-8"
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-          {posts.map((post) => (
-            <Link key={post.id} href={`/blog/${post.slug}`} className="group">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
+          {posts.map((post, index) => (
+            <motion.div
+              key={post.id}
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.5, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <Link href={`/blog/${post.slug}`} className="group block h-full">
               <article className="card-industrial h-full flex flex-col group-hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                 {/* Image */}
                 <div className="aspect-[16/9] bg-navy relative overflow-hidden">
@@ -76,7 +83,8 @@ export default function BlogPreview() {
                 </div>
               </article>
             </Link>
-          ))}
+          </motion.div>
+        ))}
         </div>
 
         <div className="text-center">

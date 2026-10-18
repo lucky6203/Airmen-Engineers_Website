@@ -7,13 +7,14 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { 
-  Building2, 
-  Car, 
-  Cpu, 
-  Factory, 
-  FlaskConical, 
-  Boxes, 
+import { motion } from 'framer-motion';
+import {
+  Building2,
+  Car,
+  Cpu,
+  Factory,
+  FlaskConical,
+  Boxes,
   ArrowRight
 } from 'lucide-react';
 import Container from '@/components/common/Container';
@@ -37,7 +38,7 @@ const INDUSTRIES: IndustrySector[] = [
     tagline: 'High Precision 24/7 Assembly',
     description: 'Supplying continuous pulse-free compressed air for robotic paint shops and pneumatic tooling, backed by Li-ion forklifts for high-speed stamping shop pallet flow.',
     keyEquipment: 'Kaeser DSD Series • EP 3.0T – 5.0T Li-Ion Forklifts',
-    clientsHighlight: 'Trusted by Hero MotoCorp, BKD, Panasonic',
+    clientsHighlight: 'Trusted by Hero MotoCorp, BKT Tyres, Panasonic',
     accent: 'border-amber-500/40 text-amber-500 bg-amber-500/10',
   },
   {
@@ -112,12 +113,16 @@ export default function IndustriesServed() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {INDUSTRIES.map((ind) => {
+          {INDUSTRIES.map((ind, index) => {
             const Icon = ind.icon;
             return (
-              <div
+              <motion.div
                 key={ind.id}
-                className="group relative rounded-2xl bg-white/[0.03] hover:bg-white/[0.07] border border-white/10 hover:border-amber-500/40 p-7 transition-all duration-300 hover:-translate-y-1 shadow-lg flex flex-col justify-between"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-40px' }}
+                transition={{ duration: 0.5, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                className="group relative rounded-2xl bg-white/[0.03] hover:bg-white/[0.07] border border-white/10 hover:border-amber-500/40 p-7 transition-all duration-300 hover:-translate-y-1.5 shadow-lg flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between gap-3 mb-5">
@@ -146,7 +151,7 @@ export default function IndustriesServed() {
                     {ind.clientsHighlight}
                   </p>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>

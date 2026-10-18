@@ -32,7 +32,7 @@ export default function Brands() {
 
       {/* Marquee with continuous seamless loop */}
       <div className="relative overflow-hidden w-full max-w-full">
-        <div 
+        <div
           className="flex w-max items-center animate-marquee"
           style={{ willChange: 'transform', animationDuration: '35s' }}
         >
@@ -48,7 +48,7 @@ export default function Brands() {
                       src={LOGO_MAP[brand.id]}
                       alt={brand.name}
                       fill
-                      className="object-contain mix-blend-multiply"
+                      className={`object-contain ${brand.id === 'aim' ? 'mix-blend-multiply' : ''}`}
                     />
                   </div>
                 ) : (

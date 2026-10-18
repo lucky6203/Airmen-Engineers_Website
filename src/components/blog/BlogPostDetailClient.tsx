@@ -24,7 +24,7 @@ import Button from '@/components/common/Button';
 import { BlogPost } from '@/types';
 import { BLOG_POSTS } from '@/data/blog';
 
-const STORAGE_KEY = 'airmen_engineers_blog_posts_v2';
+const STORAGE_KEY = 'airmen_engineers_blog_posts_v3';
 
 interface Props {
   slug: string;

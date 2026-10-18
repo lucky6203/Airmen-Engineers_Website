@@ -9,7 +9,7 @@ import { cn } from '@/lib/utils';
 
 interface SectionHeadingProps {
   overline?: string;
-  title: string;
+  title: React.ReactNode;
   subtitle?: string;
   align?: 'left' | 'center';
   dark?: boolean;

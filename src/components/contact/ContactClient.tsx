@@ -33,6 +33,7 @@ import Container from '@/components/common/Container';
 import { CONTACT_INFO, WHATSAPP_NUMBER, BRAND_CONTACTS } from '@/data/company';
 import IndiaInfographicMap from '@/components/contact/IndiaInfographicMap';
 import { enquirySchema, EnquiryFormValues, REQUIREMENT_OPTIONS } from '@/lib/validations';
+import { NumberTicker } from '@/registry/magicui/number-ticker';
 
 // Department routing cards
 const DEPARTMENTS = [
@@ -180,7 +181,9 @@ export default function ContactClient() {
                 <div className="text-[11px] text-slate-500 uppercase tracking-wider font-semibold">Response Time</div>
               </div>
               <div className="p-4 rounded-2xl bg-white border border-stone-200/90 shadow-xs">
-                <div className="text-2xl font-black text-slate-900 font-mono">7 Hubs</div>
+                <div className="text-2xl font-black text-slate-900 font-mono">
+                  <NumberTicker value={7} /> Hubs
+                </div>
                 <div className="text-[11px] text-slate-500 uppercase tracking-wider font-semibold">5 Industrial States</div>
               </div>
               <div className="p-4 rounded-2xl bg-white border border-stone-200/90 shadow-xs">
@@ -188,7 +191,9 @@ export default function ContactClient() {
                 <div className="text-[11px] text-slate-500 uppercase tracking-wider font-semibold">Line-Down Hotline</div>
               </div>
               <div className="p-4 rounded-2xl bg-white border border-stone-200/90 shadow-xs">
-                <div className="text-2xl font-black text-slate-900 font-mono">5,000+</div>
+                <div className="text-2xl font-black text-slate-900 font-mono">
+                  <NumberTicker value={5000} useGrouping={true} />+
+                </div>
                 <div className="text-[11px] text-slate-500 uppercase tracking-wider font-semibold">Plants Served</div>
               </div>
             </div>

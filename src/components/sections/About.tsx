@@ -6,27 +6,44 @@
 // ============================================
 
 import React from 'react';
+import { motion } from 'framer-motion';
 import Container from '@/components/common/Container';
 import SectionHeading from '@/components/common/SectionHeading';
 import Button from '@/components/common/Button';
 import ProductAlbumGallery from './ProductAlbumGallery';
 import { COMPANY_STATS, COMPANY_DESCRIPTION } from '@/data/company';
+import { NumberTicker } from '@/registry/magicui/number-ticker';
 
 export default function About() {
   return (
     <section
-      className="overflow-hidden border-b border-gray-200 bg-white py-10 sm:py-14"
+      className="overflow-hidden border-b border-gray-200 bg-white py-10 sm:py-14 relative"
       id="about-preview"
     >
       <Container>
         <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-12">
 
           {/* Left — Content */}
-          <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="flex flex-col items-center text-center lg:items-start lg:text-left"
+          >
             <SectionHeading
               title="Engineering Trust Since 1996"
               subtitle={COMPANY_DESCRIPTION}
-              className="mb-6 sm:mb-8"
+              className="mb-4 sm:mb-6"
+            />
+
+            {/* Animated Expanding Divider */}
+            <motion.div
+              initial={{ width: 0, opacity: 0 }}
+              whileInView={{ width: 80, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="h-1 bg-gradient-to-r from-gold via-amber-300 to-gold rounded-full mb-6 hidden lg:block"
             />
 
             {/* Animated Stats Grid */}
@@ -67,7 +84,7 @@ export default function About() {
                       group-hover:scale-110
                     "
                   >
-                    {stat.value}
+                    <NumberTicker value={stat.value} useGrouping={false} />
                     {stat.suffix && (
                       <span className="text-lg">{stat.suffix}</span>
                     )}
@@ -99,10 +116,16 @@ export default function About() {
                 Know More About Us
               </Button>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right — Product Gallery */}
-          <div className="relative w-full">
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            className="relative w-full"
+          >
             <ProductAlbumGallery />
 
             {/* Company Credential Badge */}
@@ -122,7 +145,7 @@ export default function About() {
                 Service Network across North India.
               </span>
             </div>
-          </div>
+          </motion.div>
 
         </div>
       </Container>

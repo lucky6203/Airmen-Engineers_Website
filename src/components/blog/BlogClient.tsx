@@ -38,15 +38,15 @@ import Button from '@/components/common/Button';
 import { BlogPost } from '@/types';
 import { BLOG_POSTS, BLOG_CATEGORIES } from '@/data/blog';
 
-const STORAGE_KEY = 'airmen_engineers_blog_posts_v2';
+const STORAGE_KEY = 'airmen_engineers_blog_posts_v3';
 
 const IMAGE_PRESETS = [
   { label: 'Kaeser DSD Screw Compressor', src: '/images/compressors/kaeser-dsd-main.jpg' },
-  { label: 'High-Tech IIoT Automation', src: '/images/banner-2.jpg' },
+  { label: 'AIRpipe Modular Piping', src: '/images/Banner-6.jpg' },
+  { label: 'EP Lithium-Ion Forklift', src: '/images/forklifts/models/efl253-battery.png' },
+  { label: 'Greaves Power Silent DG Set', src: '/images/greaves images/04_125-kva-cpcb-iv-greaves-power-diesel-generator-1-1000x1000.png' },
   { label: 'Direct-Drive Heavy Compressor', src: '/images/compressors/kaeser-dsd-direct-drive.jpg' },
-  { label: 'Precision Machinery Station', src: '/images/about-3.jpg' },
   { label: 'Field Engineering Workshop', src: '/images/about-1.jpg' },
-  { label: 'Continuous Industrial Plant', src: '/images/banner-3.jpg' },
 ];
 
 export default function BlogClient() {
@@ -77,20 +77,27 @@ export default function BlogClient() {
 
   const [activeTab, setActiveTab] = useState<'write' | 'preview'>('write');
 
-  // Load from localStorage on mount
+  // Load from localStorage on mount & merge with fresh BLOG_POSTS
   useEffect(() => {
     setMounted(true);
     try {
-      const saved = localStorage.getItem(STORAGE_KEY);
+      const saved = localStorage.getItem(STORAGE_KEY) || localStorage.getItem('airmen_engineers_blog_posts_v2');
       if (saved) {
         const parsed = JSON.parse(saved);
         if (Array.isArray(parsed) && parsed.length > 0) {
-          setPosts(parsed);
+          const userPosts = parsed.filter((p: BlogPost) => p.isUserCreated);
+          const staticIds = new Set(BLOG_POSTS.map((p) => p.id));
+          const nonDuplicateUserPosts = userPosts.filter((p: BlogPost) => !staticIds.has(p.id));
+          const merged = [...BLOG_POSTS, ...nonDuplicateUserPosts];
+          setPosts(merged);
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(merged));
+          return;
         }
       }
     } catch (e) {
       console.error('Error loading blog posts from localStorage:', e);
     }
+    setPosts(BLOG_POSTS);
   }, []);
 
   const triggerToast = (msg: string) => {

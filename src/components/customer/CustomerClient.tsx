@@ -2,7 +2,7 @@
 
 // ============================================
 // Airmen Engineers — Customers & Client Portfolio Interactive Client
-// Featuring Hero MotoCorp, Havells, Asahi Glass, BKD, Panasonic, JDKPE
+// Featuring Hero MotoCorp, Havells, Asahi Glass, BKT Tyres, Panasonic, JDKPE
 // ============================================
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
@@ -32,6 +32,7 @@ import {
 import { cn } from '@/lib/utils';
 import Container from '@/components/common/Container';
 import Button from '@/components/common/Button';
+import { NumberTicker } from '@/registry/magicui/number-ticker';
 
 interface ClientSpotlight {
   id: string;
@@ -111,23 +112,23 @@ const CLIENT_SPOTLIGHTS: ClientSpotlight[] = [
     keyMetric: { label: 'Continuous Duty Base', value: '24x7x365' }
   },
   {
-    id: 'bkd',
-    name: 'BKD Bearings',
-    fullName: 'BKD Bearing & Motion',
+    id: 'bkt',
+    name: 'BKT Tyres',
+    fullName: 'Balkrishna Industries Ltd. (BKT)',
     category: 'heavy',
-    // sectorLabel: 'Precision Bearing & Motion Engineering',
-    logo: '/images/BKD Bearing Motion Logo.png',
+    // sectorLabel: 'Heavy Off-Highway Tyres & Industrial Rubber',
+    logo: '/images/BKT_Tyres_Logo.svg',
     plantImage: '/images/about-3.jpg',
-    plantTagline: 'Precision Bearing & Motion Engineering Bays',
+    plantTagline: 'Heavy Industrial Tyre Vulcanization & Material Handling',
     plantLocation: 'Industrial Corridors, North India',
-    partnershipYears: '8+ Years Partnership',
-    badge: 'Bearing & Motion',
+    partnershipYears: '10+ Years Partnership',
+    badge: 'Tyres & Heavy Industry',
     equipmentSupplied: [
       'German-Engineered Kaeser SIGMA PROFILE Compressors',
-      'EP Clean Lithium-Ion Electric Warehouse Fleet',
-      'Standardized Maintenance & Vibration Protocols'
+      'EP Clean Lithium-Ion Heavy Duty Material Handling Fleet',
+      'High-Capacity Continuous Compressed Air Network'
     ],
-    operationalImpact: 'Premier bearing & motion manufacturer demanding strictest German engineering precision, zero moisture carryover, and high operational reliability.',
+    operationalImpact: 'Premier global off-highway tyre giant demanding strictest engineering precision, 24/7 uninterrupted air power, and rugged yard logistics.',
     keyMetric: { label: 'Uptime Reliability', value: '99.9%' }
   },
   {
@@ -324,17 +325,22 @@ export default function CustomerClient() {
               {/* 4 Performance Metric Cards */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 w-full pt-1">
                 {[
-                  { value: '5,000+', label: 'Plants Powered' },
-                  { value: '99.95%', label: 'Air Uptime SLA' },
+                  { value: 5000, suffix: '+', label: 'Plants Powered', useGrouping: true },
+                  { value: 99.95, suffix: '%', label: 'Air Uptime SLA', decimalPlaces: 2 },
                   { value: '< 2–4h', label: 'Emergency Reach' },
-                  { value: '29+ Yrs', label: 'Proven Trust' },
+                  { value: 30, suffix: '+ Yrs', label: 'Proven Trust' },
                 ].map((item, idx) => (
                   <div
                     key={idx}
                     className="p-3 rounded-2xl bg-white border border-stone-200/90 shadow-xs group hover:border-amber-400/60 transition-colors"
                   >
                     <div className="text-lg sm:text-xl font-extrabold text-amber-600 font-mono tracking-tight">
-                      {item.value}
+                      <NumberTicker
+                        value={item.value}
+                        useGrouping={item.useGrouping ?? false}
+                        decimalPlaces={item.decimalPlaces ?? 0}
+                      />
+                      {item.suffix}
                     </div>
                     <div className="text-[11px] font-semibold text-slate-600 mt-0.5">{item.label}</div>
                   </div>

@@ -41,11 +41,11 @@ import { BLOG_POSTS, BLOG_CATEGORIES } from '@/data/blog';
 const STORAGE_KEY = 'airmen_engineers_blog_posts_v3';
 
 const IMAGE_PRESETS = [
-  { label: 'Kaeser DSD Screw Compressor', src: '/images/compressors/kaeser-dsd-main.jpg' },
+  { label: 'Kaeser DSD Screw Compressor', src: '/images/compressors/kaeser-dsd-clean.png' },
   { label: 'AIRpipe Modular Piping', src: '/images/Banner-6.jpg' },
   { label: 'EP Lithium-Ion Forklift', src: '/images/forklifts/models/efl253-battery.png' },
   { label: 'Greaves Power Silent DG Set', src: '/images/greaves images/04_125-kva-cpcb-iv-greaves-power-diesel-generator-1-1000x1000.png' },
-  { label: 'Direct-Drive Heavy Compressor', src: '/images/compressors/kaeser-dsd-direct-drive.jpg' },
+  { label: 'Direct-Drive Heavy Compressor', src: '/images/compressors/kaeser-dsd-clean.png' },
   { label: 'Field Engineering Workshop', src: '/images/about-1.jpg' },
 ];
 

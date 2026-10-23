@@ -1,30 +1,51 @@
 'use client';
 
 // ============================================
-// Airmen Engineers — Hero Section
-// Mobile-Responsive Banner Slider (Full-Image View on Mobile + Touch Swipe)
+// Airmen Engineers — He1ro Section
+// Mobile-Responsive Banner Slider with Brand Coordination
 // ============================================
 
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useCallback } from 'react';
 import Image from 'next/image';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-const HERO_IMAGES = [
+export interface HeroSlide {
+  id: 'kaeser' | 'greaves' | 'aim' | 'ep' | 'airpipe';
+  url: string;
+  alt: string;
+  brandName: string;
+}
+
+export const HERO_IMAGES: HeroSlide[] = [
   {
+    id: 'kaeser',
     url: '/images/Kaeser HSD 600 Compressor Banner.png',
     alt: 'Kaeser Compressors — German Engineered Screw Air Compressors',
+    brandName: 'KAESER KOMPRESSOREN',
   },
   {
+    id: 'airpipe',
     url: '/images/AIRpipe Industrial Pipeline Panorama.png',
     alt: 'AIRpipe — Industrial Aluminium Compressed Air Piping Distribution',
+    brandName: 'AIRpipe Systems',
   },
   {
+    id: 'ep',
     url: '/images/EP Industrial Equipment Showcase.png',
     alt: 'EP Equipment — Electric & Lithium-Ion Material Handling Forklifts',
+    brandName: 'EP Equipment',
   },
   {
+    id: 'greaves',
     url: '/images/Modern Greaves Power Generator Facility.png',
     alt: 'Greaves Cotton — Industrial Diesel Generators & Power Solutions',
+    brandName: 'Greaves Power (Greaves Cotton)',
+  },
+  {
+    id: 'aim',
+    url: '/images/ANEST IWATA Air Compressor Showcase.png',
+    alt: 'AIM / Anest Iwata Motherson — Reciprocating & Oil-Free Air Compressors',
+    brandName: 'AIM (Anest Iwata Motherson)',
   },
 ];
 
@@ -33,25 +54,76 @@ export default function Hero() {
   const touchStartX = useRef<number | null>(null);
   const touchEndX = useRef<number | null>(null);
 
+  // Notify other components when slide changes
+  const notifySlideChange = useCallback((index: number) => {
+    if (typeof window !== 'undefined' && HERO_IMAGES[index]) {
+      window.dispatchEvent(
+        new CustomEvent('hero-slide-changed', {
+          detail: { brandId: HERO_IMAGES[index].id, index },
+        })
+      );
+    }
+  }, []);
+
+  // Listen for brand clicks or hovers from "Authorized Dealer & Service Partner" section
+  useEffect(() => {
+    const handleSelectBrand = (e: Event) => {
+      const customEvent = e as CustomEvent<{ brandId: string; scroll?: boolean }>;
+      const brandId = customEvent.detail?.brandId;
+      const shouldScroll = customEvent.detail?.scroll ?? false;
+      if (!brandId) return;
+
+      const targetIndex = HERO_IMAGES.findIndex((img) => img.id === brandId);
+      if (targetIndex !== -1) {
+        setCurrentImage(targetIndex);
+        notifySlideChange(targetIndex);
+
+        if (shouldScroll) {
+          const heroElement = document.getElementById('hero');
+          if (heroElement) {
+            heroElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+      }
+    };
+
+    window.addEventListener('select-hero-brand', handleSelectBrand);
+    return () => {
+      window.removeEventListener('select-hero-brand', handleSelectBrand);
+    };
+  }, [notifySlideChange]);
+
   // ============================================
-  // AUTO SLIDER (Rotates every 4s)
+  // AUTO SLIDER (Rotates every 4.5s)
   // ============================================
   useEffect(() => {
     const timer = window.setInterval(() => {
-      setCurrentImage((prev) => (prev + 1) % HERO_IMAGES.length);
-    }, 4000);
+      setCurrentImage((prev) => {
+        const next = (prev + 1) % HERO_IMAGES.length;
+        notifySlideChange(next);
+        return next;
+      });
+    }, 4500);
 
     return () => {
       window.clearInterval(timer);
     };
-  }, [currentImage]);
+  }, [currentImage, notifySlideChange]);
 
   const handlePrev = () => {
-    setCurrentImage((prev) => (prev - 1 + HERO_IMAGES.length) % HERO_IMAGES.length);
+    setCurrentImage((prev) => {
+      const next = (prev - 1 + HERO_IMAGES.length) % HERO_IMAGES.length;
+      notifySlideChange(next);
+      return next;
+    });
   };
 
   const handleNext = () => {
-    setCurrentImage((prev) => (prev + 1) % HERO_IMAGES.length);
+    setCurrentImage((prev) => {
+      const next = (prev + 1) % HERO_IMAGES.length;
+      notifySlideChange(next);
+      return next;
+    });
   };
 
   // Touch Swipe Support for mobile devices
@@ -67,10 +139,8 @@ export default function Hero() {
     if (!touchStartX.current || !touchEndX.current) return;
     const distance = touchStartX.current - touchEndX.current;
     if (distance > 45) {
-      // Swiped left -> next
       handleNext();
     } else if (distance < -45) {
-      // Swiped right -> prev
       handlePrev();
     }
     touchStartX.current = null;
@@ -80,7 +150,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative w-full max-w-full overflow-hidden bg-slate-950 group select-none"
+      className="relative w-full max-w-full overflow-hidden bg-slate-950 group select-none scroll-mt-20"
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
@@ -225,8 +295,11 @@ export default function Hero() {
             <button
               key={image.url}
               type="button"
-              onClick={() => setCurrentImage(index)}
-              aria-label={`Go to banner slide ${index + 1}`}
+              onClick={() => {
+                setCurrentImage(index);
+                notifySlideChange(index);
+              }}
+              aria-label={`Go to ${image.brandName} banner`}
               aria-current={isActive ? 'true' : undefined}
               className={`
                 block

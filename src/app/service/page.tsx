@@ -8,7 +8,7 @@ import ServiceClient from '@/components/service/ServiceClient';
 
 export const metadata: Metadata = {
   title: 'Service & Technical After-Sales Engineering | Airmen Engineers',
-  description: '24/7 OEM-certified service, scheduled preventive maintenance (AMC/CAMC), emergency breakdown support & genuine spare parts for Kaeser, EP Forklifts, Greaves Cotton, and AIRpipe.',
+  description: '24/7 OEM-certified service, scheduled preventive maintenance (AMC), emergency breakdown support & genuine spare parts for Kaeser, EP Forklifts, Greaves Cotton, and AIRpipe.',
   keywords: [
     'air compressor service',
     'kaeser compressor maintenance',

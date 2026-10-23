@@ -2,6 +2,7 @@
 
 // ============================================
 // Airmen Engineers — Brands Marquee Section
+// Seamless Marquee with Hover & Click Hero Banner Switch
 // ============================================
 
 import React from 'react';
@@ -22,6 +23,14 @@ export default function Brands() {
   const brandGroup = [...BRAND_LIST, ...BRAND_LIST, ...BRAND_LIST, ...BRAND_LIST];
   const brands = [...brandGroup, ...brandGroup];
 
+  const handleSelectBrand = (brandId: string, scroll: boolean = false) => {
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(
+        new CustomEvent('select-hero-brand', { detail: { brandId, scroll } })
+      );
+    }
+  };
+
   return (
     <section className="py-2.5 sm:py-3.5 bg-gray-50 border-y border-gray-200 overflow-hidden" id="trusted-brands">
       <Container>
@@ -30,18 +39,21 @@ export default function Brands() {
         </p>
       </Container>
 
-      {/* Marquee with continuous seamless loop */}
-      <div className="relative overflow-hidden w-full max-w-full">
+      {/* Marquee with continuous seamless loop & pause on hover */}
+      <div className="relative overflow-hidden w-full max-w-full group">
         <div
-          className="flex w-max items-center animate-marquee"
+          className="flex w-max items-center animate-marquee group-hover:[animation-play-state:paused]"
           style={{ willChange: 'transform', animationDuration: '35s' }}
         >
           {brands.map((brand, index) => (
             <div
               key={`${brand.id}-${index}`}
-              className="flex-shrink-0 mx-4 sm:mx-6 lg:mx-8 flex items-center justify-center min-w-[100px] sm:min-w-[120px] h-7 sm:h-8"
+              className="flex-shrink-0 mx-4 sm:mx-6 lg:mx-8 flex items-center justify-center min-w-[100px] sm:min-w-[120px] h-7 sm:h-8 cursor-pointer select-none"
+              onClick={() => handleSelectBrand(brand.id, true)}
+              onMouseEnter={() => handleSelectBrand(brand.id, false)}
+              title={`${brand.name} — View in Hero`}
             >
-              <div className="flex items-center gap-2 opacity-80 hover:opacity-100 transition-opacity duration-300">
+              <div className="flex items-center gap-2 opacity-80 hover:opacity-100 transition-all duration-300 transform hover:scale-110">
                 {LOGO_MAP[brand.id] ? (
                   <div className="relative w-20 sm:w-24 h-6 sm:h-7 flex items-center justify-center">
                     <Image

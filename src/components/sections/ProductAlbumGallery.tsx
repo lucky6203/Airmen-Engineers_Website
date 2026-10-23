@@ -21,13 +21,13 @@ export const GALLERY_PRODUCTS: GalleryProductItem[] = [
   {
     id: 'kaeser',
     title: 'Kaeser Rotary Screw Compressor',
-    image: '/images/compressors/kaeser-dsd-main.jpg',
+    image: '/images/compressors/kaeser-dsd-clean.png',
     href: '/kaeser',
   },
   {
     id: 'ep-forklifts',
     title: 'EP Lithium-Ion Forklift',
-    image: '/images/forklifts/extracted/R283.jpg',
+    image: '/images/forklifts/models/cpd50l1-5t.png',
     href: '/ep-forklifts',
   },
   {

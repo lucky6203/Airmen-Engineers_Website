@@ -161,22 +161,6 @@ const CONTRACT_TIERS = [
     ctaText: 'Book Periodic Visit',
   },
   {
-    name: 'Comprehensive Annual Contract (CAMC)',
-    tier: 'Total Peace of Mind',
-    description: 'Our most popular tier for critical continuous production plants requiring guaranteed uptime.',
-    priceDesc: 'All-inclusive annual coverage',
-    features: [
-      'All genuine consumables & spare parts included',
-      'Unlimited emergency breakdown calls with 2–4h SLA',
-      'Dedicated OEM-certified resident engineer visits',
-      'Annual air energy efficiency audit included',
-      'Free loaner compressor/forklift during major overhaul',
-      'Quarterly oil analysis (spectrographic testing)'
-    ],
-    highlight: true,
-    ctaText: 'Enquire for CAMC',
-  },
-  {
     name: 'Non-Comprehensive AMC (NC-AMC)',
     tier: 'Scheduled Care',
     description: 'Complete scheduled preventive maintenance labor coverage with parts billed on requirement.',
@@ -317,7 +301,7 @@ export default function ServiceClient() {
         </Container>
       </section>
 
-      {/* ── Annual Maintenance Contracts (AMC/CAMC) ── */}
+      {/* ── Annual Maintenance Contracts (AMC) ── */}
       <section className="py-10 sm:py-14 bg-[#070E18] text-white border-t border-b border-white/10" id="amc-packages">
         <Container>
           <div className="text-center max-w-3xl mx-auto mb-8">
@@ -330,7 +314,7 @@ export default function ServiceClient() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {CONTRACT_TIERS.map((tier, idx) => (
               <div
                 key={idx}

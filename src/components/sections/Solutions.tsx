@@ -1,8 +1,12 @@
 'use client';
 
+// ============================================
+// Airmen Engineers — Solutions / Product Categories
+// High-Contrast Light Cards with Transparent Equipment Cutouts
+// ============================================
+
 import React, { useRef, useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
@@ -11,24 +15,24 @@ import SectionHeading from '@/components/common/SectionHeading';
 import { PRODUCT_CATEGORIES } from '@/data/products';
 
 // ============================================
-// CATEGORY IMAGES
+// CATEGORY IMAGES (Clean Transparent Cutouts)
 // ============================================
 
 const CATEGORY_IMAGES: Record<string, string> = {
-  'air-compressors': '/images/compressors/kaeser-dsd-main.jpg',
+  'air-compressors': '/images/compressors/kaeser-dsd-transparent.png',
   'material-handling': '/images/forklifts/models/efl253-battery.png',
   'compressed-air-piping': '/images/Banner-6.jpg',
   'power-solutions': '/images/greaves images/04_125-kva-cpcb-iv-greaves-power-diesel-generator-1-1000x1000.png',
 };
 
 // ============================================
-// SOLUTIONS
+// SOLUTIONS SECTION
 // ============================================
 
 export default function Solutions() {
   return (
     <section
-      className="py-10 sm:py-14 bg-gray-50 border-b border-gray-200 relative overflow-hidden"
+      className="py-12 sm:py-16 bg-slate-50 border-b border-gray-200 relative overflow-hidden"
       id="solutions"
     >
       <Container>
@@ -43,11 +47,11 @@ export default function Solutions() {
             title="Complete Industrial Solutions"
             subtitle="From compressed air to material handling, smart monitoring to power generation — we provide end-to-end engineering solutions for your industry."
             align="center"
-            className="mb-6 sm:mb-8"
+            className="mb-8 sm:mb-10"
           />
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-4 xl:gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {PRODUCT_CATEGORIES.map((category, index) => (
             <SolutionCard
               key={category.id}
@@ -91,27 +95,13 @@ function SolutionCard({
     CATEGORY_IMAGES[category.id] ||
     '/images/banner-1.jpg';
 
-  // ==========================================
-  // DESKTOP TILT
-  // ==========================================
+  // Desktop 3D Tilt
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current || window.innerWidth <= 768) return;
 
-  const handleMouseMove = (
-    e: React.MouseEvent<HTMLDivElement>
-  ) => {
-    if (!cardRef.current) return;
-
-    if (window.innerWidth <= 768) {
-      return;
-    }
-
-    const rect =
-      cardRef.current.getBoundingClientRect();
-
-    const x =
-      (e.clientX - rect.left) / rect.width - 0.5;
-
-    const y =
-      (e.clientY - rect.top) / rect.height - 0.5;
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
 
     setTilt({
       x: y * -5,
@@ -120,15 +110,8 @@ function SolutionCard({
   };
 
   const handleMouseLeave = () => {
-    setTilt({
-      x: 0,
-      y: 0,
-    });
+    setTilt({ x: 0, y: 0 });
   };
-
-  // ==========================================
-  // CARD
-  // ==========================================
 
   return (
     <motion.div
@@ -140,22 +123,20 @@ function SolutionCard({
       className="
         card-3d
         w-full
-        h-[350px]
-        min-[480px]:h-[360px]
-        sm:h-[380px]
-        md:h-[400px]
-        lg:h-[320px]
-        xl:h-[340px]
+        h-[360px]
+        min-[480px]:h-[370px]
+        sm:h-[390px]
+        md:h-[410px]
+        lg:h-[330px]
+        xl:h-[350px]
       "
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
-
       <Link
         href={`/${firstBrandSlug}`}
         className="block w-full h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 rounded-2xl"
       >
-
         <div
           className="
             relative
@@ -163,150 +144,94 @@ function SolutionCard({
             h-full
             overflow-hidden
             rounded-2xl
-            bg-[#dfe1e4]
+            bg-white
             border
-            border-gray-200/50
+            border-gray-200/80
             hover:border-gold/60
-            shadow-lg
-            hover:shadow-2xl
+            shadow-md
+            hover:shadow-xl
             transition-all
             duration-300
             group
             cursor-pointer
+            flex
+            flex-col
           "
           style={{
-            transform: `
-              perspective(1000px)
-              rotateX(${tilt.x}deg)
-              rotateY(${tilt.y}deg)
-            `,
-            transition:
-              'transform 0.15s ease-out',
+            transform: `perspective(1000px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
+            transition: 'transform 0.15s ease-out',
           }}
         >
 
           {/* ====================================
-              ORIGINAL IMAGE
-              
-              IMPORTANT:
-              - NO object-cover
-              - NO scale
-              - NO blur
-              - NO duplicate image
-              - FULL IMAGE PRESERVED
+              EQUIPMENT IMAGE BAY (Guaranteed Visible, Clean & Transparent)
           ==================================== */}
-
           <div
             className="
-              absolute
-              inset-0
-              z-0
+              relative
+              w-full
+              h-[180px]
+              min-[480px]:h-[190px]
+              sm:h-[200px]
+              md:h-[210px]
+              lg:h-[160px]
+              xl:h-[175px]
+              p-4
               flex
-              items-start
+              items-center
               justify-center
+              bg-slate-50/90
+              border-b
+              border-gray-100
               overflow-hidden
             "
           >
-            <Image
+            <img
               src={imageUrl}
               alt={category.name}
-              fill
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+              loading="eager"
+              decoding="async"
               className="
+                w-auto
+                h-full
+                max-h-full
+                max-w-full
                 object-contain
-                object-top
+                transition-transform
+                duration-500
+                group-hover:scale-105
+                drop-shadow-sm
+                select-none
               "
             />
           </div>
 
           {/* ====================================
-              DARK GRADIENT
+              CONTENT BAY (High-Contrast Clean Text)
           ==================================== */}
-
-          <div
-            className="
-              absolute
-              inset-0
-              z-10
-              bg-gradient-to-t
-              from-[#0a192f]
-              via-[#0a192f]/85
-              to-[#0a192f]/30
-            "
-          />
-
-          {/* ====================================
-              CONTENT
-          ==================================== */}
-
           <div
             className="
               relative
-              z-20
               flex
-              h-full
+              flex-1
               flex-col
-              justify-end
-              p-5
-              sm:p-6
-              lg:p-4
-              xl:p-5
+              justify-between
+              p-4
+              sm:p-5
+              lg:p-3.5
+              xl:p-4
+              bg-white
             "
           >
-
-            {/* TEXT */}
-
-            <div
-              className="
-                transition-transform
-                duration-500
-                group-hover:-translate-y-2
-                max-sm:text-center
-              "
-            >
-
-              {/* TITLE */}
-
-              <h3
-                className="
-                  mb-1.5
-                  text-xs
-                  sm:text-sm
-                  lg:text-[13px]
-                  xl:text-sm
-                  2xl:text-base
-                  font-heading
-                  font-bold
-                  text-white
-                  tracking-tight
-                  whitespace-nowrap
-                "
-              >
-                {category.name}
-              </h3>
-
-              {/* DESCRIPTION */}
-
-              <p
-                className="
-                  mb-2
-                  text-xs
-                  sm:text-sm
-                  lg:text-xs
-                  text-gray-300
-                  line-clamp-2
-                "
-              >
-                {category.description}
-              </p>
-
+            <div>
               {/* BRANDS */}
-
               <p
                 className="
-                  mb-3
-                  text-xs
-                  font-medium
+                  mb-1
+                  text-[11px]
+                  font-bold
+                  uppercase
+                  tracking-wider
                   text-gold
                   truncate
                 "
@@ -314,47 +239,68 @@ function SolutionCard({
                 {brandNames}
               </p>
 
-              {/* EXPLORE CTA BADGE */}
-              <div className="pt-1 max-sm:flex max-sm:justify-center">
-                <span
-                  className="
-                    inline-flex
-                    items-center
-                    gap-1.5
-                    px-3.5
-                    py-1.5
-                    lg:px-3
-                    lg:py-1.5
-                    rounded-lg
-                    bg-white/15
-                    backdrop-blur-md
-                    border
-                    border-white/20
-                    text-xs
-                    font-bold
-                    text-white
-                    transition-all
-                    duration-300
-                    group-hover:bg-gold
-                    group-hover:text-navy
-                    group-hover:border-gold
-                    group-hover:shadow-md
-                  "
-                >
-                  <span>Explore Equipment</span>
-                  <ArrowRight
-                    className="
-                      h-3.5
-                      w-3.5
-                      transition-transform
-                      duration-300
-                      group-hover:translate-x-1.5
-                    "
-                  />
-                </span>
-              </div>
+              {/* TITLE */}
+              <h3
+                className="
+                  mb-1.5
+                  text-sm
+                  sm:text-base
+                  lg:text-sm
+                  xl:text-base
+                  font-heading
+                  font-bold
+                  text-navy
+                  group-hover:text-amber-600
+                  transition-colors
+                  tracking-tight
+                  line-clamp-1
+                "
+              >
+                {category.name}
+              </h3>
 
+              {/* DESCRIPTION */}
+              <p
+                className="
+                  text-xs
+                  sm:text-[13px]
+                  lg:text-xs
+                  text-gray-500
+                  line-clamp-2
+                  leading-relaxed
+                "
+              >
+                {category.description}
+              </p>
             </div>
+
+            {/* EXPLORE CTA BADGE */}
+            <div className="pt-2 border-t border-gray-100 flex items-center justify-between">
+              <span
+                className="
+                  inline-flex
+                  items-center
+                  gap-1.5
+                  text-xs
+                  font-bold
+                  text-navy
+                  group-hover:text-amber-600
+                  transition-colors
+                "
+              >
+                <span>Explore Equipment</span>
+                <ArrowRight
+                  className="
+                    h-3.5
+                    w-3.5
+                    transition-transform
+                    duration-300
+                    group-hover:translate-x-1.5
+                  "
+                />
+              </span>
+            </div>
+
           </div>
 
         </div>

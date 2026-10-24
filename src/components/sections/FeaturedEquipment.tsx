@@ -351,7 +351,7 @@ export default function FeaturedEquipment() {
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[46px] font-black text-navy tracking-tight leading-tight font-heading">
             <TextAnimate animation="blurInUp" by="character" once>
-              Multiple Businesses.
+              Multiple Segment.
             </TextAnimate>{' '}
             <TextAnimate animation="blurInUp" by="character" once delay={0.25} className="text-amber-400">
               One Engineering Standard.

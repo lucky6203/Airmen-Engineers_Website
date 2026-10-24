@@ -154,8 +154,7 @@ const CONTRACT_TIERS = [
       'Comprehensive 42-point machine inspection',
       'Lubricant, filter & electrical checks',
       'Operational parameter & telemetry logging',
-      'Priority scheduling for sudden breakdowns',
-      'Discounted genuine OEM spares pricing'
+      'Priority scheduling for sudden breakdowns'
     ],
     highlight: false,
     ctaText: 'Book Periodic Visit',
@@ -169,7 +168,7 @@ const CONTRACT_TIERS = [
       '4 Scheduled quarterly preventive service visits',
       'Priority emergency breakdown response (under 4 hours)',
       'Detailed digital job cards & service history logs',
-      'Pre-discounted OEM spare parts price lock',
+
       'BMS battery & CPCB IV+ emission compliance audits'
     ],
     highlight: false,
@@ -239,6 +238,7 @@ export default function ServiceClient() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {CORE_SERVICES.map((srv) => {
               const Icon = srv.icon;
+              const isWhiteBg = srv.id === 'forklift-service';
               return (
                 <div
                   key={srv.id}
@@ -246,14 +246,26 @@ export default function ServiceClient() {
                 >
                   <div>
                     {/* Visual Stage */}
-                    <div className="relative aspect-[16/10] bg-slate-900 overflow-hidden">
+                    <div
+                      className={`relative aspect-[16/10] overflow-hidden ${
+                        isWhiteBg
+                          ? 'bg-white border-b border-gray-100 p-3 sm:p-4 flex items-center justify-center'
+                          : 'bg-slate-900'
+                      }`}
+                    >
                       <Image
                         src={srv.image}
                         alt={srv.title}
                         fill
-                        className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                        className={`${
+                          isWhiteBg
+                            ? 'object-contain p-2'
+                            : 'object-cover object-center'
+                        } group-hover:scale-105 transition-transform duration-500`}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                      {!isWhiteBg && (
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                      )}
 
                       {/* <span className={`absolute top-3 left-3 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full border backdrop-blur-md ${srv.tagColor}`}>
                         {srv.badge}

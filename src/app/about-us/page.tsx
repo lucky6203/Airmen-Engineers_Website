@@ -24,6 +24,7 @@ import {
 import AboutTimeline from '@/components/sections/AboutTimeline';
 import ProductAlbumGallery from '@/components/sections/ProductAlbumGallery';
 import ManufacturingProcess from '@/components/sections/ManufacturingProcess';
+import ManufacturingDivisionSlider from '@/components/sections/ManufacturingDivisionSlider';
 import { TextAnimate } from '@/registry/magicui/text-animate';
 import { NumberTicker } from '@/registry/magicui/number-ticker';
 import {
@@ -366,7 +367,7 @@ export default function AboutPage() {
                     <div className="relative w-56 h-64 sm:w-64 sm:h-72 rounded-2xl overflow-hidden bg-slate-100 border-2 border-white shadow-lg">
                       <Image
                         src="/images/director_img.jpeg"
-                        alt="Mr. Anil Chopra - Director, Airmen Engineers & Services Pvt. Ltd."
+                        alt="Mr. Anil Chopra - Chairman & Managing Director."
                         fill
                         sizes="(max-width: 768px) 240px, 280px"
                         className="object-cover object-top transition duration-500 group-hover:scale-105"
@@ -674,19 +675,8 @@ export default function AboutPage() {
                   </div>
                 </div>
 
-                <div className="lg:col-span-5 relative">
-                  <div className="relative h-56 sm:h-64 w-full rounded-2xl overflow-hidden shadow-sm border border-gray-200">
-                    <Image
-                      src="/images/factory_ppt/image15.png"
-                      alt="Airmen Engineers Manufacturing Division - Precision Gears and Parts"
-                      fill
-                      className="object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-navy/70 via-transparent to-transparent" />
-                    <div className="absolute bottom-3 left-3 right-3 text-white text-xs font-semibold">
-                      Gajraula Manufacturing Plant (U.P.)
-                    </div>
-                  </div>
+                <div className="lg:col-span-5 relative w-full">
+                  <ManufacturingDivisionSlider />
                 </div>
 
               </div>

@@ -268,7 +268,7 @@ export const VISION = [
 export const DIRECTOR_MESSAGE = {
   quote: '“Since 1996, our focus has never wavered: give customers equipment they can rely on and service they can count on. As we grow, we remain committed to the same values that built this company — honesty, technical excellence, and putting the customer first.”',
   name: 'Mr. Anil Chopra',
-  designation: 'Director, Airmen Engineers & Services Pvt. Ltd.',
+  designation: 'Chairman & Managing Director',
   image: '/images/anil-chopra-director.jpg',
 };
 

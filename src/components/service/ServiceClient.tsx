@@ -204,17 +204,17 @@ export default function ServiceClient() {
 
         <Container className="relative z-10">
           {/* Centered Bottom CTA */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-center">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 text-center w-full sm:w-auto">
             <Button
               href="/contact"
               size="lg"
-              className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold px-8 py-4 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 transition-all text-sm cursor-pointer"
+              className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold px-8 py-4 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 transition-all text-sm cursor-pointer w-full sm:w-auto justify-center"
             >
               Book a Service Engineer
             </Button>
             <a
               href="tel:+919810134027"
-              className="inline-flex items-center gap-2 px-6 py-3.5 bg-white hover:bg-stone-50 text-slate-800 font-bold rounded-full border border-stone-300 shadow-sm hover:shadow transition-all text-sm"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white hover:bg-stone-50 text-slate-800 font-bold rounded-full border border-stone-300 shadow-sm hover:shadow transition-all text-sm w-full sm:w-auto"
             >
               <PhoneCall className="w-4 h-4 text-emerald-600" />
               <span>24/7 Breakdown: +91-9810134027</span>
@@ -418,7 +418,7 @@ export default function ServiceClient() {
                 desc: 'Full-load testing sign-off with digital job card and preventive operational recommendations.',
               },
             ].map((st, i) => (
-              <div key={i} className="p-6 rounded-2xl bg-gray-50 border border-gray-200 relative group hover:border-amber-400 transition-all">
+              <div key={i} className="p-5 sm:p-6 rounded-2xl bg-gray-50 border border-gray-200 relative group hover:border-amber-400 transition-all text-center sm:text-left">
                 <span className="text-3xl font-black text-amber-500/20 group-hover:text-amber-500/40 transition-colors font-mono block mb-2">
                   {st.step}
                 </span>

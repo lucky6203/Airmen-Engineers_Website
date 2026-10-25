@@ -371,7 +371,7 @@ export default function FeaturedEquipment() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="group text-left rounded-3xl sm:rounded-[36px] bg-white border border-slate-200/90 hover:border-amber-300 transition-all duration-500 overflow-hidden relative flex flex-col md:flex-row justify-between shadow-xl shadow-slate-200/60 hover:shadow-2xl hover:-translate-y-1.5"
+            className="group text-center sm:text-left rounded-3xl sm:rounded-[36px] bg-white border border-slate-200/90 hover:border-amber-300 transition-all duration-500 overflow-hidden relative flex flex-col md:flex-row justify-between shadow-xl shadow-slate-200/60 hover:shadow-2xl hover:-translate-y-1.5"
           >
             {/* Left Content Area */}
             <div className="flex-1 p-6 sm:p-8 flex flex-col justify-between relative z-10">
@@ -383,7 +383,7 @@ export default function FeaturedEquipment() {
                 </h3>
 
                 {/* Accent Underline Bar */}
-                <div className="w-12 h-1 bg-amber-400 rounded-full mt-2.5 mb-3.5 transition-all duration-300 group-hover:w-20" />
+                <div className="w-12 h-1 bg-amber-400 rounded-full mt-2.5 mb-3.5 mx-auto sm:mx-0 transition-all duration-300 group-hover:w-20" />
 
                 {/* Subtitle */}
                 <p className="text-slate-600 text-xs sm:text-[13px] leading-relaxed font-normal">
@@ -450,7 +450,7 @@ export default function FeaturedEquipment() {
               <div className="pt-2">
                 <Link
                   href="/products"
-                  className="inline-flex items-center gap-3 px-5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-navy text-white hover:bg-slate-800 text-xs sm:text-[13px] font-bold tracking-wider uppercase transition-all shadow-md group/btn w-fit cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
+                  className="inline-flex items-center justify-center gap-3 px-5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-navy text-white hover:bg-slate-800 text-xs sm:text-[13px] font-bold tracking-wider uppercase transition-all shadow-md group/btn w-full sm:w-fit cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
                 >
                   <span>EXPLORE INDUSTRIAL PRODUCTS</span>
                   <span className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center group-hover/btn:translate-x-1 transition-transform">
@@ -461,14 +461,14 @@ export default function FeaturedEquipment() {
             </div>
 
             {/* Right Visual Area with Angled Image */}
-            <div className="w-full md:w-[42%] relative min-h-[240px] md:min-h-full overflow-hidden shrink-0">
-              <div className="relative w-full h-full min-h-[240px] md:min-h-[380px] md:[clip-path:polygon(14%_0,100%_0,100%_100%,0%_100%)]">
+            <div className="w-full md:w-[42%] relative min-h-[260px] md:min-h-full overflow-hidden shrink-0 bg-slate-50">
+              <div className="relative w-full h-full min-h-[260px] md:min-h-[380px] md:[clip-path:polygon(14%_0,100%_0,100%_100%,0%_100%)] flex items-center justify-center p-4 sm:p-6 md:p-8 bg-gradient-to-br from-slate-100 via-stone-50 to-slate-200/90">
                 <img
-                  src="/images/divisions/division-01-plant.jpg"
-                  alt="Industrial Products & Services Facility"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  src="/images/divisions/kaeser-dsd-product.png"
+                  alt="KAESER DSD 240 Industrial Rotary Screw Compressor"
+                  className="w-full h-full max-h-[300px] md:max-h-[360px] object-contain group-hover:scale-105 transition-transform duration-700 drop-shadow-xl"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy/30 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy/5 via-transparent to-transparent pointer-events-none" />
               </div>
             </div>
           </motion.div>
@@ -479,7 +479,7 @@ export default function FeaturedEquipment() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-            className="group text-left rounded-3xl sm:rounded-[36px] bg-[#0A1422] border-2 border-amber-500/40 hover:border-amber-400 transition-all duration-500 overflow-hidden relative flex flex-col md:flex-row justify-between shadow-2xl shadow-navy/60 hover:-translate-y-1.5"
+            className="group text-center sm:text-left rounded-3xl sm:rounded-[36px] bg-[#0A1422] border-2 border-amber-500/40 hover:border-amber-400 transition-all duration-500 overflow-hidden relative flex flex-col md:flex-row justify-between shadow-2xl shadow-navy/60 hover:-translate-y-1.5"
           >
             {/* Left Content Area */}
             <div className="flex-1 p-6 sm:p-8 flex flex-col justify-between relative z-10">
@@ -492,7 +492,7 @@ export default function FeaturedEquipment() {
                 </h3>
 
                 {/* Accent Underline Bar */}
-                <div className="w-12 h-1 bg-amber-400 rounded-full mt-2.5 mb-3.5" />
+                <div className="w-12 h-1 bg-amber-400 rounded-full mt-2.5 mb-3.5 mx-auto sm:mx-0" />
 
                 {/* Subtitle */}
                 <p className="text-slate-300 text-xs sm:text-[13px] leading-relaxed font-normal">
@@ -547,7 +547,7 @@ export default function FeaturedEquipment() {
               <div className="pt-2">
                 <Link
                   href="/manufacturing-products"
-                  className="inline-flex items-center gap-3 px-6 sm:px-7 py-2.5 sm:py-3 rounded-full bg-gradient-to-r from-amber-400 to-amber-500 text-navy hover:from-amber-300 hover:to-amber-400 text-xs sm:text-[13px] font-black tracking-wider uppercase transition-all shadow-lg shadow-amber-500/25 group/btn w-fit cursor-pointer"
+                  className="inline-flex items-center justify-center gap-3 px-6 sm:px-7 py-2.5 sm:py-3 rounded-full bg-gradient-to-r from-amber-400 to-amber-500 text-navy hover:from-amber-300 hover:to-amber-400 text-xs sm:text-[13px] font-black tracking-wider uppercase transition-all shadow-lg shadow-amber-500/25 group/btn w-full sm:w-fit cursor-pointer"
                 >
                   <span>SEE THE PLANT</span>
                   <span className="w-6 h-6 rounded-full bg-navy/15 flex items-center justify-center group-hover/btn:translate-x-0.5 transition-transform">

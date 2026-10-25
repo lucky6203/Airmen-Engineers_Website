@@ -127,7 +127,7 @@ export default function ProductsOverviewClient({
       <section className="relative overflow-hidden bg-[#FAF7F2] py-14 sm:py-20 border-b border-stone-200/80">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(245,158,11,0.06),transparent_60%)] pointer-events-none" />
         <Container>
-          <div className="relative z-10 max-w-4xl">
+          <div className="relative z-10 max-w-4xl text-center sm:text-left mx-auto sm:mx-0">
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 mb-6 leading-tight">
               Products & <span className="text-amber-500">Engineering Solutions</span>
             </h1>
@@ -187,7 +187,7 @@ export default function ProductsOverviewClient({
                   w-full
                   flex-wrap
                   items-center
-                  justify-start
+                  justify-center sm:justify-start
                   gap-2
                 "
               >
@@ -333,6 +333,8 @@ export default function ProductsOverviewClient({
               sm:flex-row
               sm:items-center
               sm:justify-between
+              text-center sm:text-left
+              items-center sm:items-start
             "
           >
 
@@ -886,7 +888,7 @@ export default function ProductsOverviewClient({
                 flex
                 flex-col
                 gap-3
-                sm:flex-row
+1sm:flex-row
               "
             >
 

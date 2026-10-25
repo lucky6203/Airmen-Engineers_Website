@@ -131,7 +131,7 @@ export default function AboutTimeline() {
     <section className="py-12 sm:py-16 bg-slate-50 border-b border-gray-200" id="timeline">
       <Container>
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 sm:mb-10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 sm:mb-10 text-center md:text-left items-center md:items-end">
           <div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-navy tracking-tight">
               Growing Together <span className="text-[#EAB308]">Since 1996</span>
@@ -142,7 +142,7 @@ export default function AboutTimeline() {
           </div>
 
           {/* Controls: View Switcher & Carousel Nav */}
-          <div className="flex items-center gap-3 shrink-0 self-start md:self-auto">
+          <div className="flex items-center justify-center gap-3 shrink-0 self-center md:self-auto w-full md:w-auto">
             {/* View Switcher */}
             <div className="p-1 rounded-xl bg-white border border-gray-200 shadow-xs flex items-center gap-1">
               <button
@@ -249,7 +249,7 @@ export default function AboutTimeline() {
               {MILESTONES.map((item, idx) => (
                 <div
                   key={item.id}
-                  className="timeline-card snap-start w-[280px] sm:w-[320px] shrink-0 bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-xl hover:border-amber-400/60 transition-all duration-300 flex flex-col group hover:-translate-y-1"
+                  className="timeline-card snap-start w-[260px] min-[360px]:w-[280px] sm:w-[320px] shrink-0 bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-xl hover:border-amber-400/60 transition-all duration-300 flex flex-col group hover:-translate-y-1"
                 >
                   {/* Card Image */}
                   <div className="relative h-40 sm:h-44 w-full overflow-hidden bg-slate-100">
@@ -338,7 +338,7 @@ export default function AboutTimeline() {
                     <div className="hidden sm:block sm:w-[calc(50%-1.5rem)]" />
 
                     {/* Compact Image Card */}
-                    <div className="ml-9 sm:ml-0 sm:w-[calc(50%-1.5rem)] w-full">
+                    <div className="ml-9 sm:ml-0 sm:w-[calc(50%-1.5rem)] w-[calc(100%-2.5rem)] max-w-[calc(100%-2.5rem)]">
                       <div className="group bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-lg hover:border-amber-400/60 transition-all duration-300">
                         {/* Image */}
                         <div className="relative h-36 sm:h-40 w-full overflow-hidden bg-slate-100">

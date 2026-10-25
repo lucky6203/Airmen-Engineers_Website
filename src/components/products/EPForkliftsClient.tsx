@@ -272,7 +272,7 @@ export default function EPForkliftsClient({ products, brand }: EPForkliftsClient
         <Container className="relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Content */}
-            <div className="lg:col-span-7">
+            <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left">
 
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-slate-900 tracking-tight leading-tight mb-6">
                 Pioneering The Material Handling Technology That the{' '}
@@ -287,8 +287,8 @@ export default function EPForkliftsClient({ products, brand }: EPForkliftsClient
               </p>
 
               {/* Action Buttons */}
-              <div className="flex flex-wrap items-center gap-4">
-                <Button href="/contact" size="lg" showArrow id="ep-enquire-hero" className="bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold shadow-md">
+              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4 w-full sm:w-auto">
+                <Button href="/contact" size="lg" showArrow id="ep-enquire-hero" className="bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold shadow-md w-full sm:w-auto justify-center text-center">
                   Request Equipment Quote
                 </Button>
 
@@ -297,7 +297,7 @@ export default function EPForkliftsClient({ products, brand }: EPForkliftsClient
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2.5 px-6 py-3.5 bg-white hover:bg-stone-50 text-slate-800 font-semibold rounded-xl border border-stone-300 transition-all duration-300 text-sm shadow-xs group"
-                  id="ep-download-catalogue"
+                  id="ep-download-catalogue" style={{ textAlign: "center" }} className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 bg-white hover:bg-stone-50 text-slate-800 font-semibold rounded-xl border border-stone-300 transition-all duration-300 text-sm shadow-xs group w-full sm:w-auto"
                 >
                   <FileDown className="w-4 h-4 text-amber-500 group-hover:scale-110 transition-transform" />
                   <span>Download 2025 Brochure (PDF)</span>
@@ -332,7 +332,7 @@ export default function EPForkliftsClient({ products, brand }: EPForkliftsClient
                 </div>
 
                 {/* Key Spec Badges */}
-                <div className="grid grid-cols-2 gap-3 mb-6">
+                <div className="grid grid-cols-2 gap-3 mb-6 text-center sm:text-left">
                   <div className="bg-stone-50 border border-stone-200 rounded-xl p-3.5">
                     <span className="text-xs text-slate-500 block">Payload Capacity</span>
                     <span className="text-lg font-bold text-slate-900 font-heading">1.0T – 25.0T</span>
@@ -647,7 +647,7 @@ export default function EPForkliftsClient({ products, brand }: EPForkliftsClient
                   battery Ampere-hour curves, mast dimensions, turning radii, and operational guides for all 22+ models.
                 </p>
 
-                <div className="flex flex-wrap items-center gap-4">
+                <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4 w-full sm:w-auto">
                   <a
                     href="/brochures/ep-product-range.pdf"
                     target="_blank"

@@ -27,6 +27,7 @@ import Container from '@/components/common/Container';
 import Breadcrumb from '@/components/common/Breadcrumb';
 import { Product } from '@/types';
 import SpecificationTable from './SpecificationTable';
+import { CONTACT_INFO, WHATSAPP_NUMBER } from '@/data/company';
 
 interface ProductDetailClientProps {
   product: Product;
@@ -46,6 +47,7 @@ export default function ProductDetailClient({
 
   const brandSlug = product.brand?.slug || 'products';
 
+  const phone = CONTACT_INFO.registeredOffice.phone[0];
   const whatsappMessage = encodeURIComponent(
     `Hello Airmen Engineers, I am interested in technical specifications & quotation for ${product.name}. Please share details.`
   );
@@ -125,11 +127,11 @@ export default function ProductDetailClient({
             </div>
 
             {/* Right: Technical Specs & Inquiries (7 cols) */}
-            <div className="lg:col-span-7 space-y-6">
+            <div className="lg:col-span-7 space-y-6 text-center sm:text-left">
 
               {/* Eyebrow & Brand */}
               <div>
-                <div className="flex flex-wrap items-center gap-2 mb-2">
+                <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 mb-2">
                   <span className="text-[11px] font-extrabold uppercase tracking-widest px-3 py-1 rounded-full bg-amber-50 text-amber-700 border border-amber-200">
                     {product.brand?.name} Genuine Portfolio
                   </span>
@@ -167,7 +169,7 @@ export default function ProductDetailClient({
 
               {/* Call-To-Action Buttons */}
               <div className="space-y-3 pt-2">
-                <div className="flex flex-col sm:flex-row gap-3">
+                <div className="flex flex-col sm:flex-row gap-3 w-full">
                   <Link
                     href={`/contact?product=${encodeURIComponent(product.name)}`}
                     className="inline-flex flex-1 items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs uppercase tracking-wider transition-all shadow-md hover:shadow-lg shadow-amber-500/20"
@@ -177,7 +179,7 @@ export default function ProductDetailClient({
                   </Link>
 
                   <a
-                    href={`https://wa.me/919999999999?text=${whatsappMessage}`}
+                    href={`https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappMessage}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md"
@@ -201,12 +203,12 @@ export default function ProductDetailClient({
 
                 <div className="flex items-center gap-2 text-xs text-slate-500">
                   <PhoneCall className="w-3.5 h-3.5 text-amber-500" />
-                  <span>Immediate technical support line: <strong>+91-99999-99999</strong> (Mon–Sat 9AM–7PM)</span>
+                  <span>Immediate technical support line: <strong>{phone}</strong> (Mon–Sat 9AM–7PM)</span>
                 </div>
               </div>
 
               {/* Quick Brand Link */}
-              <div className="pt-2 border-t border-gray-100 flex items-center justify-between text-xs">
+              <div className="pt-2 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-2 text-xs text-center sm:text-left">
                 <span className="text-slate-500">
                   Looking for more {product.brand?.name} models?
                 </span>

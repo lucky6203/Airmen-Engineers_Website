@@ -14,7 +14,7 @@ export default function FloatingWidget() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="fixed bottom-6 right-6 z-[var(--z-floating-widget)] flex flex-col items-end gap-3">
+    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[var(--z-floating-widget)] flex flex-col items-end gap-3">
       {/* Expanded Options */}
       {isOpen && (
         <div className="flex flex-col gap-2 animate-fade-in-up">
@@ -62,7 +62,7 @@ export default function FloatingWidget() {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={cn(
-          'w-14 h-14 rounded-full flex items-center justify-center shadow-lg transition-all duration-300',
+          'w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center shadow-lg transition-all duration-300',
           isOpen
             ? 'bg-charcoal text-white rotate-0'
             : 'bg-gold text-navy animate-pulse-gold hover:bg-gold-dark'

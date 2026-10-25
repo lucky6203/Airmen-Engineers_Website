@@ -64,7 +64,7 @@ export default function Footer() {
               </div>
 
               {/* Verified Social & Direct Channel Buttons */}
-              <div className="flex items-center gap-3">
+              <div className="flex items-center justify-center sm:justify-start gap-3">
                 <a
                   href="https://www.linkedin.com/company/airmen-engineers-services-pvt-ltd"
                   target="_blank"

@@ -52,13 +52,13 @@ export default function FinalCTA() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="flex flex-wrap justify-center gap-3 sm:gap-4"
+            className="flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4 w-full sm:w-auto"
           >
             <Button
               href="/contact"
               size="lg"
               showArrow
-              className="bg-gold text-navy hover:bg-gold-dark font-extrabold shadow-lg shadow-gold/20 hover:scale-[1.02] active:scale-[0.98] transition-all"
+              className="bg-gold text-navy hover:bg-gold-dark font-extrabold shadow-lg shadow-gold/20 hover:scale-[1.02] active:scale-[0.98] transition-all w-full sm:w-auto"
               id="final-cta-quote"
             >
               Get a Fast Quotation
@@ -67,7 +67,7 @@ export default function FinalCTA() {
               href="/contact"
               variant="dark"
               size="lg"
-              className="bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold backdrop-blur-md hover:scale-[1.02] active:scale-[0.98] transition-all"
+              className="bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold backdrop-blur-md hover:scale-[1.02] active:scale-[0.98] transition-all w-full sm:w-auto"
               id="final-cta-contact"
             >
               Talk to an Engineer

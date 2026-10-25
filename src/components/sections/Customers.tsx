@@ -124,7 +124,7 @@ export default function Customers() {
           {allMarqueeClients.map((client, index) => (
             <div
               key={`${client.id}-${index}`}
-              className="flex-shrink-0 px-3 w-[320px] sm:w-[360px] select-none"
+              className="flex-shrink-0 px-2.5 sm:px-3 w-[280px] min-[360px]:w-[320px] sm:w-[360px] select-none"
             >
               <div className="group relative bg-white/[0.03] hover:bg-white/[0.07] backdrop-blur-sm border border-white/10 hover:border-gold/50 rounded-2xl p-5 sm:p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_35px_-10px_rgba(234,179,8,0.2)] flex flex-col justify-between h-full">
                 {/* Subtle gold glow accent at top right of card on hover */}

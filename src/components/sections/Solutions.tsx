@@ -176,7 +176,7 @@ function SolutionCard({
               md:h-[210px]
               lg:h-[160px]
               xl:h-[175px]
-              p-4
+              p-1.5 sm:p-2
               flex
               items-center
               justify-center
@@ -234,6 +234,7 @@ function SolutionCard({
                   tracking-wider
                   text-gold
                   truncate
+                  text-center sm:text-left
                 "
               >
                 {brandNames}
@@ -254,6 +255,7 @@ function SolutionCard({
                   transition-colors
                   tracking-tight
                   line-clamp-1
+                  text-center sm:text-left
                 "
               >
                 {category.name}
@@ -268,6 +270,7 @@ function SolutionCard({
                   text-gray-500
                   line-clamp-2
                   leading-relaxed
+                  text-center sm:text-left
                 "
               >
                 {category.description}
@@ -275,7 +278,7 @@ function SolutionCard({
             </div>
 
             {/* EXPLORE CTA BADGE */}
-            <div className="pt-2 border-t border-gray-100 flex items-center justify-between">
+            <div className="pt-2 border-t border-gray-100 flex items-center justify-center sm:justify-between">
               <span
                 className="
                   inline-flex

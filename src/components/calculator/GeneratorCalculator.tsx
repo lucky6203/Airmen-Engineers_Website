@@ -1098,7 +1098,7 @@ export default function GeneratorCalculator() {
                   </div>
 
                   {/* PARTNERSHIP HIGHLIGHT — GREAVES COTTON DG SETS */}
-                  <div className="bg-amber-50/60 border border-amber-200 rounded-2xl p-5 sm:p-6 flex flex-col md:flex-row items-center justify-between gap-4">
+                  <div className="bg-amber-50/60 border border-amber-200 rounded-2xl p-5 sm:p-6 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
                     <div>
                       <h4 className="text-base font-bold text-navy">
                         Authorized Partner for Greaves Cotton DG Sets
@@ -1109,7 +1109,7 @@ export default function GeneratorCalculator() {
                     </div>
                     <Link
                       href="/greaves"
-                      className="whitespace-nowrap px-4 py-2 bg-navy hover:bg-slate-800 text-gold font-bold text-xs uppercase tracking-wider rounded-lg transition-colors flex-shrink-0"
+                      className="px-4 py-2 bg-navy hover:bg-slate-800 text-gold font-bold text-xs uppercase tracking-wider rounded-lg transition-colors w-full md:w-auto text-center justify-center"
                     >
                       Explore Greaves Lineup →
                     </Link>

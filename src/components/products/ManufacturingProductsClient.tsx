@@ -126,7 +126,7 @@ export default function ManufacturingProductsClient() {
         <Container>
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             {/* Left Content Column */}
-            <div className="lg:col-span-7">
+            <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left">
 
               <h1 className="text-3xl sm:text-5xl lg:text-5xl xl:text-6xl font-black tracking-tight text-slate-900 mb-6 leading-tight">
                 Precision CNC-Machined <span className="text-amber-500">Forged Automotive Components</span>
@@ -136,7 +136,7 @@ export default function ManufacturingProductsClient() {
                 Manufactured at our dedicated <strong>Gajraula Plant</strong> from premium forged material. Our component line involves critical CNC machining operations, micro-tolerance boring, surface profiling, and 100% quality inspection strictly adhering to approved client drawings.
               </p>
 
-              <div className="flex flex-wrap items-center gap-4">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3 sm:gap-4 w-full sm:w-auto">
                 <Button href="/contact?subject=Gajraula%20Plant%20Manufacturing%20Inquiry" variant="primary" size="lg" className="bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold shadow-md">
                   Request Manufacturing Quote
                 </Button>
@@ -152,7 +152,7 @@ export default function ManufacturingProductsClient() {
               </div>
 
               {/* Plant Stats Badges */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-10 pt-8 border-t border-stone-200">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8 sm:mt-10 pt-6 sm:pt-8 border-t border-stone-200 text-center sm:text-left w-full">
                 <div>
                   <span className="text-2xl font-black text-amber-600">20+</span>
                   <p className="text-xs text-slate-500 mt-0.5">Automotive Part Families</p>

@@ -20,7 +20,7 @@ export default function TermsPage() {
 
       <section className="relative overflow-hidden bg-[#FAF7F2] py-14 sm:py-20 border-b border-stone-200/80">
         <Container className="relative z-10">
-          <div className="max-w-3xl">
+          <div className="max-w-3xl text-center sm:text-left mx-auto sm:mx-0 flex flex-col items-center sm:items-start">
             <div className="inline-flex items-center gap-2 rounded-full border border-amber-300 bg-amber-50 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-amber-800 mb-4">
               <Scale className="w-3.5 h-3.5" />
               Commercial &amp; Service Agreement
@@ -37,7 +37,7 @@ export default function TermsPage() {
 
       <section className="section-padding bg-slate-50">
         <Container>
-          <div className="max-w-4xl mx-auto bg-white rounded-3xl p-6 sm:p-12 border border-gray-200 shadow-sm space-y-8 text-slate-700 leading-relaxed text-sm sm:text-base">
+          <div className="max-w-4xl mx-auto bg-white rounded-3xl p-5 sm:p-12 border border-gray-200 shadow-sm space-y-8 text-slate-700 leading-relaxed text-sm sm:text-base">
             <div>
               <h2 className="text-xl sm:text-2xl font-bold text-navy mb-3 flex items-center gap-2 font-heading">
                 <FileCheck2 className="w-5 h-5 text-gold flex-shrink-0" />

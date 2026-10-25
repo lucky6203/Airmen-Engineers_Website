@@ -235,13 +235,13 @@ export default function AboutPage() {
                 ))}
               </div>
 
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2 w-full">
-                <Button href="/contact" size="lg" showArrow className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold px-7 rounded-full shadow-md">
+              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-2 w-full">
+                <Button href="/contact" size="lg" showArrow className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold px-7 rounded-full shadow-md w-full sm:w-auto justify-center">
                   Connect With Our Engineers
                 </Button>
                 <a
                   href="#director-message"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 bg-white hover:bg-stone-50 text-slate-800 font-semibold rounded-full border border-stone-300 shadow-xs transition-all text-sm"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white hover:bg-stone-50 text-slate-800 font-semibold rounded-full border border-stone-300 shadow-xs transition-all text-sm w-full sm:w-auto"
                 >
                   Director&apos;s Message
                   <ArrowRight className="w-4 h-4 text-amber-500" />
@@ -611,7 +611,7 @@ export default function AboutPage() {
 
                   <h3
                     style={{ fontSize: '11px' }}
-                    className="font-bold text-navy mt-1 leading-snug tracking-tight whitespace-nowrap"
+                    className="font-bold text-navy mt-1 leading-snug tracking-tight whitespace-normal sm:whitespace-nowrap"
                   >
                     {partner.displayName || partner.name}
                   </h3>

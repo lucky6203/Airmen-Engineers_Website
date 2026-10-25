@@ -122,11 +122,11 @@ export default function IndustriesServed() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-40px' }}
                 transition={{ duration: 0.5, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
-                className="group relative rounded-2xl bg-white/[0.03] hover:bg-white/[0.07] border border-white/10 hover:border-amber-500/40 p-7 transition-all duration-300 hover:-translate-y-1.5 shadow-lg flex flex-col justify-between"
+                className="group relative rounded-2xl bg-white/[0.03] hover:bg-white/[0.07] border border-white/10 hover:border-amber-500/40 p-5 sm:p-7 transition-all duration-300 hover:-translate-y-1.5 shadow-lg flex flex-col justify-between text-center sm:text-left"
               >
                 <div>
-                  <div className="flex items-center justify-between gap-3 mb-5">
-                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center border ${ind.accent}`}>
+                  <div className="flex flex-col sm:flex-row items-center justify-between gap-2.5 sm:gap-3 mb-4 sm:mb-5">
+                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center border mx-auto sm:mx-0 ${ind.accent}`}>
                       <Icon className="w-6 h-6" />
                     </div>
                     <span className="text-xs font-mono text-slate-400">
@@ -157,17 +157,17 @@ export default function IndustriesServed() {
         </div>
 
         {/* Audit Callout Banner */}
-        <div className="mt-14 p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-amber-500/15 via-blue-500/10 to-transparent border border-white/15 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 backdrop-blur-sm">
+        <div className="mt-10 sm:mt-14 p-5 sm:p-8 rounded-2xl bg-gradient-to-r from-amber-500/15 via-blue-500/10 to-transparent border border-white/15 flex flex-col sm:flex-row items-center justify-between gap-6 backdrop-blur-sm text-center sm:text-left">
           <div>
             <h3 className="text-lg font-bold text-white">Need an Industry-Specific Engineering Assessment?</h3>
             <p className="text-sm text-slate-300 mt-1">
               Explore our 50,000+ sq. ft. Gajraula manufacturing infrastructure or consult our application engineers for on-site audits.
             </p>
           </div>
-          <div className="flex flex-wrap items-center gap-3 shrink-0">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 shrink-0 w-full sm:w-auto">
             <Link
               href="/manufacturing-infrastructure"
-              className="inline-flex items-center gap-2 px-5 py-3 bg-white/10 hover:bg-white/15 text-white font-semibold rounded-xl text-sm border border-white/20 transition-all"
+              className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-white/10 hover:bg-white/15 text-white font-semibold rounded-xl text-sm border border-white/20 transition-all w-full sm:w-auto"
             >
               <i className="fa-solid fa-industry text-amber-400" />
               <span>Plant Infrastructure</span>
@@ -175,7 +175,7 @@ export default function IndustriesServed() {
             </Link>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold rounded-xl text-sm shadow-lg transition-transform hover:scale-105"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold rounded-xl text-sm shadow-lg transition-transform hover:scale-105 w-full sm:w-auto"
             >
               Consult Engineering Team
               <ArrowRight className="w-4 h-4" />

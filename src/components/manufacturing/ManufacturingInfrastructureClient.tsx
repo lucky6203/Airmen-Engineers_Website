@@ -687,7 +687,7 @@ export default function ManufacturingInfrastructureClient() {
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
             {/* Left Column: Heading & Authority */}
-            <div className="lg:col-span-7 space-y-6">
+            <div className="lg:col-span-7 space-y-6 flex flex-col items-center lg:items-start text-center lg:text-left">
               {/* Plant Location Pill */}
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-400/40 text-amber-900 text-xs font-black tracking-wide">
                 <MapPin className="w-3.5 h-3.5 text-amber-600" />
@@ -709,7 +709,7 @@ export default function ManufacturingInfrastructureClient() {
               </p>
 
               {/* Certification & Trust Badges */}
-              <div className="flex flex-wrap items-center gap-2 pt-1">
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 pt-1">
                 <span className="px-3 py-1 rounded-lg bg-white border border-stone-200 text-slate-800 text-xs font-bold shadow-2xs flex items-center gap-1.5">
                   <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
                   <span>ISO 9001:2015 Certified</span>
@@ -725,7 +725,7 @@ export default function ManufacturingInfrastructureClient() {
               </div>
 
               {/* Action Buttons */}
-              <div className="flex flex-wrap items-center gap-3 pt-2">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3 pt-2 w-full sm:w-auto">
                 <Button
                   onClick={() => setIsModalOpen(true)}
                   className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black px-7 py-3.5 rounded-full shadow-lg text-sm cursor-pointer flex items-center gap-2"

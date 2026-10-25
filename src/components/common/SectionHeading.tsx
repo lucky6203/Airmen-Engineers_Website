@@ -48,7 +48,7 @@ export default function SectionHeading({
       {subtitle && (
         <p
           className={cn(
-            'text-lg leading-relaxed',
+            'text-sm sm:text-base md:text-lg leading-relaxed',
             dark ? 'text-gray-300' : 'text-slate-custom'
           )}
         >

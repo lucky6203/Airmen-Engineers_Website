@@ -136,10 +136,10 @@ export default function RentalClient() {
                 <p className="text-xs text-slate-600 mb-3">
                   Our emergency dispatch van can mobilize ready standby units immediately to prevent plant shutdown.
                 </p>
-                <div className="flex flex-wrap gap-2.5">
+                <div className="flex flex-col sm:flex-row gap-2.5 w-full sm:w-auto">
                   <a
                     href={`tel:${phone}`}
-                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-navy text-white text-xs font-bold font-mono hover:bg-slate-800 transition-colors"
+                    className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-navy text-white text-xs font-bold font-mono hover:bg-slate-800 transition-colors w-full sm:w-auto"
                   >
                     <Phone className="w-3.5 h-3.5 text-gold" />
                     Call +91-9212303791
@@ -148,7 +148,7 @@ export default function RentalClient() {
                     href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hi,%20I%20urgently%20need%20a%20rental%20compressor%20quote`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-emerald-600 text-white text-xs font-bold hover:bg-emerald-700 transition-colors"
+                    className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-emerald-600 text-white text-xs font-bold hover:bg-emerald-700 transition-colors w-full sm:w-auto"
                   >
                     <MessageCircle className="w-3.5 h-3.5" />
                     WhatsApp

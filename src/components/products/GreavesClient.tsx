@@ -472,7 +472,7 @@ export default function GreavesClient({ products, brand }: GreavesClientProps) {
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
             {/* Left Content */}
-            <div className="lg:col-span-7 space-y-6">
+            <div className="lg:col-span-7 space-y-6 flex flex-col items-center lg:items-start text-center lg:text-left">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-tight">
                 Greaves <span className="text-amber-500">Cotton</span>
               </h1>
@@ -486,7 +486,7 @@ export default function GreavesClient({ products, brand }: GreavesClientProps) {
               </p>
 
               {/* Badges / Highlights */}
-              <div className="flex flex-wrap gap-2.5 pt-2">
+              <div className="flex flex-wrap justify-center lg:justify-start gap-2.5 pt-2">
                 {[
                   '5 kVA to 2500* kVA Range',
                   'CPCB IV+ Compliant (DOC/SCR)',
@@ -505,12 +505,12 @@ export default function GreavesClient({ products, brand }: GreavesClientProps) {
               </div>
 
               {/* Action Buttons */}
-              <div className="flex flex-wrap items-center gap-4 pt-4">
+              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-4 w-full sm:w-auto">
                 <Button
                   href="/contact"
                   size="lg"
                   showArrow
-                  className="bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold px-7 shadow-md"
+                  className="bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold px-7 shadow-md w-full sm:w-auto justify-center text-center"
                 >
                   Request Sizing & Quotation
                 </Button>
@@ -519,7 +519,7 @@ export default function GreavesClient({ products, brand }: GreavesClientProps) {
                   href="/brochures/greaves-brochure.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 bg-white hover:bg-stone-50 text-slate-800 font-semibold rounded-xl border border-stone-300 transition-all text-sm shadow-xs"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white hover:bg-stone-50 text-slate-800 font-semibold rounded-xl border border-stone-300 transition-all text-sm shadow-xs w-full sm:w-auto text-center"
                 >
                   <FileDown className="w-4 h-4 text-amber-500" />
                   Download Official Brochure (PDF)
@@ -542,7 +542,7 @@ export default function GreavesClient({ products, brand }: GreavesClientProps) {
                   <img
                     src="/images/greaves images/04_125-kva-cpcb-iv-greaves-power-diesel-generator-1-1000x1000.png"
                     alt="Greaves CPCB IV+ Silent Generator Set"
-                    className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-contain p-1 sm:p-2 group-hover:scale-105 transition-transform duration-500 drop-shadow-md"
                   />
                   <div className="absolute bottom-3 right-3 bg-white px-3 py-1.5 rounded-lg shadow-sm border border-stone-200">
                     <img
@@ -732,7 +732,7 @@ export default function GreavesClient({ products, brand }: GreavesClientProps) {
                     </div>
 
                     {/* Right: Product Details & Specs */}
-                    <div className="lg:col-span-7 space-y-6">
+                    <div className="lg:col-span-7 space-y-6 flex flex-col items-center lg:items-start text-center lg:text-left">
                       <div>
                         <div className="flex items-center gap-2 mb-2">
                           <span className="text-xs font-bold text-amber-700 uppercase tracking-wider bg-amber-100 px-2.5 py-0.5 rounded">

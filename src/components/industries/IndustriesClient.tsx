@@ -246,7 +246,7 @@ export default function IndustriesClient() {
               </div>
 
               {/* CTAs */}
-              <div className="flex flex-wrap items-center gap-3 pt-2 max-sm:justify-center">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2 max-sm:justify-center w-full sm:w-auto">
                 <Button href="/contact" size="lg" showArrow className="bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold px-7 shadow-md text-xs sm:text-sm">
                   Request Application Audit
                 </Button>

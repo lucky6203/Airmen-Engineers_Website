@@ -27,13 +27,13 @@ export default function AIMPage() {
       <section className="relative overflow-hidden bg-[#FAF7F2] py-14 sm:py-20 border-b border-stone-200/80">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(245,158,11,0.06),transparent_60%)] pointer-events-none" />
         <Container>
-          <div className="relative z-10 max-w-3xl">
+          <div className="relative z-10 max-w-3xl text-center sm:text-left mx-auto sm:mx-0 flex flex-col items-center sm:items-start">
             <div className="inline-flex items-center gap-2 rounded-full border border-amber-300 bg-amber-50 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-amber-800 mb-4">
               Air Compressors
             </div>
             <h1 className="text-3xl sm:text-5xl font-black text-slate-900 mb-6">AIM <span className="text-amber-500">Compressors</span></h1>
             <p className="text-slate-600 text-lg leading-relaxed mb-8">{brand.description}</p>
-            <Button href="/contact" showArrow className="bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold shadow-md">Enquire Now</Button>
+            <Button href="/contact" showArrow className="bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold shadow-md w-full sm:w-auto justify-center">Enquire Now</Button>
           </div>
         </Container>
       </section>
@@ -44,7 +44,7 @@ export default function AIMPage() {
           <div className="space-y-16">
             {products.map((product) => (
               <div key={product.id} className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start pb-16 border-b border-gray-100 last:border-0">
-                <div>
+                <div className="text-center sm:text-left flex flex-col items-center sm:items-start">
                   <h2 className="text-navy mb-4">{product.name}</h2>
                   <p className="text-slate-custom leading-relaxed mb-6">{product.description}</p>
                   {product.features.length > 0 && (
@@ -56,7 +56,7 @@ export default function AIMPage() {
                       ))}
                     </ul>
                   )}
-                  <Button href="/contact" size="sm" showArrow>Enquire</Button>
+                  <Button href="/contact" size="sm" showArrow className="w-full sm:w-fit justify-center">Enquire</Button>
                 </div>
                 <SpecificationTable specs={product.specifications} title="Technical Specifications" />
               </div>

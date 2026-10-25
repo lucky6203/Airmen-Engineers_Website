@@ -47,7 +47,7 @@ export default function WhyAirmen() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-40px' }}
                 transition={{ duration: 0.5, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
-                className="group relative bg-white rounded-2xl p-8 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl border border-gray-100 hover:border-gold/30 flex flex-col items-center md:items-start text-center md:text-left"
+                className="group relative bg-white rounded-2xl p-6 sm:p-8 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl border border-gray-100 hover:border-gold/30 flex flex-col items-center md:items-start text-center md:text-left"
               >
                 {/* Accent line on hover */}
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-gold transition-all duration-500 group-hover:w-1/2 rounded-b-full" />

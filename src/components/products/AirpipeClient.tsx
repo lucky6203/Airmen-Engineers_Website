@@ -123,8 +123,8 @@ export default function AirpipeClient({ products, brand }: AirpipeClientProps) {
         <Container className="relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Content */}
-            <div className="lg:col-span-8 space-y-6">
-              <div className="inline-flex items-center gap-2 rounded-full border border-amber-300 bg-amber-50 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-amber-800">
+            <div className="lg:col-span-8 space-y-6 flex flex-col items-center lg:items-start text-center lg:text-left">
+              <div className="inline-flex items-center gap-2 rounded-full border border-amber-300 bg-amber-50 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-amber-800 mx-auto lg:mx-0">
                 <i className="fa-solid fa-certificate text-xs text-amber-600" />
                 <span>OFFICIAL 2026–27 INSTALLATION CATALOGUE • 12 YEARS OF EXCELLENCE</span>
               </div>
@@ -143,7 +143,7 @@ export default function AirpipeClient({ products, brand }: AirpipeClientProps) {
               </p>
 
               {/* Direct Personnel Contact Pill */}
-              <div className="bg-white border border-stone-200/90 shadow-xs p-4 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-4 max-w-xl">
+              <div className="bg-white border border-stone-200/90 shadow-xs p-4 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-4 max-w-xl text-center sm:text-left w-full">
                 <div>
                   <span className="text-[10px] font-bold text-amber-600 uppercase tracking-wider block">
                     AIRpipe Direct Sales &amp; Technical Support
@@ -172,15 +172,15 @@ export default function AirpipeClient({ products, brand }: AirpipeClientProps) {
               </div>
 
               {/* CTA Buttons */}
-              <div className="flex flex-wrap items-center gap-4 pt-2">
-                <Button href="/contact" size="lg" showArrow className="bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold shadow-md">
+              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-2 w-full sm:w-auto">
+                <Button href="/contact" size="lg" showArrow className="bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold shadow-md w-full sm:w-auto justify-center text-center">
                   Request Turnkey Layout &amp; RFQ
                 </Button>
                 <a
                   href="/brochures/2026%20installation%20book%201.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 bg-white hover:bg-stone-50 text-slate-800 font-semibold rounded-xl border border-stone-300 text-sm shadow-xs transition-all"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white hover:bg-stone-50 text-slate-800 font-semibold rounded-xl border border-stone-300 text-sm shadow-xs transition-all w-full sm:w-auto text-center"
                 >
                   <FileDown className="w-4 h-4 text-amber-500" />
                   Download 2026 Catalogue (PDF)

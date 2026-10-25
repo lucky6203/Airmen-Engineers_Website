@@ -7,6 +7,7 @@
 import type { Metadata } from 'next';
 import Breadcrumb from '@/components/common/Breadcrumb';
 import ManufacturingInfrastructureClient from '@/components/manufacturing/ManufacturingInfrastructureClient';
+import ManufacturingProcess from '@/components/sections/ManufacturingProcess';
 
 export const metadata: Metadata = {
   title: 'Manufacturing Plant Infrastructure — Works: I-44/45, Gajraula (Amroha, U.P.) | Airmen Engineers',
@@ -48,6 +49,7 @@ export default function ManufacturingInfrastructurePage() {
         ]}
       />
       <ManufacturingInfrastructureClient />
+      <ManufacturingProcess />
     </div>
   );
 }

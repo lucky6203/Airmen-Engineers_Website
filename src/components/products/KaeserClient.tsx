@@ -277,8 +277,8 @@ export default function KaeserClient({ products, brand }: KaeserClientProps) {
                   href="/brochures/kaeser-dsd-series.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2.5 px-6 py-3.5 bg-white hover:bg-stone-50 text-slate-800 font-semibold rounded-xl border border-stone-300 transition-all duration-300 text-sm shadow-xs group"
-                  id="kaeser-download-catalogue" style={{ textAlign: "center" }} className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 bg-white hover:bg-stone-50 text-slate-800 font-semibold rounded-xl border border-stone-300 transition-all duration-300 text-sm shadow-xs group w-full sm:w-auto"
+                  className="inline-flex items-center gap-2.5 px-6 py-3.5 bg-white hover:bg-stone-50 text-slate-800 font-semibold rounded-xl border border-stone-300 transition-all duration-300 text-sm shadow-xs group w-full sm:w-auto"
+                  id="kaeser-download-catalogue"
                 >
                   <FileDown className="w-4 h-4 text-amber-500 group-hover:scale-110 transition-transform" />
                   <span>Download DSD Brochure (PDF)</span>

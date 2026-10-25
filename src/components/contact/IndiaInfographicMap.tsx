@@ -1,8 +1,9 @@
 'use client';
 
 // =========================================================================
-// Airmen Engineers — Interactive 3D India Facility Map
-// Using user-provided 3D map with all 7 labeled nodes and direct Google Maps links
+// Airmen Engineers – Interactive 3D India Facility Map
+// Using user-provided 3D map with all 7 labeled nodes
+// Clean hotspot selection (zero black box borders) & direct Google Maps button
 // =========================================================================
 
 import React, { useState } from 'react';
@@ -16,7 +17,7 @@ import {
   CheckCircle2,
   Factory
 } from 'lucide-react';
-import { AIRMEN_LOCATIONS, FacilityLocation } from '@/data/locations';
+import { AIRMEN_LOCATIONS } from '@/data/locations';
 
 // Interactive hot spots mapped to 1024 x 967 resolution of /images/airmen-india-map.jpg
 interface MapHotspot {
@@ -87,51 +88,49 @@ export default function IndiaInfographicMap() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
-        {/* ── Section Header ── */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10 pb-8 border-b border-gray-200">
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div>
-            <div className="flex items-center gap-2 mb-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse" />
-              <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-slate-500">
-                Official Network Directory • 7 Verified Facilities
-              </span>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 border border-red-200 text-red-700 text-xs font-bold uppercase tracking-wider mb-3">
+              <span className="w-2 h-2 rounded-full bg-red-600 animate-pulse" />
+              Pan-India Engineering & Operations Network
             </div>
-
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-navy tracking-tight uppercase">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-navy uppercase tracking-tight">
               India <span className="text-red-600 font-light">Facilities Map</span>
             </h2>
-            <p className="text-xs sm:text-sm text-slate-600 max-w-2xl mt-2 leading-relaxed">
-              Click on any facility pin or label on the map to inspect verified coordinates, office hours, and launch direct Google Maps directions.
+            <p className="text-sm sm:text-base text-slate-600 mt-2 max-w-2xl font-medium">
+              Click on any facility pin or badge on the map to inspect verified coordinates, office hours, and capabilities.
             </p>
           </div>
 
-          {/* Quick Legend Bar */}
-          <div className="flex flex-wrap items-center gap-2.5">
-            <span className="px-3 py-1.5 rounded-full bg-red-50 border border-red-200 text-red-700 text-xs font-bold">
-              1. Delhi Head Office
-            </span>
-            <span className="px-3 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-bold">
-              2. Naharpur Office
-            </span>
-            <span className="px-3 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-bold">
-              3. Gurgaon Stock
-            </span>
-            <span className="px-3 py-1.5 rounded-full bg-orange-50 border border-orange-200 text-orange-700 text-xs font-bold">
-              4. Dharuhera Office
-            </span>
-            <span className="px-3 py-1.5 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-700 text-xs font-bold">
-              5. Gajraula Plant
-            </span>
-            <span className="px-3 py-1.5 rounded-full bg-teal-50 border border-teal-200 text-teal-700 text-xs font-bold">
-              6. Haridwar Office
-            </span>
-            <span className="px-3 py-1.5 rounded-full bg-purple-50 border border-purple-200 text-purple-700 text-xs font-bold">
-              7. Bhiwadi Plant
-            </span>
+          {/* Quick Legend Bar - Interactive selector buttons */}
+          <div className="flex flex-wrap items-center gap-2">
+            {AIRMEN_LOCATIONS.map((loc) => {
+              const spot = MAP_HOTSPOTS[loc.id];
+              const isSelected = selectedId === loc.id;
+              return (
+                <button
+                  key={`pill-${loc.id}`}
+                  type="button"
+                  onClick={() => setSelectedId(loc.id)}
+                  className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer border ${
+                    isSelected
+                      ? 'bg-navy text-white border-navy shadow-sm scale-105'
+                      : 'bg-white hover:bg-slate-50 text-slate-700 border-gray-200 hover:border-slate-300'
+                  }`}
+                >
+                  <span
+                    className="inline-block w-2 h-2 rounded-full mr-1.5"
+                    style={{ backgroundColor: spot ? spot.color : '#060D17' }}
+                  />
+                  {loc.number}. {loc.title.split('(')[0].trim()}
+                </button>
+              );
+            })}
           </div>
         </div>
 
-        {/* ── Main Interactive Stage: 3D Map (Left) + Active Details (Right) ── */}
+        {/* Main Interactive Stage: 3D Map (Left) + Active Details (Right) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 
           {/* Left Column (Lg: 7 cols): Interactive 3D India Map with Clickable Hotspots */}
@@ -139,7 +138,7 @@ export default function IndiaInfographicMap() {
 
             <div className="flex items-center justify-between text-xs text-slate-500 pb-3 border-b border-gray-100">
               <span className="font-mono font-medium">Interactive 3D Network Map</span>
-              <span className="font-semibold text-red-600">Click any location pin or badge to open</span>
+              <span className="font-semibold text-slate-600">Click any pin or badge to view details</span>
             </div>
 
             {/* Map Container */}
@@ -152,28 +151,39 @@ export default function IndiaInfographicMap() {
                 className="w-full h-full object-contain pointer-events-none select-none"
               />
 
-              {/* Interactive Clickable Hotspots (Zero Hover Effects, Direct Links) */}
+              {/* Interactive Clickable Hotspots (100% Transparent - ZERO onclick borders/outlines) */}
               <svg
                 viewBox="0 0 1024 967"
-                className="absolute inset-0 w-full h-full"
+                className="absolute inset-0 w-full h-full pointer-events-auto outline-none focus:outline-none select-none"
+                style={{ outline: 'none', WebkitTapHighlightColor: 'transparent' }}
                 xmlns="http://www.w3.org/2000/svg"
               >
-                {/* Render Direct Clickable Hotspots for all 7 locations */}
+                <style>{`
+                  g:focus, g:focus-visible, g:active,
+                  rect:focus, rect:focus-visible, rect:active,
+                  circle:focus, circle:focus-visible, circle:active,
+                  svg:focus, svg:focus-visible {
+                    outline: none !important;
+                    box-shadow: none !important;
+                    stroke: none !important;
+                    -webkit-tap-highlight-color: transparent !important;
+                  }
+                `}</style>
+                {/* Render Selection Hotspots for all 7 locations */}
                 {AIRMEN_LOCATIONS.map((loc) => {
                   const spot = MAP_HOTSPOTS[loc.id];
                   if (!spot) return null;
 
                   return (
-                    <a
+                    <g
                       key={`spot-${loc.id}`}
-                      href={loc.directionUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
                       onClick={() => setSelectedId(loc.id)}
-                      className="cursor-pointer"
-                      title={`${loc.title} - Click to open in Google Maps`}
+                      className="cursor-pointer outline-none focus:outline-none select-none"
+                      style={{ outline: 'none', WebkitTapHighlightColor: 'transparent', userSelect: 'none' }}
+                      role="button"
+                      aria-label={`Select ${loc.title}`}
                     >
-                      {/* Transparent Clickable Badge Hotspot */}
+                      {/* Transparent Badge Hotspot - NO stroke, NO outline, NO onclick black box */}
                       <rect
                         x={spot.badgeRect.x}
                         y={spot.badgeRect.y}
@@ -181,18 +191,22 @@ export default function IndiaInfographicMap() {
                         height={spot.badgeRect.height}
                         rx={spot.badgeRect.rx}
                         fill="transparent"
-                        className="cursor-pointer"
+                        stroke="none"
+                        style={{ outline: 'none', WebkitTapHighlightColor: 'transparent' }}
+                        className="cursor-pointer outline-none"
                       />
 
-                      {/* Transparent Clickable Pin Hotspot on Map */}
+                      {/* Transparent Pin Hotspot - NO stroke, NO outline */}
                       <circle
                         cx={spot.pinPoint.x}
                         cy={spot.pinPoint.y}
-                        r={spot.pinPoint.r + 10}
+                        r={spot.pinPoint.r + 16}
                         fill="transparent"
-                        className="cursor-pointer"
+                        stroke="none"
+                        style={{ outline: 'none', WebkitTapHighlightColor: 'transparent' }}
+                        className="cursor-pointer outline-none"
                       />
-                    </a>
+                    </g>
                   );
                 })}
               </svg>
@@ -262,14 +276,30 @@ export default function IndiaInfographicMap() {
                   </div>
                 </div>
 
-                {selectedLoc.rawAddressDetails?.pincode && (
-                  <div className="mt-3 pt-2.5 border-t border-gray-200 flex items-center justify-between text-[11px] text-slate-600">
-                    <span><strong>PIN:</strong> {selectedLoc.rawAddressDetails.pincode}</span>
+                {/* City & PIN Badges */}
+                <div className="flex items-center gap-4 mt-3 pt-3 border-t border-gray-200 text-xs text-slate-500 font-mono">
+                  {/* {selectedLoc.pin && (
+                    // <span><strong>PIN:</strong> {selectedLoc.pin}</span>
+                  )} */}
+                  {selectedLoc.city && (
                     <span><strong>City:</strong> {selectedLoc.city}</span>
-                    <span><strong>State:</strong> {selectedLoc.state}</span>
-                  </div>
-                )}
+                  )}
+                  <span><strong>State:</strong> {selectedLoc.state}</span>
+                </div>
               </div>
+
+              {/* Direct Plant Support Callout for Gajraula & Bhiwadi */}
+              {selectedLoc.category === 'Manufacturing Plant' && (
+                <div className="mb-5 p-3.5 rounded-xl bg-blue-50/70 border border-blue-200 text-xs text-navy flex items-start gap-2.5">
+                  <Factory className="w-4 h-4 text-navy shrink-0 mt-0.5" />
+                  <div>
+                    <strong>Manufacturing & Industrial Center:</strong>
+                    <p className="text-slate-600 mt-0.5">
+                      Closed-die forging presses, multi-axis CNC machining, and heavy engineering facility.
+                    </p>
+                  </div>
+                </div>
+              )}
 
               {/* Capabilities Highlights */}
               <div className="space-y-2 mb-5">
@@ -315,13 +345,13 @@ export default function IndiaInfographicMap() {
                 </div>
               </div>
 
-              {/* Direct Google Maps Action Button */}
+              {/* Direct Google Maps Action Button (Placed in place of copy address) */}
               <div className="mt-6">
                 <a
                   href={selectedLoc.directionUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-navy hover:bg-navy-light text-white font-heading font-bold text-xs uppercase tracking-wider transition-all shadow-md shadow-navy/20 cursor-pointer"
+                  className="w-full flex items-center justify-center gap-2.5 px-5 py-3.5 rounded-xl bg-navy hover:bg-slate-800 text-white font-heading font-bold text-xs uppercase tracking-wider transition-all shadow-md shadow-navy/20 cursor-pointer"
                 >
                   <Navigation className="w-4 h-4 text-amber-400" />
                   <span>Open in Google Maps</span>
@@ -331,23 +361,21 @@ export default function IndiaInfographicMap() {
 
             </div>
 
-            {/* Quick 24/7 Response Banner */}
-            <div className="p-5 rounded-2xl bg-slate-100 border border-slate-200 text-xs text-slate-600 space-y-2">
-              <div className="flex items-center gap-2 font-bold text-navy">
+            {/* Quick Helper Callout */}
+            <div className="bg-slate-50 border border-gray-200 rounded-2xl p-4 text-xs text-slate-600 space-y-1.5">
+              <div className="flex items-center gap-1.5 font-bold text-navy">
                 <span className="w-2 h-2 rounded-full bg-emerald-500" />
                 <span>Direct Plant Emergency Support</span>
               </div>
-              <p className="leading-relaxed">
+              <p>
                 Emergency technician van mobilization within 90 to 120 minutes across all primary industrial belts.
               </p>
             </div>
-
           </div>
-
         </div>
 
-        {/* ── 7 Facilities Full Grid Directory ── */}
-        <div className="mt-14 pt-12 border-t border-gray-200">
+        {/* Complete Locations Roster Cards Grid */}
+        <div className="mt-16 pt-12 border-t border-gray-200">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
             <div>
               <span className="text-xs font-bold uppercase tracking-wider text-amber-700 bg-amber-100 px-3 py-1 rounded-full">
@@ -358,7 +386,7 @@ export default function IndiaInfographicMap() {
               </h3>
             </div>
             <p className="text-xs sm:text-sm text-slate-500 max-w-md">
-              Tap any facility below to focus on the 3D map above or launch turn-by-turn driving navigation in Google Maps.
+              Tap any facility below to focus on the 3D map above and view complete details.
             </p>
           </div>
 

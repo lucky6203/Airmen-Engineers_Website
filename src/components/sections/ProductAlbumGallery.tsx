@@ -15,50 +15,58 @@ export interface GalleryProductItem {
   title: string;
   image: string;
   href: string;
+  fit?: 'cover' | 'contain';
 }
 
 export const GALLERY_PRODUCTS: GalleryProductItem[] = [
   {
     id: 'kaeser',
     title: 'Kaeser Rotary Screw Compressor',
-    image: '/images/compressors/kaeser-dsd-clean.png',
+    image: '/images/divisions/kaeser-dsd-product.png',
     href: '/kaeser',
+    fit: 'contain',
   },
   {
     id: 'ep-forklifts',
     title: 'EP Lithium-Ion Forklift',
     image: '/images/forklifts/models/cpd50l1-5t.png',
     href: '/ep-forklifts',
+    fit: 'contain',
   },
   {
     id: 'greaves',
     title: 'Greaves Cotton DG Set',
-    image: '/images/Greaves1.jpg',
+    image: '/images/greaves images/greaves-cpcb4-transparent.png',
     href: '/greaves',
+    fit: 'contain',
   },
   {
     id: 'airpipe',
     title: 'AIRpipe Modular Piping',
     image: '/images/AIRpipe Industrial Pipeline Panorama.png',
     href: '/airpipe',
+    fit: 'cover',
   },
   {
     id: 'forged-hubs',
     title: 'Forged Wheel Hubs & Bosses',
     image: '/images/gujraula_plant_img/8122.jpg.jpeg',
     href: '/manufacturing-products#forged-wheel-hub',
+    fit: 'cover',
   },
   {
     id: 'bearing-rings',
     title: 'Profiled Bearing Rings',
     image: '/images/gujraula_plant_img/6647.jpg.jpeg',
     href: '/manufacturing-products#surface-profile-ring',
+    fit: 'cover',
   },
   {
     id: 'aim-compressors',
     title: 'AIM Industrial Air Compressor',
     image: '/images/forklifts/extracted/R173.png',
     href: '/aim',
+    fit: 'contain',
   },
 ];
 
@@ -246,7 +254,10 @@ export default function ProductAlbumGallery({ variant = 'light' }: ProductAlbumG
                   alt={item.title}
                   fill
                   className={cn(
-                    'object-cover transition-transform duration-500',
+                    item.fit === 'cover'
+                      ? 'object-cover'
+                      : 'object-contain p-2.5 sm:p-4 drop-shadow-md',
+                    'transition-transform duration-500',
                     isActive ? 'scale-100 hover:scale-105' : 'scale-95 opacity-85'
                   )}
                   priority={isActive}

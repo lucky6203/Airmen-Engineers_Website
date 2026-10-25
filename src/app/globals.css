@@ -1081,3 +1081,12 @@ h3 {
     scale: 1 !important;
   }
 }
+/* Flowchart Connector Animation */
+@keyframes flowDash {
+  from {
+    stroke-dashoffset: 20;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}

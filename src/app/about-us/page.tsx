@@ -16,6 +16,8 @@ import {
   Wrench,
   Clock,
   CheckCircle2,
+  Compass,
+  Target,
   Cog,
   Award,
   HeartHandshake,
@@ -447,27 +449,33 @@ export default function AboutPage() {
 
             {/* Vision Card */}
             <div className="
-        group bg-gradient-to-br from-sky-300 via-blue-150 to-sky-300
-        text-slate-800 rounded-3xl p-6 sm:p-8
-        border border-sky-200 shadow-md
-        relative overflow-hidden flex flex-col justify-between
-        transition-all duration-300 ease-out
-        hover:-translate-y-2 hover:shadow-xl hover:shadow-sky-200/60
-        hover:border-sky-300
-      ">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-sky-300/30 rounded-full blur-2xl pointer-events-none transition-transform duration-500 group-hover:scale-125" />
+              group bg-gradient-to-br from-[#0B192C] via-[#0F223A] to-[#0A1424]
+              text-white rounded-3xl p-6 sm:p-8
+              border-2 border-amber-500/30 shadow-xl shadow-navy/20
+              relative overflow-hidden flex flex-col justify-between
+              transition-all duration-300 ease-out
+              hover:-translate-y-2 hover:shadow-2xl hover:shadow-amber-500/20
+              hover:border-amber-400
+            ">
+              <div className="absolute top-0 right-0 w-36 h-36 bg-amber-400/10 rounded-full blur-2xl pointer-events-none transition-transform duration-500 group-hover:scale-125" />
 
               <div className="relative">
-                <h3 className="text-xl sm:text-2xl font-bold text-sky-800 mb-3">
-                  Our Vision
-                </h3>
-                <p className="text-slate-700 text-sm sm:text-base leading-relaxed font-normal">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-10 h-10 rounded-xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400 group-hover:scale-110 transition-transform">
+                    <Compass className="w-5 h-5 text-amber-400" />
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-black text-white group-hover:text-amber-400 transition-colors">
+                    Our Vision
+                  </h3>
+                </div>
+                <div className="w-12 h-1 bg-amber-400 rounded-full mb-3.5 transition-all duration-300 group-hover:w-20" />
+                <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-normal">
                   {VISION[0]}
                 </p>
               </div>
 
-              <div className="relative pt-4 mt-4 border-t border-sky-200 flex items-center gap-2 text-xs text-sky-800 font-semibold">
-                <CheckCircle2 className="w-4 h-4 shrink-0" />
+              <div className="relative pt-4 mt-6 border-t border-slate-700/80 flex items-center gap-2.5 text-xs sm:text-[13px] text-amber-400 font-semibold tracking-wide">
+                <CheckCircle2 className="w-4 h-4 shrink-0 text-amber-400" />
                 <span>
                   Reliability • Technical Expertise • Long-term Relationships
                 </span>
@@ -476,27 +484,33 @@ export default function AboutPage() {
 
             {/* Mission Card */}
             <div className="
-        group bg-gradient-to-br from-sky-300 via-blue-150 to-sky-300
-        text-slate-800 rounded-3xl p-6 sm:p-8
-        border border-sky-200 shadow-md
-        relative overflow-hidden flex flex-col justify-between
-        transition-all duration-300 ease-out
-        hover:-translate-y-2 hover:shadow-xl hover:shadow-sky-200/60
-        hover:border-sky-300
-      ">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-300/30 rounded-full blur-2xl pointer-events-none transition-transform duration-500 group-hover:scale-125" />
+              group bg-gradient-to-br from-[#0B192C] via-[#0F223A] to-[#0A1424]
+              text-white rounded-3xl p-6 sm:p-8
+              border-2 border-amber-500/30 shadow-xl shadow-navy/20
+              relative overflow-hidden flex flex-col justify-between
+              transition-all duration-300 ease-out
+              hover:-translate-y-2 hover:shadow-2xl hover:shadow-amber-500/20
+              hover:border-amber-400
+            ">
+              <div className="absolute top-0 right-0 w-36 h-36 bg-amber-400/10 rounded-full blur-2xl pointer-events-none transition-transform duration-500 group-hover:scale-125" />
 
               <div className="relative">
-                <h3 className="text-xl sm:text-2xl font-bold text-sky-800 mb-3">
-                  Our Mission
-                </h3>
-                <p className="text-slate-700 text-sm sm:text-base leading-relaxed font-normal">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="w-10 h-10 rounded-xl bg-amber-400/10 border border-amber-400/30 flex items-center justify-center text-amber-400 group-hover:scale-110 transition-transform">
+                    <Target className="w-5 h-5 text-amber-400" />
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-black text-white group-hover:text-amber-400 transition-colors">
+                    Our Mission
+                  </h3>
+                </div>
+                <div className="w-12 h-1 bg-amber-400 rounded-full mb-3.5 transition-all duration-300 group-hover:w-20" />
+                <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-normal">
                   {MISSION[0]}
                 </p>
               </div>
 
-              <div className="relative pt-4 mt-4 border-t border-sky-200 flex items-center gap-2 text-xs text-sky-800 font-semibold">
-                <CheckCircle2 className="w-4 h-4 shrink-0" />
+              <div className="relative pt-4 mt-6 border-t border-slate-700/80 flex items-center gap-2.5 text-xs sm:text-[13px] text-amber-400 font-semibold tracking-wide">
+                <CheckCircle2 className="w-4 h-4 shrink-0 text-amber-400" />
                 <span>
                   Compressors • Generators • Forklifts • Piping Systems
                 </span>

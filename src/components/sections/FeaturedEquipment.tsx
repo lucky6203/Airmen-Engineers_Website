@@ -9,7 +9,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
   ArrowRight,
   ArrowUpRight,
@@ -25,7 +25,9 @@ import {
   Crosshair,
   Zap,
   Wind,
-  Cog
+  Cog,
+  ZoomIn,
+  X
 } from 'lucide-react';
 import Container from '@/components/common/Container';
 import Button from '@/components/common/Button';
@@ -327,6 +329,8 @@ const MFG_GALLERY_PREVIEW = [
 
 
 export default function FeaturedEquipment() {
+  const [isKaeserModalOpen, setIsKaeserModalOpen] = useState(false);
+
   return (
     <section className="pt-10 sm:pt-14 pb-8 sm:pb-10 bg-[#FAFAFC] relative overflow-hidden border-b border-gray-200" id="featured-equipment">
       {/* Subtle technical engineering background curves matching mockup */}
@@ -371,7 +375,7 @@ export default function FeaturedEquipment() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="group text-center sm:text-left rounded-3xl sm:rounded-[36px] bg-white border border-slate-200/90 hover:border-amber-300 transition-all duration-500 overflow-hidden relative flex flex-col md:flex-row justify-between shadow-xl shadow-slate-200/60 hover:shadow-2xl hover:-translate-y-1.5"
+            className="group text-center sm:text-left rounded-3xl sm:rounded-[36px] bg-white border-2 border-amber-400 hover:border-amber-500 transition-all duration-500 overflow-hidden relative flex flex-col md:flex-row justify-between shadow-xl shadow-amber-500/10 hover:shadow-2xl hover:shadow-amber-500/20 hover:-translate-y-1.5"
           >
             {/* Left Content Area */}
             <div className="flex-1 p-6 sm:p-8 flex flex-col justify-between relative z-10">
@@ -460,15 +464,15 @@ export default function FeaturedEquipment() {
               </div>
             </div>
 
-            {/* Right Visual Area with Angled Image */}
-            <div className="w-full md:w-[42%] relative min-h-[260px] md:min-h-full overflow-hidden shrink-0 bg-slate-50">
-              <div className="relative w-full h-full min-h-[260px] md:min-h-[380px] md:[clip-path:polygon(14%_0,100%_0,100%_100%,0%_100%)] flex items-center justify-center p-4 sm:p-6 md:p-8 bg-gradient-to-br from-slate-100 via-stone-50 to-slate-200/90">
+            {/* Right Visual Area with Angled Image matching Forging & Manufacturing */}
+            <div className="w-full md:w-[42%] relative min-h-[240px] md:min-h-full overflow-hidden shrink-0">
+              <div className="relative w-full h-full min-h-[240px] md:min-h-[380px] md:[clip-path:polygon(14%_0,100%_0,100%_100%,0%_100%)]">
                 <img
-                  src="/images/divisions/kaeser-dsd-product.png"
-                  alt="KAESER DSD 240 Industrial Rotary Screw Compressor"
-                  className="w-full h-full max-h-[300px] md:max-h-[360px] object-contain group-hover:scale-105 transition-transform duration-700 drop-shadow-xl"
+                  src="/images/29887d34-1d55-4f92-8695-8262e0f91ddd.png"
+                  alt="Industrial Products & Services Infrastructure"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy/5 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy/30 via-transparent to-transparent pointer-events-none" />
               </div>
             </div>
           </motion.div>
@@ -570,6 +574,71 @@ export default function FeaturedEquipment() {
             </div>
           </motion.div>
         </div>
+        {/* Full-Screen Lightbox Modal for Industrial Yellow KAESER Compressor */}
+        <AnimatePresence>
+          {isKaeserModalOpen && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-md p-4 sm:p-8"
+              onClick={() => setIsKaeserModalOpen(false)}
+            >
+              <motion.div
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.9, opacity: 0 }}
+                transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+                className="relative max-w-5xl w-full bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-2xl border border-white/20 flex flex-col items-center"
+                onClick={(e) => e.stopPropagation()}
+              >
+                {/* Modal Header */}
+                <div className="w-full flex items-center justify-between pb-4 border-b border-slate-200">
+                  <div>
+                    <h4 className="text-lg sm:text-xl font-bold text-navy flex items-center gap-2">
+                      <span className="w-2.5 h-2.5 rounded-full bg-amber-500 inline-block" />
+                      KAESER Industrial Rotary Screw Compressor Unit
+                    </h4>
+                    <p className="text-xs sm:text-sm text-slate-500">Official High-Efficiency German Engineered Air System</p>
+                  </div>
+                  <button
+                    onClick={() => setIsKaeserModalOpen(false)}
+                    className="p-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-navy transition-colors cursor-pointer"
+                    aria-label="Close image modal"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+                </div>
+
+                {/* Full Resolution Image */}
+                <div className="w-full py-4 sm:py-6 flex items-center justify-center overflow-hidden">
+                  <img
+                    src="/images/Industrial%20Yellow%20KAESER%20Compressor%20Unit.png"
+                    alt="Industrial Yellow KAESER Compressor Unit - Full Resolution View"
+                    className="max-h-[65vh] w-auto max-w-full object-contain drop-shadow-2xl"
+                  />
+                </div>
+
+                {/* Modal Footer CTA */}
+                <div className="w-full flex flex-col sm:flex-row items-center justify-between gap-3 pt-4 border-t border-slate-200">
+                  <span className="text-xs text-slate-500 font-medium">
+                    Authorized Kaeser Kompressoren Sales, Installation &amp; 24/7 Support Across India
+                  </span>
+                  <div className="flex items-center gap-3 w-full sm:w-auto">
+                    <Button
+                      href="/kaeser"
+                      size="sm"
+                      className="bg-navy hover:bg-slate-800 text-white w-full sm:w-auto text-xs"
+                      onClick={() => setIsKaeserModalOpen(false)}
+                    >
+                      View Kaeser Catalogue
+                    </Button>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </Container>
     </section>
   );

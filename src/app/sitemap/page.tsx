@@ -31,7 +31,6 @@ export default function SitemapPage() {
       title: 'Industrial Equipment & Brands',
       links: [
         { label: 'Kaeser Rotary Screw Compressors', href: '/kaeser' },
-        { label: 'AIM Compressors & Pneumatics', href: '/aim' },
         { label: 'EP Lithium-Ion Forklifts & Material Handling', href: '/ep-forklifts' },
         { label: 'AIRpipe Compressed Air Piping Systems', href: '/airpipe' },
         { label: 'Greaves Cotton DG Sets & Power Solutions', href: '/greaves' },

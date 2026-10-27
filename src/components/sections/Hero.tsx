@@ -10,7 +10,7 @@ import Image from 'next/image';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 export interface HeroSlide {
-  id: 'kaeser' | 'greaves' | 'aim' | 'ep' | 'airpipe';
+  id: 'kaeser' | 'greaves' | 'ep' | 'airpipe';
   url: string;
   alt: string;
   brandName: string;
@@ -40,12 +40,6 @@ export const HERO_IMAGES: HeroSlide[] = [
     url: '/images/Modern Greaves Power Generator Facility.png',
     alt: 'Greaves Cotton — Industrial Diesel Generators & Power Solutions',
     brandName: 'Greaves Power (Greaves Cotton)',
-  },
-  {
-    id: 'aim',
-    url: '/images/ANEST IWATA Air Compressor Showcase.png',
-    alt: 'AIM / Anest Iwata Motherson — Reciprocating & Oil-Free Air Compressors',
-    brandName: 'AIM (Anest Iwata Motherson)',
   },
 ];
 

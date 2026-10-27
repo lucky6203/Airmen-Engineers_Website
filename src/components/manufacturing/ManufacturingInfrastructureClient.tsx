@@ -388,7 +388,7 @@ const MACHINERY_FLEET: MachineSpec[] = [
 
 // --- FLAGSHIP PROJECT: METSO OUTOTEC SPECIAL PURPOSE COMPRESSOR ---
 const METSO_PROJECT_PHOTOS = [
-  { src: '/images/factory_ppt/image38.jpeg', caption: 'AE-AIM PDC100 Special Purpose Compressor Assembly' },
+  { src: '/images/factory_ppt/image38.jpeg', caption: 'AE PDC100 Special Purpose Compressor Assembly' },
   { src: '/images/factory_ppt/image40.png', caption: 'Heavy-Duty Skidded Compressor Rig for Stone-Crushing' },
   { src: '/images/factory_ppt/image41.png', caption: 'In-House R&D Piping & Instrumentation Controls' },
   { src: '/images/factory_ppt/image42.png', caption: 'Severe Vibration Dampening & Dynamic Balances' },
@@ -639,7 +639,7 @@ export default function ManufacturingInfrastructureClient() {
     setFormSubmitted(true);
     const message = encodeURIComponent(
       `Hello Airmen Engineers Team,\n\nI would like to schedule an On-Site Audit / Technical RFQ for Gajraula Manufacturing Plant (Works: I-44/45, Gajraula, Amroha, U.P.):\n` +
-        `Name: ${formName}\nCompany: ${formCompany}\nPhone: ${formPhone}\nEmail: ${formEmail}\nRequirement: ${formRequirement}`
+      `Name: ${formName}\nCompany: ${formCompany}\nPhone: ${formPhone}\nEmail: ${formEmail}\nRequirement: ${formRequirement}`
     );
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, '_blank');
   };
@@ -870,26 +870,75 @@ export default function ManufacturingInfrastructureClient() {
           </div>
 
           {/* Quick KPI Strip */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3.5 sm:gap-4 pt-10 sm:pt-14">
-            <div className="bg-white border border-stone-200/90 rounded-2xl p-4 sm:p-5 shadow-xs hover:shadow-md transition-shadow">
-              <div className="text-2xl sm:text-4xl font-black text-amber-500 font-mono">30+ Years</div>
-              <div className="text-xs text-slate-500 uppercase font-bold tracking-wider mt-1">Engineering Heritage</div>
-              <p className="text-[11px] text-slate-600 mt-1">Specialized industrial manufacturing since 1990s</p>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3.5 sm:gap-4 pt-10 sm:pt-14">
+            {/* Card 1 */}
+            <div className="group relative bg-white border border-stone-200/90 hover:border-amber-400/90 rounded-2xl p-4 sm:p-5 shadow-xs hover:shadow-xl hover:shadow-amber-500/10 transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between overflow-hidden cursor-default">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-400 to-amber-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute -top-10 -right-10 w-24 h-24 bg-amber-400/10 rounded-full blur-xl group-hover:scale-150 transition-transform duration-500 pointer-events-none" />
+              <div className="relative z-10">
+                <div className="text-xl sm:text-2xl lg:text-3xl font-black text-amber-500 group-hover:text-amber-600 font-mono tracking-tight transition-colors">
+                  Gear Blanks &amp; Shafts
+                </div>
+              </div>
+              <div className="relative z-10 text-xs text-slate-500 group-hover:text-slate-800 uppercase font-bold tracking-wider mt-4 transition-colors">
+                Manufactures of Forged &amp; Machined
+              </div>
             </div>
-            <div className="bg-white border border-stone-200/90 rounded-2xl p-4 sm:p-5 shadow-xs hover:shadow-md transition-shadow">
-              <div className="text-2xl sm:text-4xl font-black text-slate-950 font-mono">1,200 MT</div>
-              <div className="text-xs text-slate-500 uppercase font-bold tracking-wider mt-1">Forging Capacity / Mo</div>
-              <p className="text-[11px] text-slate-600 mt-1">Closed-die press and drop hammer production</p>
+
+            {/* Card 2 */}
+            <div className="group relative bg-white border border-stone-200/90 hover:border-amber-400/90 rounded-2xl p-4 sm:p-5 shadow-xs hover:shadow-xl hover:shadow-amber-500/10 transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between overflow-hidden cursor-default">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-400 to-amber-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute -top-10 -right-10 w-24 h-24 bg-amber-400/10 rounded-full blur-xl group-hover:scale-150 transition-transform duration-500 pointer-events-none" />
+              <div className="relative z-10">
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-950 group-hover:text-amber-600 font-mono tracking-tight transition-colors">
+                  3,000 sq mtrs
+                </div>
+              </div>
+              <div className="relative z-10 text-xs text-slate-500 group-hover:text-slate-800 uppercase font-bold tracking-wider mt-4 transition-colors">
+                Area Facility
+              </div>
             </div>
-            <div className="bg-white border border-stone-200/90 rounded-2xl p-4 sm:p-5 shadow-xs hover:shadow-md transition-shadow">
-              <div className="text-2xl sm:text-4xl font-black text-amber-500 font-mono">45+ CNCs</div>
-              <div className="text-xs text-slate-500 uppercase font-bold tracking-wider mt-1">Turning &amp; VMC Fleet</div>
-              <p className="text-[11px] text-slate-600 mt-1">High-speed turning &amp; 4-axis multi-machining</p>
+
+            {/* Card 3 */}
+            <div className="group relative bg-white border border-stone-200/90 hover:border-amber-400/90 rounded-2xl p-4 sm:p-5 shadow-xs hover:shadow-xl hover:shadow-amber-500/10 transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between overflow-hidden cursor-default">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-400 to-amber-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute -top-10 -right-10 w-24 h-24 bg-amber-400/10 rounded-full blur-xl group-hover:scale-150 transition-transform duration-500 pointer-events-none" />
+              <div className="relative z-10">
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-black text-amber-500 group-hover:text-amber-600 font-mono tracking-tight transition-colors">
+                  30 CNC + 12 VMC
+                </div>
+              </div>
+              <div className="relative z-10 text-xs text-slate-500 group-hover:text-slate-800 uppercase font-bold tracking-wider mt-4 transition-colors">
+                Tsugami &amp; Ace Make Machines
+              </div>
             </div>
-            <div className="bg-white border border-stone-200/90 rounded-2xl p-4 sm:p-5 shadow-xs hover:shadow-md transition-shadow">
-              <div className="text-2xl sm:text-4xl font-black text-slate-950 font-mono">±0.01 mm</div>
-              <div className="text-xs text-slate-500 uppercase font-bold tracking-wider mt-1">Sub-Micron Tolerance</div>
-              <p className="text-[11px] text-slate-600 mt-1">Luthra Gr.0 &amp; 3D CMM metrology certified</p>
+
+            {/* Card 4 */}
+            <div className="group relative bg-white border border-stone-200/90 hover:border-amber-400/90 rounded-2xl p-4 sm:p-5 shadow-xs hover:shadow-xl hover:shadow-amber-500/10 transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between overflow-hidden cursor-default">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-400 to-amber-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute -top-10 -right-10 w-24 h-24 bg-amber-400/10 rounded-full blur-xl group-hover:scale-150 transition-transform duration-500 pointer-events-none" />
+              <div className="relative z-10">
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-950 group-hover:text-amber-600 font-mono tracking-tight transition-colors">
+                  630T + 400T
+                </div>
+              </div>
+              <div className="relative z-10 text-xs text-slate-500 group-hover:text-slate-800 uppercase font-bold tracking-wider mt-4 transition-colors">
+                Friction Screw Press
+              </div>
+            </div>
+
+            {/* Card 5 */}
+            <div className="col-span-2 sm:col-span-1 group relative bg-white border border-stone-200/90 hover:border-amber-400/90 rounded-2xl p-4 sm:p-5 shadow-xs hover:shadow-xl hover:shadow-amber-500/10 transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between overflow-hidden cursor-default">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-400 to-amber-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute -top-10 -right-10 w-24 h-24 bg-amber-400/10 rounded-full blur-xl group-hover:scale-150 transition-transform duration-500 pointer-events-none" />
+              <div className="relative z-10">
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-black text-amber-500 group-hover:text-amber-600 font-mono tracking-tight transition-colors">
+                  250 kW
+                </div>
+              </div>
+              <div className="relative z-10 text-xs text-slate-500 group-hover:text-slate-800 uppercase font-bold tracking-wider mt-4 transition-colors">
+                Roof top Solar capacity Under Installation
+              </div>
             </div>
           </div>
         </Container>
@@ -1064,11 +1113,10 @@ export default function ManufacturingInfrastructureClient() {
                       key={tab.id}
                       type="button"
                       onClick={() => handleTabChange(tab.id)}
-                      className={`px-3 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 whitespace-nowrap cursor-pointer shrink-0 ${
-                        isActive
-                          ? 'bg-amber-400 text-slate-950 shadow-md scale-102 font-extrabold'
-                          : 'text-stone-300 hover:text-white hover:bg-stone-800/90'
-                      }`}
+                      className={`px-3 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-2 whitespace-nowrap cursor-pointer shrink-0 ${isActive
+                        ? 'bg-amber-400 text-slate-950 shadow-md scale-102 font-extrabold'
+                        : 'text-stone-300 hover:text-white hover:bg-stone-800/90'
+                        }`}
                     >
                       <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-slate-950' : 'text-amber-400'}`} />
                       <span>{tab.label}</span>
@@ -1511,7 +1559,7 @@ export default function ManufacturingInfrastructureClient() {
                       Special Purpose Compressor for Metso Outotec
                     </h2>
                     <p className="text-sm sm:text-base text-amber-800 font-semibold italic mt-1.5">
-                      &ldquo;AE-AIM PDC100 was fully built in-house with the expertise of our technical and R&amp;D engineering team.&rdquo;
+                      &ldquo;AE PDC100 was fully built in-house with the expertise of our technical and R&amp;D engineering team.&rdquo;
                     </p>
                     <p className="text-slate-600 text-xs sm:text-sm mt-2 leading-relaxed">
                       Airmen Engineers engineered and manufactured this Special Purpose Compressor for global heavy-equipment giant <strong>Metso Outotec</strong>, deployed worldwide for heavy-duty stone-crushing and mineral processing rigs.
@@ -1527,7 +1575,7 @@ export default function ManufacturingInfrastructureClient() {
                         onClick={() =>
                           setLightboxData({
                             src: item.src,
-                            title: 'Metso Outotec AE-AIM PDC100 Project',
+                            title: 'Metso Outotec AE PDC100 Project',
                             subtitle: item.caption,
                           })
                         }
@@ -1667,11 +1715,10 @@ export default function ManufacturingInfrastructureClient() {
                           key={pill.id}
                           type="button"
                           onClick={() => setFleetFilter(pill.id as any)}
-                          className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
-                            fleetFilter === pill.id
-                              ? 'bg-amber-400 text-slate-950 shadow-xs'
-                              : 'bg-stone-100 text-slate-700 hover:text-slate-900 hover:bg-stone-200 border border-stone-200'
-                          }`}
+                          className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${fleetFilter === pill.id
+                            ? 'bg-amber-400 text-slate-950 shadow-xs'
+                            : 'bg-stone-100 text-slate-700 hover:text-slate-900 hover:bg-stone-200 border border-stone-200'
+                            }`}
                         >
                           {pill.label}
                         </button>
@@ -1839,11 +1886,10 @@ export default function ManufacturingInfrastructureClient() {
                   key={cat.id}
                   type="button"
                   onClick={() => setGalleryFilter(cat.id as any)}
-                  className={`px-4 py-2 rounded-full text-xs font-black transition-all cursor-pointer ${
-                    galleryFilter === cat.id
-                      ? 'bg-amber-400 text-slate-950 shadow-md scale-102'
-                      : 'bg-stone-100 text-slate-700 hover:text-slate-950 hover:bg-stone-200 border border-stone-200'
-                  }`}
+                  className={`px-4 py-2 rounded-full text-xs font-black transition-all cursor-pointer ${galleryFilter === cat.id
+                    ? 'bg-amber-400 text-slate-950 shadow-md scale-102'
+                    : 'bg-stone-100 text-slate-700 hover:text-slate-950 hover:bg-stone-200 border border-stone-200'
+                    }`}
                 >
                   {cat.label}
                 </button>

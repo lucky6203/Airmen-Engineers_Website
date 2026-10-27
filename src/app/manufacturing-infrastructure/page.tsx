@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     'I-44/45 Gajraula Amroha',
     'closed die forging plant gajraula',
     'Metso Outotec special purpose compressor',
-    'AE-AIM PDC100 compressor',
+    'AE PDC100 compressor',
     'CNC turning machining facility uttar pradesh',
     'ISO 9001:2015 manufacturing airmen',
     'automotive forged components india',

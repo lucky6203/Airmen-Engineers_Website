@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     'manufacturing industry infrastructure',
     'Airmen Engineers Works I-44/45 Gajraula',
     'closed die forging plant gajraula',
-    'Metso Outotec compressor AE-AIM PDC100',
+    'Metso Outotec compressor AE PDC100',
     'automotive forging plant india',
     'CNC machining shop floor',
     'ISO 9001:2015 manufacturing airmen',

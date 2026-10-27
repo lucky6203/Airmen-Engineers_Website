@@ -10,7 +10,6 @@ export const MEGA_MENU_CATEGORIES: MegaMenuCategory[] = [
     icon: 'Wind',
     items: [
       { label: 'Kaeser Compressors', href: '/kaeser', description: 'German engineered screw air compressors' },
-      { label: 'AIM Compressors', href: '/aim', description: 'Reciprocating & scroll compressors' },
     ],
   },
   {
@@ -85,7 +84,6 @@ export const PRODUCTS_MEGA_MENU: MegaMenuCategory[] = [
       { label: 'EP Li-Ion Forklifts', href: '/ep-forklifts', description: 'Electric, diesel & warehouse forklifts' },
       { label: 'Greaves Cotton DG Sets', href: '/greaves', description: 'CPCB IV+ heavy-duty diesel generator sets' },
       { label: 'AIRpipe Systems', href: '/airpipe', description: 'Quick-connect aluminium & steel air piping' },
-      { label: 'AIM Compressors', href: '/aim', description: 'Reciprocating, piston & scroll compressors' },
       { label: 'All Industrial Products →', href: '/products', description: 'Explore complete authorized dealership lines' },
     ],
   },
@@ -160,7 +158,6 @@ export const NAV_ITEMS: NavItem[] = [
 export const FOOTER_LINKS = {
   products: [
     { label: 'Kaeser', href: '/kaeser' },
-    { label: 'AIM', href: '/aim' },
     { label: 'EP Forklifts', href: '/ep-forklifts' },
     { label: 'AIRpipe', href: '/airpipe' },
     { label: 'Greaves', href: '/greaves' },

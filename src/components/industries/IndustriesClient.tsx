@@ -109,7 +109,7 @@ const INDUSTRY_SHOWCASE: IndustryItem[] = [
       'Critical cold storage backup power with instantaneous AMF transfer'
     ],
     recommendedSolutions: [
-      { name: 'AIM 100% Oil-Free Reciprocating & Scroll Compressors', brand: 'AIM Anest Iwata', link: '/products' },
+      { name: 'Kaeser Oil-Free & High Purity Air Compressors', brand: 'Kaeser Kompressoren', link: '/kaeser' },
       { name: 'EP Compact Electric Pallet Trucks (BOPT & E-HPT)', brand: 'EP Equipment', link: '/ep-forklifts' },
       { name: 'AIRpipe Stainless Steel Cleanroom Piping', brand: 'AIRpipe', link: '/products' }
     ],

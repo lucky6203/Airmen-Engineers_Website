@@ -9,7 +9,6 @@ import {
   Truck,
   Flame,
   Layers,
-  Activity,
   PhoneCall,
   Search,
   ExternalLink,
@@ -52,11 +51,6 @@ const CATEGORY_TABS = [
     id: 'compressed-air-piping',
     label: 'Air Piping',
     icon: Layers,
-  },
-  {
-    id: 'smart-monitoring',
-    label: 'Smart IIoT',
-    icon: Activity,
   },
 ];
 

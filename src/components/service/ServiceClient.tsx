@@ -24,7 +24,8 @@ import {
   Zap,
   AlertCircle,
   HelpCircle,
-  ChevronRight
+  ChevronRight,
+  Sparkles
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Container from '@/components/common/Container';
@@ -38,7 +39,6 @@ const SERVICE_HERO_CARDS = [
   { id: '4', image: '/images/servicepage img/Blue Industrial Piping on Rooftop.png', alt: 'AIRpipe Industrial Piping Network' },
   { id: '5', image: '/images/servicepage img/Yellow KAESER Industrial Compressor Unit.png', alt: 'KAESER Industrial Compressor Unit' },
   { id: '6', image: '/images/servicepage img/Sparks Over the Turning Gear.png', alt: 'In-House Precision Gear Machining' },
-  { id: '7', image: '/images/servicepage img/ANEST IWATA Industrial Air Compressor.png', alt: 'ANEST IWATA Industrial Air Compressor' },
   { id: '8', image: '/images/servicepage img/KAESER SXC 4 Industrial Compressor.png', alt: 'KAESER SXC 4 Compressor' },
   { id: '9', image: '/images/servicepage img/Angled Steel Flange Coupling on White.png', alt: 'Coupling & Genuine Spares' },
   { id: '10', image: '/images/servicepage img/Red and Black EP Electric Forklift.png', alt: 'Red & Black EP Electric Forklift' },
@@ -168,10 +168,9 @@ const CONTRACT_TIERS = [
       '4 Scheduled quarterly preventive service visits',
       'Priority emergency breakdown response (under 4 hours)',
       'Detailed digital job cards & service history logs',
-
       'BMS battery & CPCB IV+ emission compliance audits'
     ],
-    highlight: false,
+    highlight: true,
     ctaText: 'Get AMC Quotation',
   },
 ];
@@ -247,21 +246,19 @@ export default function ServiceClient() {
                   <div>
                     {/* Visual Stage */}
                     <div
-                      className={`relative aspect-[16/10] overflow-hidden ${
-                        isWhiteBg
+                      className={`relative aspect-[16/10] overflow-hidden ${isWhiteBg
                           ? 'bg-white border-b border-gray-100 p-3 sm:p-4 flex items-center justify-center'
                           : 'bg-slate-900'
-                      }`}
+                        }`}
                     >
                       <Image
                         src={srv.image}
                         alt={srv.title}
                         fill
-                        className={`${
-                          isWhiteBg
+                        className={`${isWhiteBg
                             ? 'object-contain p-2'
                             : 'object-cover object-center'
-                        } group-hover:scale-105 transition-transform duration-500`}
+                          } group-hover:scale-105 transition-transform duration-500`}
                       />
                       {!isWhiteBg && (
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
@@ -336,8 +333,9 @@ export default function ServiceClient() {
                   }`}
               >
                 {tier.highlight && (
-                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-amber-400 text-slate-950 font-bold text-[10px] uppercase tracking-wider shadow-md">
-                    MOST RECOMMENDED FOR FACTORIES
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full bg-amber-400 text-slate-950 font-black text-[11px] uppercase tracking-wider shadow-lg flex items-center gap-1.5 whitespace-nowrap">
+                    <Sparkles className="w-3.5 h-3.5 text-slate-950 fill-slate-950" />
+                    <span>Most Recommended</span>
                   </div>
                 )}
 

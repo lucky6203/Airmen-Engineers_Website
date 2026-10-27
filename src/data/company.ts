@@ -233,7 +233,7 @@ export const WHY_AIRMEN: FeatureCard[] = [
   {
     icon: 'Handshake',
     title: 'Trusted Partnerships',
-    description: 'Authorized dealer for world-class brands including Kaeser, EP Equipment, and AIM.',
+    description: 'Authorized dealer for world-class brands including Kaeser, EP Equipment, AIRpipe, and Greaves Cotton.',
   },
   {
     icon: 'Wrench',

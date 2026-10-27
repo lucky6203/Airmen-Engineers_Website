@@ -12,9 +12,9 @@ export const metadata: Metadata = {
     template: '%s | Airmen Engineers',
   },
   description:
-    'Airmen Engineers is India\'s trusted supplier of industrial air compressors (Kaeser, AIM), forklifts (EP Equipment), compressed air piping (AIRpipe), and power solutions (Greaves). Established 1996.',
+    'Airmen Engineers is India\'s trusted supplier of industrial air compressors (Kaeser), forklifts (EP Equipment), compressed air piping (AIRpipe), and power solutions (Greaves). Established 1996.',
   keywords: [
-    'air compressor', 'screw compressor', 'Kaeser', 'AIM compressor',
+    'air compressor', 'screw compressor', 'Kaeser',
     'EP forklift', 'AIRpipe', 'Greaves generator',
     'industrial compressor Delhi', 'compressor rental', 'compressed air piping',
     'material handling', 'energy audit', 'Airmen Engineers',

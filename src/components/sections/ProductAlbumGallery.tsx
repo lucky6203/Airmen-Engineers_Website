@@ -61,13 +61,6 @@ export const GALLERY_PRODUCTS: GalleryProductItem[] = [
     href: '/manufacturing-products#surface-profile-ring',
     fit: 'cover',
   },
-  {
-    id: 'aim-compressors',
-    title: 'AIM Industrial Air Compressor',
-    image: '/images/forklifts/extracted/R173.png',
-    href: '/aim',
-    fit: 'contain',
-  },
 ];
 
 interface ProductAlbumGalleryProps {

@@ -15,7 +15,7 @@ const IMAGES = [
   { url: '/images/banner-2.jpg', title: 'Industrial Solutions' },
   { url: '/images/banner-3.jpg', title: 'EP Forklifts' },
   { url: '/images/banner-4.jpg', title: 'Greaves Power' },
-  { url: '/images/banner-5.jpg', title: 'AIM Compressors' }
+  { url: '/images/banner-5.jpg', title: 'AIRpipe Systems' }
 ];
 
 function Carousel() {

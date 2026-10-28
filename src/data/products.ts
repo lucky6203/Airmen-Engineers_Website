@@ -487,7 +487,10 @@ export const PRODUCTS: Product[] = [
     slug: 'airpipe-aluminium-piping',
     description: 'AIRpipe aluminium compressed air piping system with quick-connect technology. Lightweight, corrosion-resistant, and designed for fast installation compared to traditional piping.',
     shortDescription: 'Quick-connect aluminium piping for fast and reliable compressed air distribution.',
-    images: [],
+    images: [
+      '/images/airpipe/aluminium-piping.jpg',
+      '/images/AIRpipe Industrial Blue Pipeline Network.png',
+    ],
     specifications: [
       { label: 'Material', value: 'Aluminium' },
       { label: 'Connection', value: 'Quick-Connect' },
@@ -512,7 +515,9 @@ export const PRODUCTS: Product[] = [
     slug: 'airpipe-stainless-piping',
     description: 'AIRpipe stainless steel piping for demanding environments requiring high purity, washdown capability, or resistance to harsh chemicals.',
     shortDescription: 'Stainless steel piping for high-purity and chemical-resistant applications.',
-    images: [],
+    images: [
+      '/images/airpipe/stainless-piping.jpg',
+    ],
     specifications: [
       { label: 'Material', value: 'Stainless Steel' },
       { label: 'Connection', value: 'Quick-Connect' },
@@ -534,7 +539,9 @@ export const PRODUCTS: Product[] = [
     slug: 'airpipe-fittings',
     description: 'Complete range of AIRpipe fittings and accessories for building and expanding compressed air piping networks.',
     shortDescription: 'Complete range of quick-connect fittings and piping accessories.',
-    images: [],
+    images: [
+      '/images/airpipe/fittings-accessories.jpg',
+    ],
     specifications: [],
     applications: ['All compressed air piping installations'],
     features: [

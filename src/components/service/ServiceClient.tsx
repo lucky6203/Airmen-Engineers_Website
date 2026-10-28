@@ -34,13 +34,14 @@ import CurvedHeroScroller from '@/components/service/CurvedHeroScroller';
 
 const SERVICE_HERO_CARDS = [
   { id: '1', image: '/images/servicepage img/Modern Industrial Compressor Room.png', alt: 'Modern Industrial Compressor Room' },
-  { id: '2', image: '/images/servicepage img/KAESER DSD 240 Industrial Compressor (1).png', alt: 'KAESER DSD 240 Compressor' },
-  { id: '3', image: '/images/servicepage img/Red-and-Black EP Electric Forklift.png', alt: 'EP Electric Forklift' },
-  { id: '4', image: '/images/servicepage img/Blue Industrial Piping on Rooftop.png', alt: 'AIRpipe Industrial Piping Network' },
-  { id: '5', image: '/images/servicepage img/Yellow KAESER Industrial Compressor Unit.png', alt: 'KAESER Industrial Compressor Unit' },
-  { id: '6', image: '/images/servicepage img/Sparks Over the Turning Gear.png', alt: 'In-House Precision Gear Machining' },
-  { id: '8', image: '/images/servicepage img/KAESER SXC 4 Industrial Compressor.png', alt: 'KAESER SXC 4 Compressor' },
-  { id: '9', image: '/images/servicepage img/Angled Steel Flange Coupling on White.png', alt: 'Coupling & Genuine Spares' },
+  { id: '2', image: '/images/servicepage img/Industrial Diesel Generator Installation.jpg', alt: 'Greaves Industrial Diesel Generator' },
+  { id: '3', image: '/images/AIRpipe Industrial Blue Pipeline Network.png', alt: 'AIRpipe Industrial Blue Pipeline Network' },
+  { id: '4', image: '/images/servicepage img/KAESER DSD 240 Industrial Compressor (1).png', alt: 'KAESER DSD 240 Compressor' },
+  { id: '5', image: '/images/servicepage img/Red-and-Black EP Electric Forklift.png', alt: 'EP Electric Forklift' },
+  { id: '6', image: '/images/servicepage img/Blue Industrial Piping on Rooftop.png', alt: 'AIRpipe Industrial Piping Network' },
+  { id: '7', image: '/images/Modern Greaves Power Generator Facility.png', alt: 'Greaves Power Generator Facility' },
+  { id: '8', image: '/images/servicepage img/Yellow KAESER Industrial Compressor Unit.png', alt: 'KAESER Industrial Compressor Unit' },
+  { id: '9', image: '/images/airpipe/aluminium-piping.jpg', alt: 'AIRpipe Aluminium Piping System' },
   { id: '10', image: '/images/servicepage img/Red and Black EP Electric Forklift.png', alt: 'Red & Black EP Electric Forklift' },
 ];
 
@@ -191,7 +192,7 @@ export default function ServiceClient() {
             </h1>
 
             <p className="text-sm sm:text-base lg:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto font-normal">
-              Protecting 5,000+ manufacturing plants across North India with certified German compressor overhauls, lithium-ion forklift care, and CPCB IV+ compliant DG set emergency support.
+              Protecting 5,000+ manufacturing plants across North India with certified German compressor overhauls, lithium-ion forklift care, CPCB IV+ compliant diesel generator maintenance, and modular AIRpipe piping systems.
             </p>
           </div>
         </Container>

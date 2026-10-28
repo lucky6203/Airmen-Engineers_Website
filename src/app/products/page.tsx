@@ -23,10 +23,20 @@ export const metadata: Metadata = {
 };
 
 export default function ProductsPage() {
+  // Exclude AIM products from the product catalog page
+  const nonAimProducts = PRODUCTS.filter(
+    (product) => product.brand?.id !== 'aim' && product.brand?.slug !== 'aim'
+  );
+
+  const categories = PRODUCT_CATEGORIES.map((cat) => ({
+    ...cat,
+    brands: cat.brands?.filter((b) => b.id !== 'aim' && b.slug !== 'aim'),
+  }));
+
   return (
     <div className="bg-[#0b1320] min-h-screen">
       <Breadcrumb items={[{ label: 'Industrial Products' }]} />
-      <ProductsOverviewClient products={PRODUCTS} categories={PRODUCT_CATEGORIES} />
+      <ProductsOverviewClient products={nonAimProducts} categories={categories} />
     </div>
   );
 }

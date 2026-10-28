@@ -11,10 +11,16 @@ interface Props {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params;
+  const { brand, slug } = await params;
+  if (brand === 'aim') {
+    return {
+      title: 'Product Not Found | Airmen Engineers',
+    };
+  }
+
   const product = PRODUCTS.find((p) => p.slug === slug);
 
-  if (!product) {
+  if (!product || product.brand?.id === 'aim' || product.brand?.slug === 'aim') {
     return {
       title: 'Product Not Found | Airmen Engineers',
     };
@@ -34,15 +40,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ProductDetailPage({ params }: Props) {
   const { brand, slug } = await params;
-  const product = PRODUCTS.find((p) => p.slug === slug);
-
-  if (!product) {
+  if (brand === 'aim') {
     notFound();
   }
 
-  // Related products from the same category or brand
+  const product = PRODUCTS.find((p) => p.slug === slug);
+
+  if (!product || product.brand?.id === 'aim' || product.brand?.slug === 'aim') {
+    notFound();
+  }
+
+  // Related products from the same category or brand (excluding AIM)
   const related = PRODUCTS.filter(
-    (p) => p.id !== product.id && (p.category === product.category || p.brand.id === product.brand.id)
+    (p) =>
+      p.id !== product.id &&
+      p.brand?.id !== 'aim' &&
+      p.brand?.slug !== 'aim' &&
+      (p.category === product.category || p.brand.id === product.brand.id)
   );
 
   return (

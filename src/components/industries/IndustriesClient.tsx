@@ -55,7 +55,7 @@ const INDUSTRY_SHOWCASE: IndustryItem[] = [
     badge: '',
     tagline: 'High-volume 24/7 pneumatic automation & assembly line handling',
     category: 'automotive',
-    image: '/images/banner-1.jpg',
+    image: '/images/compressors/kaeser-dsd-no-bg.png',
     description: 'Modern automotive plants and tier-1 component vendors demand uninterrupted compressed air for paint booths, robotic welding, pneumatic tool lines, and heavy press shops. Our Kaeser rotary screw compressors with 1:1 direct drive guarantee maximum energy efficiency under fluctuating plant air demand.',
     criticalNeeds: [
       'Constant 7 to 10 bar dry, oil-free air for robotic painting and pneumatic automation',
@@ -78,7 +78,7 @@ const INDUSTRY_SHOWCASE: IndustryItem[] = [
     badge: '',
     tagline: 'Standardized German precision & Japanese quality compliance',
     category: 'japanese',
-    image: '/images/about-2.jpg',
+    image: '/images/forklifts/models/efl203-battery.png',
     description: 'Airmen Engineers is the trusted vendor of choice across Japanese industrial zones in Manesar, Bawal, Neemrana, and Greater Noida. We adhere strictly to 5S, Kaizen, and Japanese quality protocols with English/Japanese technical documentation and rapid response SLA.',
     criticalNeeds: [
       'German-engineered IE4 Super Premium energy efficiency compliant with global carbon reduction targets',
@@ -100,7 +100,7 @@ const INDUSTRY_SHOWCASE: IndustryItem[] = [
     badge: '',
     tagline: '100% oil-free certified compressed air for sterile processes',
     category: 'clean-tech',
-    image: '/images/about-3.jpg',
+    image: '/images/forklifts/models/ds3-walky-stacker.png',
     description: 'In pharmaceutical manufacturing, active ingredient formulation, and blister packaging, zero oil contamination is mandatory. We provide 100% oil-free scroll and reciprocating solutions paired with sanitary stainless steel piping to meet US FDA and WHO GMP norms.',
     criticalNeeds: [
       'Strict ISO 8573-1 Class 0 zero-oil compressed air certification',
@@ -122,7 +122,7 @@ const INDUSTRY_SHOWCASE: IndustryItem[] = [
     badge: '',
     tagline: 'High-pressure PET blowing and food-contact packaging machinery',
     category: 'clean-tech',
-    image: '/images/compressors/kaeser-dsd-main.jpg',
+    image: '/images/Industrial Yellow KAESER Compressor Unit.png',
     description: 'Food and beverage plants require high-volume air for pneumatic pick-and-place, sorting, bottling, and high-pressure PET blow molding. Our systems prevent moisture carryover, eliminate hydrocarbon vapors, and run 24 hours a day with minimal lifecycle cost.',
     criticalNeeds: [
       'Food-grade air free from moisture, oil aerosols, and microbial spores',
@@ -144,7 +144,7 @@ const INDUSTRY_SHOWCASE: IndustryItem[] = [
     badge: '',
     tagline: 'Uninterrupted air flow for spinning mills, glass furnaces & heavy fabrication',
     category: 'heavy',
-    image: '/images/compressors/kaeser-dsd-direct-drive.jpg',
+    image: '/images/forklifts/models/cpcd-diesel-4.5t-10t.png',
     description: 'Continuous duty operations such as spinning frames, air-jet looms, and glass bottle forming machines cannot afford even a 30-second pressure drop. Airmen Engineers supplies large-capacity 75–132 kW base-load screw compressors and heavy container-yard diesel forklifts.',
     criticalNeeds: [
       'Extreme thermal durability for continuous high ambient operating conditions (up to 46°C)',
@@ -166,7 +166,7 @@ const INDUSTRY_SHOWCASE: IndustryItem[] = [
     badge: '',
     tagline: 'Stable pressure & micro-filtered dry air for PCB surface-mount lines',
     category: 'clean-tech',
-    image: '/images/banner-2.jpg',
+    image: '/images/forklifts/models/cqd16-reach-truck.png',
     description: 'Surface-mount technology (SMT) pick-and-place nozzles and precision semiconductor testing machines require ultra-stable air pressure and zero micro-particle contamination. Any pressure fluctuation causes component misalignment and expensive PCB scrap.',
     criticalNeeds: [
       'Micro-filtered air with 0.01-micron particulate filtration and desiccant drying',
@@ -296,44 +296,41 @@ export default function IndustriesClient() {
                 {/* 1. Top Wide Card: Automotive & Japanese Corridors */}
                 <Link
                   href="/kaeser"
-                  className="col-span-2 relative aspect-[16/10] sm:aspect-[16/9.5] rounded-3xl overflow-hidden border border-stone-200/90 bg-white shadow-lg group block hover:border-amber-400/50 transition-all duration-300"
+                  className="col-span-2 relative aspect-[16/10] sm:aspect-[16/9.5] rounded-3xl overflow-hidden border border-stone-200/90 bg-gradient-to-br from-slate-50 via-white to-slate-100 shadow-lg group block hover:border-amber-400/50 transition-all duration-300"
                 >
                   <Image
-                    src="/images/about-2.jpg"
+                    src="/images/forklifts/models/efl203-battery.png"
                     alt="Automotive & Japanese Industrial Manufacturing"
                     fill
-                    className="object-cover object-center group-hover:scale-105 transition-transform duration-700 relative z-10"
+                    className="object-contain p-4 group-hover:scale-105 transition-transform duration-700 relative z-10"
                     priority
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent z-10" />
                 </Link>
 
                 {/* 2. Bottom Left Card: Warehouse & Logistics Handling */}
                 <Link
                   href="/ep-forklifts"
-                  className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-white border border-stone-200/90 shadow-md group hover:border-amber-400/50 transition-all duration-300"
+                  className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-gradient-to-br from-slate-50 via-white to-slate-100 border border-stone-200/90 shadow-md group hover:border-amber-400/50 transition-all duration-300"
                 >
                   <Image
-                    src="/images/gujraula_plant_img/2333.jpg.jpeg"
+                    src="/images/compressors/kaeser-dsd-no-bg.png"
                     alt="Warehouse & Material Handling Fleet"
                     fill
-                    className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                    className="object-contain p-3 group-hover:scale-105 transition-transform duration-500 relative z-10"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />
                 </Link>
 
                 {/* 3. Bottom Right Card: Heavy Continuous Plant Power */}
                 <Link
                   href="/greaves"
-                  className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-white border border-stone-200/90 shadow-md group hover:border-amber-400/50 transition-all duration-300"
+                  className="relative aspect-[4/3] rounded-3xl overflow-hidden bg-gradient-to-br from-slate-50 via-white to-slate-100 border border-stone-200/90 shadow-md group hover:border-amber-400/50 transition-all duration-300"
                 >
                   <Image
-                    src="/images/compressors/kaeser-dsd-main.jpg"
+                    src="/images/greaves images/greaves-cpcb4-transparent.png"
                     alt="Continuous Plant Power Generation"
                     fill
-                    className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                    className="object-contain p-3 group-hover:scale-105 transition-transform duration-500 relative z-10"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />
                 </Link>
 
               </div>
@@ -363,7 +360,8 @@ export default function IndustriesClient() {
                     alt={c.name}
                     width={100}
                     height={40}
-                    className="max-h-8 w-auto object-contain grayscale group-hover:grayscale-0 transition-all opacity-70 group-hover:opacity-100"
+                    className="max-h-8 w-auto object-contain grayscale group-hover:grayscale-0 transition-all opacity-70 group-hover:opacity-100 mix-blend-multiply"
+                    style={{ mixBlendMode: 'multiply' }}
                   />
                 </div>
                 <span className="text-[11px] font-bold text-slate-700 mt-2 text-center">
@@ -441,36 +439,34 @@ export default function IndustriesClient() {
               >
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
 
-                  {/* Left Visual Column - Fixed with Ambient Blurred Backdrop and Zero Cropping */}
-                  <div className="lg:col-span-5 relative bg-[#050B14] overflow-hidden min-h-[300px] sm:min-h-[360px] lg:min-h-[460px] flex items-center justify-center group/img">
-                    {/* Ambient blurred backdrop so there is zero empty space */}
-                    <div
-                      className="absolute inset-0 bg-cover bg-center opacity-35 blur-2xl scale-125"
-                      style={{ backgroundImage: `url(${industry.image})` }}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#060D17] via-[#060D17]/30 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-[#060D17]/70 pointer-events-none" />
+                  {/* Left Visual Column — Clean Studio Canvas with CSS background removal */}
+                  <div className="lg:col-span-5 relative bg-gradient-to-br from-slate-50 via-gray-50/50 to-slate-100 overflow-hidden min-h-[300px] sm:min-h-[360px] lg:min-h-[460px] flex items-center justify-center group/img border-b lg:border-b-0 lg:border-r border-gray-100">
+                    {/* Subtle engineering blueprint dot grid */}
+                    <div className="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:20px_20px] opacity-40 pointer-events-none" />
 
-                    {/* Uncropped crisp foreground image */}
-                    <div className="relative w-full h-full min-h-[300px] sm:min-h-[360px] lg:min-h-[460px] flex items-center justify-center z-10 p-3 sm:p-5">
+                    {/* Uncropped crisp foreground image with CSS mix-blend-multiply to remove image background */}
+                    <div className="relative w-full h-full min-h-[300px] sm:min-h-[360px] lg:min-h-[460px] flex items-center justify-center z-10 p-5 sm:p-8">
                       <Image
                         src={industry.image}
                         alt={industry.name}
                         fill
-                        className="object-contain p-2 sm:p-4 transition-transform duration-700 group-hover/img:scale-105 drop-shadow-2xl"
+                        className="object-contain p-4 sm:p-6 transition-transform duration-700 group-hover/img:scale-105 drop-shadow-xl"
                         priority={industry.id === 'automobile'}
                       />
                     </div>
 
                     {/* Top Badge */}
-                    <div className="absolute top-4 left-4 z-20">
-                      <span className="px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-black/75 text-amber-400 border border-white/15 backdrop-blur-md shadow-md">
-                        {industry.badge}
-                      </span>
-                    </div>
+                    {industry.badge && (
+                      <div className="absolute top-4 left-4 z-20">
+                        <span className="px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-navy text-amber-400 border border-navy/20 backdrop-blur-md shadow-sm">
+                          {industry.badge}
+                        </span>
+                      </div>
+                    )}
 
                     {/* Stat Overlay at bottom */}
-                    <div className="absolute bottom-4 left-4 right-4 p-3 rounded-2xl bg-black/75 border border-white/15 backdrop-blur-md flex items-center justify-between z-20 shadow-lg">
-                      <span className="text-xs text-gray-300 font-medium">{industry.stats.label}</span>
+                    <div className="absolute bottom-4 left-4 right-4 p-3 rounded-2xl bg-navy/90 border border-white/10 backdrop-blur-md flex items-center justify-between z-20 shadow-lg">
+                      <span className="text-xs text-gray-200 font-medium">{industry.stats.label}</span>
                       <span className="text-base font-extrabold text-amber-400 font-mono">{industry.stats.value}</span>
                     </div>
                   </div>

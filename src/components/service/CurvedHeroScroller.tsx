@@ -209,8 +209,8 @@ export default function CurvedHeroScroller({
       onTouchEnd={handleTouchEnd}
     >
       {/* Soft gradient fades on extreme left and right viewport edges */}
-      <div className="absolute top-0 bottom-0 left-0 w-10 sm:w-24 bg-gradient-to-r from-[#FAF7F2] to-transparent z-30 pointer-events-none" />
-      <div className="absolute top-0 bottom-0 right-0 w-10 sm:w-24 bg-gradient-to-l from-[#FAF7F2] to-transparent z-30 pointer-events-none" />
+      <div className="absolute top-0 bottom-0 left-0 w-10 sm:w-24 bg-gradient-to-r from-white to-transparent z-30 pointer-events-none" />
+      <div className="absolute top-0 bottom-0 right-0 w-10 sm:w-24 bg-gradient-to-l from-white to-transparent z-30 pointer-events-none" />
 
       {/* Cards container */}
       <div className="relative w-full h-full">

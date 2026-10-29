@@ -16,7 +16,6 @@ import {
   Package,
   Cpu,
   FileText,
-  Headphones,
   ArrowRight,
   Wind,
   Truck,
@@ -24,8 +23,8 @@ import {
   Zap,
   AlertCircle,
   HelpCircle,
-  ChevronRight,
-  Sparkles
+  Sparkles,
+  Calculator,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Container from '@/components/common/Container';
@@ -33,10 +32,9 @@ import Button from '@/components/common/Button';
 import CurvedHeroScroller from '@/components/service/CurvedHeroScroller';
 
 const SERVICE_HERO_CARDS = [
-  { id: '1', image: '/images/servicepage img/Modern Industrial Compressor Room.png', alt: 'Modern Industrial Compressor Room' },
   { id: '2', image: '/images/servicepage img/Industrial Diesel Generator Installation.jpg', alt: 'Greaves Industrial Diesel Generator' },
   { id: '3', image: '/images/AIRpipe Industrial Blue Pipeline Network.png', alt: 'AIRpipe Industrial Blue Pipeline Network' },
-  { id: '4', image: '/images/servicepage img/KAESER DSD 240 Industrial Compressor (1).png', alt: 'KAESER DSD 240 Compressor' },
+  { id: '4', image: '/images/compressors/kaeser-dsd-no-bg.png', alt: 'KAESER DSD 240 Compressor' },
   { id: '5', image: '/images/servicepage img/Red-and-Black EP Electric Forklift.png', alt: 'EP Electric Forklift' },
   { id: '6', image: '/images/servicepage img/Blue Industrial Piping on Rooftop.png', alt: 'AIRpipe Industrial Piping Network' },
   { id: '7', image: '/images/Modern Greaves Power Generator Facility.png', alt: 'Greaves Power Generator Facility' },
@@ -132,7 +130,7 @@ const CORE_SERVICES = [
     title: 'AIRpipe Fast-Connect Piping Retrofits',
     // badge: '10-Year Zero Leak Guarantee',
     icon: Wrench,
-    image: '/images/divisions/division-01-plant.jpg',
+    image: '/images/AIRpipe Industrial Pipeline Panorama.png',
     description: 'Turnkey aluminium and stainless steel compressed air piping installation, drop-leg additions, and plant expansion retrofits. Zero-corrosion smooth bore ensures minimum pressure drop.',
     specs: [
       'DN20 to DN200 modular quick-connect piping',
@@ -182,7 +180,7 @@ export default function ServiceClient() {
   return (
     <div className="bg-gray-50 min-h-screen">
       {/* ── Service Page Hero Section with Edge-to-Edge Auto-Scrolling Cards ── */}
-      <section className="relative overflow-hidden bg-[#FAF7F2] py-10 sm:py-14 border-b border-stone-200/80">
+      <section className="relative overflow-hidden bg-white py-10 sm:py-14 border-b border-stone-200/80">
         <Container className="relative z-10">
           {/* Centered Top Text Area */}
           <div className="max-w-4xl mx-auto text-center space-y-3.5 sm:space-y-4">
@@ -433,32 +431,37 @@ export default function ServiceClient() {
         </Container>
       </section>
 
-      {/* ── Direct Consultation & Call CTA ──────── */}
+      {/* ── Equipment Rental & Engineering Calculator CTA Section ──────── */}
       <section className="py-12 sm:py-16 bg-navy text-white text-center relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#f59e0b_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
         <Container className="relative z-10 max-w-3xl mx-auto space-y-6">
           <div className="w-16 h-16 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center mx-auto">
-            <Headphones className="w-8 h-8" />
+            <Sparkles className="w-8 h-8" />
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white">
-            Need Scheduled Service or Breakdown Support?
+            Need Equipment Rental or Sizing?
           </h2>
           <p className="text-gray-300 text-sm sm:text-base leading-relaxed max-w-xl mx-auto">
-            Speak directly with our senior application &amp; maintenance engineers for immediate scheduling or spare parts supply.
+            Access emergency standby screw compressors during plant overhauls, or accurately calculate your factory's electrical generator load in seconds.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
-            <Button href="/contact" size="lg" showArrow className="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-8 shadow-xl">
-              Submit Service Request
+            <Button
+              href="/a-rental-compressor"
+              size="lg"
+              showArrow
+              className="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-8 shadow-xl"
+            >
+              Compressor Rental
             </Button>
-            <a
-              href="tel:+919212303791"
+            <Link
+              href="/generator-sizing-calculator"
               className="inline-flex items-center gap-2 px-6 py-3.5 bg-white/10 hover:bg-white/15 text-white font-semibold rounded-lg border border-white/20 transition-all text-sm"
             >
-              <PhoneCall className="w-4 h-4 text-amber-400" />
-              Call Hotline: +91-9212303791
-            </a>
+              <Calculator className="w-4 h-4 text-amber-400" />
+              Generator Sizing Calculator
+            </Link>
           </div>
         </Container>
       </section>

@@ -1231,31 +1231,31 @@ export default function ManufacturingInfrastructureClient() {
                       </div>
                     </div>
 
-                    {/* Right: Real Plant Photos */}
+                    {/* Right: Real Plant Photos - CNC & VMC Machining */}
                     <div className="lg:col-span-5 space-y-3.5">
                       <div
-                        className="relative h-60 sm:h-68 w-full rounded-2xl overflow-hidden border border-stone-200 shadow-sm group cursor-pointer bg-stone-100"
+                        className="relative h-60 sm:h-68 w-full rounded-2xl overflow-hidden border border-stone-200 shadow-sm group cursor-pointer bg-slate-950"
                         onClick={() =>
                           setLightboxData({
-                            src: plantImg('WhatsApp Image 2026-09-28 at 11.11.37.jpeg'),
-                            title: 'Airmen Engineers Factory Entrance — Gate 2',
-                            subtitle: 'I-44/45 Gajraula Industrial Area - II, Distt. Amroha (U.P.)',
+                            src: '/images/divisions/division-02-machining.jpg',
+                            title: 'Multi-Axis Precision CNC Turning & Machining Shop',
+                            subtitle: 'Sub-micron finish turning, hard profiling & precision boring at Gajraula Works',
                           })
                         }
                       >
                         <Image
-                          src={plantImg('WhatsApp Image 2026-09-28 at 11.11.37.jpeg')}
-                          alt="Airmen Engineers Gajraula Plant Entrance"
+                          src="/images/divisions/division-02-machining.jpg"
+                          alt="Multi-Axis Precision CNC Machining"
                           fill
                           className="object-cover group-hover:scale-105 transition-transform duration-500"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/25 to-transparent" />
                         <div className="absolute bottom-3 left-3 right-3 text-white">
                           <h3 className="text-sm font-bold drop-shadow">
-                            Airmen Engineers Factory Entrance — Gate 2
+                            Multi-Axis CNC &amp; Precision Machining Shop
                           </h3>
                           <p className="text-[11px] text-stone-200">
-                            I-44/45 Gajraula Industrial Area, Amroha District, U.P.
+                            Sub-micron finish turning, hard profiling &amp; precision boring
                           </p>
                         </div>
                         <div className="absolute top-3 right-3 w-7 h-7 rounded-full bg-white/90 text-slate-900 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-sm">
@@ -1265,46 +1265,44 @@ export default function ManufacturingInfrastructureClient() {
 
                       <div className="grid grid-cols-2 gap-3">
                         <div
-                          className="relative h-32 sm:h-36 rounded-xl overflow-hidden border border-stone-200 shadow-2xs group cursor-pointer bg-stone-100"
+                          className="relative h-32 sm:h-36 rounded-xl overflow-hidden border border-stone-200 shadow-2xs group cursor-pointer bg-white"
                           onClick={() =>
                             setLightboxData({
-                              src: plantImg('WhatsApp Image 2026-09-28 at 11.11.41.jpeg'),
-                              title: 'Gajraula Factory Building Shed',
-                              subtitle: 'High-bay industrial shed with covered loading facility',
+                              src: '/images/manufacturing/process/step-06-cnc-machining.jpg',
+                              title: 'CNC Turning Center — Ace Jobber LM',
+                              subtitle: 'High-speed slant-bed CNC turning center with Fanuc control system',
                             })
                           }
                         >
                           <Image
-                            src={plantImg('WhatsApp Image 2026-09-28 at 11.11.41.jpeg')}
-                            alt="Gajraula Plant Shed"
+                            src="/images/manufacturing/process/step-06-cnc-machining.jpg"
+                            alt="CNC Turning Center - Ace Jobber LM"
                             fill
-                            className="object-cover group-hover:scale-105 transition-transform duration-500"
+                            className="object-contain p-2 group-hover:scale-105 transition-transform duration-500"
                           />
-                          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
-                          <div className="absolute bottom-2 left-2 right-2 text-white">
-                            <h4 className="text-xs font-bold truncate">Factory Shed &amp; Bay</h4>
+                          <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 via-slate-950/60 to-transparent pt-4 pb-2 px-2 text-white">
+                            <h4 className="text-xs font-bold truncate">CNC Turning (Ace Jobber LM)</h4>
                           </div>
                         </div>
 
                         <div
-                          className="relative h-32 sm:h-36 rounded-xl overflow-hidden border border-stone-200 shadow-2xs group cursor-pointer bg-stone-100"
+                          className="relative h-32 sm:h-36 rounded-xl overflow-hidden border border-stone-200 shadow-2xs group cursor-pointer bg-white"
                           onClick={() =>
                             setLightboxData({
-                              src: plantImg('WhatsApp Image 2026-09-28 at 11.11.45.jpeg'),
-                              title: 'ISO 14001 Green Campus Initiative',
-                              subtitle: 'Tree plantation and environmentally sustainable facility',
+                              src: '/images/manufacturing/process/step-07-vmc-machining.jpg',
+                              title: 'Vertical Machining Center — AMS MCV-450',
+                              subtitle: '4-Axis VMC milling with 4th-axis rotary table and high-speed spindle',
                             })
                           }
                         >
                           <Image
-                            src={plantImg('WhatsApp Image 2026-09-28 at 11.11.45.jpeg')}
-                            alt="Plantation Drive"
+                            src="/images/manufacturing/process/step-07-vmc-machining.jpg"
+                            alt="Vertical Machining Center - AMS MCV-450"
                             fill
-                            className="object-cover group-hover:scale-105 transition-transform duration-500"
+                            className="object-contain p-2 group-hover:scale-105 transition-transform duration-500"
                           />
-                          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
-                          <div className="absolute bottom-2 left-2 right-2 text-white">
-                            <h4 className="text-xs font-bold truncate">Green Campus Drive</h4>
+                          <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/90 via-slate-950/60 to-transparent pt-4 pb-2 px-2 text-white">
+                            <h4 className="text-xs font-bold truncate">4-Axis VMC (AMS MCV-450)</h4>
                           </div>
                         </div>
                       </div>
